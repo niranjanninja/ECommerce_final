@@ -1,0 +1,23 @@
+<center>
+	<!DOCTYPE html>
+	<head>
+		<link rel="stylesheet" href="{{ url_for('static', filename='table.css') }}">
+		<!-- <link rel = "stylesheet" href = "table.css"> -->
+		<h1 class='cust_table'>Customer Table</h1>
+	</head>
+	<body>
+		<table>
+			<tr>
+				<th>User Name</th>
+				<th>Password</th> 
+				<th>Mail ID</th>
+				<th>Phone Number</th> 
+			</tr>
+			{%for i in details%}
+			<tr>
+				<td>{{i[0]}}</td> <td>{{i[1]}}</td> <td>{{i[2]}}</td> <td>{{i[3]}}</td>
+			</tr>
+			{%endfor%}
+		</table>
+	</body>
+</center>

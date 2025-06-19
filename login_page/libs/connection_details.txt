@@ -1,0 +1,6 @@
+    self.database =  database
+    self.user = "niranjansabari56"
+    self.password = "ninja2501"
+    self.host = "127.0.0.1"
+    self.port = 5432
+

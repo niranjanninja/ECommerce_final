@@ -1,0 +1,19 @@
+.cust_table {
+    padding: 30px;
+    margin: 50px auto;
+}
+
+table {
+    border-collapse: collapse;
+    border: solid;
+}
+
+td, th {
+    height: 50px;
+    width: 200px;
+    font-size: 20px;
+    text-align: center;
+    border: solid;
+}
+
+
