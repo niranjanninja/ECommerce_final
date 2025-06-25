@@ -2,11 +2,10 @@
 <center>
 	<head>
 		<link rel="stylesheet" href="{{ url_for('static', filename='sign_up.css') }}">
-		<!-- <link rel = "stylesheet" href = "sign_up.css"> -->
 	</head>
 	<h1>SIGN UP</h1>
 	<body>
-		<form action="http://127.0.0.1:5000/signuppage", method="POST">
+		<form action="http://127.0.0.1:5000/signuppage" method="POST">
 			<table>
 				<tr>
 					<td>User Name</td>
@@ -23,13 +22,13 @@
 					<td>Password</td>
 				</tr>
 				<tr>
-					<td> <input type = "password" class ="input_box" name="password" placeholder="Password must have minimum 10 characters"></td>
+					<td> <input type="password" class="input_box" name="password" placeholder="Password must have minimum 10 characters"></td>
 				</tr>
 				<tr>
 					<td>Confirm Password</td>
 				</tr>
 				<tr>
-					<td> <input type = "password" class="input_box" name="confirm_password"></td>
+					<td> <input type="password" class="input_box" name="confirm_password"></td>
 				</tr>
 				<tr>
 					{% if pass_error %}
@@ -43,7 +42,16 @@
 					<td>Phone Number</td>
 				</tr>
 				<tr>
-					<td> <input type = "text" class="input_box" name="number"></td>
+					<td>
+						<div class="phone-container">
+							<select name="country_code" class="country_code_dropdown">
+								{% for region, code in country_codes %}
+								<option value="+{{ code }}">+{{ code }} ({{ region }})</option>
+								{% endfor %}
+							</select>
+							<input type="text" class="phone_input" name="number">
+						</div>
+					</td>
 				</tr>
 				<tr>
 					{% if num_error %}
@@ -57,7 +65,7 @@
 					<td>Mail ID</td>
 				</tr>
 				<tr>
-					<td> <input type = "text" class="input_box" name="mail"></td>
+					<td> <input type="text" class="input_box" name="mail"></td>
 				</tr>
 				<tr>
 					{% if mail_error %}
@@ -68,7 +76,7 @@
 					{% endif %}
 				</tr>
 				<tr>
-					<td><input type = "submit" class = "button" value = "SIGN IN"></td>
+					<td><input type="submit" class="button" value="SIGN IN"></td>
 				</tr>
 				<tr>
 					{% if mail_send %}
@@ -79,6 +87,4 @@
 		</form>
 	</body>
 </center>
-
-
 

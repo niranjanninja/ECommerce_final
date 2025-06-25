@@ -20,11 +20,6 @@
 				<td><input type = "text" class = "input_box" name="mail"></td>
 			</tr>
 			<tr>
-				{% if user_error %}
-				<td style="color:red">{{ user_error }}</td>
-				{% endif %}
-			</tr>
-			<tr>
 				<td>Enter New Password</td>
 			</tr>
 			<tr>
@@ -46,6 +41,12 @@
 				{% if pass_error3 %}
 				<td style="color:red">{{ pass_error3 }}</td>
 				{% endif %}
+			</tr>
+			<tr>
+				{% if user_error %}
+				<td style="color:red">{{ user_error }}</td>
+				{% endif %}
+			</tr>
 			<tr>
 				<td><input type = "submit" class ="button" value = Submit></td>
 			</tr>`

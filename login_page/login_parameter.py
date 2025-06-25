@@ -1,11 +1,11 @@
 from libs.UserDb import UserDb
 import re
-import bcrypt
 import smtplib
+import bcrypt
 import logging
 from logging.handlers import TimedRotatingFileHandler
-from datetime import datetime 
- 
+from datetime import datetime  
+from phonenumbers import COUNTRY_CODE_TO_REGION_CODE
 
 logger=logging.getLogger()
 logger.setLevel(logging.INFO)
@@ -51,20 +51,48 @@ class Login:
                         return f"Enter valid password"
                         # print("Enter valid password")
                 else:
-                    logger.warning("Username  does not exist")
-                    return f"User does not exist"
+                    logger.warning("Username/Mail ID does not exist")
+                    return f"Username/Mail ID does not exist"
                     # print("User does not exist" )
             else:
-                logger.warning("User does not exist")
+                logger.warning("Username/Mail ID does not exist")
                 # print("User does not exist")
-                return f"User does not exist"
+                return f"Username/Mail ID does not exist"
         except Exception as e:
             logger.error(f"Something went wrong -> {e} ")
+
+    def inventory_check_add(self,product_id):
+        result=self.user_db_obj.product_id_check(product_id)
+        if result:
+            # print("Exist")
+            return f"Exist"
+        else:
+            # print("NO")
+            return f"NO"
+
+    def inventory_delete(self,product_id):
+        result=self.user_db_obj.product_id_check(product_id)
+        if result:
+            execute=self.user_db_obj.inventory_delete(product_id)
+            # print("Item Deleted")
+            return f"Item Deleted"
+        else:
+            # print("Enter correct product ID")
+            return f"NO"
+
+    def inventory_edit(self,product_id):
+        result=self.user_db_obj.product_id_check(product_id)
+        if result:
+            return f"Exist"
+        else:
+            # print("NO")
+            return f"NO"
+
 
     def get_all_details(self,name,password,confirm_password,number,mail):
         try:
             pass_pattern = r'\w{10,100}$' 
-            phn_pattern = r'^\d{10}$'
+            phn_pattern = r'^\+\d{10,15}$'
             mail_pattern = r'^[a-z A-Z 0-9]+[\._]?[a-z A-Z 0-9]+[@]\w+[.]\D{2,3}$'
             result = self.user_db_obj.get_user_by_name(name)
             if not result:
@@ -82,17 +110,6 @@ class Login:
                                     if not result3:
                                         # print("NOMAIL")
                                         user_details=self.user_db_obj.insert_values_into_table(name,hashed,hashed,number,mail)
-                                        # return f"Inserted into DB"
-                                        # print("Inserted in db")
-                                        # sender="niranjanrox56@gmail.com" 
-                                        # receiver=(mail)
-                                        # message=f"Hello {name}\n Welcome to our website"
-                                        # server=smtplib.SMTP("smtp.gmail.com",587)
-                                        # server.starttls()
-                                        # server.login(sender,'jaxa cqze rzza hvyj')
-                                        # server.sendmail(sender,receiver,message)
-                                        # print(f"Email has been sent to {mail}")
-                                        # print("Inserted in db")
                                         return f"Inserted into DB"
                                     else:
                                         logger.warning("Mail id exist" )
@@ -125,8 +142,9 @@ class Login:
         except Exception as e:
             logger.error(f"Something went wrong -> {e} ")
 
+
 # obj=Login()
-# obj.check_password("ninja","ninja")
+# obj.inventory_delete("3")
 # obj=Login()
 # obj.reset_password_details("Niranjan","ninja@gmail.com","niranjanninja","niranjanninja")
 # obj=Login()

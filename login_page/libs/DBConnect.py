@@ -1,7 +1,7 @@
 import psycopg2
 # from read_text_file import read_file,read_psy
 from configparser import ConfigParser
-file='/home/niranjan/projectsql/libs/config.ini'
+file='/home/niranjan/projectsql/login_page/libs/config.ini'
 config=ConfigParser()
 config.read(file)
 

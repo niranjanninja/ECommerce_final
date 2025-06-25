@@ -113,6 +113,7 @@ class UserDb:
         querry=f"SELECT * FROM sign_up_page"
         self.curr.execute(querry)
         result=self.curr.fetchall()
+        # print(result)
         return result
 
     def insert_values_into_table(self,name,password,confirm_password,number,mail):
@@ -120,7 +121,60 @@ class UserDb:
         self.curr.execute(querry)
         self.conn.commit()
 
+    def confirm_mail(self,mail):
+        querry=f"UPDATE sign_up_page SET confirm_mail = 'true' WHERE mail_id = '{mail}'"
+        self.curr.execute(querry)
+        self.conn.commit()
 
+    def inventory_show(self):
+        querry=f"SELECT * FROM inventory"
+        self.curr.execute(querry)
+        result=self.curr.fetchall()
+        # print(result)
+        return result
+
+    def inventory_add(self,product_id,product_name,description,quantity,price):
+        querry=f"INSERT INTO inventory (product_id,product_name,description,quantity,price) VALUES ('{product_id}','{product_name}','{description}','{quantity}','{price}')"
+        self.curr.execute(querry)
+        self.conn.commit()
+
+    def inventory_delete(self,product_id):
+        querry=f"DELETE FROM inventory WHERE product_id='{product_id}'"
+        self.curr.execute(querry)
+        self.conn.commit()
+
+    def inventory_edit_name(self,product_id,product_name):
+        querry=f"UPDATE inventory SET product_name = '{product_name}' WHERE product_id='{product_id}'"
+        self.curr.execute(querry)
+        self.conn.commit()
+
+    def inventory_edit_description(self,product_id,description):
+        querry=f"UPDATE inventory SET description = '{description}' WHERE product_id='{product_id}'"
+        self.curr.execute(querry)
+        self.conn.commit()
+
+    def inventory_edit_quantity(self,product_id,quantity):
+        querry=f"UPDATE inventory SET quantity = '{quantity}' WHERE product_id='{product_id}'"
+        self.curr.execute(querry)
+        self.conn.commit()
+
+    def inventory_edit_price(self,product_id,price):
+        querry=f"UPDATE inventory SET price = '{price}' WHERE product_id='{product_id}'"
+        self.curr.execute(querry)
+        self.conn.commit()
+
+    def product_id_check(self,product_id):
+        querry=f"SELECT * FROM inventory WHERE product_id='{product_id}'"
+        self.curr.execute(querry)
+        result=self.curr.fetchone()
+        # print(result)
+        # return result
+
+
+# obj=UserDb()
+# obj.product_id_check(1)
+# obj=UserDb()
+# obj.confirm_mail("test@gmail.com")
 # obj=UserDb()
 # obj.get_number("8754826711")
 # obj=UserDb()
@@ -128,4 +182,5 @@ class UserDb:
 # obj=UserDb()
 # obj.update_user_by_name_email("ninja","Niranjan","ninja@gmail.com")
 # obj=UserDb()
-# obj.get_user_by_name_email("kala","ninja@gmail.com")
+# obj.get_user_by_name("Niranjan")
+# obj.get_user_by_name_email("Niranjan","ninja@gmail.com")
