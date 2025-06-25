@@ -1,0 +1,60 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}">
+		<!-- <link rel = "stylesheet" href = "login.css"> -->
+
+	</head>
+	<body>
+
+		<h1 class='login'>Login To Your Account</h1>
+
+<form action="http://127.0.0.1:5000/login" method="POST">
+	<table>
+		<tr>
+			<td>User Name</td>
+		</tr>
+
+		<tr>
+			<td><input type="text" class="input_box" name="name"></td>
+		</tr>
+
+		<tr>
+			<td>Password</td>
+		</tr>
+
+		<tr>
+			<td><input type="password" class="input_box" name="password"></td>
+		</tr>
+		<tr>
+			{% if error1 %}
+			<td style="color:red">{{ error1 }}</td>
+			{% endif %}
+		</tr>
+		<tr>
+                        {% if error2 %}
+			<td style="color:red">{{ error2 }}</td>
+			{% endif %}
+		</tr>
+
+		<tr>
+			<td><input type = "submit" class = "button" value = "SIGN IN" /></td>
+		</tr>
+		<tr>
+			<td><a href="http://127.0.0.1:5000/reset" class="forgot_button">Forgot password?</td>
+		</tr>
+		<tr>
+			{% if pass_update %}
+			<td style="color:green;text-align: 50%;">{{ pass_update }}</td>
+			{% endif %}
+		</tr>
+
+	</table>
+</form>
+<div class='line'></div>
+<a href="http://127.0.0.1:5000/signup" class="signup-button">SIGN UP</a>
+
+
+<h1 class='one'>New Here?</h1>
+<h1 class='two'>Create a New Account</h1>
+	</body>
+</html>

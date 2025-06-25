@@ -1,0 +1,83 @@
+.login{
+	padding : 10px;
+	margin : 70px;
+	text-align : 30%;
+	padding-left : 20%;
+}
+
+table{
+	padding-left :15%;
+	font-size : 25px;
+	margin : 10px;
+	padding-top: -15%;
+}
+
+.input_box{
+	margin-top : 3%;
+	width : 700px;
+	height:50px;
+	border-radius : 10px;
+	margin-bottom : 5%;
+	font-size : 15px;
+}
+
+.button{
+	padding: 10px;
+	margin : 20px;
+	background-color : dodgerblue;
+	color : white;
+	border-radius : 7px;
+	width : 100px;
+	height : 50px;
+	font-size : 20px;
+	display:block;
+	margin-left : 32%;
+
+}
+
+
+.signup-button{
+	padding: 10px;
+	background-color: dodgerblue;
+	color: white;
+	border-radius: 7px;
+	width : 100px;
+	height : 50px;
+	font-size: 20px;
+	margin-left : 79%;
+	text-decoration : none;
+	margin-top:-40%;
+}
+
+.one{
+	padding-left : 77%;
+	margin-top: -31%;
+}
+
+.two{
+	padding-left : 72%;
+	margin-top : 10%;
+}
+
+.line{
+	position: absolute;
+	left: 65%;
+	top: 0%;
+	height: 100%;
+	width: 2px;
+	background-color: black;
+}
+
+.forgot_button{
+	padding: 10px;
+	margin : 20px;
+	border-radius : 7px;
+	width : 300px;
+	height : 50px;
+	font-size : 20px;
+	display:block;
+	margin-left : 26%;
+	text-decoration:none;
+	color : black;
+}
+

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<center>
+	<head>
+		<link rel="stylesheet" href="{{ url_for('static', filename='forget_pass_details.css') }}">
+		<!-- <link rel = "stylesheet" href = "forget_pass_details.css"> -->
+		<h2>FORGOT PASSWORD</h2>
+	</head>
+	<form action="http://127.0.0.1:5000/resetpassworddetails" method="POST">
+		<table>
+			<tr>
+				<td>User Name</td>
+			</tr>
+			<tr>
+				<td><input type = "text" class="input_box" name ="name"></td>
+			</tr>
+			<tr>
+				<td>Mail ID</td>
+			</tr>
+			<tr>
+				<td><input type = "text" class = "input_box" name="mail"></td>
+			</tr>
+			<tr>
+				<td>Enter New Password</td>
+			</tr>
+			<tr>
+				<td><input type = "password" class="input_box" name = "password" placeholder="Password must have minimum 10 characters"></td>
+			</tr>
+			<tr>
+				<td>Confirm Password</td>
+			</tr>
+			<tr>
+				<td><input type = "password" class="input_box" name = "confirm_pass"></td>
+			</tr>
+			<tr>
+				{% if pass_error %}
+				<td style="color:red">{{ pass_error }}</td>
+				{% endif %}
+				{% if pass_error2 %}
+				<td style="color:red">{{ pass_error2 }}</td>
+				{% endif %}
+				{% if pass_error3 %}
+				<td style="color:red">{{ pass_error3 }}</td>
+				{% endif %}
+			</tr>
+			<tr>
+				{% if user_error %}
+				<td style="color:red">{{ user_error }}</td>
+				{% endif %}
+			</tr>
+			<tr>
+				<td><input type = "submit" class ="button" value = Submit></td>
+			</tr>`
+		</table>
+	</form>
+</center>
+
+
