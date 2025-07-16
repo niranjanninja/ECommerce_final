@@ -6,16 +6,33 @@ import logging
 from logging.handlers import TimedRotatingFileHandler
 from datetime import datetime  
 from phonenumbers import COUNTRY_CODE_TO_REGION_CODE
+import urllib.request
+import os
+import boto3
+from werkzeug.utils import secure_filename
+from werkzeug.exceptions import RequestEntityTooLarge
+from pathlib import Path
+from datetime import timedelta
+from configparser import ConfigParser
+
+file='/home/ubuntu/projectsql/login_page/libs/config.ini'
+config=ConfigParser()
+config.read(file)
 
 logger=logging.getLogger()
 logger.setLevel(logging.INFO)
 log_filename = datetime.now().strftime("logs/%d-%m-%Y.log")
 handler=TimedRotatingFileHandler(filename = log_filename,when = "midnight", interval = 1 , backupCount = 7)
-handler.setLevel(logging.ERROR)
-handler.setLevel(logging.WARNING)
+handler.setLevel(logging.INFO)
 formatter=logging.Formatter('%(asctime)s - %(levelname)s - %(funcName)s - %(message)s')
 handler.setFormatter(formatter)
 logger.addHandler(handler)
+
+console_handler = logging.StreamHandler()
+console_handler.setLevel(logging.INFO)
+console_formatter = logging.Formatter('%(levelname)s - %(message)s')
+console_handler.setFormatter(console_formatter)
+logger.addHandler(console_handler)
 
 class Login:
     def __init__(self):
@@ -141,6 +158,56 @@ class Login:
                 # print("User exist")
         except Exception as e:
             logger.error(f"Something went wrong -> {e} ")
+
+    def bucket_save_image(self,file,product_id):
+        try:
+            s3 = boto3.client('s3',
+                                     aws_access_key_id=config['AWS']['aws_access_key_id'],
+                                     aws_secret_access_key=config['AWS']['aws_secret_access_key'],
+                                     region_name=config['AWS']['region_name']
+                                     )
+            bucket_name = "webpage.image.upload"
+            filename = f"images/product_id{product_id}.jpg"
+            # print("Uploading")
+            s3.upload_fileobj(file,bucket_name,filename)
+            # print("Uploaded")
+            return filename
+        except Exception as e:
+            return f"Something went wrong {e}"
+            logger.error(f"Error uploading to S3: {e}")
+            # return None
+
+    def display_from_s3(self,filename):
+        try:
+            s3 = boto3.client(
+                    's3',
+                    aws_access_key_id=config['AWS']['aws_access_key_id'],
+                    aws_secret_access_key=config['AWS']['aws_secret_access_key'],
+                    region_name=config['AWS']['region_name'])
+
+            url = s3.generate_presigned_url(
+                    'get_object',
+                    Params={'Bucket': 'webpage.image.upload', 'Key': filename},
+                    ExpiresIn=600)
+            return url
+
+        except Exception as e:
+            logger.error(f"Error generating presigned GET URL: {e}")
+            return None
+
+
+    def local_save_image(self,file,product_id):
+        try:
+            UPLOAD_FOLDER = 'static/uploads'
+            app.config['MAX_CONTENT_LENGTH']=1024*1024
+            app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+            filename=f"product_id{product_id}.jpg"
+            Path(app.config['UPLOAD_FOLDER']).mkdir(parents=True, exist_ok=True)
+            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            return filename
+        except Exception as e:
+            logger.error(f"error -> {e}")
+
 
 
 # obj=Login()

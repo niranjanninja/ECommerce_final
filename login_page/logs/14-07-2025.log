@@ -1,0 +1,304 @@
+2025-07-14 10:43:19,917 - INFO - _log - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.31.80.31:5000
+2025-07-14 10:43:19,917 - INFO - _log - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.31.80.31:5000
+2025-07-14 10:43:19,918 - INFO - _log - [33mPress CTRL+C to quit[0m
+2025-07-14 10:43:19,918 - INFO - _log - [33mPress CTRL+C to quit[0m
+2025-07-14 10:43:19,919 - INFO - _log -  * Restarting with stat
+2025-07-14 10:43:19,919 - INFO - _log -  * Restarting with stat
+2025-07-14 10:43:20,279 - WARNING - _log -  * Debugger is active!
+2025-07-14 10:43:20,279 - WARNING - _log -  * Debugger is active!
+2025-07-14 10:43:20,282 - INFO - _log -  * Debugger PIN: 665-777-758
+2025-07-14 10:43:20,282 - INFO - _log -  * Debugger PIN: 665-777-758
+2025-07-14 11:52:59,990 - INFO - _log - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.31.80.31:5000
+2025-07-14 11:52:59,990 - INFO - _log - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.31.80.31:5000
+2025-07-14 11:52:59,991 - INFO - _log - [33mPress CTRL+C to quit[0m
+2025-07-14 11:52:59,991 - INFO - _log - [33mPress CTRL+C to quit[0m
+2025-07-14 11:52:59,992 - INFO - _log -  * Restarting with stat
+2025-07-14 11:52:59,992 - INFO - _log -  * Restarting with stat
+2025-07-14 11:53:00,341 - WARNING - _log -  * Debugger is active!
+2025-07-14 11:53:00,341 - WARNING - _log -  * Debugger is active!
+2025-07-14 11:53:00,343 - INFO - _log -  * Debugger PIN: 582-685-286
+2025-07-14 11:53:00,343 - INFO - _log -  * Debugger PIN: 582-685-286
+2025-07-14 13:00:41,049 - INFO - _log - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.31.80.31:5000
+2025-07-14 13:00:41,049 - INFO - _log - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.31.80.31:5000
+2025-07-14 13:00:41,049 - INFO - _log - [33mPress CTRL+C to quit[0m
+2025-07-14 13:00:41,049 - INFO - _log - [33mPress CTRL+C to quit[0m
+2025-07-14 13:00:41,051 - INFO - _log -  * Restarting with stat
+2025-07-14 13:00:41,051 - INFO - _log -  * Restarting with stat
+2025-07-14 13:00:41,419 - WARNING - _log -  * Debugger is active!
+2025-07-14 13:00:41,419 - WARNING - _log -  * Debugger is active!
+2025-07-14 13:00:41,422 - INFO - _log -  * Debugger PIN: 827-605-865
+2025-07-14 13:00:41,422 - INFO - _log -  * Debugger PIN: 827-605-865
+2025-07-14 13:00:41,441 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 13:00:41] "GET / HTTP/1.1" 200 -
+2025-07-14 13:00:41,441 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 13:00:41] "GET / HTTP/1.1" 200 -
+2025-07-14 13:00:41,494 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 13:00:41] "[36mGET /static/bootstrap_login.css HTTP/1.1[0m" 304 -
+2025-07-14 13:00:41,494 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 13:00:41] "[36mGET /static/bootstrap_login.css HTTP/1.1[0m" 304 -
+2025-07-14 13:00:41,574 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 13:00:41] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-14 13:00:41,574 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 13:00:41] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-14 13:00:44,613 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 13:00:44] "GET / HTTP/1.1" 200 -
+2025-07-14 13:00:44,613 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 13:00:44] "GET / HTTP/1.1" 200 -
+2025-07-14 13:00:44,685 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 13:00:44] "[36mGET /static/bootstrap_login.css HTTP/1.1[0m" 304 -
+2025-07-14 13:00:44,685 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 13:00:44] "[36mGET /static/bootstrap_login.css HTTP/1.1[0m" 304 -
+2025-07-14 13:03:18,037 - INFO - _log -  * Detected change in '/home/ubuntu/projectsql/login_page/main.py', reloading
+2025-07-14 13:03:18,037 - INFO - _log -  * Detected change in '/home/ubuntu/projectsql/login_page/main.py', reloading
+2025-07-14 13:03:18,088 - INFO - _log -  * Restarting with stat
+2025-07-14 13:03:18,088 - INFO - _log -  * Restarting with stat
+2025-07-14 13:03:18,445 - WARNING - _log -  * Debugger is active!
+2025-07-14 13:03:18,445 - WARNING - _log -  * Debugger is active!
+2025-07-14 13:03:18,447 - INFO - _log -  * Debugger PIN: 827-605-865
+2025-07-14 13:03:18,447 - INFO - _log -  * Debugger PIN: 827-605-865
+2025-07-14 13:03:35,651 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 13:03:35] "GET / HTTP/1.1" 200 -
+2025-07-14 13:03:35,651 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 13:03:35] "GET / HTTP/1.1" 200 -
+2025-07-14 13:03:35,734 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 13:03:35] "[36mGET /static/bootstrap_login.css HTTP/1.1[0m" 304 -
+2025-07-14 13:03:35,734 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 13:03:35] "[36mGET /static/bootstrap_login.css HTTP/1.1[0m" 304 -
+2025-07-14 13:03:39,545 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 13:03:39] "[32mGET /inventory HTTP/1.1[0m" 302 -
+2025-07-14 13:03:39,545 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 13:03:39] "[32mGET /inventory HTTP/1.1[0m" 302 -
+2025-07-14 13:03:39,602 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 13:03:39] "GET / HTTP/1.1" 200 -
+2025-07-14 13:03:39,602 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 13:03:39] "GET / HTTP/1.1" 200 -
+2025-07-14 13:03:39,670 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 13:03:39] "[36mGET /static/bootstrap_login.css HTTP/1.1[0m" 304 -
+2025-07-14 13:03:39,670 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 13:03:39] "[36mGET /static/bootstrap_login.css HTTP/1.1[0m" 304 -
+2025-07-14 13:03:50,697 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 13:03:50] "[32mGET /inventory_add HTTP/1.1[0m" 302 -
+2025-07-14 13:03:50,697 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 13:03:50] "[32mGET /inventory_add HTTP/1.1[0m" 302 -
+2025-07-14 13:03:50,750 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 13:03:50] "GET / HTTP/1.1" 200 -
+2025-07-14 13:03:50,750 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 13:03:50] "GET / HTTP/1.1" 200 -
+2025-07-14 13:03:50,830 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 13:03:50] "[36mGET /static/bootstrap_login.css HTTP/1.1[0m" 304 -
+2025-07-14 13:03:50,830 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 13:03:50] "[36mGET /static/bootstrap_login.css HTTP/1.1[0m" 304 -
+2025-07-14 13:06:26,241 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 13:06:26] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-07-14 13:06:26,241 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 13:06:26] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-07-14 13:06:26,323 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 13:06:26] "GET /admin HTTP/1.1" 200 -
+2025-07-14 13:06:26,323 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 13:06:26] "GET /admin HTTP/1.1" 200 -
+2025-07-14 13:06:26,411 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 13:06:26] "[36mGET /static/table.css HTTP/1.1[0m" 304 -
+2025-07-14 13:06:26,411 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 13:06:26] "[36mGET /static/table.css HTTP/1.1[0m" 304 -
+2025-07-14 13:06:28,440 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 13:06:28] "[32mGET /inventory_details HTTP/1.1[0m" 302 -
+2025-07-14 13:06:28,440 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 13:06:28] "[32mGET /inventory_details HTTP/1.1[0m" 302 -
+2025-07-14 13:06:31,833 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 13:06:31] "GET /inventory HTTP/1.1" 200 -
+2025-07-14 13:06:31,833 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 13:06:31] "GET /inventory HTTP/1.1" 200 -
+2025-07-14 13:06:31,914 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 13:06:31] "[36mGET /static/inventory.css HTTP/1.1[0m" 304 -
+2025-07-14 13:06:31,914 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 13:06:31] "[36mGET /static/inventory.css HTTP/1.1[0m" 304 -
+2025-07-14 13:06:31,966 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 13:06:31] "[33mGET /['https://s3.ap-south-1.amazonaws.com/webpage.image.upload/None?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAY5DCPLUU76R3KRS6/20250714/ap-south-1/s3/aws4_request&X-Amz-Date=20250714T130631Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host&X-Amz-Signature=81b7abc765bf33249803c99ff96b19167e13f04cccaa8f66e42fa45fcd3dfcd6',%20'https://s3.ap-south-1.amazonaws.com/webpage.image.upload/None?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAY5DCPLUU76R3KRS6/20250714/ap-south-1/s3/aws4_request&X-Amz-Date=20250714T130631Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host&X-Amz-Signature=81b7abc765bf33249803c99ff96b19167e13f04cccaa8f66e42fa45fcd3dfcd6',%20'https://s3.ap-south-1.amazonaws.com/webpage.image.upload/None?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAY5DCPLUU76R3KRS6/20250714/ap-south-1/s3/aws4_request&X-Amz-Date=20250714T130631Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host&X-Amz-Signature=81b7abc765bf33249803c99ff96b19167e13f04cccaa8f66e42fa45fcd3dfcd6'] HTTP/1.1[0m" 404 -
+2025-07-14 13:06:31,966 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 13:06:31] "[33mGET /['https://s3.ap-south-1.amazonaws.com/webpage.image.upload/None?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAY5DCPLUU76R3KRS6/20250714/ap-south-1/s3/aws4_request&X-Amz-Date=20250714T130631Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host&X-Amz-Signature=81b7abc765bf33249803c99ff96b19167e13f04cccaa8f66e42fa45fcd3dfcd6',%20'https://s3.ap-south-1.amazonaws.com/webpage.image.upload/None?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAY5DCPLUU76R3KRS6/20250714/ap-south-1/s3/aws4_request&X-Amz-Date=20250714T130631Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host&X-Amz-Signature=81b7abc765bf33249803c99ff96b19167e13f04cccaa8f66e42fa45fcd3dfcd6',%20'https://s3.ap-south-1.amazonaws.com/webpage.image.upload/None?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAY5DCPLUU76R3KRS6/20250714/ap-south-1/s3/aws4_request&X-Amz-Date=20250714T130631Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host&X-Amz-Signature=81b7abc765bf33249803c99ff96b19167e13f04cccaa8f66e42fa45fcd3dfcd6'] HTTP/1.1[0m" 404 -
+2025-07-14 13:06:34,897 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 13:06:34] "GET /inventory HTTP/1.1" 200 -
+2025-07-14 13:06:34,897 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 13:06:34] "GET /inventory HTTP/1.1" 200 -
+2025-07-14 13:06:36,321 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 13:06:36] "[36mGET /static/inventory.css HTTP/1.1[0m" 304 -
+2025-07-14 13:06:36,321 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 13:06:36] "[36mGET /static/inventory.css HTTP/1.1[0m" 304 -
+2025-07-14 13:06:36,323 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 13:06:36] "[33mGET /['https://s3.ap-south-1.amazonaws.com/webpage.image.upload/None?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAY5DCPLUU76R3KRS6/20250714/ap-south-1/s3/aws4_request&X-Amz-Date=20250714T130634Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host&X-Amz-Signature=c154c0b71887eb14509daef87f387c5e7454f0cf80ffb4ad5964198148828935',%20'https://s3.ap-south-1.amazonaws.com/webpage.image.upload/None?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAY5DCPLUU76R3KRS6/20250714/ap-south-1/s3/aws4_request&X-Amz-Date=20250714T130634Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host&X-Amz-Signature=c154c0b71887eb14509daef87f387c5e7454f0cf80ffb4ad5964198148828935',%20'https://s3.ap-south-1.amazonaws.com/webpage.image.upload/None?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAY5DCPLUU76R3KRS6/20250714/ap-south-1/s3/aws4_request&X-Amz-Date=20250714T130634Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host&X-Amz-Signature=c154c0b71887eb14509daef87f387c5e7454f0cf80ffb4ad5964198148828935'] HTTP/1.1[0m" 404 -
+2025-07-14 13:06:36,323 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 13:06:36] "[33mGET /['https://s3.ap-south-1.amazonaws.com/webpage.image.upload/None?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAY5DCPLUU76R3KRS6/20250714/ap-south-1/s3/aws4_request&X-Amz-Date=20250714T130634Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host&X-Amz-Signature=c154c0b71887eb14509daef87f387c5e7454f0cf80ffb4ad5964198148828935',%20'https://s3.ap-south-1.amazonaws.com/webpage.image.upload/None?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAY5DCPLUU76R3KRS6/20250714/ap-south-1/s3/aws4_request&X-Amz-Date=20250714T130634Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host&X-Amz-Signature=c154c0b71887eb14509daef87f387c5e7454f0cf80ffb4ad5964198148828935',%20'https://s3.ap-south-1.amazonaws.com/webpage.image.upload/None?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAY5DCPLUU76R3KRS6/20250714/ap-south-1/s3/aws4_request&X-Amz-Date=20250714T130634Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host&X-Amz-Signature=c154c0b71887eb14509daef87f387c5e7454f0cf80ffb4ad5964198148828935'] HTTP/1.1[0m" 404 -
+2025-07-14 13:06:39,283 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 13:06:39] "GET /inven_add HTTP/1.1" 200 -
+2025-07-14 13:06:39,283 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 13:06:39] "GET /inven_add HTTP/1.1" 200 -
+2025-07-14 13:06:42,513 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 13:06:42] "[36mGET /static/inventory_add.css HTTP/1.1[0m" 304 -
+2025-07-14 13:06:42,513 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 13:06:42] "[36mGET /static/inventory_add.css HTTP/1.1[0m" 304 -
+2025-07-14 13:07:00,052 - ERROR - bucket_save_image - Error uploading to S3: name 'requests' is not defined
+2025-07-14 13:07:00,052 - ERROR - bucket_save_image - Error uploading to S3: name 'requests' is not defined
+2025-07-14 13:07:00,058 - INFO - inventory_add - New Item Added
+2025-07-14 13:07:00,058 - INFO - inventory_add - New Item Added
+2025-07-14 13:07:00,060 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 13:07:00] "[32mPOST /inventory_add HTTP/1.1[0m" 302 -
+2025-07-14 13:07:00,060 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 13:07:00] "[32mPOST /inventory_add HTTP/1.1[0m" 302 -
+2025-07-14 13:07:00,183 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 13:07:00] "GET /inventory HTTP/1.1" 200 -
+2025-07-14 13:07:00,183 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 13:07:00] "GET /inventory HTTP/1.1" 200 -
+2025-07-14 13:07:00,266 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 13:07:00] "[36mGET /static/inventory.css HTTP/1.1[0m" 304 -
+2025-07-14 13:07:00,266 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 13:07:00] "[36mGET /static/inventory.css HTTP/1.1[0m" 304 -
+2025-07-14 13:07:00,267 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 13:07:00] "[33mGET /['https://s3.ap-south-1.amazonaws.com/webpage.image.upload/None?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAY5DCPLUU76R3KRS6/20250714/ap-south-1/s3/aws4_request&X-Amz-Date=20250714T130700Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host&X-Amz-Signature=025ad8cf15db5dcc102b0768fe4cc7844126ba5862d3b6018b550a1e3c8f61c4',%20'https://s3.ap-south-1.amazonaws.com/webpage.image.upload/None?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAY5DCPLUU76R3KRS6/20250714/ap-south-1/s3/aws4_request&X-Amz-Date=20250714T130700Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host&X-Amz-Signature=025ad8cf15db5dcc102b0768fe4cc7844126ba5862d3b6018b550a1e3c8f61c4',%20'https://s3.ap-south-1.amazonaws.com/webpage.image.upload/None?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAY5DCPLUU76R3KRS6/20250714/ap-south-1/s3/aws4_request&X-Amz-Date=20250714T130700Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host&X-Amz-Signature=025ad8cf15db5dcc102b0768fe4cc7844126ba5862d3b6018b550a1e3c8f61c4',%20'https://s3.ap-south-1.amazonaws.com/webpage.image.upload/None?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAY5DCPLUU76R3KRS6/20250714/ap-south-1/s3/aws4_request&X-Amz-Date=20250714T130700Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host&X-Amz-Signature=025ad8cf15db5dcc102b0768fe4cc7844126ba5862d3b6018b550a1e3c8f61c4'] HTTP/1.1[0m" 404 -
+2025-07-14 13:07:00,267 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 13:07:00] "[33mGET /['https://s3.ap-south-1.amazonaws.com/webpage.image.upload/None?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAY5DCPLUU76R3KRS6/20250714/ap-south-1/s3/aws4_request&X-Amz-Date=20250714T130700Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host&X-Amz-Signature=025ad8cf15db5dcc102b0768fe4cc7844126ba5862d3b6018b550a1e3c8f61c4',%20'https://s3.ap-south-1.amazonaws.com/webpage.image.upload/None?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAY5DCPLUU76R3KRS6/20250714/ap-south-1/s3/aws4_request&X-Amz-Date=20250714T130700Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host&X-Amz-Signature=025ad8cf15db5dcc102b0768fe4cc7844126ba5862d3b6018b550a1e3c8f61c4',%20'https://s3.ap-south-1.amazonaws.com/webpage.image.upload/None?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAY5DCPLUU76R3KRS6/20250714/ap-south-1/s3/aws4_request&X-Amz-Date=20250714T130700Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host&X-Amz-Signature=025ad8cf15db5dcc102b0768fe4cc7844126ba5862d3b6018b550a1e3c8f61c4',%20'https://s3.ap-south-1.amazonaws.com/webpage.image.upload/None?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAY5DCPLUU76R3KRS6/20250714/ap-south-1/s3/aws4_request&X-Amz-Date=20250714T130700Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host&X-Amz-Signature=025ad8cf15db5dcc102b0768fe4cc7844126ba5862d3b6018b550a1e3c8f61c4'] HTTP/1.1[0m" 404 -
+2025-07-14 13:08:42,410 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 13:08:42] "GET /inven_add HTTP/1.1" 200 -
+2025-07-14 13:08:42,410 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 13:08:42] "GET /inven_add HTTP/1.1" 200 -
+2025-07-14 13:08:42,454 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 13:08:42] "[36mGET /static/inventory_add.css HTTP/1.1[0m" 304 -
+2025-07-14 13:08:42,454 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 13:08:42] "[36mGET /static/inventory_add.css HTTP/1.1[0m" 304 -
+2025-07-14 13:09:00,350 - ERROR - bucket_save_image - Error uploading to S3: name 'requests' is not defined
+2025-07-14 13:09:00,350 - ERROR - bucket_save_image - Error uploading to S3: name 'requests' is not defined
+2025-07-14 13:09:00,353 - INFO - inventory_add - New Item Added
+2025-07-14 13:09:00,353 - INFO - inventory_add - New Item Added
+2025-07-14 13:09:00,355 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 13:09:00] "[32mPOST /inventory_add HTTP/1.1[0m" 302 -
+2025-07-14 13:09:00,355 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 13:09:00] "[32mPOST /inventory_add HTTP/1.1[0m" 302 -
+2025-07-14 13:09:00,481 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 13:09:00] "GET /inventory HTTP/1.1" 200 -
+2025-07-14 13:09:00,481 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 13:09:00] "GET /inventory HTTP/1.1" 200 -
+2025-07-14 13:09:00,559 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 13:09:00] "[36mGET /static/inventory.css HTTP/1.1[0m" 304 -
+2025-07-14 13:09:00,559 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 13:09:00] "[36mGET /static/inventory.css HTTP/1.1[0m" 304 -
+2025-07-14 13:09:03,506 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 13:09:03] "GET /inventory?page=2 HTTP/1.1" 200 -
+2025-07-14 13:09:03,506 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 13:09:03] "GET /inventory?page=2 HTTP/1.1" 200 -
+2025-07-14 13:09:03,576 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 13:09:03] "[36mGET /static/inventory.css HTTP/1.1[0m" 304 -
+2025-07-14 13:09:03,576 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 13:09:03] "[36mGET /static/inventory.css HTTP/1.1[0m" 304 -
+2025-07-14 13:09:08,134 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 13:09:08] "GET /inventory?page=1 HTTP/1.1" 200 -
+2025-07-14 13:09:08,134 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 13:09:08] "GET /inventory?page=1 HTTP/1.1" 200 -
+2025-07-14 13:09:08,208 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 13:09:08] "[36mGET /static/inventory.css HTTP/1.1[0m" 304 -
+2025-07-14 13:09:08,208 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 13:09:08] "[36mGET /static/inventory.css HTTP/1.1[0m" 304 -
+2025-07-14 13:09:23,250 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 13:09:23] "GET /inventory?page=2 HTTP/1.1" 200 -
+2025-07-14 13:09:23,250 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 13:09:23] "GET /inventory?page=2 HTTP/1.1" 200 -
+2025-07-14 13:09:23,332 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 13:09:23] "[36mGET /static/inventory.css HTTP/1.1[0m" 304 -
+2025-07-14 13:09:23,332 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 13:09:23] "[36mGET /static/inventory.css HTTP/1.1[0m" 304 -
+2025-07-14 13:09:25,082 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 13:09:25] "GET /inventory?page=2 HTTP/1.1" 200 -
+2025-07-14 13:09:25,082 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 13:09:25] "GET /inventory?page=2 HTTP/1.1" 200 -
+2025-07-14 13:09:25,159 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 13:09:25] "[36mGET /static/inventory.css HTTP/1.1[0m" 304 -
+2025-07-14 13:09:25,159 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 13:09:25] "[36mGET /static/inventory.css HTTP/1.1[0m" 304 -
+2025-07-14 15:21:26,880 - INFO - _log - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.31.80.31:5000
+2025-07-14 15:21:26,880 - INFO - _log - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.31.80.31:5000
+2025-07-14 15:21:26,881 - INFO - _log - [33mPress CTRL+C to quit[0m
+2025-07-14 15:21:26,881 - INFO - _log - [33mPress CTRL+C to quit[0m
+2025-07-14 15:21:26,882 - INFO - _log -  * Restarting with stat
+2025-07-14 15:21:26,882 - INFO - _log -  * Restarting with stat
+2025-07-14 15:21:27,244 - WARNING - _log -  * Debugger is active!
+2025-07-14 15:21:27,244 - WARNING - _log -  * Debugger is active!
+2025-07-14 15:21:27,247 - INFO - _log -  * Debugger PIN: 132-918-661
+2025-07-14 15:21:27,247 - INFO - _log -  * Debugger PIN: 132-918-661
+2025-07-14 15:39:15,091 - INFO - _log -  * Detected change in '/home/ubuntu/projectsql/login_page/login_parameter.py', reloading
+2025-07-14 15:39:15,091 - INFO - _log -  * Detected change in '/home/ubuntu/projectsql/login_page/login_parameter.py', reloading
+2025-07-14 15:39:15,143 - INFO - _log -  * Restarting with stat
+2025-07-14 15:39:15,143 - INFO - _log -  * Restarting with stat
+2025-07-14 15:39:15,503 - WARNING - _log -  * Debugger is active!
+2025-07-14 15:39:15,503 - WARNING - _log -  * Debugger is active!
+2025-07-14 15:39:15,505 - INFO - _log -  * Debugger PIN: 132-918-661
+2025-07-14 15:39:15,505 - INFO - _log -  * Debugger PIN: 132-918-661
+2025-07-14 15:40:40,819 - INFO - _log -  * Detected change in '/home/ubuntu/projectsql/login_page/login_parameter.py', reloading
+2025-07-14 15:40:40,819 - INFO - _log -  * Detected change in '/home/ubuntu/projectsql/login_page/login_parameter.py', reloading
+2025-07-14 15:40:40,868 - INFO - _log -  * Restarting with stat
+2025-07-14 15:40:40,868 - INFO - _log -  * Restarting with stat
+2025-07-14 15:40:41,228 - WARNING - _log -  * Debugger is active!
+2025-07-14 15:40:41,228 - WARNING - _log -  * Debugger is active!
+2025-07-14 15:40:41,230 - INFO - _log -  * Debugger PIN: 132-918-661
+2025-07-14 15:40:41,230 - INFO - _log -  * Debugger PIN: 132-918-661
+2025-07-14 15:43:35,007 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 15:43:35] "[32mGET /inventory?page=2 HTTP/1.1[0m" 302 -
+2025-07-14 15:43:35,007 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 15:43:35] "[32mGET /inventory?page=2 HTTP/1.1[0m" 302 -
+2025-07-14 15:43:35,075 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 15:43:35] "GET / HTTP/1.1" 200 -
+2025-07-14 15:43:35,075 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 15:43:35] "GET / HTTP/1.1" 200 -
+2025-07-14 15:43:35,162 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 15:43:35] "[36mGET /static/bootstrap_login.css HTTP/1.1[0m" 304 -
+2025-07-14 15:43:35,162 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 15:43:35] "[36mGET /static/bootstrap_login.css HTTP/1.1[0m" 304 -
+2025-07-14 15:43:42,784 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 15:43:42] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-07-14 15:43:42,784 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 15:43:42] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-07-14 15:43:42,868 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 15:43:42] "GET /admin HTTP/1.1" 200 -
+2025-07-14 15:43:42,868 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 15:43:42] "GET /admin HTTP/1.1" 200 -
+2025-07-14 15:43:42,947 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 15:43:42] "[36mGET /static/table.css HTTP/1.1[0m" 304 -
+2025-07-14 15:43:42,947 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 15:43:42] "[36mGET /static/table.css HTTP/1.1[0m" 304 -
+2025-07-14 15:43:44,074 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 15:43:44] "[32mGET /inventory_details HTTP/1.1[0m" 302 -
+2025-07-14 15:43:44,074 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 15:43:44] "[32mGET /inventory_details HTTP/1.1[0m" 302 -
+2025-07-14 15:43:44,873 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 15:43:44] "GET /inventory HTTP/1.1" 200 -
+2025-07-14 15:43:44,873 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 15:43:44] "GET /inventory HTTP/1.1" 200 -
+2025-07-14 15:43:44,952 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 15:43:44] "[36mGET /static/inventory.css HTTP/1.1[0m" 304 -
+2025-07-14 15:43:44,952 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 15:43:44] "[36mGET /static/inventory.css HTTP/1.1[0m" 304 -
+2025-07-14 15:43:48,471 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 15:43:48] "GET /inventory?page=2 HTTP/1.1" 200 -
+2025-07-14 15:43:48,471 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 15:43:48] "GET /inventory?page=2 HTTP/1.1" 200 -
+2025-07-14 15:43:48,540 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 15:43:48] "[36mGET /static/inventory.css HTTP/1.1[0m" 304 -
+2025-07-14 15:43:48,540 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 15:43:48] "[36mGET /static/inventory.css HTTP/1.1[0m" 304 -
+2025-07-14 15:43:49,690 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 15:43:49] "[32mGET /delete_item/16 HTTP/1.1[0m" 302 -
+2025-07-14 15:43:49,690 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 15:43:49] "[32mGET /delete_item/16 HTTP/1.1[0m" 302 -
+2025-07-14 15:43:49,860 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 15:43:49] "GET /inventory HTTP/1.1" 200 -
+2025-07-14 15:43:49,860 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 15:43:49] "GET /inventory HTTP/1.1" 200 -
+2025-07-14 15:43:49,936 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 15:43:49] "[36mGET /static/inventory.css HTTP/1.1[0m" 304 -
+2025-07-14 15:43:49,936 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 15:43:49] "[36mGET /static/inventory.css HTTP/1.1[0m" 304 -
+2025-07-14 15:43:50,637 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 15:43:50] "[32mGET /delete_item/11 HTTP/1.1[0m" 302 -
+2025-07-14 15:43:50,637 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 15:43:50] "[32mGET /delete_item/11 HTTP/1.1[0m" 302 -
+2025-07-14 15:43:50,744 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 15:43:50] "GET /inventory HTTP/1.1" 200 -
+2025-07-14 15:43:50,744 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 15:43:50] "GET /inventory HTTP/1.1" 200 -
+2025-07-14 15:43:50,814 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 15:43:50] "[36mGET /static/inventory.css HTTP/1.1[0m" 304 -
+2025-07-14 15:43:50,814 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 15:43:50] "[36mGET /static/inventory.css HTTP/1.1[0m" 304 -
+2025-07-14 15:43:51,409 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 15:43:51] "[32mGET /delete_item/12 HTTP/1.1[0m" 302 -
+2025-07-14 15:43:51,409 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 15:43:51] "[32mGET /delete_item/12 HTTP/1.1[0m" 302 -
+2025-07-14 15:43:51,505 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 15:43:51] "GET /inventory HTTP/1.1" 200 -
+2025-07-14 15:43:51,505 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 15:43:51] "GET /inventory HTTP/1.1" 200 -
+2025-07-14 15:43:51,574 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 15:43:51] "[36mGET /static/inventory.css HTTP/1.1[0m" 304 -
+2025-07-14 15:43:51,574 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 15:43:51] "[36mGET /static/inventory.css HTTP/1.1[0m" 304 -
+2025-07-14 15:43:52,076 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 15:43:52] "[32mGET /delete_item/14 HTTP/1.1[0m" 302 -
+2025-07-14 15:43:52,076 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 15:43:52] "[32mGET /delete_item/14 HTTP/1.1[0m" 302 -
+2025-07-14 15:43:52,176 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 15:43:52] "GET /inventory HTTP/1.1" 200 -
+2025-07-14 15:43:52,176 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 15:43:52] "GET /inventory HTTP/1.1" 200 -
+2025-07-14 15:43:52,249 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 15:43:52] "[36mGET /static/inventory.css HTTP/1.1[0m" 304 -
+2025-07-14 15:43:52,249 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 15:43:52] "[36mGET /static/inventory.css HTTP/1.1[0m" 304 -
+2025-07-14 15:43:52,626 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 15:43:52] "[32mGET /delete_item/15 HTTP/1.1[0m" 302 -
+2025-07-14 15:43:52,626 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 15:43:52] "[32mGET /delete_item/15 HTTP/1.1[0m" 302 -
+2025-07-14 15:43:52,717 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 15:43:52] "GET /inventory HTTP/1.1" 200 -
+2025-07-14 15:43:52,717 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 15:43:52] "GET /inventory HTTP/1.1" 200 -
+2025-07-14 15:43:52,789 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 15:43:52] "[36mGET /static/inventory.css HTTP/1.1[0m" 304 -
+2025-07-14 15:43:52,789 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 15:43:52] "[36mGET /static/inventory.css HTTP/1.1[0m" 304 -
+2025-07-14 15:43:53,715 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 15:43:53] "GET /inven_add HTTP/1.1" 200 -
+2025-07-14 15:43:53,715 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 15:43:53] "GET /inven_add HTTP/1.1" 200 -
+2025-07-14 15:43:53,799 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 15:43:53] "[36mGET /static/inventory_add.css HTTP/1.1[0m" 304 -
+2025-07-14 15:43:53,799 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 15:43:53] "[36mGET /static/inventory_add.css HTTP/1.1[0m" 304 -
+2025-07-14 15:44:08,629 - ERROR - bucket_save_image - Error uploading to S3: name 's3' is not defined
+2025-07-14 15:44:08,629 - ERROR - bucket_save_image - Error uploading to S3: name 's3' is not defined
+2025-07-14 15:44:08,632 - INFO - inventory_add - New Item Added
+2025-07-14 15:44:08,632 - INFO - inventory_add - New Item Added
+2025-07-14 15:44:08,635 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 15:44:08] "[32mPOST /inventory_add HTTP/1.1[0m" 302 -
+2025-07-14 15:44:08,635 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 15:44:08] "[32mPOST /inventory_add HTTP/1.1[0m" 302 -
+2025-07-14 15:44:08,729 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 15:44:08] "GET /inventory HTTP/1.1" 200 -
+2025-07-14 15:44:08,729 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 15:44:08] "GET /inventory HTTP/1.1" 200 -
+2025-07-14 15:44:08,805 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 15:44:08] "[36mGET /static/inventory.css HTTP/1.1[0m" 304 -
+2025-07-14 15:44:08,805 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 15:44:08] "[36mGET /static/inventory.css HTTP/1.1[0m" 304 -
+2025-07-14 15:49:12,147 - INFO - _log -  * Detected change in '/home/ubuntu/projectsql/login_page/login_parameter.py', reloading
+2025-07-14 15:49:12,147 - INFO - _log -  * Detected change in '/home/ubuntu/projectsql/login_page/login_parameter.py', reloading
+2025-07-14 15:49:12,246 - INFO - _log -  * Restarting with stat
+2025-07-14 15:49:12,246 - INFO - _log -  * Restarting with stat
+2025-07-14 15:49:12,627 - WARNING - _log -  * Debugger is active!
+2025-07-14 15:49:12,627 - WARNING - _log -  * Debugger is active!
+2025-07-14 15:49:12,630 - INFO - _log -  * Debugger PIN: 132-918-661
+2025-07-14 15:49:12,630 - INFO - _log -  * Debugger PIN: 132-918-661
+2025-07-14 15:50:48,991 - INFO - _log -  * Detected change in '/home/ubuntu/projectsql/login_page/main.py', reloading
+2025-07-14 15:50:48,991 - INFO - _log -  * Detected change in '/home/ubuntu/projectsql/login_page/main.py', reloading
+2025-07-14 15:50:49,040 - INFO - _log -  * Restarting with stat
+2025-07-14 15:50:49,040 - INFO - _log -  * Restarting with stat
+2025-07-14 15:50:49,401 - WARNING - _log -  * Debugger is active!
+2025-07-14 15:50:49,401 - WARNING - _log -  * Debugger is active!
+2025-07-14 15:50:49,403 - INFO - _log -  * Debugger PIN: 132-918-661
+2025-07-14 15:50:49,403 - INFO - _log -  * Debugger PIN: 132-918-661
+2025-07-14 15:50:52,423 - INFO - _log -  * Detected change in '/home/ubuntu/projectsql/login_page/login_parameter.py', reloading
+2025-07-14 15:50:52,423 - INFO - _log -  * Detected change in '/home/ubuntu/projectsql/login_page/login_parameter.py', reloading
+2025-07-14 15:50:52,473 - INFO - _log -  * Restarting with stat
+2025-07-14 15:50:52,473 - INFO - _log -  * Restarting with stat
+2025-07-14 15:50:52,840 - WARNING - _log -  * Debugger is active!
+2025-07-14 15:50:52,840 - WARNING - _log -  * Debugger is active!
+2025-07-14 15:50:52,842 - INFO - _log -  * Debugger PIN: 132-918-661
+2025-07-14 15:50:52,842 - INFO - _log -  * Debugger PIN: 132-918-661
+2025-07-14 15:51:00,690 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 15:51:00] "GET /inventory HTTP/1.1" 200 -
+2025-07-14 15:51:00,690 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 15:51:00] "GET /inventory HTTP/1.1" 200 -
+2025-07-14 15:51:00,763 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 15:51:00] "[36mGET /static/inventory.css HTTP/1.1[0m" 304 -
+2025-07-14 15:51:00,763 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 15:51:00] "[36mGET /static/inventory.css HTTP/1.1[0m" 304 -
+2025-07-14 15:51:03,312 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 15:51:03] "GET /inven_add HTTP/1.1" 200 -
+2025-07-14 15:51:03,312 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 15:51:03] "GET /inven_add HTTP/1.1" 200 -
+2025-07-14 15:51:03,386 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 15:51:03] "[36mGET /static/inventory_add.css HTTP/1.1[0m" 304 -
+2025-07-14 15:51:03,386 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 15:51:03] "[36mGET /static/inventory_add.css HTTP/1.1[0m" 304 -
+2025-07-14 15:51:16,017 - ERROR - bucket_save_image - Error uploading to S3: name 's3' is not defined
+2025-07-14 15:51:16,017 - ERROR - bucket_save_image - Error uploading to S3: name 's3' is not defined
+2025-07-14 15:51:16,020 - INFO - inventory_add - New Item Added
+2025-07-14 15:51:16,020 - INFO - inventory_add - New Item Added
+2025-07-14 15:51:16,021 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 15:51:16] "[32mPOST /inventory_add HTTP/1.1[0m" 302 -
+2025-07-14 15:51:16,021 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 15:51:16] "[32mPOST /inventory_add HTTP/1.1[0m" 302 -
+2025-07-14 15:51:16,153 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 15:51:16] "GET /inventory HTTP/1.1" 200 -
+2025-07-14 15:51:16,153 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 15:51:16] "GET /inventory HTTP/1.1" 200 -
+2025-07-14 15:51:16,231 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 15:51:16] "[36mGET /static/inventory.css HTTP/1.1[0m" 304 -
+2025-07-14 15:51:16,231 - INFO - _log - 223.178.85.12 - - [14/Jul/2025 15:51:16] "[36mGET /static/inventory.css HTTP/1.1[0m" 304 -
+2025-07-14 16:19:01,333 - INFO - _log -  * Detected change in '/home/ubuntu/projectsql/login_page/login_parameter.py', reloading
+2025-07-14 16:19:01,333 - INFO - _log -  * Detected change in '/home/ubuntu/projectsql/login_page/login_parameter.py', reloading
+2025-07-14 16:19:01,417 - INFO - _log -  * Restarting with stat
+2025-07-14 16:19:01,417 - INFO - _log -  * Restarting with stat
+2025-07-14 16:19:01,778 - WARNING - _log -  * Debugger is active!
+2025-07-14 16:19:01,778 - WARNING - _log -  * Debugger is active!
+2025-07-14 16:19:01,780 - INFO - _log -  * Debugger PIN: 132-918-661
+2025-07-14 16:19:01,780 - INFO - _log -  * Debugger PIN: 132-918-661
+2025-07-14 16:19:05,804 - INFO - _log -  * Detected change in '/home/ubuntu/projectsql/login_page/main.py', reloading
+2025-07-14 16:19:05,804 - INFO - _log -  * Detected change in '/home/ubuntu/projectsql/login_page/main.py', reloading
+2025-07-14 16:19:05,854 - INFO - _log -  * Restarting with stat
+2025-07-14 16:19:05,854 - INFO - _log -  * Restarting with stat
+2025-07-14 16:19:06,214 - WARNING - _log -  * Debugger is active!
+2025-07-14 16:19:06,214 - WARNING - _log -  * Debugger is active!
+2025-07-14 16:19:06,216 - INFO - _log -  * Debugger PIN: 132-918-661
+2025-07-14 16:19:06,216 - INFO - _log -  * Debugger PIN: 132-918-661

@@ -1,5 +1,5 @@
 .button{
-	margin-left:80%;
+	margin-left:67%;
 
 }
 form{
@@ -8,7 +8,32 @@ form{
 
 }
 .form-control{
-	width:69px;
+	width:80px;
 	margin-top:4px;
 	margin-bottom:4px;
+}
+
+.container{
+	width:900px;
+}
+
+/* html, body { */
+/*   max-width: 100%; */
+/*   overflow-x: hidden; */
+/* } */
+
+.search_form{
+	margin-left:60%;
+	display:flex;
+}
+
+.search_box_form{
+	width:200px;
+}
+.btn{
+	height:36px;
+	margin-top:4px;
+}
+.dropdown{
+	margin-left:72%;
 }

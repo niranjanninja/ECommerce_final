@@ -1,7 +1,7 @@
 import psycopg2
 # from read_text_file import read_file,read_psy
 from configparser import ConfigParser
-file='/home/niranjan/projectsql/login_page/libs/config.ini'
+file='/home/ubuntu/projectsql/login_page/libs/config.ini'
 config=ConfigParser()
 config.read(file)
 
@@ -24,5 +24,11 @@ class DBConnect:
         connection_obj = self.connect_to_db()
         if connection_obj:
             return {'data': connection_obj, 'status': True, 'message': "Db connection successfully"}
+            # print("Connected")
         else:
             return {'data': None, 'status': False, 'message': "Db connection failed"}
+            # print("Failed")
+
+# obj=DBConnect()
+# obj.check_db_connection()
+

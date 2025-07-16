@@ -4,35 +4,48 @@
 	<script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script> 
 	<link rel="stylesheet" href="{{ url_for('static', filename='bootstrap_sign_up.css') }}">
 	<!-- <link rel="stylesheet" href="bootstrap_sign_up.css"> -->
+	<nav class="navbar navbar-expand-lg bg-body-tertiary">
+		<div class="container-fluid">
+			<div class="collapse navbar-collapse" >
+				<div class="navbar-nav">
+					<a class="nav-link " href="{{url_for('index')}}">Login</a>
+				</div>
+			</div>
+		</div>
+	</nav>
 </head>
 
 <body>
-	<div class="container md-5 sm-5">
+	<div class="container mt-5">
 		<center><h1 class="mb-4">SIGN UP</h1></center>
-		<form action="http://127.0.0.1:5000/signuppage" method="POST">
+		<form action="{{url_for('sign_up_page_index')}}" method="POST">
 			
-			<div class="mb-3 sm-3">
+			<div class="mb-3">
 				<label class="form-label">User Name</label>
 				<input type="text" class="form-control input_box" name="name">
+				<div class="error_show">
 				{% if user_error %}
 				<div style="color:red">{{ user_error }}</div>
 				{% endif %}
+				</div>
 			</div>
 			
-			<div class="mb-3 sm-3">
+			<div class="mb-3">
 				<label class="form-label">Password</label>
 				<input type="password" class="form-control input_box" name="password" placeholder="Password must have minimum 10 characters">
 			</div>
 			
-			<div class="mb-3 sm-3">
+			<div class="mb-3">
 				<label class="form-label">Confirm Password</label>
 				<input type="password" class="form-control input_box" name="confirm_password">
+				<div class="error_show">
 				{% if pass_error %}
 				<div style="color:red">{{ pass_error }}</div>
 				{% endif %}
 				{% if pass_error2 %}
 				<div style="color:red">{{ pass_error2 }}</div>
 				{% endif %}
+				</div>
 			</div>
 			
 			<div class="mb-3">
@@ -45,23 +58,27 @@
 					</select>
 					<input type="text" class="form-control phone_input" name="number">
 				</div>
+				<div class="error_show">
 				{% if num_error %}
 				<div style="color:red">{{ num_error }}</div>
 				{% endif %}
 				{% if num_error2 %}
 				<div style="color:red">{{ num_error2 }}</div>
 				{% endif %}
+				</div>
 			</div>
 			
 			<div class="mb-3">
 				<label class="form-label">Mail ID</label>
 				<input type="text" class="form-control input_box" name="mail">
+				<div class="error_show">
 				{% if mail_error %}
 				<div style="color:red">{{ mail_error }}</div>
 				{% endif %}
 				{% if mail_error2 %}
 				<div style="color:red">{{ mail_error2 }}</div>
 				{% endif %}
+				</div>
 			</div>
 			<div class="mb-3 text-center">
 				<input type="submit" class="btn btn-primary button" value="SIGN IN">

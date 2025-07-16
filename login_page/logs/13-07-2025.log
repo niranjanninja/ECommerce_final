@@ -1,0 +1,296 @@
+2025-07-13 10:38:15,684 - INFO - _log - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.31.80.31:5000
+2025-07-13 10:38:15,684 - INFO - _log - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.31.80.31:5000
+2025-07-13 10:38:15,684 - INFO - _log - [33mPress CTRL+C to quit[0m
+2025-07-13 10:38:15,684 - INFO - _log - [33mPress CTRL+C to quit[0m
+2025-07-13 10:38:15,686 - INFO - _log -  * Restarting with stat
+2025-07-13 10:38:15,686 - INFO - _log -  * Restarting with stat
+2025-07-13 10:38:16,045 - WARNING - _log -  * Debugger is active!
+2025-07-13 10:38:16,045 - WARNING - _log -  * Debugger is active!
+2025-07-13 10:38:16,048 - INFO - _log -  * Debugger PIN: 493-211-654
+2025-07-13 10:38:16,048 - INFO - _log -  * Debugger PIN: 493-211-654
+2025-07-13 10:40:00,394 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 10:40:00] "GET /inventory HTTP/1.1" 200 -
+2025-07-13 10:40:00,394 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 10:40:00] "GET /inventory HTTP/1.1" 200 -
+2025-07-13 10:40:00,490 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 10:40:00] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-13 10:40:00,490 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 10:40:00] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-13 10:40:03,741 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 10:40:03] "GET / HTTP/1.1" 200 -
+2025-07-13 10:40:03,741 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 10:40:03] "GET / HTTP/1.1" 200 -
+2025-07-13 10:40:03,861 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 10:40:03] "[36mGET /static/bootstrap_login.css HTTP/1.1[0m" 304 -
+2025-07-13 10:40:03,861 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 10:40:03] "[36mGET /static/bootstrap_login.css HTTP/1.1[0m" 304 -
+2025-07-13 10:40:16,709 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 10:40:16] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-07-13 10:40:16,709 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 10:40:16] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-07-13 10:40:16,791 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 10:40:16] "GET /admin HTTP/1.1" 200 -
+2025-07-13 10:40:16,791 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 10:40:16] "GET /admin HTTP/1.1" 200 -
+2025-07-13 10:40:16,865 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 10:40:16] "[36mGET /static/table.css HTTP/1.1[0m" 304 -
+2025-07-13 10:40:16,865 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 10:40:16] "[36mGET /static/table.css HTTP/1.1[0m" 304 -
+2025-07-13 10:40:18,584 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 10:40:18] "[32mGET /inventory_details HTTP/1.1[0m" 302 -
+2025-07-13 10:40:18,584 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 10:40:18] "[32mGET /inventory_details HTTP/1.1[0m" 302 -
+2025-07-13 10:40:18,691 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 10:40:18] "GET /inventory HTTP/1.1" 200 -
+2025-07-13 10:40:18,691 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 10:40:18] "GET /inventory HTTP/1.1" 200 -
+2025-07-13 10:40:18,780 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 10:40:18] "[36mGET /static/inventory.css HTTP/1.1[0m" 304 -
+2025-07-13 10:40:18,780 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 10:40:18] "[36mGET /static/inventory.css HTTP/1.1[0m" 304 -
+2025-07-13 10:40:21,418 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 10:40:21] "GET /inven_add HTTP/1.1" 200 -
+2025-07-13 10:40:21,418 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 10:40:21] "GET /inven_add HTTP/1.1" 200 -
+2025-07-13 10:40:21,496 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 10:40:21] "[36mGET /static/inventory_add.css HTTP/1.1[0m" 304 -
+2025-07-13 10:40:21,496 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 10:40:21] "[36mGET /static/inventory_add.css HTTP/1.1[0m" 304 -
+2025-07-13 10:40:37,090 - ERROR - local_save_image - error -> name 'app' is not defined
+2025-07-13 10:40:37,090 - ERROR - local_save_image - error -> name 'app' is not defined
+2025-07-13 10:40:37,095 - INFO - inventory_add - New Item Added
+2025-07-13 10:40:37,095 - INFO - inventory_add - New Item Added
+2025-07-13 10:40:37,097 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 10:40:37] "[32mPOST /inventory_add HTTP/1.1[0m" 302 -
+2025-07-13 10:40:37,097 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 10:40:37] "[32mPOST /inventory_add HTTP/1.1[0m" 302 -
+2025-07-13 10:40:37,186 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 10:40:37] "GET /inventory HTTP/1.1" 200 -
+2025-07-13 10:40:37,186 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 10:40:37] "GET /inventory HTTP/1.1" 200 -
+2025-07-13 10:40:37,263 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 10:40:37] "[36mGET /static/inventory.css HTTP/1.1[0m" 304 -
+2025-07-13 10:40:37,263 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 10:40:37] "[36mGET /static/inventory.css HTTP/1.1[0m" 304 -
+2025-07-13 10:40:41,639 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 10:40:41] "GET /inventory HTTP/1.1" 200 -
+2025-07-13 10:40:41,639 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 10:40:41] "GET /inventory HTTP/1.1" 200 -
+2025-07-13 10:40:41,708 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 10:40:41] "[36mGET /static/inventory.css HTTP/1.1[0m" 304 -
+2025-07-13 10:40:41,708 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 10:40:41] "[36mGET /static/inventory.css HTTP/1.1[0m" 304 -
+2025-07-13 10:46:31,885 - INFO - _log -  * Detected change in '/home/ubuntu/projectsql/login_page/login_parameter.py', reloading
+2025-07-13 10:46:31,885 - INFO - _log -  * Detected change in '/home/ubuntu/projectsql/login_page/login_parameter.py', reloading
+2025-07-13 10:46:31,942 - INFO - _log -  * Restarting with stat
+2025-07-13 10:46:31,942 - INFO - _log -  * Restarting with stat
+2025-07-13 10:46:32,311 - WARNING - _log -  * Debugger is active!
+2025-07-13 10:46:32,311 - WARNING - _log -  * Debugger is active!
+2025-07-13 10:46:32,314 - INFO - _log -  * Debugger PIN: 493-211-654
+2025-07-13 10:46:32,314 - INFO - _log -  * Debugger PIN: 493-211-654
+2025-07-13 10:47:43,582 - INFO - _log -  * Detected change in '/home/ubuntu/projectsql/login_page/login_parameter.py', reloading
+2025-07-13 10:47:43,582 - INFO - _log -  * Detected change in '/home/ubuntu/projectsql/login_page/login_parameter.py', reloading
+2025-07-13 10:47:43,629 - INFO - _log -  * Restarting with stat
+2025-07-13 10:47:43,629 - INFO - _log -  * Restarting with stat
+2025-07-13 10:47:43,985 - WARNING - _log -  * Debugger is active!
+2025-07-13 10:47:43,985 - WARNING - _log -  * Debugger is active!
+2025-07-13 10:47:43,987 - INFO - _log -  * Debugger PIN: 493-211-654
+2025-07-13 10:47:43,987 - INFO - _log -  * Debugger PIN: 493-211-654
+2025-07-13 10:47:45,000 - INFO - _log -  * Detected change in '/home/ubuntu/projectsql/login_page/login_parameter.py', reloading
+2025-07-13 10:47:45,000 - INFO - _log -  * Detected change in '/home/ubuntu/projectsql/login_page/login_parameter.py', reloading
+2025-07-13 10:47:45,049 - INFO - _log -  * Restarting with stat
+2025-07-13 10:47:45,049 - INFO - _log -  * Restarting with stat
+2025-07-13 10:47:45,406 - WARNING - _log -  * Debugger is active!
+2025-07-13 10:47:45,406 - WARNING - _log -  * Debugger is active!
+2025-07-13 10:47:45,409 - INFO - _log -  * Debugger PIN: 493-211-654
+2025-07-13 10:47:45,409 - INFO - _log -  * Debugger PIN: 493-211-654
+2025-07-13 10:48:10,464 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 10:48:10] "GET /inventory HTTP/1.1" 200 -
+2025-07-13 10:48:10,464 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 10:48:10] "GET /inventory HTTP/1.1" 200 -
+2025-07-13 10:48:11,019 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 10:48:11] "[36mGET /static/inventory.css HTTP/1.1[0m" 304 -
+2025-07-13 10:48:11,019 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 10:48:11] "[36mGET /static/inventory.css HTTP/1.1[0m" 304 -
+2025-07-13 10:48:18,317 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 10:48:18] "GET /edit_inventory/11 HTTP/1.1" 200 -
+2025-07-13 10:48:18,317 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 10:48:18] "GET /edit_inventory/11 HTTP/1.1" 200 -
+2025-07-13 10:48:18,626 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 10:48:18] "[36mGET /static/inventory_edit.css HTTP/1.1[0m" 304 -
+2025-07-13 10:48:18,626 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 10:48:18] "[36mGET /static/inventory_edit.css HTTP/1.1[0m" 304 -
+2025-07-13 10:48:25,510 - ERROR - edit_inventory - error -> name 'image' is not defined
+2025-07-13 10:48:25,510 - ERROR - edit_inventory - error -> name 'image' is not defined
+2025-07-13 10:48:25,510 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 10:48:25] "[32mGET /edit_inventory/69 HTTP/1.1[0m" 302 -
+2025-07-13 10:48:25,510 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 10:48:25] "[32mGET /edit_inventory/69 HTTP/1.1[0m" 302 -
+2025-07-13 10:48:25,649 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 10:48:25] "GET /inventory HTTP/1.1" 200 -
+2025-07-13 10:48:25,649 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 10:48:25] "GET /inventory HTTP/1.1" 200 -
+2025-07-13 10:48:25,726 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 10:48:25] "[36mGET /static/inventory.css HTTP/1.1[0m" 304 -
+2025-07-13 10:48:25,726 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 10:48:25] "[36mGET /static/inventory.css HTTP/1.1[0m" 304 -
+2025-07-13 10:48:28,938 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 10:48:28] "GET /inven_add HTTP/1.1" 200 -
+2025-07-13 10:48:28,938 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 10:48:28] "GET /inven_add HTTP/1.1" 200 -
+2025-07-13 10:48:28,980 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 10:48:28] "[36mGET /static/inventory_add.css HTTP/1.1[0m" 304 -
+2025-07-13 10:48:28,980 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 10:48:28] "[36mGET /static/inventory_add.css HTTP/1.1[0m" 304 -
+2025-07-13 10:48:47,809 - ERROR - local_save_image - error -> name 'app' is not defined
+2025-07-13 10:48:47,809 - ERROR - local_save_image - error -> name 'app' is not defined
+2025-07-13 10:48:47,812 - INFO - inventory_add - New Item Added
+2025-07-13 10:48:47,812 - INFO - inventory_add - New Item Added
+2025-07-13 10:48:47,814 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 10:48:47] "[32mPOST /inventory_add HTTP/1.1[0m" 302 -
+2025-07-13 10:48:47,814 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 10:48:47] "[32mPOST /inventory_add HTTP/1.1[0m" 302 -
+2025-07-13 10:48:47,903 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 10:48:47] "GET /inventory HTTP/1.1" 200 -
+2025-07-13 10:48:47,903 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 10:48:47] "GET /inventory HTTP/1.1" 200 -
+2025-07-13 10:48:47,968 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 10:48:47] "[36mGET /static/inventory.css HTTP/1.1[0m" 304 -
+2025-07-13 10:48:47,968 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 10:48:47] "[36mGET /static/inventory.css HTTP/1.1[0m" 304 -
+2025-07-13 10:51:12,179 - INFO - _log -  * Detected change in '/home/ubuntu/projectsql/login_page/login_parameter.py', reloading
+2025-07-13 10:51:12,179 - INFO - _log -  * Detected change in '/home/ubuntu/projectsql/login_page/login_parameter.py', reloading
+2025-07-13 10:51:12,228 - INFO - _log -  * Restarting with stat
+2025-07-13 10:51:12,228 - INFO - _log -  * Restarting with stat
+2025-07-13 10:51:12,581 - WARNING - _log -  * Debugger is active!
+2025-07-13 10:51:12,581 - WARNING - _log -  * Debugger is active!
+2025-07-13 10:51:12,584 - INFO - _log -  * Debugger PIN: 493-211-654
+2025-07-13 10:51:12,584 - INFO - _log -  * Debugger PIN: 493-211-654
+2025-07-13 10:51:15,841 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 10:51:15] "GET /inven_add HTTP/1.1" 200 -
+2025-07-13 10:51:15,841 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 10:51:15] "GET /inven_add HTTP/1.1" 200 -
+2025-07-13 10:51:16,055 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 10:51:16] "[36mGET /static/inventory_add.css HTTP/1.1[0m" 304 -
+2025-07-13 10:51:16,055 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 10:51:16] "[36mGET /static/inventory_add.css HTTP/1.1[0m" 304 -
+2025-07-13 10:51:32,490 - ERROR - local_save_image - error -> name 'app' is not defined
+2025-07-13 10:51:32,490 - ERROR - local_save_image - error -> name 'app' is not defined
+2025-07-13 10:51:32,493 - INFO - inventory_add - New Item Added
+2025-07-13 10:51:32,493 - INFO - inventory_add - New Item Added
+2025-07-13 10:51:32,495 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 10:51:32] "[32mPOST /inventory_add HTTP/1.1[0m" 302 -
+2025-07-13 10:51:32,495 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 10:51:32] "[32mPOST /inventory_add HTTP/1.1[0m" 302 -
+2025-07-13 10:51:32,597 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 10:51:32] "GET /inventory HTTP/1.1" 200 -
+2025-07-13 10:51:32,597 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 10:51:32] "GET /inventory HTTP/1.1" 200 -
+2025-07-13 10:51:32,724 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 10:51:32] "[36mGET /static/inventory.css HTTP/1.1[0m" 304 -
+2025-07-13 10:51:32,724 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 10:51:32] "[36mGET /static/inventory.css HTTP/1.1[0m" 304 -
+2025-07-13 10:51:58,762 - INFO - _log -  * Detected change in '/home/ubuntu/projectsql/login_page/login_parameter.py', reloading
+2025-07-13 10:51:58,762 - INFO - _log -  * Detected change in '/home/ubuntu/projectsql/login_page/login_parameter.py', reloading
+2025-07-13 10:51:58,811 - INFO - _log -  * Restarting with stat
+2025-07-13 10:51:58,811 - INFO - _log -  * Restarting with stat
+2025-07-13 10:51:59,172 - WARNING - _log -  * Debugger is active!
+2025-07-13 10:51:59,172 - WARNING - _log -  * Debugger is active!
+2025-07-13 10:51:59,175 - INFO - _log -  * Debugger PIN: 493-211-654
+2025-07-13 10:51:59,175 - INFO - _log -  * Debugger PIN: 493-211-654
+2025-07-13 10:52:24,276 - INFO - _log -  * Detected change in '/home/ubuntu/projectsql/login_page/main.py', reloading
+2025-07-13 10:52:24,276 - INFO - _log -  * Detected change in '/home/ubuntu/projectsql/login_page/main.py', reloading
+2025-07-13 10:52:24,324 - INFO - _log -  * Restarting with stat
+2025-07-13 10:52:24,324 - INFO - _log -  * Restarting with stat
+2025-07-13 10:52:24,679 - WARNING - _log -  * Debugger is active!
+2025-07-13 10:52:24,679 - WARNING - _log -  * Debugger is active!
+2025-07-13 10:52:24,681 - INFO - _log -  * Debugger PIN: 493-211-654
+2025-07-13 10:52:24,681 - INFO - _log -  * Debugger PIN: 493-211-654
+2025-07-13 18:25:28,239 - INFO - _log - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.31.80.31:5000
+2025-07-13 18:25:28,239 - INFO - _log - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.31.80.31:5000
+2025-07-13 18:25:28,240 - INFO - _log - [33mPress CTRL+C to quit[0m
+2025-07-13 18:25:28,240 - INFO - _log - [33mPress CTRL+C to quit[0m
+2025-07-13 18:25:28,241 - INFO - _log -  * Restarting with stat
+2025-07-13 18:25:28,241 - INFO - _log -  * Restarting with stat
+2025-07-13 18:25:28,597 - WARNING - _log -  * Debugger is active!
+2025-07-13 18:25:28,597 - WARNING - _log -  * Debugger is active!
+2025-07-13 18:25:28,600 - INFO - _log -  * Debugger PIN: 732-821-404
+2025-07-13 18:25:28,600 - INFO - _log -  * Debugger PIN: 732-821-404
+2025-07-13 18:25:58,719 - INFO - _log -  * Detected change in '/home/ubuntu/projectsql/login_page/main.py', reloading
+2025-07-13 18:25:58,719 - INFO - _log -  * Detected change in '/home/ubuntu/projectsql/login_page/main.py', reloading
+2025-07-13 18:25:58,769 - INFO - _log -  * Restarting with stat
+2025-07-13 18:25:58,769 - INFO - _log -  * Restarting with stat
+2025-07-13 18:25:59,119 - WARNING - _log -  * Debugger is active!
+2025-07-13 18:25:59,119 - WARNING - _log -  * Debugger is active!
+2025-07-13 18:25:59,121 - INFO - _log -  * Debugger PIN: 732-821-404
+2025-07-13 18:25:59,121 - INFO - _log -  * Debugger PIN: 732-821-404
+2025-07-13 18:26:04,916 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 18:26:04] "GET / HTTP/1.1" 200 -
+2025-07-13 18:26:04,916 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 18:26:04] "GET / HTTP/1.1" 200 -
+2025-07-13 18:26:05,010 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 18:26:05] "[36mGET /static/bootstrap_login.css HTTP/1.1[0m" 304 -
+2025-07-13 18:26:05,010 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 18:26:05] "[36mGET /static/bootstrap_login.css HTTP/1.1[0m" 304 -
+2025-07-13 18:26:12,799 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 18:26:12] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-07-13 18:26:12,799 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 18:26:12] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-07-13 18:26:12,883 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 18:26:12] "GET /admin HTTP/1.1" 200 -
+2025-07-13 18:26:12,883 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 18:26:12] "GET /admin HTTP/1.1" 200 -
+2025-07-13 18:26:12,957 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 18:26:12] "[36mGET /static/table.css HTTP/1.1[0m" 304 -
+2025-07-13 18:26:12,957 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 18:26:12] "[36mGET /static/table.css HTTP/1.1[0m" 304 -
+2025-07-13 18:26:14,776 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 18:26:14] "[32mGET /inventory_details HTTP/1.1[0m" 302 -
+2025-07-13 18:26:14,776 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 18:26:14] "[32mGET /inventory_details HTTP/1.1[0m" 302 -
+2025-07-13 18:26:14,868 - ERROR - inventory - error -> 'tuple' object has no attribute 'get'
+2025-07-13 18:26:14,868 - ERROR - inventory - error -> 'tuple' object has no attribute 'get'
+2025-07-13 18:26:14,869 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 18:26:14] "GET /inventory HTTP/1.1" 200 -
+2025-07-13 18:26:14,869 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 18:26:14] "GET /inventory HTTP/1.1" 200 -
+2025-07-13 18:27:43,511 - INFO - _log -  * Detected change in '/home/ubuntu/projectsql/login_page/main.py', reloading
+2025-07-13 18:27:43,511 - INFO - _log -  * Detected change in '/home/ubuntu/projectsql/login_page/main.py', reloading
+2025-07-13 18:27:43,562 - INFO - _log -  * Restarting with stat
+2025-07-13 18:27:43,562 - INFO - _log -  * Restarting with stat
+2025-07-13 18:27:43,927 - WARNING - _log -  * Debugger is active!
+2025-07-13 18:27:43,927 - WARNING - _log -  * Debugger is active!
+2025-07-13 18:27:43,930 - INFO - _log -  * Debugger PIN: 732-821-404
+2025-07-13 18:27:43,930 - INFO - _log -  * Debugger PIN: 732-821-404
+2025-07-13 18:27:46,496 - ERROR - inventory - error -> 'tuple' object has no attribute 'get'
+2025-07-13 18:27:46,496 - ERROR - inventory - error -> 'tuple' object has no attribute 'get'
+2025-07-13 18:27:46,497 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 18:27:46] "GET /inventory HTTP/1.1" 200 -
+2025-07-13 18:27:46,497 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 18:27:46] "GET /inventory HTTP/1.1" 200 -
+2025-07-13 19:00:23,149 - INFO - _log -  * Detected change in '/home/ubuntu/projectsql/login_page/main.py', reloading
+2025-07-13 19:00:23,149 - INFO - _log -  * Detected change in '/home/ubuntu/projectsql/login_page/main.py', reloading
+2025-07-13 19:00:23,199 - INFO - _log -  * Restarting with stat
+2025-07-13 19:00:23,199 - INFO - _log -  * Restarting with stat
+2025-07-13 19:00:23,791 - WARNING - _log -  * Debugger is active!
+2025-07-13 19:00:23,791 - WARNING - _log -  * Debugger is active!
+2025-07-13 19:00:23,796 - INFO - _log -  * Debugger PIN: 732-821-404
+2025-07-13 19:00:23,796 - INFO - _log -  * Debugger PIN: 732-821-404
+2025-07-13 19:26:55,522 - INFO - _log -  * Detected change in '/home/ubuntu/projectsql/login_page/main.py', reloading
+2025-07-13 19:26:55,522 - INFO - _log -  * Detected change in '/home/ubuntu/projectsql/login_page/main.py', reloading
+2025-07-13 19:26:55,569 - INFO - _log -  * Restarting with stat
+2025-07-13 19:26:55,569 - INFO - _log -  * Restarting with stat
+2025-07-13 19:26:55,903 - WARNING - _log -  * Debugger is active!
+2025-07-13 19:26:55,903 - WARNING - _log -  * Debugger is active!
+2025-07-13 19:26:55,906 - INFO - _log -  * Debugger PIN: 732-821-404
+2025-07-13 19:26:55,906 - INFO - _log -  * Debugger PIN: 732-821-404
+2025-07-13 19:27:29,203 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 19:27:29] "GET / HTTP/1.1" 200 -
+2025-07-13 19:27:29,203 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 19:27:29] "GET / HTTP/1.1" 200 -
+2025-07-13 19:27:29,298 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 19:27:29] "[36mGET /static/bootstrap_login.css HTTP/1.1[0m" 304 -
+2025-07-13 19:27:29,298 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 19:27:29] "[36mGET /static/bootstrap_login.css HTTP/1.1[0m" 304 -
+2025-07-13 19:27:36,842 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 19:27:36] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-07-13 19:27:36,842 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 19:27:36] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-07-13 19:27:36,928 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 19:27:36] "GET /admin HTTP/1.1" 200 -
+2025-07-13 19:27:36,928 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 19:27:36] "GET /admin HTTP/1.1" 200 -
+2025-07-13 19:27:37,331 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 19:27:37] "[36mGET /static/table.css HTTP/1.1[0m" 304 -
+2025-07-13 19:27:37,331 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 19:27:37] "[36mGET /static/table.css HTTP/1.1[0m" 304 -
+2025-07-13 19:27:38,939 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 19:27:38] "[32mGET /inventory_details HTTP/1.1[0m" 302 -
+2025-07-13 19:27:38,939 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 19:27:38] "[32mGET /inventory_details HTTP/1.1[0m" 302 -
+2025-07-13 19:27:39,031 - ERROR - inventory - error -> 'Login' object has no attribute 'generate_presigned_get_url'
+2025-07-13 19:27:39,031 - ERROR - inventory - error -> 'Login' object has no attribute 'generate_presigned_get_url'
+2025-07-13 19:27:39,032 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 19:27:39] "GET /inventory HTTP/1.1" 200 -
+2025-07-13 19:27:39,032 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 19:27:39] "GET /inventory HTTP/1.1" 200 -
+2025-07-13 19:33:16,324 - INFO - _log -  * Detected change in '/home/ubuntu/projectsql/login_page/main.py', reloading
+2025-07-13 19:33:16,324 - INFO - _log -  * Detected change in '/home/ubuntu/projectsql/login_page/main.py', reloading
+2025-07-13 19:33:16,375 - INFO - _log -  * Restarting with stat
+2025-07-13 19:33:16,375 - INFO - _log -  * Restarting with stat
+2025-07-13 19:33:16,744 - WARNING - _log -  * Debugger is active!
+2025-07-13 19:33:16,744 - WARNING - _log -  * Debugger is active!
+2025-07-13 19:33:16,746 - INFO - _log -  * Debugger PIN: 732-821-404
+2025-07-13 19:33:16,746 - INFO - _log -  * Debugger PIN: 732-821-404
+2025-07-13 19:33:20,635 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 19:33:20] "GET /inventory HTTP/1.1" 200 -
+2025-07-13 19:33:20,635 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 19:33:20] "GET /inventory HTTP/1.1" 200 -
+2025-07-13 19:33:20,712 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 19:33:20] "[36mGET /static/inventory.css HTTP/1.1[0m" 304 -
+2025-07-13 19:33:20,712 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 19:33:20] "[36mGET /static/inventory.css HTTP/1.1[0m" 304 -
+2025-07-13 19:33:20,719 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 19:33:20] "[33mGET /[] HTTP/1.1[0m" 404 -
+2025-07-13 19:33:20,719 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 19:33:20] "[33mGET /[] HTTP/1.1[0m" 404 -
+2025-07-13 19:33:24,170 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 19:33:24] "GET /inventory?page=2 HTTP/1.1" 200 -
+2025-07-13 19:33:24,170 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 19:33:24] "GET /inventory?page=2 HTTP/1.1" 200 -
+2025-07-13 19:33:24,247 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 19:33:24] "[36mGET /static/inventory.css HTTP/1.1[0m" 304 -
+2025-07-13 19:33:24,247 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 19:33:24] "[36mGET /static/inventory.css HTTP/1.1[0m" 304 -
+2025-07-13 19:33:24,258 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 19:33:24] "[33mGET /[] HTTP/1.1[0m" 404 -
+2025-07-13 19:33:24,258 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 19:33:24] "[33mGET /[] HTTP/1.1[0m" 404 -
+2025-07-13 19:33:25,974 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 19:33:25] "[32mGET /delete_item/10 HTTP/1.1[0m" 302 -
+2025-07-13 19:33:25,974 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 19:33:25] "[32mGET /delete_item/10 HTTP/1.1[0m" 302 -
+2025-07-13 19:33:26,081 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 19:33:26] "GET /inventory HTTP/1.1" 200 -
+2025-07-13 19:33:26,081 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 19:33:26] "GET /inventory HTTP/1.1" 200 -
+2025-07-13 19:33:26,155 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 19:33:26] "[33mGET /[] HTTP/1.1[0m" 404 -
+2025-07-13 19:33:26,155 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 19:33:26] "[33mGET /[] HTTP/1.1[0m" 404 -
+2025-07-13 19:33:26,155 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 19:33:26] "[36mGET /static/inventory.css HTTP/1.1[0m" 304 -
+2025-07-13 19:33:26,155 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 19:33:26] "[36mGET /static/inventory.css HTTP/1.1[0m" 304 -
+2025-07-13 19:33:27,286 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 19:33:27] "[32mGET /delete_item/13 HTTP/1.1[0m" 302 -
+2025-07-13 19:33:27,286 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 19:33:27] "[32mGET /delete_item/13 HTTP/1.1[0m" 302 -
+2025-07-13 19:33:27,399 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 19:33:27] "GET /inventory HTTP/1.1" 200 -
+2025-07-13 19:33:27,399 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 19:33:27] "GET /inventory HTTP/1.1" 200 -
+2025-07-13 19:33:27,464 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 19:33:27] "[36mGET /static/inventory.css HTTP/1.1[0m" 304 -
+2025-07-13 19:33:27,464 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 19:33:27] "[36mGET /static/inventory.css HTTP/1.1[0m" 304 -
+2025-07-13 19:33:27,475 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 19:33:27] "[33mGET /[] HTTP/1.1[0m" 404 -
+2025-07-13 19:33:27,475 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 19:33:27] "[33mGET /[] HTTP/1.1[0m" 404 -
+2025-07-13 19:33:28,344 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 19:33:28] "[32mGET /delete_item/9 HTTP/1.1[0m" 302 -
+2025-07-13 19:33:28,344 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 19:33:28] "[32mGET /delete_item/9 HTTP/1.1[0m" 302 -
+2025-07-13 19:33:28,453 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 19:33:28] "GET /inventory HTTP/1.1" 200 -
+2025-07-13 19:33:28,453 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 19:33:28] "GET /inventory HTTP/1.1" 200 -
+2025-07-13 19:33:28,529 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 19:33:28] "[36mGET /static/inventory.css HTTP/1.1[0m" 304 -
+2025-07-13 19:33:28,529 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 19:33:28] "[36mGET /static/inventory.css HTTP/1.1[0m" 304 -
+2025-07-13 19:33:28,537 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 19:33:28] "[33mGET /[] HTTP/1.1[0m" 404 -
+2025-07-13 19:33:28,537 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 19:33:28] "[33mGET /[] HTTP/1.1[0m" 404 -
+2025-07-13 19:33:29,313 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 19:33:29] "GET /inven_add HTTP/1.1" 200 -
+2025-07-13 19:33:29,313 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 19:33:29] "GET /inven_add HTTP/1.1" 200 -
+2025-07-13 19:33:29,384 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 19:33:29] "[36mGET /static/inventory_add.css HTTP/1.1[0m" 304 -
+2025-07-13 19:33:29,384 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 19:33:29] "[36mGET /static/inventory_add.css HTTP/1.1[0m" 304 -
+2025-07-13 19:33:43,862 - ERROR - bucket_save_image - Error uploading to S3: name 'requests' is not defined
+2025-07-13 19:33:43,862 - ERROR - bucket_save_image - Error uploading to S3: name 'requests' is not defined
+2025-07-13 19:33:43,867 - INFO - inventory_add - New Item Added
+2025-07-13 19:33:43,867 - INFO - inventory_add - New Item Added
+2025-07-13 19:33:43,869 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 19:33:43] "[32mPOST /inventory_add HTTP/1.1[0m" 302 -
+2025-07-13 19:33:43,869 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 19:33:43] "[32mPOST /inventory_add HTTP/1.1[0m" 302 -
+2025-07-13 19:33:43,971 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 19:33:43] "GET /inventory HTTP/1.1" 200 -
+2025-07-13 19:33:43,971 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 19:33:43] "GET /inventory HTTP/1.1" 200 -
+2025-07-13 19:33:44,043 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 19:33:44] "[33mGET /[] HTTP/1.1[0m" 404 -
+2025-07-13 19:33:44,043 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 19:33:44] "[36mGET /static/inventory.css HTTP/1.1[0m" 304 -
+2025-07-13 19:33:44,043 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 19:33:44] "[33mGET /[] HTTP/1.1[0m" 404 -
+2025-07-13 19:33:44,043 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 19:33:44] "[36mGET /static/inventory.css HTTP/1.1[0m" 304 -
+2025-07-13 19:34:57,096 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 19:34:57] "GET /inventory HTTP/1.1" 200 -
+2025-07-13 19:34:57,096 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 19:34:57] "GET /inventory HTTP/1.1" 200 -
+2025-07-13 19:34:57,200 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 19:34:57] "[36mGET /static/inventory.css HTTP/1.1[0m" 304 -
+2025-07-13 19:34:57,200 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 19:34:57] "[36mGET /static/inventory.css HTTP/1.1[0m" 304 -
+2025-07-13 19:34:57,226 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 19:34:57] "[33mGET /[] HTTP/1.1[0m" 404 -
+2025-07-13 19:34:57,226 - INFO - _log - 223.178.85.12 - - [13/Jul/2025 19:34:57] "[33mGET /[] HTTP/1.1[0m" 404 -

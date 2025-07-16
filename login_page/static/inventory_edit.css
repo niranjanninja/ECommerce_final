@@ -5,3 +5,29 @@
 	margin-top:5px;
 	margin-bottom:5px;
 }
+.mb-3{
+	margin-left:12%;
+	padding-top :5px;
+}
+.description{
+	width:700px;
+	height:110px;
+	overflow-y: auto;
+}
+.img{
+	max-width:600px;
+}
+.container{
+	display:flex;
+	align-items:center;
+	gap: 4rem;
+}
+.box{
+	flex:1;
+}
+
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+

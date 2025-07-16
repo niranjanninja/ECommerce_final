@@ -10,6 +10,7 @@ class UserDb:
             self.curr=self.conn.cursor()
         else:
             print(self.db_connect['status'])
+###########################################    USER QUERRY   ########################################################
 
     def get_user_by_name_email(self,name,mail):
         querry=f"SELECT * from sign_up_page WHERE user_name = '{name}' AND mail_id = '{mail}'"
@@ -17,6 +18,13 @@ class UserDb:
         result=self.curr.fetchone()
         # print(result)
         return result
+
+    def get_user_by_mail(self,mail):
+        querry=f"SELECT * from sign_up_page where mail_id='{mail}'"
+        self.curr.execute(querry)
+        result=self.curr.fetchone()
+        # print(result[0])
+        return result[0]
 
     def get_user_by_name(self,name):
         querry=f"SELECT * FROM sign_up_page WHERE user_name = '{name}'"
@@ -126,15 +134,34 @@ class UserDb:
         self.curr.execute(querry)
         self.conn.commit()
 
+    def get_admin_detail(self,name):  
+        querry=f"SELECT * FROM sign_up_page WHERE user_name = '{name}'" 
+        self.curr.execute(querry) 
+        result=self.curr.fetchone()    
+        # print(type(result[5]))    
+        # print(result[5])     
+        return result[5]
+
+###########################################   INVENTORY QUERRY #########################################################
+
     def inventory_show(self):
         querry=f"SELECT * FROM inventory"
         self.curr.execute(querry)
         result=self.curr.fetchall()
         # print(result)
+        # print(type(result))
         return result
 
-    def inventory_add(self,product_id,product_name,description,quantity,price):
-        querry=f"INSERT INTO inventory (product_id,product_name,description,quantity,price) VALUES ('{product_id}','{product_name}','{description}','{quantity}','{price}')"
+    def inventory_add(self,product_name,description,quantity,price):
+        querry=f"INSERT INTO inventory (product_name,description,quantity,price) VALUES ('{product_name}','{description}','{quantity}','{price}') returning product_id"
+        self.curr.execute(querry)
+        product_id = self.curr.fetchone()[0]
+        self.conn.commit()
+        # print(product_id)
+        return product_id
+
+    def add_image_filename(self,product_id,image):
+        querry=f"UPDATE inventory SET image='{image}' WHERE product_id={product_id}"
         self.curr.execute(querry)
         self.conn.commit()
 
@@ -163,16 +190,139 @@ class UserDb:
         self.curr.execute(querry)
         self.conn.commit()
 
+    def inventory_edit_image(self,product_id,filename):
+        querry=f"UPDATE inventory SET image = '{filename}' WHERE product_id='{product_id}'"
+        self.curr.execute(querry)
+        self.conn.commit()
+
     def product_id_check(self,product_id):
         querry=f"SELECT * FROM inventory WHERE product_id='{product_id}'"
         self.curr.execute(querry)
         result=self.curr.fetchone()
+        # print(result[5])
+        return result
+
+    def get_admin_detail(self,name):
+        querry=f"SELECT * FROM sign_up_page WHERE user_name = '{name}'"
+        self.curr.execute(querry)
+        result=self.curr.fetchone()
+        # print(type(result[5]))
+        # print(result[5])
+        return result[5]
+
+    def inventory_by_id(self,product_id):
+        querry=f"SELECT * FROM inventory WHERE product_id = '{product_id}'"
+        self.curr.execute(querry)
+        result=self.curr.fetchall()
         # print(result)
-        # return result
+        return result
 
+    def inventory_by_name(self,product_name):
+        querry=f"SELECT * FROM inventory where product_name='{product_name}'"
+        self.curr.execute(querry)
+        result=self.curr.fetchall()
+        # print(result)
+        return result
 
+    def sort_inventory_id_desc(self):
+        querry=f"SELECT * FROM inventory ORDER BY product_id DESC"
+        self.curr.execute(querry)
+        result=self.curr.fetchall()
+        # print(result)
+        return result
+
+    def sort_inventory_id_asc(self):
+        querry=f"SELECT * FROM inventory ORDER BY product_id ASC"
+        self.curr.execute(querry)
+        result=self.curr.fetchall()
+        # print(result)
+        return result
+
+    def sort_inventory_name_asc(self):
+        querry=f"SELECT * FROM inventory ORDER BY product_name ASC"
+        self.curr.execute(querry)
+        result=self.curr.fetchall()
+        # print(result)
+        return result
+
+    def sort_inventory_name_desc(self):
+        querry=f"SELECT * FROM inventory ORDER BY product_name DESC"
+        self.curr.execute(querry)
+        result=self.curr.fetchall()
+        # print(result)
+        return result
+
+    def sort_inventory_quantity_asc(self):
+        querry=f"SELECT * FROM inventory ORDER BY quantity ASC"
+        self.curr.execute(querry)
+        result=self.curr.fetchall()
+        # print(result)
+        return result
+
+    def sort_inventory_quantity_desc(self):
+        querry=f"SELECT * FROM inventory ORDER BY quantity DESC"
+        self.curr.execute(querry)
+        result=self.curr.fetchall()
+        # print(result)
+        return result
+
+    def sort_inventory_price_asc(self):
+        querry=f"SELECT * FROM inventory ORDER BY price ASC"
+        self.curr.execute(querry)
+        result=self.curr.fetchall()
+        # print(result)
+        return result
+
+    def sort_inventory_price_desc(self):
+        querry=f"SELECT * FROM inventory ORDER BY price DESC"
+        self.curr.execute(querry)
+        result=self.curr.fetchall()
+        # print(result)
+        return result
+
+    def sort_user_name_asc(self):
+        querry=f"SELECT * FROM sign_up_page ORDER BY user_name asc"
+        self.curr.execute(querry)
+        result=self.curr.fetchall()
+        # print(result)
+        return result
+
+    def sort_user_name_desc(self):
+        querry=f"SELECT * FROM sign_up_page ORDER BY user_name DESC"
+        self.curr.execute(querry)
+        result=self.curr.fetchall()
+        # print(result)
+        return result
+
+    def sort_user_num_asc(self):
+        querry=f"SELECT * FROM sign_up_page ORDER BY phone_number ASC"
+        self.curr.execute(querry)
+        result=self.curr.fetchall()
+        # print(result)
+        return result
+
+    def sort_user_num_desc(self):
+        querry=f"SELECT * FROM sign_up_page ORDER BY phone_number DESC"
+        self.curr.execute(querry)
+        result=self.curr.fetchall()
+        # print(result)
+        return result
+
+    def sort_user_mail_asc(self):
+        querry=f"SELECT * FROM sign_up_page ORDER BY mail_id ASC"
+        self.curr.execute(querry)
+        result=self.curr.fetchall()
+        # print(result)
+        return result
+
+    def sort_user_mail_desc(self):
+        querry=f"SELECT * FROM sign_up_page ORDER BY mail_id DESC"
+        self.curr.execute(querry)
+        result=self.curr.fetchall()
+        # print(result)
+        return result
 # obj=UserDb()
-# obj.product_id_check(1)
+# obj.inventory_add('ninja','njiuhbnjh',22,432)
 # obj=UserDb()
 # obj.confirm_mail("test@gmail.com")
 # obj=UserDb()

@@ -1,0 +1,21 @@
+.mb-3{
+        margin-left:12%;
+        padding-top :15px;
+}
+.img{
+        max-width:600px;
+}
+.wrapper{
+        display:flex;
+        align-items:center;
+        gap: 4rem;
+}
+.box{
+        flex:1;
+}
+
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
