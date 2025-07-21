@@ -13,6 +13,7 @@
 						<a class="nav-link" href="{{url_for('home_page')}}">Home</a>
                                                 <a class="nav-link" href="{{url_for('inventory_details')}}">Inventory</a>
 						<a class="nav-link" href="{{url_for('hello_admin')}}">Customer Table</a>
+                                                <a class="nav-link" href="{{ url_for('logout') }}">Logout</a>
                                         </div>
                                 </div>
                         </div>
@@ -25,7 +26,7 @@
                 <div class="wrapper">
                         <div class="mb-3 img">
                                 {%if image%}
-                                <img src="https://webpage.image.upload.s3.amazonaws.com/{{ image }}" width="300px" height="500px" class="img-thumbnail image"> 
+                                <img src="{{image}}" width="300px" height="500px" class="img-thumbnail image"> 
                                 {%endif%}
                         </div>
                         <div class="box">

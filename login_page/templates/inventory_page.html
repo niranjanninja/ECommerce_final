@@ -12,6 +12,7 @@
 						<a class="nav-link" href="{{url_for('home_page')}}">Home</a>
 						<a class="nav-link" href="{{url_for('hello_admin')}}">Customer Table</a>
 						<a class="nav-link" href="{{url_for('inventory')}}">Inventory</a>
+                                                <a class="nav-link" href="{{ url_for('logout') }}">Logout</a>
 					</div>
 				</div>
 			</div>
@@ -67,7 +68,7 @@
 			<tr>
 				<td>{{i[0]}}</td> <td>{{i[1]}}</td> <td>{{i[3]}}</td><td>{{i[4]}}</td>
 				<td>
-				<img src="{{item[6]}}" width="100" class="img-thumbnail">
+				<img src="{{i[6]}}" width="100" class="img-thumbnail">
 				</td>
 				<td>
 					<a href="{{url_for('edit_inventory',product_id=i[0])}}"  class="btn btn-success edit"><i class="bi bi-pen"></i></a>

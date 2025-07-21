@@ -199,7 +199,7 @@ class UserDb:
         querry=f"SELECT * FROM inventory WHERE product_id='{product_id}'"
         self.curr.execute(querry)
         result=self.curr.fetchone()
-        # print(result[5])
+        # print(result)
         return result
 
     def get_admin_detail(self,name):
@@ -324,7 +324,7 @@ class UserDb:
 # obj=UserDb()
 # obj.inventory_add('ninja','njiuhbnjh',22,432)
 # obj=UserDb()
-# obj.confirm_mail("test@gmail.com")
+# obj.product_id_check("32")
 # obj=UserDb()
 # obj.get_number("8754826711")
 # obj=UserDb()

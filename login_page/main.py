@@ -3,7 +3,7 @@ from flask_mail import Mail, Message
 import bcrypt
 from libs.UserDb import UserDb
 from itsdangerous import URLSafeTimedSerializer,SignatureExpired
-from login_parameter import Login
+from login_parameter import Login,Image_upload
 from configparser import ConfigParser
 from phonenumbers import COUNTRY_CODE_TO_REGION_CODE
 import logging
@@ -18,10 +18,10 @@ from pathlib import Path
 from datetime import timedelta
 
 logger=logging.getLogger()
-logger.setLevel(logging.INFO)
+logger.setLevel(logging.DEBUG)
 log_filename = datetime.now().strftime("logs/%d-%m-%Y.log")
 handler=TimedRotatingFileHandler(filename = log_filename,when = "midnight", interval = 1 , backupCount = 7)
-handler.setLevel(logging.INFO)
+handler.setLevel(logging.DEBUG)
 formatter=logging.Formatter('%(asctime)s - %(levelname)s - %(funcName)s - %(message)s')
 handler.setFormatter(formatter)
 logger.addHandler(handler)
@@ -141,6 +141,7 @@ def sign_up_page_index():
                 return render_template("bootstrap_login.html", mail_send=mail_send,)
     except Exception as e:
         logger.error(f"error ->{e}")
+        logger.debug("Full traceback below:", exc_info=True)
         return f"Something went wrong"
 
 @app.route('/confirm_mail/<token>')
@@ -191,6 +192,7 @@ def reset_pass():
                 return render_template("bootstrap_login.html",pass_update=pass_update)
     except Exception as e:
         logger.error(f"error -> {e}")
+        logger.debug("Full traceback below:", exc_info=True)
         return f"Something went wrong"
 
 
@@ -230,6 +232,7 @@ def result_store():
                 return render_template("bootstrap_login.html",error2=error2)
     except Exception as e:
         logger.error(f"error -> {e}")
+        logger.debug("Full traceback below:", exc_info=True)
         return f"Something went wrong"
 
 @app.route('/logout')
@@ -252,8 +255,10 @@ def hello_admin():
             return redirect(url_for('index'))
         else:
             obj=UserDb()
+            obj2=Login()
             search=request.args.get('search')
             sort=request.args.get('sort')
+            page=request.args.get('page',1,type=int)
             if search:
                 search_num=obj.check_user_by_number(search)
                 search_name=obj.check_user_by_name(search)
@@ -267,60 +272,8 @@ def hello_admin():
                 item_on_page=search_name_mail_num[start:end]
                 return render_template("table.html",length=len(search_name_mail_num),item_on_page=item_on_page,total_page=total_page,page=page)
             if sort:
-                if sort=='username_asc':
-                    username_asc=obj.sort_user_name_asc()
-                    page=request.args.get('page',1,type=int)
-                    per_page=13
-                    start=(page -1) * per_page
-                    end=start+per_page
-                    total_page=(len(username_asc)+per_page-1) // per_page
-                    item_on_page=username_asc[start:end]
-                    return render_template("table.html",length=len(username_asc),item_on_page=item_on_page,total_page=total_page,page=page)
-                elif sort=='username_desc':
-                    username_desc=obj.sort_user_name_desc()
-                    page=request.args.get('page',1,type=int)
-                    per_page=13
-                    start=(page -1) * per_page
-                    end=start+per_page
-                    total_page=(len(username_desc)+per_page-1) // per_page
-                    item_on_page=username_desc[start:end]
-                    return render_template("table.html",length=len(username_desc),item_on_page=item_on_page,total_page=total_page,page=page)
-                elif sort=='usernumber_asc':
-                    usernumber_asc=obj.sort_user_num_asc()
-                    page=request.args.get('page',1,type=int)
-                    per_page=13
-                    start=(page -1) * per_page
-                    end=start+per_page
-                    total_page=(len(usernumber_asc)+per_page-1) // per_page
-                    item_on_page=usernumber_asc[start:end]
-                    return render_template("table.html",length=len(usernumber_asc),item_on_page=item_on_page,total_page=total_page,page=page)
-                elif sort=='usernumber_desc':
-                    usernumber_desc=obj.sort_user_num_desc()
-                    page=request.args.get('page',1,type=int)
-                    per_page=13
-                    start=(page -1) * per_page
-                    end=start+per_page
-                    total_page=(len(usernumber_desc)+per_page-1) // per_page
-                    item_on_page=usernumber_desc[start:end]
-                    return render_template("table.html",length=len(usernumber_desc),item_on_page=item_on_page,total_page=total_page,page=page)
-                elif sort=='mailid_asc':
-                    mailid_asc=obj.sort_user_mail_asc()
-                    page=request.args.get('page',1,type=int)
-                    per_page=13
-                    start=(page -1) * per_page
-                    end=start+per_page
-                    total_page=(len(mailid_asc)+per_page-1) // per_page
-                    item_on_page=mailid_asc[start:end]
-                    return render_template("table.html",length=len(mailid_asc),item_on_page=item_on_page,total_page=total_page,page=page)
-                elif sort=='mailid_desc':
-                    mailid_desc=obj.sort_user_mail_desc()
-                    page=request.args.get('page',1,type=int)
-                    per_page=13
-                    start=(page -1) * per_page
-                    end=start+per_page
-                    total_page=(len(mailid_desc)+per_page-1) // per_page
-                    item_on_page=mailid_desc[start:end]
-                    return render_template("table.html",length=len(mailid_desc),item_on_page=item_on_page,total_page=total_page,page=page)
+                sort=obj2.admin_sort(sort,page)
+                return render_template("table.html",length=sort[0],item_on_page=sort[1],total_page=sort[2],page=page)
             else:
                 store=obj.fetch()
                 page=request.args.get('page',1,type=int)
@@ -332,6 +285,7 @@ def hello_admin():
                 return render_template("table.html",length=len(store),item_on_page=item_on_page,total_page=total_page,page=page)
     except Exception as e:
         logger.error(f"error -> {e}")
+        logger.debug("Full traceback below:", exc_info=True)
         return f"Something went wrong"
 
 @app.route('/inventory_details')
@@ -348,7 +302,8 @@ def inventory():
             return redirect(url_for('index'))
         else:
             obj=UserDb()
-            obj3=Login()
+            obj2=Login()
+            obj3=Image_upload()
             if request.method=="POST":
                 product_id=request.form.get("product_id")
                 check=obj3.inventory_delete(product_id)
@@ -363,158 +318,13 @@ def inventory():
             if request.method=="GET":
                 search=request.args.get("search")
                 sort=request.args.get("sort")
+                page=request.args.get('page',1,type=int)
                 if search:
-                    if search.isdigit():
-                        search_id=obj.inventory_by_id(search)
-                        page=request.args.get('page',1,type=int)
-                        per_page=4
-                        start=(page -1) * per_page
-                        end=start+per_page
-                        total_page=(len(search_id)+per_page-1) // per_page
-                        item_on_page=search_id[start:end]
-                        item_on_page=list(item)
-                        for item in item_on_page:
-                            filename=item[5]
-                            url=obj3.display_from_s3(filename)
-                            item.append(url)
-                        # print(item_on_page)
-                        return render_template("inventory_page.html",length=len(search_id),item_on_page=item_on_page,total_page=total_page,page=page)
-                    elif search:
-                        search_name=obj.inventory_by_name(search)
-                        page=request.args.get('page',1,type=int)
-                        per_page=4
-                        start=(page -1) * per_page
-                        end=start+per_page
-                        total_page=(len(search_name)+per_page-1) // per_page
-                        item_on_page=search_name[start:end]
-                        item_on_page=list(item)
-                        for item in item_on_page:
-                            filename=item[5]
-                            url=obj3.display_from_s3(filename)
-                            item.append(url)
-                        # print(item_on_page)
-                        return render_template("inventory_page.html",length=len(search_name),item_on_page=item_on_page,total_page=total_page,page=page)
+                    search=obj2.inventory_search(search,page)
+                    return render_template("inventory_page.html",length=search[0],item_on_page=search[1],total_page=search[2],page=page)
                 if sort:
-                    if sort=='id_asc':
-                        id_asc=obj.sort_inventory_id_asc()
-                        page=request.args.get('page',1,type=int)
-                        per_page=4
-                        start=(page -1) * per_page
-                        end=start+per_page
-                        total_page=(len(id_asc)+per_page-1) // per_page
-                        item_on_page=id_asc[start:end]
-                        item_on_page=list(item)
-                        for item in item_on_page:
-                            filename=item[5]
-                            url=obj3.display_from_s3(filename)
-                            item.append(url)
-                        # print(item_on_page)
-                        return render_template("inventory_page.html",length=len(id_asc),item_on_page=item_on_page,total_page=total_page,page=page)
-                    elif sort=='id_desc':
-                        id_desc=obj.sort_inventory_id_desc()
-                        page=request.args.get('page',1,type=int)
-                        per_page=4
-                        start=(page -1) * per_page
-                        end=start+per_page
-                        total_page=(len(id_desc)+per_page-1) // per_page
-                        item_on_page=id_desc[start:end]
-                        item_on_page=list(item)
-                        for item in item_on_page:
-                            filename=item[5]
-                            url=obj3.display_from_s3(filename)
-                            item.append(url)
-                        # print(item_on_page)
-                        return render_template("inventory_page.html",length=len(id_desc),item_on_page=item_on_page,total_page=total_page,page=page)
-                    elif sort=='name_asc':
-                        name_asc=obj.sort_inventory_name_asc()
-                        page=request.args.get('page',1,type=int)
-                        per_page=4
-                        start=(page -1) * per_page
-                        end=start+per_page
-                        total_page=(len(name_asc)+per_page-1) // per_page
-                        item_on_page=name_asc[start:end]
-                        item_on_page=list(item)
-                        for item in item_on_page:
-                            filename=item[5]
-                            url=obj3.display_from_s3(filename)
-                            item.append(url)
-                        # print(item_on_page)
-                        return render_template("inventory_page.html",length=len(name_asc),item_on_page=item_on_page,total_page=total_page,page=page)
-                    elif sort=='name_desc':
-                        name_desc=obj.sort_inventory_name_desc()
-                        page=request.args.get('page',1,type=int)
-                        per_page=4
-                        start=(page -1) * per_page
-                        end=start+per_page
-                        total_page=(len(name_desc)+per_page-1) // per_page
-                        item_on_page=name_desc[start:end]
-                        item_on_page=list(item)
-                        for item in item_on_page:
-                            filename=item[5]
-                            url=obj3.display_from_s3(filename)
-                            item.append(url)
-                        # print(item_on_page)
-                        return render_template("inventory_page.html",length=len(name_desc),item_on_page=item_on_page,total_page=total_page,page=page)
-                    elif sort=='quantity_asc':
-                        quantity_asc=obj.sort_inventory_quantity_asc()
-                        page=request.args.get('page',1,type=int)
-                        per_page=4
-                        start=(page -1) * per_page
-                        end=start+per_page
-                        total_page=(len(quantity_asc)+per_page-1) // per_page
-                        item_on_page=quantity_asc[start:end]
-                        item_on_page=list(item)
-                        for item in item_on_page:
-                            filename=item[5]
-                            url=obj3.display_from_s3(filename)
-                            item.append(url)
-                        # print(item_on_page)
-                        return render_template("inventory_page.html",length=len(quantity_asc),item_on_page=item_on_page,total_page=total_page,page=page)
-                    elif sort=='quantity_desc':
-                        quantity_desc=obj.sort_inventory_quantity_desc()
-                        page=request.args.get('page',1,type=int)
-                        per_page=4
-                        start=(page -1) * per_page
-                        end=start+per_page
-                        total_page=(len(quantity_desc)+per_page-1) // per_page
-                        item_on_page=quantity_desc[start:end]
-                        item_on_page=list(item)
-                        for item in item_on_page:
-                            filename=item[5]
-                            url=obj3.display_from_s3(filename)
-                            item.append(url)
-                        # print(item_on_page)
-                        return render_template("inventory_page.html",length=len(quantity_desc),item_on_page=item_on_page,total_page=total_page,page=page)
-                    elif sort=='price_asc':
-                        price_asc=obj.sort_inventory_price_asc()
-                        page=request.args.get('page',1,type=int)
-                        per_page=4
-                        start=(page -1) * per_page
-                        end=start+per_page
-                        total_page=(len(price_asc)+per_page-1) // per_page
-                        item_on_page=price_asc[start:end]
-                        item_on_page=list(item)
-                        for item in item_on_page:
-                            filename=item[5]
-                            url=obj3.display_from_s3(filename)
-                            item.append(url)
-                        # print(item_on_page)
-                        return render_template("inventory_page.html",length=len(price_asc),item_on_page=item_on_page,total_page=total_page,page=page)
-                    elif sort=='price_desc':
-                        price_desc=obj.sort_inventory_price_desc()
-                        page=request.args.get('page',1,type=int)
-                        per_page=4
-                        start=(page -1) * per_page
-                        end=start+per_page
-                        total_page=(len(price_desc)+per_page-1) // per_page
-                        item_on_page=price_desc[start:end]
-                        item_on_page=list(item)
-                        for item in item_on_page:
-                            filename=item[5]
-                            url=obj3.display_from_s3(filename)
-                            item.append(url)
-                        # print(item_on_page)
-                        return render_template("inventory_page.html",length=len(price_desc),item_on_page=item_on_page,total_page=total_page,page=page)
+                    sort=obj2.inventory_sort(sort,page)
+                    return render_template("inventory_page.html",length=sort[0],item_on_page=sort[1],total_page=sort[2],page=page)
                 else:
                     store=obj.inventory_show()
                     page=request.args.get('page',1,type=int)
@@ -523,15 +333,28 @@ def inventory():
                     end=start+per_page
                     total_page=(len(store)+per_page-1) // per_page
                     item_on_page=store[start:end]
-                    item_on_page=list(item)
-                    for item in item_on_page:
-                        filename=item[5]
-                        url=obj3.display_from_s3(filename)
-                        item.append(url)
+                    item_on_page=list(item_on_page)
                     # print(item_on_page)
-                    return render_template("inventory_page.html",length=len(store),item_on_page=item_on_page,total_page=total_page,page=page)
+                    empty_list=[]
+                    for item in item_on_page:
+                        item=list(item)
+                        # print(type(item))
+                        # print(item)
+                        filename=item[5]
+                        # print(filename)
+                        # print(f"This is filename ->{filename}")
+                        url=obj3.display_from_s3(filename)
+                        # print(f"This is url -> {url}")
+                        # item=list(item)
+                        item.append(url)
+                        empty_list.append(item)
+                        # print(f"this is item -> {item}")
+                    # print(f"Empty list -> {empty_list}")
+                    # print(empty_list)
+                    return render_template("inventory_page.html",length=len(store),item_on_page=empty_list,total_page=total_page,page=page,url=url)
     except Exception as e:
         logger.error(f"error -> {e}")
+        logger.debug("Full traceback below:", exc_info=True)
         return f"Something went wrong {e}"
 
 @app.route('/inven_add')
@@ -549,6 +372,7 @@ def inventory_add():
         else:
             obj=UserDb()
             obj2=Login()
+            obj3=Image_upload()
             if request.method=="POST":
                 product_name=request.form.get("product_name")
                 description=request.form.get("description")
@@ -572,7 +396,7 @@ def inventory_add():
                 if file and allowed_file(file.filename):
                     # # Path(app.config['UPLOAD_FOLDER']).mkdir(parents=True, exist_ok=True)
                     # filename = f"images/product_id{product_id}.jpg"
-                    filename=obj2.bucket_save_image(file,product_id)
+                    filename=obj3.bucket_save_image(file,product_id)
                     # s3 = boto3.resource("s3")
                     # bucket_name="webpage.image.upload"
                     # s3.Bucket(bucket_name).upload_fileobj(file,filename)
@@ -588,10 +412,12 @@ def inventory_add():
     except RequestEntityTooLarge:
         flash("File too large. Max size is 1MB.", "danger")
         logger.error("File too large. Max size is 1MB.")
+        logger.debug("Full traceback below:", exc_info=True)
         return redirect(url_for('inven_add'))
     except Exception as e:
         flash(f"Enter correct details","danger")
         logger.error(f"error -> {e}")
+        logger.debug("Full traceback below:", exc_info=True)
         return redirect(url_for('inven_add'))
 
 @app.route('/edit_inventory/<product_id>')
@@ -601,12 +427,15 @@ def edit_inventory(product_id):
             return redirect(url_for('index'))
         else:
             obj = UserDb()
+            obj2=Image_upload()
             result = obj.product_id_check(product_id)
             if result:
-                return render_template("inventory_edit.html",product_id=result[0],product_name=result[1],description=result[2],quantity=result[3],price=result[4],image=result[5])
-            return render_template("inventory_edit.html",image=image)
+                url=obj2.display_from_s3(result[5])
+                return render_template("inventory_edit.html",product_id=result[0],product_name=result[1],description=result[2],quantity=result[3],price=result[4],url=url)
+            return render_template("inventory_edit.html",url=url)
     except Exception as e:
         logger.error(f"error -> {e}")
+        logger.debug("Full traceback below:", exc_info=True)
         # return f"Something went wrong"
         return redirect(url_for('inventory'))
 
@@ -637,12 +466,15 @@ def view_item(product_id):
             return redirect(url_for('index'))
         else:
             obj = UserDb()
+            obj2=Image_upload()
             result = obj.product_id_check(product_id)
             if result:
-                return render_template("view_products.html",product_id=result[0],product_name=result[1],description=result[2],quantity=result[3],price=result[4],image=result[5])
+                url=obj2.display_from_s3(result[5])
+                return render_template("view_products.html",product_id=result[0],product_name=result[1],description=result[2],quantity=result[3],price=result[4],image=url)
             return render_template("view_products.html",image=image)
     except Exception as e:
         logger.error(f"error -> {e}")
+        logger.debug("Full traceback below:", exc_info=True)
         return redirect(url_for('inventory'))
 
 @app.route('/inventory_edit', methods=["POST"])
@@ -691,6 +523,7 @@ def inventory_edit():
     except Exception as e:
         flash("Check and enter correct details","danger")
         logger.error(f"error -> {e}")
+        logger.debug("Full traceback below:", exc_info=True)
         return redirect(url_for('edit_inventory',product_id=product_id))
 
 if __name__ == '__main__':

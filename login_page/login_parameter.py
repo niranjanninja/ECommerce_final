@@ -159,13 +159,189 @@ class Login:
         except Exception as e:
             logger.error(f"Something went wrong -> {e} ")
 
+    def local_save_image(self,file,product_id):
+        try:
+            UPLOAD_FOLDER = 'static/uploads'
+            app.config['MAX_CONTENT_LENGTH']=1024*1024
+            app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+            filename=f"product_id{product_id}.jpg"
+            Path(app.config['UPLOAD_FOLDER']).mkdir(parents=True, exist_ok=True)
+            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            return filename
+        except Exception as e:
+            logger.error(f"error -> {e}")
+
+    def inventory_search(self,search,page):
+        try:
+            obj=UserDb()
+            if search.isdigit():
+                search_id=obj.inventory_by_id(search)
+                per_page=4
+                start=(page -1) * per_page
+                end=start+per_page
+                total_page=(len(search_id)+per_page-1) // per_page
+                item_on_page=search_id[start:end]
+                # print(len(search_name),item_on_page,total_page)
+                # print(item_on_page)
+                return [len(search_id),item_on_page,total_page]
+            elif search:
+                search_name=obj.inventory_by_name(search)
+                per_page=4
+                start=(page -1) * per_page
+                end=start+per_page
+                total_page=(len(search_name)+per_page-1) // per_page
+                item_on_page=search_name[start:end]
+                print([len(search_name),item_on_page,total_page])
+                # print(item_on_page)
+                return [len(search_name),item_on_page,total_page]
+        except Exception as e:
+            print(f"Error -> {e}")
+
+    def admin_sort(self,sort,page):
+        try:
+            obj=UserDb()
+            if sort=='username_asc':
+                username_asc=obj.sort_user_name_asc()
+                per_page=13
+                start=(page -1) * per_page
+                end=start+per_page
+                total_page=(len(username_asc)+per_page-1) // per_page
+                item_on_page=username_asc[start:end]
+                return [len(username_asc),item_on_page,total_page]
+            elif sort=='username_desc':
+                username_desc=obj.sort_user_name_desc()
+                per_page=13
+                start=(page -1) * per_page
+                end=start+per_page
+                total_page=(len(username_desc)+per_page-1) // per_page
+                item_on_page=username_desc[start:end]
+                return [len(username_desc),item_on_page,total_page]
+            elif sort=='usernumber_asc':
+                usernumber_asc=obj.sort_user_num_asc()
+                per_page=13
+                start=(page -1) * per_page
+                end=start+per_page
+                total_page=(len(usernumber_asc)+per_page-1) // per_page
+                item_on_page=usernumber_asc[start:end]
+                return [len(usernumber_asc),item_on_page,total_page]
+            elif sort=='usernumber_desc':
+                usernumber_desc=obj.sort_user_num_desc()
+                per_page=13
+                start=(page -1) * per_page
+                end=start+per_page
+                total_page=(len(usernumber_desc)+per_page-1) // per_page
+                item_on_page=usernumber_desc[start:end]
+                return [len(usernumber_desc),item_on_page,total_page]
+            elif sort=='mailid_asc':
+                mailid_asc=obj.sort_user_mail_asc()
+                per_page=13
+                start=(page -1) * per_page
+                end=start+per_page
+                total_page=(len(mailid_asc)+per_page-1) // per_page
+                item_on_page=mailid_asc[start:end]
+                return [len(mailid_asc),item_on_page,total_page]
+            elif sort=='mailid_desc':
+                mailid_desc=obj.sort_user_mail_desc()
+                per_page=13
+                start=(page -1) * per_page
+                end=start+per_page
+                total_page=(len(mailid_desc)+per_page-1) // per_page
+                item_on_page=mailid_desc[start:end]
+                return [len(mailid_desc),item_on_page,total_page]
+        except Exception as e:
+            print(f"Error -> {e}")
+
+    def inventory_sort(self,sort,page):
+        try:
+            obj=UserDb()
+            if sort=='id_asc':
+                id_asc=obj.sort_inventory_id_asc()
+                per_page=4
+                start=(page -1) * per_page
+                end=start+per_page
+                total_page=(len(id_asc)+per_page-1) // per_page
+                item_on_page=id_asc[start:end]
+                # print([len(id_asc),item_on_page,total_page])
+                return [len(id_asc),item_on_page,total_page]
+            elif sort=='id_desc':
+                id_desc=obj.sort_inventory_id_desc()
+                per_page=4
+                start=(page -1) * per_page
+                end=start+per_page
+                total_page=(len(id_desc)+per_page-1) // per_page
+                item_on_page=id_desc[start:end]
+                # print([len(id_desc),item_on_page,total_page])
+                return [len(id_desc),item_on_page,total_page]
+            elif sort=='name_asc':
+                name_asc=obj.sort_inventory_name_asc()
+                per_page=4
+                start=(page -1) * per_page
+                end=start+per_page
+                total_page=(len(name_asc)+per_page-1) // per_page
+                item_on_page=name_asc[start:end]
+                # print([len(name_asc),item_on_page,total_page])
+                return [len(name_asc),item_on_page,total_page]
+            elif sort=='name_desc':
+                name_desc=obj.sort_inventory_name_desc()
+                per_page=4
+                start=(page -1) * per_page
+                end=start+per_page
+                total_page=(len(name_desc)+per_page-1) // per_page
+                item_on_page=name_desc[start:end]
+                # print([len(name_desc),item_on_page,total_page])
+                return [len(name_desc),item_on_page,total_page]
+            elif sort=='quantity_asc':
+                quantity_asc=obj.sort_inventory_quantity_asc()
+                per_page=4
+                start=(page -1) * per_page
+                end=start+per_page
+                total_page=(len(quantity_asc)+per_page-1) // per_page
+                item_on_page=quantity_asc[start:end]
+                # print([len(quantity_asc),item_on_page,total_page])
+                return [len(quantity_asc),item_on_page,total_page]
+            elif sort=='quantity_desc':
+                quantity_desc=obj.sort_inventory_quantity_desc()
+                per_page=4
+                start=(page -1) * per_page
+                end=start+per_page
+                total_page=(len(quantity_desc)+per_page-1) // per_page
+                item_on_page=quantity_desc[start:end]
+                # print([len(quantity_desc),item_on_page,total_page])
+                return [len(quantity_desc),item_on_page,total_page]
+            elif sort=='price_asc':
+                price_asc=obj.sort_inventory_price_asc()
+                per_page=4
+                start=(page -1) * per_page
+                end=start+per_page
+                total_page=(len(price_asc)+per_page-1) // per_page
+                item_on_page=price_asc[start:end]
+                # print([len(price_asc),item_on_page,total_page])
+                return [len(price_asc),item_on_page,total_page]
+            elif sort=='price_desc':
+                price_desc=obj.sort_inventory_price_desc()
+                per_page=4
+                start=(page -1) * per_page
+                end=start+per_page
+                total_page=(len(price_desc)+per_page-1) // per_page
+                item_on_page=price_desc[start:end]
+                # print([len(price_desc),item_on_page,total_page])
+                return [len(price_desc),item_on_page,total_page]
+        
+        except Exception as e:
+            print(f"Error -> {e}")
+
+class Image_upload:
+    # def __init__(self):
+    #     self.user_db_obj = UserDb()
+
+    
     def bucket_save_image(self,file,product_id):
         try:
             s3 = boto3.client('s3',
-                                     aws_access_key_id=config['AWS']['aws_access_key_id'],
-                                     aws_secret_access_key=config['AWS']['aws_secret_access_key'],
-                                     region_name=config['AWS']['region_name']
-                                     )
+                              aws_access_key_id=config['AWS']['aws_access_key_id'],
+                              aws_secret_access_key=config['AWS']['aws_secret_access_key'],
+                              region_name=config['AWS']['region_name']
+                              )
             bucket_name = "webpage.image.upload"
             filename = f"images/product_id{product_id}.jpg"
             # print("Uploading")
@@ -179,39 +355,26 @@ class Login:
 
     def display_from_s3(self,filename):
         try:
-            s3 = boto3.client(
-                    's3',
-                    aws_access_key_id=config['AWS']['aws_access_key_id'],
-                    aws_secret_access_key=config['AWS']['aws_secret_access_key'],
-                    region_name=config['AWS']['region_name'])
-
+            s3 = boto3.client('s3',
+                              aws_access_key_id=config['AWS']['aws_access_key_id'],
+                              aws_secret_access_key=config['AWS']['aws_secret_access_key'],
+                              region_name=config['AWS']['region_name'])
             url = s3.generate_presigned_url(
                     'get_object',
                     Params={'Bucket': 'webpage.image.upload', 'Key': filename},
                     ExpiresIn=600)
+            # print(url)
             return url
 
         except Exception as e:
             logger.error(f"Error generating presigned GET URL: {e}")
             return None
 
-
-    def local_save_image(self,file,product_id):
-        try:
-            UPLOAD_FOLDER = 'static/uploads'
-            app.config['MAX_CONTENT_LENGTH']=1024*1024
-            app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-            filename=f"product_id{product_id}.jpg"
-            Path(app.config['UPLOAD_FOLDER']).mkdir(parents=True, exist_ok=True)
-            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            return filename
-        except Exception as e:
-            logger.error(f"error -> {e}")
-
-
+# obj2=Image_upload()
+# obj2.display_from_s3("images/product_id40.jpg")
 
 # obj=Login()
-# obj.inventory_delete("3")
+# obj.inventory_sort("price_desc",1)
 # obj=Login()
 # obj.reset_password_details("Niranjan","ninja@gmail.com","niranjanninja","niranjanninja")
 # obj=Login()

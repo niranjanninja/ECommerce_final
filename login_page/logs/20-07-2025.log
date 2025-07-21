@@ -1,0 +1,1244 @@
+2025-07-20 17:48:45,846 - INFO - _log - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.31.80.31:5000
+2025-07-20 17:48:45,846 - INFO - _log - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.31.80.31:5000
+2025-07-20 17:48:45,846 - INFO - _log - [33mPress CTRL+C to quit[0m
+2025-07-20 17:48:45,846 - INFO - _log - [33mPress CTRL+C to quit[0m
+2025-07-20 17:48:45,848 - INFO - _log -  * Restarting with stat
+2025-07-20 17:48:45,848 - INFO - _log -  * Restarting with stat
+2025-07-20 17:48:46,195 - WARNING - _log -  * Debugger is active!
+2025-07-20 17:48:46,195 - WARNING - _log -  * Debugger is active!
+2025-07-20 17:48:46,198 - INFO - _log -  * Debugger PIN: 778-342-212
+2025-07-20 17:48:46,198 - INFO - _log -  * Debugger PIN: 778-342-212
+2025-07-20 17:48:48,996 - INFO - _log - 223.178.86.200 - - [20/Jul/2025 17:48:48] "[32mGET /inventory HTTP/1.1[0m" 302 -
+2025-07-20 17:48:48,996 - INFO - _log - 223.178.86.200 - - [20/Jul/2025 17:48:48] "[32mGET /inventory HTTP/1.1[0m" 302 -
+2025-07-20 17:48:49,066 - INFO - _log - 223.178.86.200 - - [20/Jul/2025 17:48:49] "GET / HTTP/1.1" 200 -
+2025-07-20 17:48:49,066 - INFO - _log - 223.178.86.200 - - [20/Jul/2025 17:48:49] "GET / HTTP/1.1" 200 -
+2025-07-20 17:48:49,164 - INFO - _log - 223.178.86.200 - - [20/Jul/2025 17:48:49] "[36mGET /static/bootstrap_login.css HTTP/1.1[0m" 304 -
+2025-07-20 17:48:49,164 - INFO - _log - 223.178.86.200 - - [20/Jul/2025 17:48:49] "[36mGET /static/bootstrap_login.css HTTP/1.1[0m" 304 -
+2025-07-20 17:48:49,297 - INFO - _log - 223.178.86.200 - - [20/Jul/2025 17:48:49] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-20 17:48:49,297 - INFO - _log - 223.178.86.200 - - [20/Jul/2025 17:48:49] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-20 17:48:51,039 - INFO - _log - 223.178.86.200 - - [20/Jul/2025 17:48:51] "GET /reset HTTP/1.1" 200 -
+2025-07-20 17:48:51,039 - INFO - _log - 223.178.86.200 - - [20/Jul/2025 17:48:51] "GET /reset HTTP/1.1" 200 -
+2025-07-20 17:48:51,110 - INFO - _log - 223.178.86.200 - - [20/Jul/2025 17:48:51] "[33mGET /static/bootstrap_forget_pass_details.css HTTP/1.1[0m" 404 -
+2025-07-20 17:48:51,110 - INFO - _log - 223.178.86.200 - - [20/Jul/2025 17:48:51] "[33mGET /static/bootstrap_forget_pass_details.css HTTP/1.1[0m" 404 -
+2025-07-20 17:48:57,866 - INFO - _log - 223.178.86.200 - - [20/Jul/2025 17:48:57] "GET / HTTP/1.1" 200 -
+2025-07-20 17:48:57,866 - INFO - _log - 223.178.86.200 - - [20/Jul/2025 17:48:57] "GET / HTTP/1.1" 200 -
+2025-07-20 17:48:57,941 - INFO - _log - 223.178.86.200 - - [20/Jul/2025 17:48:57] "[36mGET /static/bootstrap_login.css HTTP/1.1[0m" 304 -
+2025-07-20 17:48:57,941 - INFO - _log - 223.178.86.200 - - [20/Jul/2025 17:48:57] "[36mGET /static/bootstrap_login.css HTTP/1.1[0m" 304 -
+2025-07-20 17:48:59,341 - INFO - _log - 223.178.86.200 - - [20/Jul/2025 17:48:59] "GET /reset HTTP/1.1" 200 -
+2025-07-20 17:48:59,341 - INFO - _log - 223.178.86.200 - - [20/Jul/2025 17:48:59] "GET /reset HTTP/1.1" 200 -
+2025-07-20 17:48:59,428 - INFO - _log - 223.178.86.200 - - [20/Jul/2025 17:48:59] "[33mGET /static/bootstrap_forget_pass_details.css HTTP/1.1[0m" 404 -
+2025-07-20 17:48:59,428 - INFO - _log - 223.178.86.200 - - [20/Jul/2025 17:48:59] "[33mGET /static/bootstrap_forget_pass_details.css HTTP/1.1[0m" 404 -
+2025-07-20 17:52:19,268 - INFO - _log - 223.178.86.200 - - [20/Jul/2025 17:52:19] "GET / HTTP/1.1" 200 -
+2025-07-20 17:52:19,268 - INFO - _log - 223.178.86.200 - - [20/Jul/2025 17:52:19] "GET / HTTP/1.1" 200 -
+2025-07-20 17:52:19,348 - INFO - _log - 223.178.86.200 - - [20/Jul/2025 17:52:19] "[36mGET /static/bootstrap_login.css HTTP/1.1[0m" 304 -
+2025-07-20 17:52:19,348 - INFO - _log - 223.178.86.200 - - [20/Jul/2025 17:52:19] "[36mGET /static/bootstrap_login.css HTTP/1.1[0m" 304 -
+2025-07-20 19:19:29,550 - INFO - _log - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.31.80.31:5000
+2025-07-20 19:19:29,550 - INFO - _log - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.31.80.31:5000
+2025-07-20 19:19:29,551 - INFO - _log - [33mPress CTRL+C to quit[0m
+2025-07-20 19:19:29,551 - INFO - _log - [33mPress CTRL+C to quit[0m
+2025-07-20 19:19:29,552 - INFO - _log -  * Restarting with stat
+2025-07-20 19:19:29,552 - INFO - _log -  * Restarting with stat
+2025-07-20 19:19:29,912 - WARNING - _log -  * Debugger is active!
+2025-07-20 19:19:29,912 - WARNING - _log -  * Debugger is active!
+2025-07-20 19:19:29,915 - INFO - _log -  * Debugger PIN: 778-342-212
+2025-07-20 19:19:29,915 - INFO - _log -  * Debugger PIN: 778-342-212
+2025-07-20 19:19:33,626 - INFO - _log - 223.178.86.200 - - [20/Jul/2025 19:19:33] "GET / HTTP/1.1" 200 -
+2025-07-20 19:19:33,626 - INFO - _log - 223.178.86.200 - - [20/Jul/2025 19:19:33] "GET / HTTP/1.1" 200 -
+2025-07-20 19:19:33,716 - INFO - _log - 223.178.86.200 - - [20/Jul/2025 19:19:33] "[36mGET /static/bootstrap_login.css HTTP/1.1[0m" 304 -
+2025-07-20 19:19:33,716 - INFO - _log - 223.178.86.200 - - [20/Jul/2025 19:19:33] "[36mGET /static/bootstrap_login.css HTTP/1.1[0m" 304 -
+2025-07-20 19:19:40,674 - INFO - _log - 223.178.86.200 - - [20/Jul/2025 19:19:40] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-07-20 19:19:40,674 - INFO - _log - 223.178.86.200 - - [20/Jul/2025 19:19:40] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-07-20 19:19:40,775 - INFO - _log - 223.178.86.200 - - [20/Jul/2025 19:19:40] "GET /admin HTTP/1.1" 200 -
+2025-07-20 19:19:40,775 - INFO - _log - 223.178.86.200 - - [20/Jul/2025 19:19:40] "GET /admin HTTP/1.1" 200 -
+2025-07-20 19:19:40,853 - INFO - _log - 223.178.86.200 - - [20/Jul/2025 19:19:40] "[36mGET /static/table.css HTTP/1.1[0m" 304 -
+2025-07-20 19:19:40,853 - INFO - _log - 223.178.86.200 - - [20/Jul/2025 19:19:40] "[36mGET /static/table.css HTTP/1.1[0m" 304 -
+2025-07-20 19:19:42,993 - INFO - _log - 223.178.86.200 - - [20/Jul/2025 19:19:42] "[32mGET /inventory_details HTTP/1.1[0m" 302 -
+2025-07-20 19:19:42,993 - INFO - _log - 223.178.86.200 - - [20/Jul/2025 19:19:42] "[32mGET /inventory_details HTTP/1.1[0m" 302 -
+2025-07-20 19:19:43,086 - DEBUG - _alias_event_name - Changing event name from creating-client-class.iot-data to creating-client-class.iot-data-plane
+2025-07-20 19:19:43,088 - DEBUG - _alias_event_name - Changing event name from before-call.apigateway to before-call.api-gateway
+2025-07-20 19:19:43,089 - DEBUG - _alias_event_name - Changing event name from request-created.machinelearning.Predict to request-created.machine-learning.Predict
+2025-07-20 19:19:43,090 - DEBUG - _alias_event_name - Changing event name from before-parameter-build.autoscaling.CreateLaunchConfiguration to before-parameter-build.auto-scaling.CreateLaunchConfiguration
+2025-07-20 19:19:43,090 - DEBUG - _alias_event_name - Changing event name from before-parameter-build.route53 to before-parameter-build.route-53
+2025-07-20 19:19:43,091 - DEBUG - _alias_event_name - Changing event name from request-created.cloudsearchdomain.Search to request-created.cloudsearch-domain.Search
+2025-07-20 19:19:43,091 - DEBUG - _alias_event_name - Changing event name from docs.*.autoscaling.CreateLaunchConfiguration.complete-section to docs.*.auto-scaling.CreateLaunchConfiguration.complete-section
+2025-07-20 19:19:43,094 - DEBUG - _alias_event_name - Changing event name from before-parameter-build.logs.CreateExportTask to before-parameter-build.cloudwatch-logs.CreateExportTask
+2025-07-20 19:19:43,094 - DEBUG - _alias_event_name - Changing event name from docs.*.logs.CreateExportTask.complete-section to docs.*.cloudwatch-logs.CreateExportTask.complete-section
+2025-07-20 19:19:43,094 - DEBUG - _alias_event_name - Changing event name from before-parameter-build.cloudsearchdomain.Search to before-parameter-build.cloudsearch-domain.Search
+2025-07-20 19:19:43,094 - DEBUG - _alias_event_name - Changing event name from docs.*.cloudsearchdomain.Search.complete-section to docs.*.cloudsearch-domain.Search.complete-section
+2025-07-20 19:19:43,105 - DEBUG - _load_file - Loading JSON file: /home/ubuntu/projectsql/.venv/lib/python3.12/site-packages/botocore/data/endpoints.json
+2025-07-20 19:19:43,130 - DEBUG - _load_file - Loading JSON file: /home/ubuntu/projectsql/.venv/lib/python3.12/site-packages/botocore/data/sdk-default-configuration.json
+2025-07-20 19:19:43,131 - DEBUG - _emit - Event choose-service-name: calling handler <function handle_service_name_alias at 0x77942afb45e0>
+2025-07-20 19:19:43,686 - DEBUG - _load_file - Loading JSON file: /home/ubuntu/projectsql/.venv/lib/python3.12/site-packages/botocore/data/s3/2006-03-01/service-2.json.gz
+2025-07-20 19:19:43,703 - DEBUG - _load_file - Loading JSON file: /home/ubuntu/projectsql/.venv/lib/python3.12/site-packages/botocore/data/s3/2006-03-01/service-2.sdk-extras.json
+2025-07-20 19:19:43,721 - DEBUG - _load_file - Loading JSON file: /home/ubuntu/projectsql/.venv/lib/python3.12/site-packages/botocore/data/s3/2006-03-01/endpoint-rule-set-1.json.gz
+2025-07-20 19:19:43,727 - DEBUG - _load_file - Loading JSON file: /home/ubuntu/projectsql/.venv/lib/python3.12/site-packages/botocore/data/partitions.json
+2025-07-20 19:19:43,728 - DEBUG - _emit - Event creating-client-class.s3: calling handler <function add_generate_presigned_post at 0x77942af23a60>
+2025-07-20 19:19:43,729 - DEBUG - _emit - Event creating-client-class.s3: calling handler <function lazy_call.<locals>._handler at 0x77942a723880>
+2025-07-20 19:19:43,765 - DEBUG - _emit - Event creating-client-class.s3: calling handler <function add_generate_presigned_url at 0x77942af237e0>
+2025-07-20 19:19:43,765 - DEBUG - provide - Looking for endpoint for s3 via: environment_service
+2025-07-20 19:19:43,765 - DEBUG - provide - Looking for endpoint for s3 via: environment_global
+2025-07-20 19:19:43,765 - DEBUG - provide - Looking for endpoint for s3 via: config_service
+2025-07-20 19:19:43,765 - DEBUG - provide - Looking for endpoint for s3 via: config_global
+2025-07-20 19:19:43,765 - DEBUG - provide - No configured endpoint found.
+2025-07-20 19:19:43,767 - DEBUG - create_endpoint - Setting s3 timeout as (60, 60)
+2025-07-20 19:19:43,771 - DEBUG - _load_file - Loading JSON file: /home/ubuntu/projectsql/.venv/lib/python3.12/site-packages/botocore/data/_retry.json
+2025-07-20 19:19:43,772 - DEBUG - _register_legacy_retries - Registering retry handlers for service: s3
+2025-07-20 19:19:43,772 - DEBUG - register - Registering S3 region redirector handler
+2025-07-20 19:19:43,772 - DEBUG - register - Registering S3Express Identity Resolver
+2025-07-20 19:19:43,773 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <function sse_md5 at 0x77942afb68e0>
+2025-07-20 19:19:43,773 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <function validate_bucket_name at 0x77942afb6840>
+2025-07-20 19:19:43,773 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <function remove_bucket_from_url_paths_from_model at 0x77942afe0ae0>
+2025-07-20 19:19:43,773 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <bound method S3RegionRedirectorv2.annotate_request_context of <botocore.utils.S3RegionRedirectorv2 object at 0x7794287c6c90>>
+2025-07-20 19:19:43,773 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <bound method ClientCreator._inject_s3_input_parameters of <botocore.client.ClientCreator object at 0x779428920a10>>
+2025-07-20 19:19:43,773 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <function generate_idempotent_uuid at 0x77942afb6660>
+2025-07-20 19:19:43,773 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <function _handle_request_validation_mode_member at 0x77942afe11c0>
+2025-07-20 19:19:43,774 - DEBUG - _emit - Event before-endpoint-resolution.s3: calling handler <function customize_endpoint_resolver_builtins at 0x77942afe0cc0>
+2025-07-20 19:19:43,774 - DEBUG - _emit - Event before-endpoint-resolution.s3: calling handler <bound method S3RegionRedirectorv2.redirect_from_cache of <botocore.utils.S3RegionRedirectorv2 object at 0x7794287c6c90>>
+2025-07-20 19:19:43,774 - DEBUG - construct_endpoint - Calling endpoint provider with parameters: {'Bucket': 'webpage.image.upload', 'Region': 'ap-south-1', 'UseFIPS': False, 'UseDualStack': False, 'ForcePathStyle': False, 'Accelerate': False, 'UseGlobalEndpoint': False, 'Key': 'images/product_id32.jpg', 'DisableMultiRegionAccessPoints': False, 'UseArnRegion': True}
+2025-07-20 19:19:43,774 - DEBUG - construct_endpoint - Endpoint provider result: https://s3.ap-south-1.amazonaws.com/webpage.image.upload
+2025-07-20 19:19:43,774 - DEBUG - auth_schemes_to_signing_ctx - Selecting from endpoint provider's list of auth schemes: "sigv4". User selected auth scheme is: "None"
+2025-07-20 19:19:43,775 - DEBUG - auth_schemes_to_signing_ctx - Selected auth type "v4" as "v4" with signing context params: {'region': 'ap-south-1', 'signing_name': 's3', 'disableDoubleEncoding': True}
+2025-07-20 19:19:43,775 - DEBUG - _emit - Event choose-signer.s3.GetObject: calling handler <function set_operation_specific_signer at 0x77942afb6480>
+2025-07-20 19:19:43,775 - DEBUG - _emit - Event before-sign.s3.GetObject: calling handler <function remove_arn_from_signing_path at 0x77942afe0c20>
+2025-07-20 19:19:43,775 - DEBUG - _emit - Event before-sign.s3.GetObject: calling handler <function _set_extra_headers_for_unsigned_request at 0x77942afe1260>
+2025-07-20 19:19:43,775 - DEBUG - _emit - Event before-sign.s3.GetObject: calling handler <bound method S3ExpressIdentityResolver.resolve_s3express_identity of <botocore.utils.S3ExpressIdentityResolver object at 0x7794287c7260>>
+2025-07-20 19:19:43,776 - DEBUG - add_auth - Calculating signature using v4 auth.
+2025-07-20 19:19:43,776 - DEBUG - add_auth - CanonicalRequest:
+GET
+/webpage.image.upload/images/product_id32.jpg
+X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAY5DCPLUU76R3KRS6%2F20250720%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20250720T191943Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host
+host:s3.ap-south-1.amazonaws.com
+
+host
+UNSIGNED-PAYLOAD
+2025-07-20 19:19:43,776 - DEBUG - add_auth - StringToSign:
+AWS4-HMAC-SHA256
+20250720T191943Z
+20250720/ap-south-1/s3/aws4_request
+63912f3fed30332ea56747a10b466a0bf87b6009eee9bd0e862d5f8576781f63
+2025-07-20 19:19:43,776 - DEBUG - add_auth - Signature:
+55df472071c93719a2d01cdc30a7fb2748ea42f3bb0b7bd5da823cba878574b7
+2025-07-20 19:19:43,776 - DEBUG - _emit - Event choose-service-name: calling handler <function handle_service_name_alias at 0x77942afb45e0>
+2025-07-20 19:19:43,777 - DEBUG - _emit - Event creating-client-class.s3: calling handler <function add_generate_presigned_post at 0x77942af23a60>
+2025-07-20 19:19:43,777 - DEBUG - _emit - Event creating-client-class.s3: calling handler <function lazy_call.<locals>._handler at 0x77942a723880>
+2025-07-20 19:19:43,777 - DEBUG - _emit - Event creating-client-class.s3: calling handler <function add_generate_presigned_url at 0x77942af237e0>
+2025-07-20 19:19:43,777 - DEBUG - provide - Looking for endpoint for s3 via: environment_service
+2025-07-20 19:19:43,777 - DEBUG - provide - Looking for endpoint for s3 via: environment_global
+2025-07-20 19:19:43,778 - DEBUG - provide - Looking for endpoint for s3 via: config_service
+2025-07-20 19:19:43,778 - DEBUG - provide - Looking for endpoint for s3 via: config_global
+2025-07-20 19:19:43,778 - DEBUG - provide - No configured endpoint found.
+2025-07-20 19:19:43,780 - DEBUG - create_endpoint - Setting s3 timeout as (60, 60)
+2025-07-20 19:19:43,802 - DEBUG - _register_legacy_retries - Registering retry handlers for service: s3
+2025-07-20 19:19:43,802 - DEBUG - register - Registering S3 region redirector handler
+2025-07-20 19:19:43,802 - DEBUG - register - Registering S3Express Identity Resolver
+2025-07-20 19:19:43,803 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <function sse_md5 at 0x77942afb68e0>
+2025-07-20 19:19:43,803 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <function validate_bucket_name at 0x77942afb6840>
+2025-07-20 19:19:43,803 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <function remove_bucket_from_url_paths_from_model at 0x77942afe0ae0>
+2025-07-20 19:19:43,803 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <bound method S3RegionRedirectorv2.annotate_request_context of <botocore.utils.S3RegionRedirectorv2 object at 0x77942849ffb0>>
+2025-07-20 19:19:43,803 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <bound method ClientCreator._inject_s3_input_parameters of <botocore.client.ClientCreator object at 0x7794288c7b60>>
+2025-07-20 19:19:43,803 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <function generate_idempotent_uuid at 0x77942afb6660>
+2025-07-20 19:19:43,803 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <function _handle_request_validation_mode_member at 0x77942afe11c0>
+2025-07-20 19:19:43,803 - DEBUG - _emit - Event before-endpoint-resolution.s3: calling handler <function customize_endpoint_resolver_builtins at 0x77942afe0cc0>
+2025-07-20 19:19:43,803 - DEBUG - _emit - Event before-endpoint-resolution.s3: calling handler <bound method S3RegionRedirectorv2.redirect_from_cache of <botocore.utils.S3RegionRedirectorv2 object at 0x77942849ffb0>>
+2025-07-20 19:19:43,804 - DEBUG - construct_endpoint - Calling endpoint provider with parameters: {'Bucket': 'webpage.image.upload', 'Region': 'ap-south-1', 'UseFIPS': False, 'UseDualStack': False, 'ForcePathStyle': False, 'Accelerate': False, 'UseGlobalEndpoint': False, 'Key': 'images/product_id33.jpg', 'DisableMultiRegionAccessPoints': False, 'UseArnRegion': True}
+2025-07-20 19:19:43,804 - DEBUG - construct_endpoint - Endpoint provider result: https://s3.ap-south-1.amazonaws.com/webpage.image.upload
+2025-07-20 19:19:43,804 - DEBUG - auth_schemes_to_signing_ctx - Selecting from endpoint provider's list of auth schemes: "sigv4". User selected auth scheme is: "None"
+2025-07-20 19:19:43,804 - DEBUG - auth_schemes_to_signing_ctx - Selected auth type "v4" as "v4" with signing context params: {'region': 'ap-south-1', 'signing_name': 's3', 'disableDoubleEncoding': True}
+2025-07-20 19:19:43,804 - DEBUG - _emit - Event choose-signer.s3.GetObject: calling handler <function set_operation_specific_signer at 0x77942afb6480>
+2025-07-20 19:19:43,804 - DEBUG - _emit - Event before-sign.s3.GetObject: calling handler <function remove_arn_from_signing_path at 0x77942afe0c20>
+2025-07-20 19:19:43,805 - DEBUG - _emit - Event before-sign.s3.GetObject: calling handler <function _set_extra_headers_for_unsigned_request at 0x77942afe1260>
+2025-07-20 19:19:43,805 - DEBUG - _emit - Event before-sign.s3.GetObject: calling handler <bound method S3ExpressIdentityResolver.resolve_s3express_identity of <botocore.utils.S3ExpressIdentityResolver object at 0x7794284b0350>>
+2025-07-20 19:19:43,805 - DEBUG - add_auth - Calculating signature using v4 auth.
+2025-07-20 19:19:43,805 - DEBUG - add_auth - CanonicalRequest:
+GET
+/webpage.image.upload/images/product_id33.jpg
+X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAY5DCPLUU76R3KRS6%2F20250720%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20250720T191943Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host
+host:s3.ap-south-1.amazonaws.com
+
+host
+UNSIGNED-PAYLOAD
+2025-07-20 19:19:43,805 - DEBUG - add_auth - StringToSign:
+AWS4-HMAC-SHA256
+20250720T191943Z
+20250720/ap-south-1/s3/aws4_request
+0a0a7cf1272dc485811ce1605c185ccaebc439b5069aaca86a4ca08bf5172ac6
+2025-07-20 19:19:43,805 - DEBUG - add_auth - Signature:
+b55061e225976d018334dad65fd74c4c8185b636c51152e226017c032f4f9082
+2025-07-20 19:19:43,805 - DEBUG - _emit - Event choose-service-name: calling handler <function handle_service_name_alias at 0x77942afb45e0>
+2025-07-20 19:19:43,806 - DEBUG - _emit - Event creating-client-class.s3: calling handler <function add_generate_presigned_post at 0x77942af23a60>
+2025-07-20 19:19:43,806 - DEBUG - _emit - Event creating-client-class.s3: calling handler <function lazy_call.<locals>._handler at 0x77942a723880>
+2025-07-20 19:19:43,806 - DEBUG - _emit - Event creating-client-class.s3: calling handler <function add_generate_presigned_url at 0x77942af237e0>
+2025-07-20 19:19:43,807 - DEBUG - provide - Looking for endpoint for s3 via: environment_service
+2025-07-20 19:19:43,807 - DEBUG - provide - Looking for endpoint for s3 via: environment_global
+2025-07-20 19:19:43,807 - DEBUG - provide - Looking for endpoint for s3 via: config_service
+2025-07-20 19:19:43,807 - DEBUG - provide - Looking for endpoint for s3 via: config_global
+2025-07-20 19:19:43,807 - DEBUG - provide - No configured endpoint found.
+2025-07-20 19:19:43,808 - DEBUG - create_endpoint - Setting s3 timeout as (60, 60)
+2025-07-20 19:19:43,810 - DEBUG - _register_legacy_retries - Registering retry handlers for service: s3
+2025-07-20 19:19:43,810 - DEBUG - register - Registering S3 region redirector handler
+2025-07-20 19:19:43,810 - DEBUG - register - Registering S3Express Identity Resolver
+2025-07-20 19:19:43,811 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <function sse_md5 at 0x77942afb68e0>
+2025-07-20 19:19:43,811 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <function validate_bucket_name at 0x77942afb6840>
+2025-07-20 19:19:43,811 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <function remove_bucket_from_url_paths_from_model at 0x77942afe0ae0>
+2025-07-20 19:19:43,811 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <bound method S3RegionRedirectorv2.annotate_request_context of <botocore.utils.S3RegionRedirectorv2 object at 0x7794284bd8b0>>
+2025-07-20 19:19:43,811 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <bound method ClientCreator._inject_s3_input_parameters of <botocore.client.ClientCreator object at 0x77942a79aed0>>
+2025-07-20 19:19:43,811 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <function generate_idempotent_uuid at 0x77942afb6660>
+2025-07-20 19:19:43,811 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <function _handle_request_validation_mode_member at 0x77942afe11c0>
+2025-07-20 19:19:43,811 - DEBUG - _emit - Event before-endpoint-resolution.s3: calling handler <function customize_endpoint_resolver_builtins at 0x77942afe0cc0>
+2025-07-20 19:19:43,811 - DEBUG - _emit - Event before-endpoint-resolution.s3: calling handler <bound method S3RegionRedirectorv2.redirect_from_cache of <botocore.utils.S3RegionRedirectorv2 object at 0x7794284bd8b0>>
+2025-07-20 19:19:43,812 - DEBUG - construct_endpoint - Calling endpoint provider with parameters: {'Bucket': 'webpage.image.upload', 'Region': 'ap-south-1', 'UseFIPS': False, 'UseDualStack': False, 'ForcePathStyle': False, 'Accelerate': False, 'UseGlobalEndpoint': False, 'Key': 'images/product_id34.jpg', 'DisableMultiRegionAccessPoints': False, 'UseArnRegion': True}
+2025-07-20 19:19:43,812 - DEBUG - construct_endpoint - Endpoint provider result: https://s3.ap-south-1.amazonaws.com/webpage.image.upload
+2025-07-20 19:19:43,812 - DEBUG - auth_schemes_to_signing_ctx - Selecting from endpoint provider's list of auth schemes: "sigv4". User selected auth scheme is: "None"
+2025-07-20 19:19:43,812 - DEBUG - auth_schemes_to_signing_ctx - Selected auth type "v4" as "v4" with signing context params: {'region': 'ap-south-1', 'signing_name': 's3', 'disableDoubleEncoding': True}
+2025-07-20 19:19:43,812 - DEBUG - _emit - Event choose-signer.s3.GetObject: calling handler <function set_operation_specific_signer at 0x77942afb6480>
+2025-07-20 19:19:43,812 - DEBUG - _emit - Event before-sign.s3.GetObject: calling handler <function remove_arn_from_signing_path at 0x77942afe0c20>
+2025-07-20 19:19:43,812 - DEBUG - _emit - Event before-sign.s3.GetObject: calling handler <function _set_extra_headers_for_unsigned_request at 0x77942afe1260>
+2025-07-20 19:19:43,812 - DEBUG - _emit - Event before-sign.s3.GetObject: calling handler <bound method S3ExpressIdentityResolver.resolve_s3express_identity of <botocore.utils.S3ExpressIdentityResolver object at 0x7794284bdbb0>>
+2025-07-20 19:19:43,813 - DEBUG - add_auth - Calculating signature using v4 auth.
+2025-07-20 19:19:43,813 - DEBUG - add_auth - CanonicalRequest:
+GET
+/webpage.image.upload/images/product_id34.jpg
+X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAY5DCPLUU76R3KRS6%2F20250720%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20250720T191943Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host
+host:s3.ap-south-1.amazonaws.com
+
+host
+UNSIGNED-PAYLOAD
+2025-07-20 19:19:43,813 - DEBUG - add_auth - StringToSign:
+AWS4-HMAC-SHA256
+20250720T191943Z
+20250720/ap-south-1/s3/aws4_request
+8a7539a286866ec1750d88a368b16c5e8f1a80afe1b3cc5cf740d2b3801c500a
+2025-07-20 19:19:43,813 - DEBUG - add_auth - Signature:
+2a0cd187ea7efb7945a6ef7e3f50f7252e420d4825693a3ff08e48f3413af613
+2025-07-20 19:19:43,813 - DEBUG - _emit - Event choose-service-name: calling handler <function handle_service_name_alias at 0x77942afb45e0>
+2025-07-20 19:19:43,814 - DEBUG - _emit - Event creating-client-class.s3: calling handler <function add_generate_presigned_post at 0x77942af23a60>
+2025-07-20 19:19:43,814 - DEBUG - _emit - Event creating-client-class.s3: calling handler <function lazy_call.<locals>._handler at 0x77942a723880>
+2025-07-20 19:19:43,814 - DEBUG - _emit - Event creating-client-class.s3: calling handler <function add_generate_presigned_url at 0x77942af237e0>
+2025-07-20 19:19:43,814 - DEBUG - provide - Looking for endpoint for s3 via: environment_service
+2025-07-20 19:19:43,814 - DEBUG - provide - Looking for endpoint for s3 via: environment_global
+2025-07-20 19:19:43,814 - DEBUG - provide - Looking for endpoint for s3 via: config_service
+2025-07-20 19:19:43,815 - DEBUG - provide - Looking for endpoint for s3 via: config_global
+2025-07-20 19:19:43,815 - DEBUG - provide - No configured endpoint found.
+2025-07-20 19:19:43,815 - DEBUG - create_endpoint - Setting s3 timeout as (60, 60)
+2025-07-20 19:19:43,817 - DEBUG - _register_legacy_retries - Registering retry handlers for service: s3
+2025-07-20 19:19:43,818 - DEBUG - register - Registering S3 region redirector handler
+2025-07-20 19:19:43,818 - DEBUG - register - Registering S3Express Identity Resolver
+2025-07-20 19:19:43,818 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <function sse_md5 at 0x77942afb68e0>
+2025-07-20 19:19:43,818 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <function validate_bucket_name at 0x77942afb6840>
+2025-07-20 19:19:43,819 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <function remove_bucket_from_url_paths_from_model at 0x77942afe0ae0>
+2025-07-20 19:19:43,819 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <bound method S3RegionRedirectorv2.annotate_request_context of <botocore.utils.S3RegionRedirectorv2 object at 0x7794284e70b0>>
+2025-07-20 19:19:43,819 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <bound method ClientCreator._inject_s3_input_parameters of <botocore.client.ClientCreator object at 0x779428920a10>>
+2025-07-20 19:19:43,819 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <function generate_idempotent_uuid at 0x77942afb6660>
+2025-07-20 19:19:43,819 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <function _handle_request_validation_mode_member at 0x77942afe11c0>
+2025-07-20 19:19:43,819 - DEBUG - _emit - Event before-endpoint-resolution.s3: calling handler <function customize_endpoint_resolver_builtins at 0x77942afe0cc0>
+2025-07-20 19:19:43,819 - DEBUG - _emit - Event before-endpoint-resolution.s3: calling handler <bound method S3RegionRedirectorv2.redirect_from_cache of <botocore.utils.S3RegionRedirectorv2 object at 0x7794284e70b0>>
+2025-07-20 19:19:43,819 - DEBUG - construct_endpoint - Calling endpoint provider with parameters: {'Bucket': 'webpage.image.upload', 'Region': 'ap-south-1', 'UseFIPS': False, 'UseDualStack': False, 'ForcePathStyle': False, 'Accelerate': False, 'UseGlobalEndpoint': False, 'Key': 'images/product_id35.jpg', 'DisableMultiRegionAccessPoints': False, 'UseArnRegion': True}
+2025-07-20 19:19:43,819 - DEBUG - construct_endpoint - Endpoint provider result: https://s3.ap-south-1.amazonaws.com/webpage.image.upload
+2025-07-20 19:19:43,820 - DEBUG - auth_schemes_to_signing_ctx - Selecting from endpoint provider's list of auth schemes: "sigv4". User selected auth scheme is: "None"
+2025-07-20 19:19:43,820 - DEBUG - auth_schemes_to_signing_ctx - Selected auth type "v4" as "v4" with signing context params: {'region': 'ap-south-1', 'signing_name': 's3', 'disableDoubleEncoding': True}
+2025-07-20 19:19:43,820 - DEBUG - _emit - Event choose-signer.s3.GetObject: calling handler <function set_operation_specific_signer at 0x77942afb6480>
+2025-07-20 19:19:43,820 - DEBUG - _emit - Event before-sign.s3.GetObject: calling handler <function remove_arn_from_signing_path at 0x77942afe0c20>
+2025-07-20 19:19:43,820 - DEBUG - _emit - Event before-sign.s3.GetObject: calling handler <function _set_extra_headers_for_unsigned_request at 0x77942afe1260>
+2025-07-20 19:19:43,820 - DEBUG - _emit - Event before-sign.s3.GetObject: calling handler <bound method S3ExpressIdentityResolver.resolve_s3express_identity of <botocore.utils.S3ExpressIdentityResolver object at 0x7794284e7410>>
+2025-07-20 19:19:43,820 - DEBUG - add_auth - Calculating signature using v4 auth.
+2025-07-20 19:19:43,820 - DEBUG - add_auth - CanonicalRequest:
+GET
+/webpage.image.upload/images/product_id35.jpg
+X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAY5DCPLUU76R3KRS6%2F20250720%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20250720T191943Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host
+host:s3.ap-south-1.amazonaws.com
+
+host
+UNSIGNED-PAYLOAD
+2025-07-20 19:19:43,820 - DEBUG - add_auth - StringToSign:
+AWS4-HMAC-SHA256
+20250720T191943Z
+20250720/ap-south-1/s3/aws4_request
+b876b1bf455b6bcd0e8442b355d5f6830f203d4f10ff228d7ac0965478f62605
+2025-07-20 19:19:43,820 - DEBUG - add_auth - Signature:
+51b902133230cf1da698fe2c3dd76fa5919cdde42d49ff754640e216c422b779
+2025-07-20 19:19:43,837 - INFO - _log - 223.178.86.200 - - [20/Jul/2025 19:19:43] "GET /inventory HTTP/1.1" 200 -
+2025-07-20 19:19:43,837 - INFO - _log - 223.178.86.200 - - [20/Jul/2025 19:19:43] "GET /inventory HTTP/1.1" 200 -
+2025-07-20 19:19:43,920 - INFO - _log - 223.178.86.200 - - [20/Jul/2025 19:19:43] "[36mGET /static/inventory.css HTTP/1.1[0m" 304 -
+2025-07-20 19:19:43,920 - INFO - _log - 223.178.86.200 - - [20/Jul/2025 19:19:43] "[36mGET /static/inventory.css HTTP/1.1[0m" 304 -
+2025-07-20 19:19:46,523 - DEBUG - _emit - Event choose-service-name: calling handler <function handle_service_name_alias at 0x77942afb45e0>
+2025-07-20 19:19:46,524 - DEBUG - _emit - Event creating-client-class.s3: calling handler <function add_generate_presigned_post at 0x77942af23a60>
+2025-07-20 19:19:46,524 - DEBUG - _emit - Event creating-client-class.s3: calling handler <function lazy_call.<locals>._handler at 0x77942a723880>
+2025-07-20 19:19:46,524 - DEBUG - _emit - Event creating-client-class.s3: calling handler <function add_generate_presigned_url at 0x77942af237e0>
+2025-07-20 19:19:46,524 - DEBUG - provide - Looking for endpoint for s3 via: environment_service
+2025-07-20 19:19:46,524 - DEBUG - provide - Looking for endpoint for s3 via: environment_global
+2025-07-20 19:19:46,524 - DEBUG - provide - Looking for endpoint for s3 via: config_service
+2025-07-20 19:19:46,525 - DEBUG - provide - Looking for endpoint for s3 via: config_global
+2025-07-20 19:19:46,525 - DEBUG - provide - No configured endpoint found.
+2025-07-20 19:19:46,526 - DEBUG - create_endpoint - Setting s3 timeout as (60, 60)
+2025-07-20 19:19:46,528 - DEBUG - _register_legacy_retries - Registering retry handlers for service: s3
+2025-07-20 19:19:46,528 - DEBUG - register - Registering S3 region redirector handler
+2025-07-20 19:19:46,529 - DEBUG - register - Registering S3Express Identity Resolver
+2025-07-20 19:19:46,529 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <function sse_md5 at 0x77942afb68e0>
+2025-07-20 19:19:46,529 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <function validate_bucket_name at 0x77942afb6840>
+2025-07-20 19:19:46,529 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <function remove_bucket_from_url_paths_from_model at 0x77942afe0ae0>
+2025-07-20 19:19:46,529 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <bound method S3RegionRedirectorv2.annotate_request_context of <botocore.utils.S3RegionRedirectorv2 object at 0x77942851c3e0>>
+2025-07-20 19:19:46,529 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <bound method ClientCreator._inject_s3_input_parameters of <botocore.client.ClientCreator object at 0x77942849ecc0>>
+2025-07-20 19:19:46,529 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <function generate_idempotent_uuid at 0x77942afb6660>
+2025-07-20 19:19:46,530 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <function _handle_request_validation_mode_member at 0x77942afe11c0>
+2025-07-20 19:19:46,530 - DEBUG - _emit - Event before-endpoint-resolution.s3: calling handler <function customize_endpoint_resolver_builtins at 0x77942afe0cc0>
+2025-07-20 19:19:46,530 - DEBUG - _emit - Event before-endpoint-resolution.s3: calling handler <bound method S3RegionRedirectorv2.redirect_from_cache of <botocore.utils.S3RegionRedirectorv2 object at 0x77942851c3e0>>
+2025-07-20 19:19:46,530 - DEBUG - construct_endpoint - Calling endpoint provider with parameters: {'Bucket': 'webpage.image.upload', 'Region': 'ap-south-1', 'UseFIPS': False, 'UseDualStack': False, 'ForcePathStyle': False, 'Accelerate': False, 'UseGlobalEndpoint': False, 'Key': 'images/product_id32.jpg', 'DisableMultiRegionAccessPoints': False, 'UseArnRegion': True}
+2025-07-20 19:19:46,530 - DEBUG - construct_endpoint - Endpoint provider result: https://s3.ap-south-1.amazonaws.com/webpage.image.upload
+2025-07-20 19:19:46,530 - DEBUG - auth_schemes_to_signing_ctx - Selecting from endpoint provider's list of auth schemes: "sigv4". User selected auth scheme is: "None"
+2025-07-20 19:19:46,530 - DEBUG - auth_schemes_to_signing_ctx - Selected auth type "v4" as "v4" with signing context params: {'region': 'ap-south-1', 'signing_name': 's3', 'disableDoubleEncoding': True}
+2025-07-20 19:19:46,531 - DEBUG - _emit - Event choose-signer.s3.GetObject: calling handler <function set_operation_specific_signer at 0x77942afb6480>
+2025-07-20 19:19:46,531 - DEBUG - _emit - Event before-sign.s3.GetObject: calling handler <function remove_arn_from_signing_path at 0x77942afe0c20>
+2025-07-20 19:19:46,531 - DEBUG - _emit - Event before-sign.s3.GetObject: calling handler <function _set_extra_headers_for_unsigned_request at 0x77942afe1260>
+2025-07-20 19:19:46,531 - DEBUG - _emit - Event before-sign.s3.GetObject: calling handler <bound method S3ExpressIdentityResolver.resolve_s3express_identity of <botocore.utils.S3ExpressIdentityResolver object at 0x77942851c740>>
+2025-07-20 19:19:46,531 - DEBUG - add_auth - Calculating signature using v4 auth.
+2025-07-20 19:19:46,531 - DEBUG - add_auth - CanonicalRequest:
+GET
+/webpage.image.upload/images/product_id32.jpg
+X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAY5DCPLUU76R3KRS6%2F20250720%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20250720T191946Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host
+host:s3.ap-south-1.amazonaws.com
+
+host
+UNSIGNED-PAYLOAD
+2025-07-20 19:19:46,531 - DEBUG - add_auth - StringToSign:
+AWS4-HMAC-SHA256
+20250720T191946Z
+20250720/ap-south-1/s3/aws4_request
+92119f567d133a211721bd08c087d379edc424d2d714350d41a977071163da7e
+2025-07-20 19:19:46,531 - DEBUG - add_auth - Signature:
+95b376b43348e8c22b21c6a09264883223c9786f4303e35971bffdd35318dcca
+2025-07-20 19:19:46,537 - INFO - _log - 223.178.86.200 - - [20/Jul/2025 19:19:46] "GET /view_item/32 HTTP/1.1" 200 -
+2025-07-20 19:19:46,537 - INFO - _log - 223.178.86.200 - - [20/Jul/2025 19:19:46] "GET /view_item/32 HTTP/1.1" 200 -
+2025-07-20 19:19:46,619 - INFO - _log - 223.178.86.200 - - [20/Jul/2025 19:19:46] "GET /static/view_products.css HTTP/1.1" 200 -
+2025-07-20 19:19:46,619 - INFO - _log - 223.178.86.200 - - [20/Jul/2025 19:19:46] "GET /static/view_products.css HTTP/1.1" 200 -
+2025-07-20 20:03:52,527 - INFO - _log - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.31.80.31:5000
+2025-07-20 20:03:52,527 - INFO - _log - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.31.80.31:5000
+2025-07-20 20:03:52,528 - INFO - _log - [33mPress CTRL+C to quit[0m
+2025-07-20 20:03:52,528 - INFO - _log - [33mPress CTRL+C to quit[0m
+2025-07-20 20:03:52,530 - INFO - _log -  * Restarting with stat
+2025-07-20 20:03:52,530 - INFO - _log -  * Restarting with stat
+2025-07-20 20:03:52,884 - WARNING - _log -  * Debugger is active!
+2025-07-20 20:03:52,884 - WARNING - _log -  * Debugger is active!
+2025-07-20 20:03:52,887 - INFO - _log -  * Debugger PIN: 778-342-212
+2025-07-20 20:03:52,887 - INFO - _log -  * Debugger PIN: 778-342-212
+2025-07-20 20:03:56,216 - INFO - _log - 223.178.86.200 - - [20/Jul/2025 20:03:56] "[32mGET /admin HTTP/1.1[0m" 302 -
+2025-07-20 20:03:56,216 - INFO - _log - 223.178.86.200 - - [20/Jul/2025 20:03:56] "[32mGET /admin HTTP/1.1[0m" 302 -
+2025-07-20 20:03:56,267 - INFO - _log - 223.178.86.200 - - [20/Jul/2025 20:03:56] "GET / HTTP/1.1" 200 -
+2025-07-20 20:03:56,267 - INFO - _log - 223.178.86.200 - - [20/Jul/2025 20:03:56] "GET / HTTP/1.1" 200 -
+2025-07-20 20:03:56,372 - INFO - _log - 223.178.86.200 - - [20/Jul/2025 20:03:56] "GET / HTTP/1.1" 200 -
+2025-07-20 20:03:56,372 - INFO - _log - 223.178.86.200 - - [20/Jul/2025 20:03:56] "GET / HTTP/1.1" 200 -
+2025-07-20 20:03:56,380 - INFO - _log - 223.178.86.200 - - [20/Jul/2025 20:03:56] "[36mGET /static/bootstrap_login.css HTTP/1.1[0m" 304 -
+2025-07-20 20:03:56,380 - INFO - _log - 223.178.86.200 - - [20/Jul/2025 20:03:56] "[36mGET /static/bootstrap_login.css HTTP/1.1[0m" 304 -
+2025-07-20 20:03:56,458 - INFO - _log - 223.178.86.200 - - [20/Jul/2025 20:03:56] "GET /static/bootstrap_login.css HTTP/1.1" 200 -
+2025-07-20 20:03:56,458 - INFO - _log - 223.178.86.200 - - [20/Jul/2025 20:03:56] "GET /static/bootstrap_login.css HTTP/1.1" 200 -
+2025-07-20 20:04:03,741 - INFO - _log - 223.178.86.200 - - [20/Jul/2025 20:04:03] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-07-20 20:04:03,741 - INFO - _log - 223.178.86.200 - - [20/Jul/2025 20:04:03] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-07-20 20:04:03,845 - INFO - _log - 223.178.86.200 - - [20/Jul/2025 20:04:03] "GET /admin HTTP/1.1" 200 -
+2025-07-20 20:04:03,845 - INFO - _log - 223.178.86.200 - - [20/Jul/2025 20:04:03] "GET /admin HTTP/1.1" 200 -
+2025-07-20 20:04:03,929 - INFO - _log - 223.178.86.200 - - [20/Jul/2025 20:04:03] "[36mGET /static/table.css HTTP/1.1[0m" 304 -
+2025-07-20 20:04:03,929 - INFO - _log - 223.178.86.200 - - [20/Jul/2025 20:04:03] "[36mGET /static/table.css HTTP/1.1[0m" 304 -
+2025-07-20 20:04:19,941 - INFO - _log - 223.178.86.200 - - [20/Jul/2025 20:04:19] "GET /admin HTTP/1.1" 200 -
+2025-07-20 20:04:19,941 - INFO - _log - 223.178.86.200 - - [20/Jul/2025 20:04:19] "GET /admin HTTP/1.1" 200 -
+2025-07-20 20:04:20,010 - INFO - _log - 223.178.86.200 - - [20/Jul/2025 20:04:20] "[36mGET /static/table.css HTTP/1.1[0m" 304 -
+2025-07-20 20:04:20,010 - INFO - _log - 223.178.86.200 - - [20/Jul/2025 20:04:20] "[36mGET /static/table.css HTTP/1.1[0m" 304 -
+2025-07-20 20:04:21,786 - INFO - _log - 223.178.86.200 - - [20/Jul/2025 20:04:21] "[32mGET /inventory_details HTTP/1.1[0m" 302 -
+2025-07-20 20:04:21,786 - INFO - _log - 223.178.86.200 - - [20/Jul/2025 20:04:21] "[32mGET /inventory_details HTTP/1.1[0m" 302 -
+2025-07-20 20:04:21,881 - DEBUG - _alias_event_name - Changing event name from creating-client-class.iot-data to creating-client-class.iot-data-plane
+2025-07-20 20:04:21,883 - DEBUG - _alias_event_name - Changing event name from before-call.apigateway to before-call.api-gateway
+2025-07-20 20:04:21,884 - DEBUG - _alias_event_name - Changing event name from request-created.machinelearning.Predict to request-created.machine-learning.Predict
+2025-07-20 20:04:21,885 - DEBUG - _alias_event_name - Changing event name from before-parameter-build.autoscaling.CreateLaunchConfiguration to before-parameter-build.auto-scaling.CreateLaunchConfiguration
+2025-07-20 20:04:21,885 - DEBUG - _alias_event_name - Changing event name from before-parameter-build.route53 to before-parameter-build.route-53
+2025-07-20 20:04:21,886 - DEBUG - _alias_event_name - Changing event name from request-created.cloudsearchdomain.Search to request-created.cloudsearch-domain.Search
+2025-07-20 20:04:21,887 - DEBUG - _alias_event_name - Changing event name from docs.*.autoscaling.CreateLaunchConfiguration.complete-section to docs.*.auto-scaling.CreateLaunchConfiguration.complete-section
+2025-07-20 20:04:21,889 - DEBUG - _alias_event_name - Changing event name from before-parameter-build.logs.CreateExportTask to before-parameter-build.cloudwatch-logs.CreateExportTask
+2025-07-20 20:04:21,889 - DEBUG - _alias_event_name - Changing event name from docs.*.logs.CreateExportTask.complete-section to docs.*.cloudwatch-logs.CreateExportTask.complete-section
+2025-07-20 20:04:21,890 - DEBUG - _alias_event_name - Changing event name from before-parameter-build.cloudsearchdomain.Search to before-parameter-build.cloudsearch-domain.Search
+2025-07-20 20:04:21,890 - DEBUG - _alias_event_name - Changing event name from docs.*.cloudsearchdomain.Search.complete-section to docs.*.cloudsearch-domain.Search.complete-section
+2025-07-20 20:04:21,902 - DEBUG - _load_file - Loading JSON file: /home/ubuntu/projectsql/.venv/lib/python3.12/site-packages/botocore/data/endpoints.json
+2025-07-20 20:04:21,927 - DEBUG - _load_file - Loading JSON file: /home/ubuntu/projectsql/.venv/lib/python3.12/site-packages/botocore/data/sdk-default-configuration.json
+2025-07-20 20:04:21,927 - DEBUG - _emit - Event choose-service-name: calling handler <function handle_service_name_alias at 0x73f6b25b45e0>
+2025-07-20 20:04:22,497 - DEBUG - _load_file - Loading JSON file: /home/ubuntu/projectsql/.venv/lib/python3.12/site-packages/botocore/data/s3/2006-03-01/service-2.json.gz
+2025-07-20 20:04:22,513 - DEBUG - _load_file - Loading JSON file: /home/ubuntu/projectsql/.venv/lib/python3.12/site-packages/botocore/data/s3/2006-03-01/service-2.sdk-extras.json
+2025-07-20 20:04:22,532 - DEBUG - _load_file - Loading JSON file: /home/ubuntu/projectsql/.venv/lib/python3.12/site-packages/botocore/data/s3/2006-03-01/endpoint-rule-set-1.json.gz
+2025-07-20 20:04:22,537 - DEBUG - _load_file - Loading JSON file: /home/ubuntu/projectsql/.venv/lib/python3.12/site-packages/botocore/data/partitions.json
+2025-07-20 20:04:22,538 - DEBUG - _emit - Event creating-client-class.s3: calling handler <function add_generate_presigned_post at 0x73f6b2527a60>
+2025-07-20 20:04:22,538 - DEBUG - _emit - Event creating-client-class.s3: calling handler <function lazy_call.<locals>._handler at 0x73f6b1d27f60>
+2025-07-20 20:04:22,577 - DEBUG - _emit - Event creating-client-class.s3: calling handler <function add_generate_presigned_url at 0x73f6b25277e0>
+2025-07-20 20:04:22,578 - DEBUG - provide - Looking for endpoint for s3 via: environment_service
+2025-07-20 20:04:22,578 - DEBUG - provide - Looking for endpoint for s3 via: environment_global
+2025-07-20 20:04:22,578 - DEBUG - provide - Looking for endpoint for s3 via: config_service
+2025-07-20 20:04:22,578 - DEBUG - provide - Looking for endpoint for s3 via: config_global
+2025-07-20 20:04:22,578 - DEBUG - provide - No configured endpoint found.
+2025-07-20 20:04:22,580 - DEBUG - create_endpoint - Setting s3 timeout as (60, 60)
+2025-07-20 20:04:22,584 - DEBUG - _load_file - Loading JSON file: /home/ubuntu/projectsql/.venv/lib/python3.12/site-packages/botocore/data/_retry.json
+2025-07-20 20:04:22,584 - DEBUG - _register_legacy_retries - Registering retry handlers for service: s3
+2025-07-20 20:04:22,585 - DEBUG - register - Registering S3 region redirector handler
+2025-07-20 20:04:22,585 - DEBUG - register - Registering S3Express Identity Resolver
+2025-07-20 20:04:22,585 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <function sse_md5 at 0x73f6b25b68e0>
+2025-07-20 20:04:22,586 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <function validate_bucket_name at 0x73f6b25b6840>
+2025-07-20 20:04:22,586 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <function remove_bucket_from_url_paths_from_model at 0x73f6b25e4ae0>
+2025-07-20 20:04:22,586 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <bound method S3RegionRedirectorv2.annotate_request_context of <botocore.utils.S3RegionRedirectorv2 object at 0x73f6ab4f7200>>
+2025-07-20 20:04:22,586 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <bound method ClientCreator._inject_s3_input_parameters of <botocore.client.ClientCreator object at 0x73f6ab631610>>
+2025-07-20 20:04:22,586 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <function generate_idempotent_uuid at 0x73f6b25b6660>
+2025-07-20 20:04:22,586 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <function _handle_request_validation_mode_member at 0x73f6b25e51c0>
+2025-07-20 20:04:22,586 - DEBUG - _emit - Event before-endpoint-resolution.s3: calling handler <function customize_endpoint_resolver_builtins at 0x73f6b25e4cc0>
+2025-07-20 20:04:22,586 - DEBUG - _emit - Event before-endpoint-resolution.s3: calling handler <bound method S3RegionRedirectorv2.redirect_from_cache of <botocore.utils.S3RegionRedirectorv2 object at 0x73f6ab4f7200>>
+2025-07-20 20:04:22,586 - DEBUG - construct_endpoint - Calling endpoint provider with parameters: {'Bucket': 'webpage.image.upload', 'Region': 'ap-south-1', 'UseFIPS': False, 'UseDualStack': False, 'ForcePathStyle': False, 'Accelerate': False, 'UseGlobalEndpoint': False, 'Key': 'images/product_id32.jpg', 'DisableMultiRegionAccessPoints': False, 'UseArnRegion': True}
+2025-07-20 20:04:22,587 - DEBUG - construct_endpoint - Endpoint provider result: https://s3.ap-south-1.amazonaws.com/webpage.image.upload
+2025-07-20 20:04:22,587 - DEBUG - auth_schemes_to_signing_ctx - Selecting from endpoint provider's list of auth schemes: "sigv4". User selected auth scheme is: "None"
+2025-07-20 20:04:22,587 - DEBUG - auth_schemes_to_signing_ctx - Selected auth type "v4" as "v4" with signing context params: {'region': 'ap-south-1', 'signing_name': 's3', 'disableDoubleEncoding': True}
+2025-07-20 20:04:22,587 - DEBUG - _emit - Event choose-signer.s3.GetObject: calling handler <function set_operation_specific_signer at 0x73f6b25b6480>
+2025-07-20 20:04:22,588 - DEBUG - _emit - Event before-sign.s3.GetObject: calling handler <function remove_arn_from_signing_path at 0x73f6b25e4c20>
+2025-07-20 20:04:22,588 - DEBUG - _emit - Event before-sign.s3.GetObject: calling handler <function _set_extra_headers_for_unsigned_request at 0x73f6b25e5260>
+2025-07-20 20:04:22,588 - DEBUG - _emit - Event before-sign.s3.GetObject: calling handler <bound method S3ExpressIdentityResolver.resolve_s3express_identity of <botocore.utils.S3ExpressIdentityResolver object at 0x73f6b42e19a0>>
+2025-07-20 20:04:22,588 - DEBUG - add_auth - Calculating signature using v4 auth.
+2025-07-20 20:04:22,588 - DEBUG - add_auth - CanonicalRequest:
+GET
+/webpage.image.upload/images/product_id32.jpg
+X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAY5DCPLUU76R3KRS6%2F20250720%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20250720T200422Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host
+host:s3.ap-south-1.amazonaws.com
+
+host
+UNSIGNED-PAYLOAD
+2025-07-20 20:04:22,588 - DEBUG - add_auth - StringToSign:
+AWS4-HMAC-SHA256
+20250720T200422Z
+20250720/ap-south-1/s3/aws4_request
+aa4bb66b79eab9950614e31031d1c794043bdc083eac698ae6fa48bacdc14854
+2025-07-20 20:04:22,588 - DEBUG - add_auth - Signature:
+5fd142d1d52eeebed784750cbcccb8d425d44852b38cb83c395ebb0003a76a5a
+2025-07-20 20:04:22,589 - DEBUG - _emit - Event choose-service-name: calling handler <function handle_service_name_alias at 0x73f6b25b45e0>
+2025-07-20 20:04:22,589 - DEBUG - _emit - Event creating-client-class.s3: calling handler <function add_generate_presigned_post at 0x73f6b2527a60>
+2025-07-20 20:04:22,590 - DEBUG - _emit - Event creating-client-class.s3: calling handler <function lazy_call.<locals>._handler at 0x73f6b1d27f60>
+2025-07-20 20:04:22,590 - DEBUG - _emit - Event creating-client-class.s3: calling handler <function add_generate_presigned_url at 0x73f6b25277e0>
+2025-07-20 20:04:22,590 - DEBUG - provide - Looking for endpoint for s3 via: environment_service
+2025-07-20 20:04:22,590 - DEBUG - provide - Looking for endpoint for s3 via: environment_global
+2025-07-20 20:04:22,590 - DEBUG - provide - Looking for endpoint for s3 via: config_service
+2025-07-20 20:04:22,590 - DEBUG - provide - Looking for endpoint for s3 via: config_global
+2025-07-20 20:04:22,590 - DEBUG - provide - No configured endpoint found.
+2025-07-20 20:04:22,592 - DEBUG - create_endpoint - Setting s3 timeout as (60, 60)
+2025-07-20 20:04:22,612 - DEBUG - _register_legacy_retries - Registering retry handlers for service: s3
+2025-07-20 20:04:22,612 - DEBUG - register - Registering S3 region redirector handler
+2025-07-20 20:04:22,612 - DEBUG - register - Registering S3Express Identity Resolver
+2025-07-20 20:04:22,613 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <function sse_md5 at 0x73f6b25b68e0>
+2025-07-20 20:04:22,613 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <function validate_bucket_name at 0x73f6b25b6840>
+2025-07-20 20:04:22,613 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <function remove_bucket_from_url_paths_from_model at 0x73f6b25e4ae0>
+2025-07-20 20:04:22,613 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <bound method S3RegionRedirectorv2.annotate_request_context of <botocore.utils.S3RegionRedirectorv2 object at 0x73f6ab1e4560>>
+2025-07-20 20:04:22,613 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <bound method ClientCreator._inject_s3_input_parameters of <botocore.client.ClientCreator object at 0x73f6b25603e0>>
+2025-07-20 20:04:22,613 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <function generate_idempotent_uuid at 0x73f6b25b6660>
+2025-07-20 20:04:22,613 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <function _handle_request_validation_mode_member at 0x73f6b25e51c0>
+2025-07-20 20:04:22,613 - DEBUG - _emit - Event before-endpoint-resolution.s3: calling handler <function customize_endpoint_resolver_builtins at 0x73f6b25e4cc0>
+2025-07-20 20:04:22,613 - DEBUG - _emit - Event before-endpoint-resolution.s3: calling handler <bound method S3RegionRedirectorv2.redirect_from_cache of <botocore.utils.S3RegionRedirectorv2 object at 0x73f6ab1e4560>>
+2025-07-20 20:04:22,614 - DEBUG - construct_endpoint - Calling endpoint provider with parameters: {'Bucket': 'webpage.image.upload', 'Region': 'ap-south-1', 'UseFIPS': False, 'UseDualStack': False, 'ForcePathStyle': False, 'Accelerate': False, 'UseGlobalEndpoint': False, 'Key': 'images/product_id33.jpg', 'DisableMultiRegionAccessPoints': False, 'UseArnRegion': True}
+2025-07-20 20:04:22,614 - DEBUG - construct_endpoint - Endpoint provider result: https://s3.ap-south-1.amazonaws.com/webpage.image.upload
+2025-07-20 20:04:22,614 - DEBUG - auth_schemes_to_signing_ctx - Selecting from endpoint provider's list of auth schemes: "sigv4". User selected auth scheme is: "None"
+2025-07-20 20:04:22,614 - DEBUG - auth_schemes_to_signing_ctx - Selected auth type "v4" as "v4" with signing context params: {'region': 'ap-south-1', 'signing_name': 's3', 'disableDoubleEncoding': True}
+2025-07-20 20:04:22,614 - DEBUG - _emit - Event choose-signer.s3.GetObject: calling handler <function set_operation_specific_signer at 0x73f6b25b6480>
+2025-07-20 20:04:22,614 - DEBUG - _emit - Event before-sign.s3.GetObject: calling handler <function remove_arn_from_signing_path at 0x73f6b25e4c20>
+2025-07-20 20:04:22,614 - DEBUG - _emit - Event before-sign.s3.GetObject: calling handler <function _set_extra_headers_for_unsigned_request at 0x73f6b25e5260>
+2025-07-20 20:04:22,615 - DEBUG - _emit - Event before-sign.s3.GetObject: calling handler <bound method S3ExpressIdentityResolver.resolve_s3express_identity of <botocore.utils.S3ExpressIdentityResolver object at 0x73f6ab1e4860>>
+2025-07-20 20:04:22,615 - DEBUG - add_auth - Calculating signature using v4 auth.
+2025-07-20 20:04:22,615 - DEBUG - add_auth - CanonicalRequest:
+GET
+/webpage.image.upload/images/product_id33.jpg
+X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAY5DCPLUU76R3KRS6%2F20250720%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20250720T200422Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host
+host:s3.ap-south-1.amazonaws.com
+
+host
+UNSIGNED-PAYLOAD
+2025-07-20 20:04:22,615 - DEBUG - add_auth - StringToSign:
+AWS4-HMAC-SHA256
+20250720T200422Z
+20250720/ap-south-1/s3/aws4_request
+50a976b860b18c3ced381431105f0af6ec1c5415fd8b2317b6375eb117843d2b
+2025-07-20 20:04:22,615 - DEBUG - add_auth - Signature:
+e70571569479f6275786697f5df1d34755a2d92d609f5099c2829635a57fbf13
+2025-07-20 20:04:22,615 - DEBUG - _emit - Event choose-service-name: calling handler <function handle_service_name_alias at 0x73f6b25b45e0>
+2025-07-20 20:04:22,616 - DEBUG - _emit - Event creating-client-class.s3: calling handler <function add_generate_presigned_post at 0x73f6b2527a60>
+2025-07-20 20:04:22,616 - DEBUG - _emit - Event creating-client-class.s3: calling handler <function lazy_call.<locals>._handler at 0x73f6b1d27f60>
+2025-07-20 20:04:22,616 - DEBUG - _emit - Event creating-client-class.s3: calling handler <function add_generate_presigned_url at 0x73f6b25277e0>
+2025-07-20 20:04:22,616 - DEBUG - provide - Looking for endpoint for s3 via: environment_service
+2025-07-20 20:04:22,617 - DEBUG - provide - Looking for endpoint for s3 via: environment_global
+2025-07-20 20:04:22,617 - DEBUG - provide - Looking for endpoint for s3 via: config_service
+2025-07-20 20:04:22,617 - DEBUG - provide - Looking for endpoint for s3 via: config_global
+2025-07-20 20:04:22,617 - DEBUG - provide - No configured endpoint found.
+2025-07-20 20:04:22,618 - DEBUG - create_endpoint - Setting s3 timeout as (60, 60)
+2025-07-20 20:04:22,620 - DEBUG - _register_legacy_retries - Registering retry handlers for service: s3
+2025-07-20 20:04:22,620 - DEBUG - register - Registering S3 region redirector handler
+2025-07-20 20:04:22,620 - DEBUG - register - Registering S3Express Identity Resolver
+2025-07-20 20:04:22,621 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <function sse_md5 at 0x73f6b25b68e0>
+2025-07-20 20:04:22,621 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <function validate_bucket_name at 0x73f6b25b6840>
+2025-07-20 20:04:22,621 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <function remove_bucket_from_url_paths_from_model at 0x73f6b25e4ae0>
+2025-07-20 20:04:22,621 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <bound method S3RegionRedirectorv2.annotate_request_context of <botocore.utils.S3RegionRedirectorv2 object at 0x73f6ab1e4e30>>
+2025-07-20 20:04:22,621 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <bound method ClientCreator._inject_s3_input_parameters of <botocore.client.ClientCreator object at 0x73f6ab55b710>>
+2025-07-20 20:04:22,621 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <function generate_idempotent_uuid at 0x73f6b25b6660>
+2025-07-20 20:04:22,621 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <function _handle_request_validation_mode_member at 0x73f6b25e51c0>
+2025-07-20 20:04:22,621 - DEBUG - _emit - Event before-endpoint-resolution.s3: calling handler <function customize_endpoint_resolver_builtins at 0x73f6b25e4cc0>
+2025-07-20 20:04:22,621 - DEBUG - _emit - Event before-endpoint-resolution.s3: calling handler <bound method S3RegionRedirectorv2.redirect_from_cache of <botocore.utils.S3RegionRedirectorv2 object at 0x73f6ab1e4e30>>
+2025-07-20 20:04:22,621 - DEBUG - construct_endpoint - Calling endpoint provider with parameters: {'Bucket': 'webpage.image.upload', 'Region': 'ap-south-1', 'UseFIPS': False, 'UseDualStack': False, 'ForcePathStyle': False, 'Accelerate': False, 'UseGlobalEndpoint': False, 'Key': 'images/product_id34.jpg', 'DisableMultiRegionAccessPoints': False, 'UseArnRegion': True}
+2025-07-20 20:04:22,622 - DEBUG - construct_endpoint - Endpoint provider result: https://s3.ap-south-1.amazonaws.com/webpage.image.upload
+2025-07-20 20:04:22,622 - DEBUG - auth_schemes_to_signing_ctx - Selecting from endpoint provider's list of auth schemes: "sigv4". User selected auth scheme is: "None"
+2025-07-20 20:04:22,622 - DEBUG - auth_schemes_to_signing_ctx - Selected auth type "v4" as "v4" with signing context params: {'region': 'ap-south-1', 'signing_name': 's3', 'disableDoubleEncoding': True}
+2025-07-20 20:04:22,622 - DEBUG - _emit - Event choose-signer.s3.GetObject: calling handler <function set_operation_specific_signer at 0x73f6b25b6480>
+2025-07-20 20:04:22,622 - DEBUG - _emit - Event before-sign.s3.GetObject: calling handler <function remove_arn_from_signing_path at 0x73f6b25e4c20>
+2025-07-20 20:04:22,622 - DEBUG - _emit - Event before-sign.s3.GetObject: calling handler <function _set_extra_headers_for_unsigned_request at 0x73f6b25e5260>
+2025-07-20 20:04:22,622 - DEBUG - _emit - Event before-sign.s3.GetObject: calling handler <bound method S3ExpressIdentityResolver.resolve_s3express_identity of <botocore.utils.S3ExpressIdentityResolver object at 0x73f6ab1edcd0>>
+2025-07-20 20:04:22,622 - DEBUG - add_auth - Calculating signature using v4 auth.
+2025-07-20 20:04:22,623 - DEBUG - add_auth - CanonicalRequest:
+GET
+/webpage.image.upload/images/product_id34.jpg
+X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAY5DCPLUU76R3KRS6%2F20250720%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20250720T200422Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host
+host:s3.ap-south-1.amazonaws.com
+
+host
+UNSIGNED-PAYLOAD
+2025-07-20 20:04:22,623 - DEBUG - add_auth - StringToSign:
+AWS4-HMAC-SHA256
+20250720T200422Z
+20250720/ap-south-1/s3/aws4_request
+2256601ada31e7ec556a849462a03af8711bcdf4d77dd58b799404ecfe95df38
+2025-07-20 20:04:22,623 - DEBUG - add_auth - Signature:
+f766b7e45f3ae114adfae3bdf91d2d95ee45bc4a885f6875316a896a164a2de7
+2025-07-20 20:04:22,623 - DEBUG - _emit - Event choose-service-name: calling handler <function handle_service_name_alias at 0x73f6b25b45e0>
+2025-07-20 20:04:22,624 - DEBUG - _emit - Event creating-client-class.s3: calling handler <function add_generate_presigned_post at 0x73f6b2527a60>
+2025-07-20 20:04:22,624 - DEBUG - _emit - Event creating-client-class.s3: calling handler <function lazy_call.<locals>._handler at 0x73f6b1d27f60>
+2025-07-20 20:04:22,624 - DEBUG - _emit - Event creating-client-class.s3: calling handler <function add_generate_presigned_url at 0x73f6b25277e0>
+2025-07-20 20:04:22,624 - DEBUG - provide - Looking for endpoint for s3 via: environment_service
+2025-07-20 20:04:22,624 - DEBUG - provide - Looking for endpoint for s3 via: environment_global
+2025-07-20 20:04:22,624 - DEBUG - provide - Looking for endpoint for s3 via: config_service
+2025-07-20 20:04:22,624 - DEBUG - provide - Looking for endpoint for s3 via: config_global
+2025-07-20 20:04:22,624 - DEBUG - provide - No configured endpoint found.
+2025-07-20 20:04:22,625 - DEBUG - create_endpoint - Setting s3 timeout as (60, 60)
+2025-07-20 20:04:22,627 - DEBUG - _register_legacy_retries - Registering retry handlers for service: s3
+2025-07-20 20:04:22,627 - DEBUG - register - Registering S3 region redirector handler
+2025-07-20 20:04:22,628 - DEBUG - register - Registering S3Express Identity Resolver
+2025-07-20 20:04:22,628 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <function sse_md5 at 0x73f6b25b68e0>
+2025-07-20 20:04:22,628 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <function validate_bucket_name at 0x73f6b25b6840>
+2025-07-20 20:04:22,628 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <function remove_bucket_from_url_paths_from_model at 0x73f6b25e4ae0>
+2025-07-20 20:04:22,628 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <bound method S3RegionRedirectorv2.annotate_request_context of <botocore.utils.S3RegionRedirectorv2 object at 0x73f6ab21b4d0>>
+2025-07-20 20:04:22,628 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <bound method ClientCreator._inject_s3_input_parameters of <botocore.client.ClientCreator object at 0x73f6ab5c4050>>
+2025-07-20 20:04:22,628 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <function generate_idempotent_uuid at 0x73f6b25b6660>
+2025-07-20 20:04:22,629 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <function _handle_request_validation_mode_member at 0x73f6b25e51c0>
+2025-07-20 20:04:22,629 - DEBUG - _emit - Event before-endpoint-resolution.s3: calling handler <function customize_endpoint_resolver_builtins at 0x73f6b25e4cc0>
+2025-07-20 20:04:22,629 - DEBUG - _emit - Event before-endpoint-resolution.s3: calling handler <bound method S3RegionRedirectorv2.redirect_from_cache of <botocore.utils.S3RegionRedirectorv2 object at 0x73f6ab21b4d0>>
+2025-07-20 20:04:22,629 - DEBUG - construct_endpoint - Calling endpoint provider with parameters: {'Bucket': 'webpage.image.upload', 'Region': 'ap-south-1', 'UseFIPS': False, 'UseDualStack': False, 'ForcePathStyle': False, 'Accelerate': False, 'UseGlobalEndpoint': False, 'Key': 'images/product_id35.jpg', 'DisableMultiRegionAccessPoints': False, 'UseArnRegion': True}
+2025-07-20 20:04:22,629 - DEBUG - construct_endpoint - Endpoint provider result: https://s3.ap-south-1.amazonaws.com/webpage.image.upload
+2025-07-20 20:04:22,629 - DEBUG - auth_schemes_to_signing_ctx - Selecting from endpoint provider's list of auth schemes: "sigv4". User selected auth scheme is: "None"
+2025-07-20 20:04:22,629 - DEBUG - auth_schemes_to_signing_ctx - Selected auth type "v4" as "v4" with signing context params: {'region': 'ap-south-1', 'signing_name': 's3', 'disableDoubleEncoding': True}
+2025-07-20 20:04:22,630 - DEBUG - _emit - Event choose-signer.s3.GetObject: calling handler <function set_operation_specific_signer at 0x73f6b25b6480>
+2025-07-20 20:04:22,630 - DEBUG - _emit - Event before-sign.s3.GetObject: calling handler <function remove_arn_from_signing_path at 0x73f6b25e4c20>
+2025-07-20 20:04:22,630 - DEBUG - _emit - Event before-sign.s3.GetObject: calling handler <function _set_extra_headers_for_unsigned_request at 0x73f6b25e5260>
+2025-07-20 20:04:22,630 - DEBUG - _emit - Event before-sign.s3.GetObject: calling handler <bound method S3ExpressIdentityResolver.resolve_s3express_identity of <botocore.utils.S3ExpressIdentityResolver object at 0x73f6ab21b830>>
+2025-07-20 20:04:22,630 - DEBUG - add_auth - Calculating signature using v4 auth.
+2025-07-20 20:04:22,630 - DEBUG - add_auth - CanonicalRequest:
+GET
+/webpage.image.upload/images/product_id35.jpg
+X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAY5DCPLUU76R3KRS6%2F20250720%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20250720T200422Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host
+host:s3.ap-south-1.amazonaws.com
+
+host
+UNSIGNED-PAYLOAD
+2025-07-20 20:04:22,630 - DEBUG - add_auth - StringToSign:
+AWS4-HMAC-SHA256
+20250720T200422Z
+20250720/ap-south-1/s3/aws4_request
+738924595d27f15195bdb498193b27c96a9782bc369ae9cfceee16ba44e3c42a
+2025-07-20 20:04:22,630 - DEBUG - add_auth - Signature:
+21369c5287982b75254ec3b59f1ce8f39f4e03cd1720bde05d56cfee525b6fab
+2025-07-20 20:04:22,645 - INFO - _log - 223.178.86.200 - - [20/Jul/2025 20:04:22] "GET /inventory HTTP/1.1" 200 -
+2025-07-20 20:04:22,645 - INFO - _log - 223.178.86.200 - - [20/Jul/2025 20:04:22] "GET /inventory HTTP/1.1" 200 -
+2025-07-20 20:04:26,014 - INFO - _log - 223.178.86.200 - - [20/Jul/2025 20:04:26] "[36mGET /static/inventory.css HTTP/1.1[0m" 304 -
+2025-07-20 20:04:26,014 - INFO - _log - 223.178.86.200 - - [20/Jul/2025 20:04:26] "[36mGET /static/inventory.css HTTP/1.1[0m" 304 -
+2025-07-20 20:04:42,228 - INFO - _log - 223.178.86.200 - - [20/Jul/2025 20:04:42] "GET /inven_add HTTP/1.1" 200 -
+2025-07-20 20:04:42,228 - INFO - _log - 223.178.86.200 - - [20/Jul/2025 20:04:42] "GET /inven_add HTTP/1.1" 200 -
+2025-07-20 20:04:42,280 - INFO - _log - 223.178.86.200 - - [20/Jul/2025 20:04:42] "[36mGET /static/inventory_add.css HTTP/1.1[0m" 304 -
+2025-07-20 20:04:42,280 - INFO - _log - 223.178.86.200 - - [20/Jul/2025 20:04:42] "[36mGET /static/inventory_add.css HTTP/1.1[0m" 304 -
+2025-07-20 20:04:49,460 - INFO - _log - 223.178.86.200 - - [20/Jul/2025 20:04:49] "[32mGET /inventory_details HTTP/1.1[0m" 302 -
+2025-07-20 20:04:49,460 - INFO - _log - 223.178.86.200 - - [20/Jul/2025 20:04:49] "[32mGET /inventory_details HTTP/1.1[0m" 302 -
+2025-07-20 20:04:50,212 - DEBUG - _emit - Event choose-service-name: calling handler <function handle_service_name_alias at 0x73f6b25b45e0>
+2025-07-20 20:04:50,213 - DEBUG - _emit - Event creating-client-class.s3: calling handler <function add_generate_presigned_post at 0x73f6b2527a60>
+2025-07-20 20:04:50,213 - DEBUG - _emit - Event creating-client-class.s3: calling handler <function lazy_call.<locals>._handler at 0x73f6b1d27f60>
+2025-07-20 20:04:50,213 - DEBUG - _emit - Event creating-client-class.s3: calling handler <function add_generate_presigned_url at 0x73f6b25277e0>
+2025-07-20 20:04:50,214 - DEBUG - provide - Looking for endpoint for s3 via: environment_service
+2025-07-20 20:04:50,214 - DEBUG - provide - Looking for endpoint for s3 via: environment_global
+2025-07-20 20:04:50,214 - DEBUG - provide - Looking for endpoint for s3 via: config_service
+2025-07-20 20:04:50,214 - DEBUG - provide - Looking for endpoint for s3 via: config_global
+2025-07-20 20:04:50,214 - DEBUG - provide - No configured endpoint found.
+2025-07-20 20:04:50,215 - DEBUG - create_endpoint - Setting s3 timeout as (60, 60)
+2025-07-20 20:04:50,217 - DEBUG - _register_legacy_retries - Registering retry handlers for service: s3
+2025-07-20 20:04:50,218 - DEBUG - register - Registering S3 region redirector handler
+2025-07-20 20:04:50,218 - DEBUG - register - Registering S3Express Identity Resolver
+2025-07-20 20:04:50,218 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <function sse_md5 at 0x73f6b25b68e0>
+2025-07-20 20:04:50,218 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <function validate_bucket_name at 0x73f6b25b6840>
+2025-07-20 20:04:50,219 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <function remove_bucket_from_url_paths_from_model at 0x73f6b25e4ae0>
+2025-07-20 20:04:50,219 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <bound method S3RegionRedirectorv2.annotate_request_context of <botocore.utils.S3RegionRedirectorv2 object at 0x73f6ab251010>>
+2025-07-20 20:04:50,219 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <bound method ClientCreator._inject_s3_input_parameters of <botocore.client.ClientCreator object at 0x73f6ab4f5e50>>
+2025-07-20 20:04:50,219 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <function generate_idempotent_uuid at 0x73f6b25b6660>
+2025-07-20 20:04:50,219 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <function _handle_request_validation_mode_member at 0x73f6b25e51c0>
+2025-07-20 20:04:50,219 - DEBUG - _emit - Event before-endpoint-resolution.s3: calling handler <function customize_endpoint_resolver_builtins at 0x73f6b25e4cc0>
+2025-07-20 20:04:50,219 - DEBUG - _emit - Event before-endpoint-resolution.s3: calling handler <bound method S3RegionRedirectorv2.redirect_from_cache of <botocore.utils.S3RegionRedirectorv2 object at 0x73f6ab251010>>
+2025-07-20 20:04:50,219 - DEBUG - construct_endpoint - Calling endpoint provider with parameters: {'Bucket': 'webpage.image.upload', 'Region': 'ap-south-1', 'UseFIPS': False, 'UseDualStack': False, 'ForcePathStyle': False, 'Accelerate': False, 'UseGlobalEndpoint': False, 'Key': 'images/product_id32.jpg', 'DisableMultiRegionAccessPoints': False, 'UseArnRegion': True}
+2025-07-20 20:04:50,220 - DEBUG - construct_endpoint - Endpoint provider result: https://s3.ap-south-1.amazonaws.com/webpage.image.upload
+2025-07-20 20:04:50,220 - DEBUG - auth_schemes_to_signing_ctx - Selecting from endpoint provider's list of auth schemes: "sigv4". User selected auth scheme is: "None"
+2025-07-20 20:04:50,220 - DEBUG - auth_schemes_to_signing_ctx - Selected auth type "v4" as "v4" with signing context params: {'region': 'ap-south-1', 'signing_name': 's3', 'disableDoubleEncoding': True}
+2025-07-20 20:04:50,220 - DEBUG - _emit - Event choose-signer.s3.GetObject: calling handler <function set_operation_specific_signer at 0x73f6b25b6480>
+2025-07-20 20:04:50,220 - DEBUG - _emit - Event before-sign.s3.GetObject: calling handler <function remove_arn_from_signing_path at 0x73f6b25e4c20>
+2025-07-20 20:04:50,220 - DEBUG - _emit - Event before-sign.s3.GetObject: calling handler <function _set_extra_headers_for_unsigned_request at 0x73f6b25e5260>
+2025-07-20 20:04:50,220 - DEBUG - _emit - Event before-sign.s3.GetObject: calling handler <bound method S3ExpressIdentityResolver.resolve_s3express_identity of <botocore.utils.S3ExpressIdentityResolver object at 0x73f6ab251370>>
+2025-07-20 20:04:50,221 - DEBUG - add_auth - Calculating signature using v4 auth.
+2025-07-20 20:04:50,221 - DEBUG - add_auth - CanonicalRequest:
+GET
+/webpage.image.upload/images/product_id32.jpg
+X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAY5DCPLUU76R3KRS6%2F20250720%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20250720T200450Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host
+host:s3.ap-south-1.amazonaws.com
+
+host
+UNSIGNED-PAYLOAD
+2025-07-20 20:04:50,221 - DEBUG - add_auth - StringToSign:
+AWS4-HMAC-SHA256
+20250720T200450Z
+20250720/ap-south-1/s3/aws4_request
+1717509415be8826642180aa6f1336fe321c5ba59ce7b0b09ec245feaf26b45d
+2025-07-20 20:04:50,221 - DEBUG - add_auth - Signature:
+08a262ad9af8562a47dffb71c66511921b0e2c1cc3f117138d1f520b4e016bf4
+2025-07-20 20:04:50,221 - DEBUG - _emit - Event choose-service-name: calling handler <function handle_service_name_alias at 0x73f6b25b45e0>
+2025-07-20 20:04:50,222 - DEBUG - _emit - Event creating-client-class.s3: calling handler <function add_generate_presigned_post at 0x73f6b2527a60>
+2025-07-20 20:04:50,222 - DEBUG - _emit - Event creating-client-class.s3: calling handler <function lazy_call.<locals>._handler at 0x73f6b1d27f60>
+2025-07-20 20:04:50,222 - DEBUG - _emit - Event creating-client-class.s3: calling handler <function add_generate_presigned_url at 0x73f6b25277e0>
+2025-07-20 20:04:50,222 - DEBUG - provide - Looking for endpoint for s3 via: environment_service
+2025-07-20 20:04:50,222 - DEBUG - provide - Looking for endpoint for s3 via: environment_global
+2025-07-20 20:04:50,222 - DEBUG - provide - Looking for endpoint for s3 via: config_service
+2025-07-20 20:04:50,222 - DEBUG - provide - Looking for endpoint for s3 via: config_global
+2025-07-20 20:04:50,222 - DEBUG - provide - No configured endpoint found.
+2025-07-20 20:04:50,224 - DEBUG - create_endpoint - Setting s3 timeout as (60, 60)
+2025-07-20 20:04:50,226 - DEBUG - _register_legacy_retries - Registering retry handlers for service: s3
+2025-07-20 20:04:50,226 - DEBUG - register - Registering S3 region redirector handler
+2025-07-20 20:04:50,227 - DEBUG - register - Registering S3Express Identity Resolver
+2025-07-20 20:04:50,227 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <function sse_md5 at 0x73f6b25b68e0>
+2025-07-20 20:04:50,227 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <function validate_bucket_name at 0x73f6b25b6840>
+2025-07-20 20:04:50,227 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <function remove_bucket_from_url_paths_from_model at 0x73f6b25e4ae0>
+2025-07-20 20:04:50,227 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <bound method S3RegionRedirectorv2.annotate_request_context of <botocore.utils.S3RegionRedirectorv2 object at 0x73f6ab5ac950>>
+2025-07-20 20:04:50,227 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <bound method ClientCreator._inject_s3_input_parameters of <botocore.client.ClientCreator object at 0x73f6ab21b530>>
+2025-07-20 20:04:50,227 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <function generate_idempotent_uuid at 0x73f6b25b6660>
+2025-07-20 20:04:50,227 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <function _handle_request_validation_mode_member at 0x73f6b25e51c0>
+2025-07-20 20:04:50,228 - DEBUG - _emit - Event before-endpoint-resolution.s3: calling handler <function customize_endpoint_resolver_builtins at 0x73f6b25e4cc0>
+2025-07-20 20:04:50,228 - DEBUG - _emit - Event before-endpoint-resolution.s3: calling handler <bound method S3RegionRedirectorv2.redirect_from_cache of <botocore.utils.S3RegionRedirectorv2 object at 0x73f6ab5ac950>>
+2025-07-20 20:04:50,228 - DEBUG - construct_endpoint - Calling endpoint provider with parameters: {'Bucket': 'webpage.image.upload', 'Region': 'ap-south-1', 'UseFIPS': False, 'UseDualStack': False, 'ForcePathStyle': False, 'Accelerate': False, 'UseGlobalEndpoint': False, 'Key': 'images/product_id33.jpg', 'DisableMultiRegionAccessPoints': False, 'UseArnRegion': True}
+2025-07-20 20:04:50,228 - DEBUG - construct_endpoint - Endpoint provider result: https://s3.ap-south-1.amazonaws.com/webpage.image.upload
+2025-07-20 20:04:50,228 - DEBUG - auth_schemes_to_signing_ctx - Selecting from endpoint provider's list of auth schemes: "sigv4". User selected auth scheme is: "None"
+2025-07-20 20:04:50,228 - DEBUG - auth_schemes_to_signing_ctx - Selected auth type "v4" as "v4" with signing context params: {'region': 'ap-south-1', 'signing_name': 's3', 'disableDoubleEncoding': True}
+2025-07-20 20:04:50,228 - DEBUG - _emit - Event choose-signer.s3.GetObject: calling handler <function set_operation_specific_signer at 0x73f6b25b6480>
+2025-07-20 20:04:50,229 - DEBUG - _emit - Event before-sign.s3.GetObject: calling handler <function remove_arn_from_signing_path at 0x73f6b25e4c20>
+2025-07-20 20:04:50,229 - DEBUG - _emit - Event before-sign.s3.GetObject: calling handler <function _set_extra_headers_for_unsigned_request at 0x73f6b25e5260>
+2025-07-20 20:04:50,229 - DEBUG - _emit - Event before-sign.s3.GetObject: calling handler <bound method S3ExpressIdentityResolver.resolve_s3express_identity of <botocore.utils.S3ExpressIdentityResolver object at 0x73f6ab5ac1a0>>
+2025-07-20 20:04:50,229 - DEBUG - add_auth - Calculating signature using v4 auth.
+2025-07-20 20:04:50,229 - DEBUG - add_auth - CanonicalRequest:
+GET
+/webpage.image.upload/images/product_id33.jpg
+X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAY5DCPLUU76R3KRS6%2F20250720%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20250720T200450Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host
+host:s3.ap-south-1.amazonaws.com
+
+host
+UNSIGNED-PAYLOAD
+2025-07-20 20:04:50,229 - DEBUG - add_auth - StringToSign:
+AWS4-HMAC-SHA256
+20250720T200450Z
+20250720/ap-south-1/s3/aws4_request
+42556d64420e185c73658ef319e070a979d1d056ef58f1d2527c30718b6b9601
+2025-07-20 20:04:50,229 - DEBUG - add_auth - Signature:
+5ac72fcbba321d9b496e222c8fdd2a97dede8000bc01be565e1c860a9d706203
+2025-07-20 20:04:50,229 - DEBUG - _emit - Event choose-service-name: calling handler <function handle_service_name_alias at 0x73f6b25b45e0>
+2025-07-20 20:04:50,230 - DEBUG - _emit - Event creating-client-class.s3: calling handler <function add_generate_presigned_post at 0x73f6b2527a60>
+2025-07-20 20:04:50,230 - DEBUG - _emit - Event creating-client-class.s3: calling handler <function lazy_call.<locals>._handler at 0x73f6b1d27f60>
+2025-07-20 20:04:50,230 - DEBUG - _emit - Event creating-client-class.s3: calling handler <function add_generate_presigned_url at 0x73f6b25277e0>
+2025-07-20 20:04:50,230 - DEBUG - provide - Looking for endpoint for s3 via: environment_service
+2025-07-20 20:04:50,230 - DEBUG - provide - Looking for endpoint for s3 via: environment_global
+2025-07-20 20:04:50,231 - DEBUG - provide - Looking for endpoint for s3 via: config_service
+2025-07-20 20:04:50,231 - DEBUG - provide - Looking for endpoint for s3 via: config_global
+2025-07-20 20:04:50,231 - DEBUG - provide - No configured endpoint found.
+2025-07-20 20:04:50,231 - DEBUG - create_endpoint - Setting s3 timeout as (60, 60)
+2025-07-20 20:04:50,233 - DEBUG - _register_legacy_retries - Registering retry handlers for service: s3
+2025-07-20 20:04:50,234 - DEBUG - register - Registering S3 region redirector handler
+2025-07-20 20:04:50,234 - DEBUG - register - Registering S3Express Identity Resolver
+2025-07-20 20:04:50,234 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <function sse_md5 at 0x73f6b25b68e0>
+2025-07-20 20:04:50,234 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <function validate_bucket_name at 0x73f6b25b6840>
+2025-07-20 20:04:50,235 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <function remove_bucket_from_url_paths_from_model at 0x73f6b25e4ae0>
+2025-07-20 20:04:50,235 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <bound method S3RegionRedirectorv2.annotate_request_context of <botocore.utils.S3RegionRedirectorv2 object at 0x73f6ab1ec110>>
+2025-07-20 20:04:50,235 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <bound method ClientCreator._inject_s3_input_parameters of <botocore.client.ClientCreator object at 0x73f6ab4a8a70>>
+2025-07-20 20:04:50,235 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <function generate_idempotent_uuid at 0x73f6b25b6660>
+2025-07-20 20:04:50,235 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <function _handle_request_validation_mode_member at 0x73f6b25e51c0>
+2025-07-20 20:04:50,235 - DEBUG - _emit - Event before-endpoint-resolution.s3: calling handler <function customize_endpoint_resolver_builtins at 0x73f6b25e4cc0>
+2025-07-20 20:04:50,235 - DEBUG - _emit - Event before-endpoint-resolution.s3: calling handler <bound method S3RegionRedirectorv2.redirect_from_cache of <botocore.utils.S3RegionRedirectorv2 object at 0x73f6ab1ec110>>
+2025-07-20 20:04:50,235 - DEBUG - construct_endpoint - Calling endpoint provider with parameters: {'Bucket': 'webpage.image.upload', 'Region': 'ap-south-1', 'UseFIPS': False, 'UseDualStack': False, 'ForcePathStyle': False, 'Accelerate': False, 'UseGlobalEndpoint': False, 'Key': 'images/product_id34.jpg', 'DisableMultiRegionAccessPoints': False, 'UseArnRegion': True}
+2025-07-20 20:04:50,235 - DEBUG - construct_endpoint - Endpoint provider result: https://s3.ap-south-1.amazonaws.com/webpage.image.upload
+2025-07-20 20:04:50,235 - DEBUG - auth_schemes_to_signing_ctx - Selecting from endpoint provider's list of auth schemes: "sigv4". User selected auth scheme is: "None"
+2025-07-20 20:04:50,236 - DEBUG - auth_schemes_to_signing_ctx - Selected auth type "v4" as "v4" with signing context params: {'region': 'ap-south-1', 'signing_name': 's3', 'disableDoubleEncoding': True}
+2025-07-20 20:04:50,236 - DEBUG - _emit - Event choose-signer.s3.GetObject: calling handler <function set_operation_specific_signer at 0x73f6b25b6480>
+2025-07-20 20:04:50,236 - DEBUG - _emit - Event before-sign.s3.GetObject: calling handler <function remove_arn_from_signing_path at 0x73f6b25e4c20>
+2025-07-20 20:04:50,236 - DEBUG - _emit - Event before-sign.s3.GetObject: calling handler <function _set_extra_headers_for_unsigned_request at 0x73f6b25e5260>
+2025-07-20 20:04:50,236 - DEBUG - _emit - Event before-sign.s3.GetObject: calling handler <bound method S3ExpressIdentityResolver.resolve_s3express_identity of <botocore.utils.S3ExpressIdentityResolver object at 0x73f6ab252e40>>
+2025-07-20 20:04:50,236 - DEBUG - add_auth - Calculating signature using v4 auth.
+2025-07-20 20:04:50,236 - DEBUG - add_auth - CanonicalRequest:
+GET
+/webpage.image.upload/images/product_id34.jpg
+X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAY5DCPLUU76R3KRS6%2F20250720%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20250720T200450Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host
+host:s3.ap-south-1.amazonaws.com
+
+host
+UNSIGNED-PAYLOAD
+2025-07-20 20:04:50,236 - DEBUG - add_auth - StringToSign:
+AWS4-HMAC-SHA256
+20250720T200450Z
+20250720/ap-south-1/s3/aws4_request
+d249ed5fbedf5c6328bf58db76d8579e33a7370e347fbed588b7d4045d3206a4
+2025-07-20 20:04:50,236 - DEBUG - add_auth - Signature:
+cec521de42026b2845d781fbc3ec4f8dd9a432f7314e3b6170e1e9b8d616c111
+2025-07-20 20:04:50,237 - DEBUG - _emit - Event choose-service-name: calling handler <function handle_service_name_alias at 0x73f6b25b45e0>
+2025-07-20 20:04:50,238 - DEBUG - _emit - Event creating-client-class.s3: calling handler <function add_generate_presigned_post at 0x73f6b2527a60>
+2025-07-20 20:04:50,238 - DEBUG - _emit - Event creating-client-class.s3: calling handler <function lazy_call.<locals>._handler at 0x73f6b1d27f60>
+2025-07-20 20:04:50,238 - DEBUG - _emit - Event creating-client-class.s3: calling handler <function add_generate_presigned_url at 0x73f6b25277e0>
+2025-07-20 20:04:50,238 - DEBUG - provide - Looking for endpoint for s3 via: environment_service
+2025-07-20 20:04:50,238 - DEBUG - provide - Looking for endpoint for s3 via: environment_global
+2025-07-20 20:04:50,238 - DEBUG - provide - Looking for endpoint for s3 via: config_service
+2025-07-20 20:04:50,238 - DEBUG - provide - Looking for endpoint for s3 via: config_global
+2025-07-20 20:04:50,238 - DEBUG - provide - No configured endpoint found.
+2025-07-20 20:04:50,239 - DEBUG - create_endpoint - Setting s3 timeout as (60, 60)
+2025-07-20 20:04:50,241 - DEBUG - _register_legacy_retries - Registering retry handlers for service: s3
+2025-07-20 20:04:50,241 - DEBUG - register - Registering S3 region redirector handler
+2025-07-20 20:04:50,241 - DEBUG - register - Registering S3Express Identity Resolver
+2025-07-20 20:04:50,242 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <function sse_md5 at 0x73f6b25b68e0>
+2025-07-20 20:04:50,242 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <function validate_bucket_name at 0x73f6b25b6840>
+2025-07-20 20:04:50,242 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <function remove_bucket_from_url_paths_from_model at 0x73f6b25e4ae0>
+2025-07-20 20:04:50,242 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <bound method S3RegionRedirectorv2.annotate_request_context of <botocore.utils.S3RegionRedirectorv2 object at 0x73f6ab1fee70>>
+2025-07-20 20:04:50,242 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <bound method ClientCreator._inject_s3_input_parameters of <botocore.client.ClientCreator object at 0x73f6ab4f4590>>
+2025-07-20 20:04:50,242 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <function generate_idempotent_uuid at 0x73f6b25b6660>
+2025-07-20 20:04:50,242 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <function _handle_request_validation_mode_member at 0x73f6b25e51c0>
+2025-07-20 20:04:50,242 - DEBUG - _emit - Event before-endpoint-resolution.s3: calling handler <function customize_endpoint_resolver_builtins at 0x73f6b25e4cc0>
+2025-07-20 20:04:50,242 - DEBUG - _emit - Event before-endpoint-resolution.s3: calling handler <bound method S3RegionRedirectorv2.redirect_from_cache of <botocore.utils.S3RegionRedirectorv2 object at 0x73f6ab1fee70>>
+2025-07-20 20:04:50,242 - DEBUG - construct_endpoint - Calling endpoint provider with parameters: {'Bucket': 'webpage.image.upload', 'Region': 'ap-south-1', 'UseFIPS': False, 'UseDualStack': False, 'ForcePathStyle': False, 'Accelerate': False, 'UseGlobalEndpoint': False, 'Key': 'images/product_id35.jpg', 'DisableMultiRegionAccessPoints': False, 'UseArnRegion': True}
+2025-07-20 20:04:50,243 - DEBUG - construct_endpoint - Endpoint provider result: https://s3.ap-south-1.amazonaws.com/webpage.image.upload
+2025-07-20 20:04:50,243 - DEBUG - auth_schemes_to_signing_ctx - Selecting from endpoint provider's list of auth schemes: "sigv4". User selected auth scheme is: "None"
+2025-07-20 20:04:50,243 - DEBUG - auth_schemes_to_signing_ctx - Selected auth type "v4" as "v4" with signing context params: {'region': 'ap-south-1', 'signing_name': 's3', 'disableDoubleEncoding': True}
+2025-07-20 20:04:50,243 - DEBUG - _emit - Event choose-signer.s3.GetObject: calling handler <function set_operation_specific_signer at 0x73f6b25b6480>
+2025-07-20 20:04:50,243 - DEBUG - _emit - Event before-sign.s3.GetObject: calling handler <function remove_arn_from_signing_path at 0x73f6b25e4c20>
+2025-07-20 20:04:50,243 - DEBUG - _emit - Event before-sign.s3.GetObject: calling handler <function _set_extra_headers_for_unsigned_request at 0x73f6b25e5260>
+2025-07-20 20:04:50,243 - DEBUG - _emit - Event before-sign.s3.GetObject: calling handler <bound method S3ExpressIdentityResolver.resolve_s3express_identity of <botocore.utils.S3ExpressIdentityResolver object at 0x73f6ab1ff170>>
+2025-07-20 20:04:50,243 - DEBUG - add_auth - Calculating signature using v4 auth.
+2025-07-20 20:04:50,244 - DEBUG - add_auth - CanonicalRequest:
+GET
+/webpage.image.upload/images/product_id35.jpg
+X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAY5DCPLUU76R3KRS6%2F20250720%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20250720T200450Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host
+host:s3.ap-south-1.amazonaws.com
+
+host
+UNSIGNED-PAYLOAD
+2025-07-20 20:04:50,244 - DEBUG - add_auth - StringToSign:
+AWS4-HMAC-SHA256
+20250720T200450Z
+20250720/ap-south-1/s3/aws4_request
+58c54000b1cdb84f4a521b0bb44b1918d2323220fd3ecc154fce138e8282fccf
+2025-07-20 20:04:50,244 - DEBUG - add_auth - Signature:
+e3ed2598787c19c73074a5aa994f7895498eb0a6af57b208846382be40065ca7
+2025-07-20 20:04:50,245 - INFO - _log - 223.178.86.200 - - [20/Jul/2025 20:04:50] "GET /inventory HTTP/1.1" 200 -
+2025-07-20 20:04:50,245 - INFO - _log - 223.178.86.200 - - [20/Jul/2025 20:04:50] "GET /inventory HTTP/1.1" 200 -
+2025-07-20 20:04:52,926 - INFO - _log - 223.178.86.200 - - [20/Jul/2025 20:04:52] "[36mGET /static/inventory.css HTTP/1.1[0m" 304 -
+2025-07-20 20:04:52,926 - INFO - _log - 223.178.86.200 - - [20/Jul/2025 20:04:52] "[36mGET /static/inventory.css HTTP/1.1[0m" 304 -
+2025-07-20 20:04:56,091 - DEBUG - _emit - Event choose-service-name: calling handler <function handle_service_name_alias at 0x73f6b25b45e0>
+2025-07-20 20:04:56,092 - DEBUG - _emit - Event creating-client-class.s3: calling handler <function add_generate_presigned_post at 0x73f6b2527a60>
+2025-07-20 20:04:56,092 - DEBUG - _emit - Event creating-client-class.s3: calling handler <function lazy_call.<locals>._handler at 0x73f6b1d27f60>
+2025-07-20 20:04:56,092 - DEBUG - _emit - Event creating-client-class.s3: calling handler <function add_generate_presigned_url at 0x73f6b25277e0>
+2025-07-20 20:04:56,093 - DEBUG - provide - Looking for endpoint for s3 via: environment_service
+2025-07-20 20:04:56,093 - DEBUG - provide - Looking for endpoint for s3 via: environment_global
+2025-07-20 20:04:56,093 - DEBUG - provide - Looking for endpoint for s3 via: config_service
+2025-07-20 20:04:56,093 - DEBUG - provide - Looking for endpoint for s3 via: config_global
+2025-07-20 20:04:56,093 - DEBUG - provide - No configured endpoint found.
+2025-07-20 20:04:56,094 - DEBUG - create_endpoint - Setting s3 timeout as (60, 60)
+2025-07-20 20:04:56,097 - DEBUG - _register_legacy_retries - Registering retry handlers for service: s3
+2025-07-20 20:04:56,097 - DEBUG - register - Registering S3 region redirector handler
+2025-07-20 20:04:56,097 - DEBUG - register - Registering S3Express Identity Resolver
+2025-07-20 20:04:56,098 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <function sse_md5 at 0x73f6b25b68e0>
+2025-07-20 20:04:56,098 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <function validate_bucket_name at 0x73f6b25b6840>
+2025-07-20 20:04:56,098 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <function remove_bucket_from_url_paths_from_model at 0x73f6b25e4ae0>
+2025-07-20 20:04:56,098 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <bound method S3RegionRedirectorv2.annotate_request_context of <botocore.utils.S3RegionRedirectorv2 object at 0x73f6ab2830b0>>
+2025-07-20 20:04:56,098 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <bound method ClientCreator._inject_s3_input_parameters of <botocore.client.ClientCreator object at 0x73f6ab55bec0>>
+2025-07-20 20:04:56,098 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <function generate_idempotent_uuid at 0x73f6b25b6660>
+2025-07-20 20:04:56,098 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <function _handle_request_validation_mode_member at 0x73f6b25e51c0>
+2025-07-20 20:04:56,098 - DEBUG - _emit - Event before-endpoint-resolution.s3: calling handler <function customize_endpoint_resolver_builtins at 0x73f6b25e4cc0>
+2025-07-20 20:04:56,098 - DEBUG - _emit - Event before-endpoint-resolution.s3: calling handler <bound method S3RegionRedirectorv2.redirect_from_cache of <botocore.utils.S3RegionRedirectorv2 object at 0x73f6ab2830b0>>
+2025-07-20 20:04:56,098 - DEBUG - construct_endpoint - Calling endpoint provider with parameters: {'Bucket': 'webpage.image.upload', 'Region': 'ap-south-1', 'UseFIPS': False, 'UseDualStack': False, 'ForcePathStyle': False, 'Accelerate': False, 'UseGlobalEndpoint': False, 'Key': 'images/product_id32.jpg', 'DisableMultiRegionAccessPoints': False, 'UseArnRegion': True}
+2025-07-20 20:04:56,099 - DEBUG - construct_endpoint - Endpoint provider result: https://s3.ap-south-1.amazonaws.com/webpage.image.upload
+2025-07-20 20:04:56,099 - DEBUG - auth_schemes_to_signing_ctx - Selecting from endpoint provider's list of auth schemes: "sigv4". User selected auth scheme is: "None"
+2025-07-20 20:04:56,099 - DEBUG - auth_schemes_to_signing_ctx - Selected auth type "v4" as "v4" with signing context params: {'region': 'ap-south-1', 'signing_name': 's3', 'disableDoubleEncoding': True}
+2025-07-20 20:04:56,099 - DEBUG - _emit - Event choose-signer.s3.GetObject: calling handler <function set_operation_specific_signer at 0x73f6b25b6480>
+2025-07-20 20:04:56,099 - DEBUG - _emit - Event before-sign.s3.GetObject: calling handler <function remove_arn_from_signing_path at 0x73f6b25e4c20>
+2025-07-20 20:04:56,099 - DEBUG - _emit - Event before-sign.s3.GetObject: calling handler <function _set_extra_headers_for_unsigned_request at 0x73f6b25e5260>
+2025-07-20 20:04:56,100 - DEBUG - _emit - Event before-sign.s3.GetObject: calling handler <bound method S3ExpressIdentityResolver.resolve_s3express_identity of <botocore.utils.S3ExpressIdentityResolver object at 0x73f6ab2833b0>>
+2025-07-20 20:04:56,100 - DEBUG - add_auth - Calculating signature using v4 auth.
+2025-07-20 20:04:56,100 - DEBUG - add_auth - CanonicalRequest:
+GET
+/webpage.image.upload/images/product_id32.jpg
+X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAY5DCPLUU76R3KRS6%2F20250720%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20250720T200456Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host
+host:s3.ap-south-1.amazonaws.com
+
+host
+UNSIGNED-PAYLOAD
+2025-07-20 20:04:56,100 - DEBUG - add_auth - StringToSign:
+AWS4-HMAC-SHA256
+20250720T200456Z
+20250720/ap-south-1/s3/aws4_request
+edd324626ac0e80d1ee5c734aafee728851e718434df127c058f74c5e3f6d083
+2025-07-20 20:04:56,100 - DEBUG - add_auth - Signature:
+3f7ad8bb8d638a195e8e0909d8dc9604d6b0007cd8446a8d6d79e706fe606343
+2025-07-20 20:04:56,111 - INFO - _log - 223.178.86.200 - - [20/Jul/2025 20:04:56] "GET /edit_inventory/32 HTTP/1.1" 200 -
+2025-07-20 20:04:56,111 - INFO - _log - 223.178.86.200 - - [20/Jul/2025 20:04:56] "GET /edit_inventory/32 HTTP/1.1" 200 -
+2025-07-20 20:04:56,198 - INFO - _log - 223.178.86.200 - - [20/Jul/2025 20:04:56] "[36mGET /static/inventory_edit.css HTTP/1.1[0m" 304 -
+2025-07-20 20:04:56,198 - INFO - _log - 223.178.86.200 - - [20/Jul/2025 20:04:56] "[36mGET /static/inventory_edit.css HTTP/1.1[0m" 304 -
+2025-07-20 20:05:05,660 - INFO - _log - 223.178.86.200 - - [20/Jul/2025 20:05:05] "[32mGET /inventory_details HTTP/1.1[0m" 302 -
+2025-07-20 20:05:05,660 - INFO - _log - 223.178.86.200 - - [20/Jul/2025 20:05:05] "[32mGET /inventory_details HTTP/1.1[0m" 302 -
+2025-07-20 20:05:05,760 - DEBUG - _emit - Event choose-service-name: calling handler <function handle_service_name_alias at 0x73f6b25b45e0>
+2025-07-20 20:05:05,762 - DEBUG - _emit - Event creating-client-class.s3: calling handler <function add_generate_presigned_post at 0x73f6b2527a60>
+2025-07-20 20:05:05,762 - DEBUG - _emit - Event creating-client-class.s3: calling handler <function lazy_call.<locals>._handler at 0x73f6b1d27f60>
+2025-07-20 20:05:05,762 - DEBUG - _emit - Event creating-client-class.s3: calling handler <function add_generate_presigned_url at 0x73f6b25277e0>
+2025-07-20 20:05:05,762 - DEBUG - provide - Looking for endpoint for s3 via: environment_service
+2025-07-20 20:05:05,762 - DEBUG - provide - Looking for endpoint for s3 via: environment_global
+2025-07-20 20:05:05,762 - DEBUG - provide - Looking for endpoint for s3 via: config_service
+2025-07-20 20:05:05,762 - DEBUG - provide - Looking for endpoint for s3 via: config_global
+2025-07-20 20:05:05,762 - DEBUG - provide - No configured endpoint found.
+2025-07-20 20:05:05,764 - DEBUG - create_endpoint - Setting s3 timeout as (60, 60)
+2025-07-20 20:05:05,767 - DEBUG - _register_legacy_retries - Registering retry handlers for service: s3
+2025-07-20 20:05:05,767 - DEBUG - register - Registering S3 region redirector handler
+2025-07-20 20:05:05,767 - DEBUG - register - Registering S3Express Identity Resolver
+2025-07-20 20:05:05,768 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <function sse_md5 at 0x73f6b25b68e0>
+2025-07-20 20:05:05,768 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <function validate_bucket_name at 0x73f6b25b6840>
+2025-07-20 20:05:05,768 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <function remove_bucket_from_url_paths_from_model at 0x73f6b25e4ae0>
+2025-07-20 20:05:05,768 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <bound method S3RegionRedirectorv2.annotate_request_context of <botocore.utils.S3RegionRedirectorv2 object at 0x73f6ab252c00>>
+2025-07-20 20:05:05,768 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <bound method ClientCreator._inject_s3_input_parameters of <botocore.client.ClientCreator object at 0x73f6ab1fd640>>
+2025-07-20 20:05:05,768 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <function generate_idempotent_uuid at 0x73f6b25b6660>
+2025-07-20 20:05:05,768 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <function _handle_request_validation_mode_member at 0x73f6b25e51c0>
+2025-07-20 20:05:05,768 - DEBUG - _emit - Event before-endpoint-resolution.s3: calling handler <function customize_endpoint_resolver_builtins at 0x73f6b25e4cc0>
+2025-07-20 20:05:05,769 - DEBUG - _emit - Event before-endpoint-resolution.s3: calling handler <bound method S3RegionRedirectorv2.redirect_from_cache of <botocore.utils.S3RegionRedirectorv2 object at 0x73f6ab252c00>>
+2025-07-20 20:05:05,769 - DEBUG - construct_endpoint - Calling endpoint provider with parameters: {'Bucket': 'webpage.image.upload', 'Region': 'ap-south-1', 'UseFIPS': False, 'UseDualStack': False, 'ForcePathStyle': False, 'Accelerate': False, 'UseGlobalEndpoint': False, 'Key': 'images/product_id32.jpg', 'DisableMultiRegionAccessPoints': False, 'UseArnRegion': True}
+2025-07-20 20:05:05,769 - DEBUG - construct_endpoint - Endpoint provider result: https://s3.ap-south-1.amazonaws.com/webpage.image.upload
+2025-07-20 20:05:05,769 - DEBUG - auth_schemes_to_signing_ctx - Selecting from endpoint provider's list of auth schemes: "sigv4". User selected auth scheme is: "None"
+2025-07-20 20:05:05,769 - DEBUG - auth_schemes_to_signing_ctx - Selected auth type "v4" as "v4" with signing context params: {'region': 'ap-south-1', 'signing_name': 's3', 'disableDoubleEncoding': True}
+2025-07-20 20:05:05,769 - DEBUG - _emit - Event choose-signer.s3.GetObject: calling handler <function set_operation_specific_signer at 0x73f6b25b6480>
+2025-07-20 20:05:05,770 - DEBUG - _emit - Event before-sign.s3.GetObject: calling handler <function remove_arn_from_signing_path at 0x73f6b25e4c20>
+2025-07-20 20:05:05,770 - DEBUG - _emit - Event before-sign.s3.GetObject: calling handler <function _set_extra_headers_for_unsigned_request at 0x73f6b25e5260>
+2025-07-20 20:05:05,770 - DEBUG - _emit - Event before-sign.s3.GetObject: calling handler <bound method S3ExpressIdentityResolver.resolve_s3express_identity of <botocore.utils.S3ExpressIdentityResolver object at 0x73f6ab4f7a40>>
+2025-07-20 20:05:05,770 - DEBUG - add_auth - Calculating signature using v4 auth.
+2025-07-20 20:05:05,770 - DEBUG - add_auth - CanonicalRequest:
+GET
+/webpage.image.upload/images/product_id32.jpg
+X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAY5DCPLUU76R3KRS6%2F20250720%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20250720T200505Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host
+host:s3.ap-south-1.amazonaws.com
+
+host
+UNSIGNED-PAYLOAD
+2025-07-20 20:05:05,770 - DEBUG - add_auth - StringToSign:
+AWS4-HMAC-SHA256
+20250720T200505Z
+20250720/ap-south-1/s3/aws4_request
+99293065a57ab7ba7a33b05fa5963877fb759f13bcc593e11622978094ea412a
+2025-07-20 20:05:05,770 - DEBUG - add_auth - Signature:
+750bc113908b8957666127a106078b0b5484fe09b3d437ec0785633e514fe6c0
+2025-07-20 20:05:05,770 - DEBUG - _emit - Event choose-service-name: calling handler <function handle_service_name_alias at 0x73f6b25b45e0>
+2025-07-20 20:05:05,771 - DEBUG - _emit - Event creating-client-class.s3: calling handler <function add_generate_presigned_post at 0x73f6b2527a60>
+2025-07-20 20:05:05,771 - DEBUG - _emit - Event creating-client-class.s3: calling handler <function lazy_call.<locals>._handler at 0x73f6b1d27f60>
+2025-07-20 20:05:05,771 - DEBUG - _emit - Event creating-client-class.s3: calling handler <function add_generate_presigned_url at 0x73f6b25277e0>
+2025-07-20 20:05:05,772 - DEBUG - provide - Looking for endpoint for s3 via: environment_service
+2025-07-20 20:05:05,772 - DEBUG - provide - Looking for endpoint for s3 via: environment_global
+2025-07-20 20:05:05,772 - DEBUG - provide - Looking for endpoint for s3 via: config_service
+2025-07-20 20:05:05,772 - DEBUG - provide - Looking for endpoint for s3 via: config_global
+2025-07-20 20:05:05,772 - DEBUG - provide - No configured endpoint found.
+2025-07-20 20:05:05,773 - DEBUG - create_endpoint - Setting s3 timeout as (60, 60)
+2025-07-20 20:05:05,775 - DEBUG - _register_legacy_retries - Registering retry handlers for service: s3
+2025-07-20 20:05:05,775 - DEBUG - register - Registering S3 region redirector handler
+2025-07-20 20:05:05,775 - DEBUG - register - Registering S3Express Identity Resolver
+2025-07-20 20:05:05,776 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <function sse_md5 at 0x73f6b25b68e0>
+2025-07-20 20:05:05,776 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <function validate_bucket_name at 0x73f6b25b6840>
+2025-07-20 20:05:05,776 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <function remove_bucket_from_url_paths_from_model at 0x73f6b25e4ae0>
+2025-07-20 20:05:05,776 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <bound method S3RegionRedirectorv2.annotate_request_context of <botocore.utils.S3RegionRedirectorv2 object at 0x73f6ab280710>>
+2025-07-20 20:05:05,776 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <bound method ClientCreator._inject_s3_input_parameters of <botocore.client.ClientCreator object at 0x73f6b1d414c0>>
+2025-07-20 20:05:05,776 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <function generate_idempotent_uuid at 0x73f6b25b6660>
+2025-07-20 20:05:05,776 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <function _handle_request_validation_mode_member at 0x73f6b25e51c0>
+2025-07-20 20:05:05,776 - DEBUG - _emit - Event before-endpoint-resolution.s3: calling handler <function customize_endpoint_resolver_builtins at 0x73f6b25e4cc0>
+2025-07-20 20:05:05,777 - DEBUG - _emit - Event before-endpoint-resolution.s3: calling handler <bound method S3RegionRedirectorv2.redirect_from_cache of <botocore.utils.S3RegionRedirectorv2 object at 0x73f6ab280710>>
+2025-07-20 20:05:05,777 - DEBUG - construct_endpoint - Calling endpoint provider with parameters: {'Bucket': 'webpage.image.upload', 'Region': 'ap-south-1', 'UseFIPS': False, 'UseDualStack': False, 'ForcePathStyle': False, 'Accelerate': False, 'UseGlobalEndpoint': False, 'Key': 'images/product_id33.jpg', 'DisableMultiRegionAccessPoints': False, 'UseArnRegion': True}
+2025-07-20 20:05:05,777 - DEBUG - construct_endpoint - Endpoint provider result: https://s3.ap-south-1.amazonaws.com/webpage.image.upload
+2025-07-20 20:05:05,777 - DEBUG - auth_schemes_to_signing_ctx - Selecting from endpoint provider's list of auth schemes: "sigv4". User selected auth scheme is: "None"
+2025-07-20 20:05:05,777 - DEBUG - auth_schemes_to_signing_ctx - Selected auth type "v4" as "v4" with signing context params: {'region': 'ap-south-1', 'signing_name': 's3', 'disableDoubleEncoding': True}
+2025-07-20 20:05:05,777 - DEBUG - _emit - Event choose-signer.s3.GetObject: calling handler <function set_operation_specific_signer at 0x73f6b25b6480>
+2025-07-20 20:05:05,778 - DEBUG - _emit - Event before-sign.s3.GetObject: calling handler <function remove_arn_from_signing_path at 0x73f6b25e4c20>
+2025-07-20 20:05:05,778 - DEBUG - _emit - Event before-sign.s3.GetObject: calling handler <function _set_extra_headers_for_unsigned_request at 0x73f6b25e5260>
+2025-07-20 20:05:05,778 - DEBUG - _emit - Event before-sign.s3.GetObject: calling handler <bound method S3ExpressIdentityResolver.resolve_s3express_identity of <botocore.utils.S3ExpressIdentityResolver object at 0x73f6ab280a40>>
+2025-07-20 20:05:05,778 - DEBUG - add_auth - Calculating signature using v4 auth.
+2025-07-20 20:05:05,778 - DEBUG - add_auth - CanonicalRequest:
+GET
+/webpage.image.upload/images/product_id33.jpg
+X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAY5DCPLUU76R3KRS6%2F20250720%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20250720T200505Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host
+host:s3.ap-south-1.amazonaws.com
+
+host
+UNSIGNED-PAYLOAD
+2025-07-20 20:05:05,778 - DEBUG - add_auth - StringToSign:
+AWS4-HMAC-SHA256
+20250720T200505Z
+20250720/ap-south-1/s3/aws4_request
+7d54686a821342216ebbc09ed702406e3da1c30f2c255b38604d97c046d73574
+2025-07-20 20:05:05,778 - DEBUG - add_auth - Signature:
+c3e4d4a31dd24f2a979409b8f2cefa25e3c39dc979af254b2dc06027716baa3e
+2025-07-20 20:05:05,778 - DEBUG - _emit - Event choose-service-name: calling handler <function handle_service_name_alias at 0x73f6b25b45e0>
+2025-07-20 20:05:05,779 - DEBUG - _emit - Event creating-client-class.s3: calling handler <function add_generate_presigned_post at 0x73f6b2527a60>
+2025-07-20 20:05:05,779 - DEBUG - _emit - Event creating-client-class.s3: calling handler <function lazy_call.<locals>._handler at 0x73f6b1d27f60>
+2025-07-20 20:05:05,779 - DEBUG - _emit - Event creating-client-class.s3: calling handler <function add_generate_presigned_url at 0x73f6b25277e0>
+2025-07-20 20:05:05,780 - DEBUG - provide - Looking for endpoint for s3 via: environment_service
+2025-07-20 20:05:05,780 - DEBUG - provide - Looking for endpoint for s3 via: environment_global
+2025-07-20 20:05:05,780 - DEBUG - provide - Looking for endpoint for s3 via: config_service
+2025-07-20 20:05:05,780 - DEBUG - provide - Looking for endpoint for s3 via: config_global
+2025-07-20 20:05:05,780 - DEBUG - provide - No configured endpoint found.
+2025-07-20 20:05:05,781 - DEBUG - create_endpoint - Setting s3 timeout as (60, 60)
+2025-07-20 20:05:05,783 - DEBUG - _register_legacy_retries - Registering retry handlers for service: s3
+2025-07-20 20:05:05,783 - DEBUG - register - Registering S3 region redirector handler
+2025-07-20 20:05:05,783 - DEBUG - register - Registering S3Express Identity Resolver
+2025-07-20 20:05:05,784 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <function sse_md5 at 0x73f6b25b68e0>
+2025-07-20 20:05:05,784 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <function validate_bucket_name at 0x73f6b25b6840>
+2025-07-20 20:05:05,784 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <function remove_bucket_from_url_paths_from_model at 0x73f6b25e4ae0>
+2025-07-20 20:05:05,784 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <bound method S3RegionRedirectorv2.annotate_request_context of <botocore.utils.S3RegionRedirectorv2 object at 0x73f6ab2a10d0>>
+2025-07-20 20:05:05,784 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <bound method ClientCreator._inject_s3_input_parameters of <botocore.client.ClientCreator object at 0x73f6b40e0fe0>>
+2025-07-20 20:05:05,784 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <function generate_idempotent_uuid at 0x73f6b25b6660>
+2025-07-20 20:05:05,784 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <function _handle_request_validation_mode_member at 0x73f6b25e51c0>
+2025-07-20 20:05:05,784 - DEBUG - _emit - Event before-endpoint-resolution.s3: calling handler <function customize_endpoint_resolver_builtins at 0x73f6b25e4cc0>
+2025-07-20 20:05:05,784 - DEBUG - _emit - Event before-endpoint-resolution.s3: calling handler <bound method S3RegionRedirectorv2.redirect_from_cache of <botocore.utils.S3RegionRedirectorv2 object at 0x73f6ab2a10d0>>
+2025-07-20 20:05:05,784 - DEBUG - construct_endpoint - Calling endpoint provider with parameters: {'Bucket': 'webpage.image.upload', 'Region': 'ap-south-1', 'UseFIPS': False, 'UseDualStack': False, 'ForcePathStyle': False, 'Accelerate': False, 'UseGlobalEndpoint': False, 'Key': 'images/product_id34.jpg', 'DisableMultiRegionAccessPoints': False, 'UseArnRegion': True}
+2025-07-20 20:05:05,785 - DEBUG - construct_endpoint - Endpoint provider result: https://s3.ap-south-1.amazonaws.com/webpage.image.upload
+2025-07-20 20:05:05,785 - DEBUG - auth_schemes_to_signing_ctx - Selecting from endpoint provider's list of auth schemes: "sigv4". User selected auth scheme is: "None"
+2025-07-20 20:05:05,785 - DEBUG - auth_schemes_to_signing_ctx - Selected auth type "v4" as "v4" with signing context params: {'region': 'ap-south-1', 'signing_name': 's3', 'disableDoubleEncoding': True}
+2025-07-20 20:05:05,785 - DEBUG - _emit - Event choose-signer.s3.GetObject: calling handler <function set_operation_specific_signer at 0x73f6b25b6480>
+2025-07-20 20:05:05,785 - DEBUG - _emit - Event before-sign.s3.GetObject: calling handler <function remove_arn_from_signing_path at 0x73f6b25e4c20>
+2025-07-20 20:05:05,785 - DEBUG - _emit - Event before-sign.s3.GetObject: calling handler <function _set_extra_headers_for_unsigned_request at 0x73f6b25e5260>
+2025-07-20 20:05:05,785 - DEBUG - _emit - Event before-sign.s3.GetObject: calling handler <bound method S3ExpressIdentityResolver.resolve_s3express_identity of <botocore.utils.S3ExpressIdentityResolver object at 0x73f6ab2a13d0>>
+2025-07-20 20:05:05,786 - DEBUG - add_auth - Calculating signature using v4 auth.
+2025-07-20 20:05:05,786 - DEBUG - add_auth - CanonicalRequest:
+GET
+/webpage.image.upload/images/product_id34.jpg
+X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAY5DCPLUU76R3KRS6%2F20250720%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20250720T200505Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host
+host:s3.ap-south-1.amazonaws.com
+
+host
+UNSIGNED-PAYLOAD
+2025-07-20 20:05:05,786 - DEBUG - add_auth - StringToSign:
+AWS4-HMAC-SHA256
+20250720T200505Z
+20250720/ap-south-1/s3/aws4_request
+c2c0a153d1cb1058a482524063f58121c86ef3dea35e56cbd1ab1ba28936fedc
+2025-07-20 20:05:05,786 - DEBUG - add_auth - Signature:
+b04356ee6e6f81c8841f3f9df6d0303374778532c3f314502e424c9b7c8f1280
+2025-07-20 20:05:05,786 - DEBUG - _emit - Event choose-service-name: calling handler <function handle_service_name_alias at 0x73f6b25b45e0>
+2025-07-20 20:05:05,787 - DEBUG - _emit - Event creating-client-class.s3: calling handler <function add_generate_presigned_post at 0x73f6b2527a60>
+2025-07-20 20:05:05,787 - DEBUG - _emit - Event creating-client-class.s3: calling handler <function lazy_call.<locals>._handler at 0x73f6b1d27f60>
+2025-07-20 20:05:05,787 - DEBUG - _emit - Event creating-client-class.s3: calling handler <function add_generate_presigned_url at 0x73f6b25277e0>
+2025-07-20 20:05:05,787 - DEBUG - provide - Looking for endpoint for s3 via: environment_service
+2025-07-20 20:05:05,787 - DEBUG - provide - Looking for endpoint for s3 via: environment_global
+2025-07-20 20:05:05,787 - DEBUG - provide - Looking for endpoint for s3 via: config_service
+2025-07-20 20:05:05,787 - DEBUG - provide - Looking for endpoint for s3 via: config_global
+2025-07-20 20:05:05,787 - DEBUG - provide - No configured endpoint found.
+2025-07-20 20:05:05,788 - DEBUG - create_endpoint - Setting s3 timeout as (60, 60)
+2025-07-20 20:05:05,790 - DEBUG - _register_legacy_retries - Registering retry handlers for service: s3
+2025-07-20 20:05:05,790 - DEBUG - register - Registering S3 region redirector handler
+2025-07-20 20:05:05,791 - DEBUG - register - Registering S3Express Identity Resolver
+2025-07-20 20:05:05,791 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <function sse_md5 at 0x73f6b25b68e0>
+2025-07-20 20:05:05,791 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <function validate_bucket_name at 0x73f6b25b6840>
+2025-07-20 20:05:05,791 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <function remove_bucket_from_url_paths_from_model at 0x73f6b25e4ae0>
+2025-07-20 20:05:05,791 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <bound method S3RegionRedirectorv2.annotate_request_context of <botocore.utils.S3RegionRedirectorv2 object at 0x73f6ab2b1370>>
+2025-07-20 20:05:05,792 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <bound method ClientCreator._inject_s3_input_parameters of <botocore.client.ClientCreator object at 0x73f6ab55bd10>>
+2025-07-20 20:05:05,792 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <function generate_idempotent_uuid at 0x73f6b25b6660>
+2025-07-20 20:05:05,792 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <function _handle_request_validation_mode_member at 0x73f6b25e51c0>
+2025-07-20 20:05:05,792 - DEBUG - _emit - Event before-endpoint-resolution.s3: calling handler <function customize_endpoint_resolver_builtins at 0x73f6b25e4cc0>
+2025-07-20 20:05:05,792 - DEBUG - _emit - Event before-endpoint-resolution.s3: calling handler <bound method S3RegionRedirectorv2.redirect_from_cache of <botocore.utils.S3RegionRedirectorv2 object at 0x73f6ab2b1370>>
+2025-07-20 20:05:05,792 - DEBUG - construct_endpoint - Calling endpoint provider with parameters: {'Bucket': 'webpage.image.upload', 'Region': 'ap-south-1', 'UseFIPS': False, 'UseDualStack': False, 'ForcePathStyle': False, 'Accelerate': False, 'UseGlobalEndpoint': False, 'Key': 'images/product_id35.jpg', 'DisableMultiRegionAccessPoints': False, 'UseArnRegion': True}
+2025-07-20 20:05:05,792 - DEBUG - construct_endpoint - Endpoint provider result: https://s3.ap-south-1.amazonaws.com/webpage.image.upload
+2025-07-20 20:05:05,792 - DEBUG - auth_schemes_to_signing_ctx - Selecting from endpoint provider's list of auth schemes: "sigv4". User selected auth scheme is: "None"
+2025-07-20 20:05:05,792 - DEBUG - auth_schemes_to_signing_ctx - Selected auth type "v4" as "v4" with signing context params: {'region': 'ap-south-1', 'signing_name': 's3', 'disableDoubleEncoding': True}
+2025-07-20 20:05:05,793 - DEBUG - _emit - Event choose-signer.s3.GetObject: calling handler <function set_operation_specific_signer at 0x73f6b25b6480>
+2025-07-20 20:05:05,793 - DEBUG - _emit - Event before-sign.s3.GetObject: calling handler <function remove_arn_from_signing_path at 0x73f6b25e4c20>
+2025-07-20 20:05:05,793 - DEBUG - _emit - Event before-sign.s3.GetObject: calling handler <function _set_extra_headers_for_unsigned_request at 0x73f6b25e5260>
+2025-07-20 20:05:05,793 - DEBUG - _emit - Event before-sign.s3.GetObject: calling handler <bound method S3ExpressIdentityResolver.resolve_s3express_identity of <botocore.utils.S3ExpressIdentityResolver object at 0x73f6ab2b1670>>
+2025-07-20 20:05:05,793 - DEBUG - add_auth - Calculating signature using v4 auth.
+2025-07-20 20:05:05,793 - DEBUG - add_auth - CanonicalRequest:
+GET
+/webpage.image.upload/images/product_id35.jpg
+X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAY5DCPLUU76R3KRS6%2F20250720%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20250720T200505Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host
+host:s3.ap-south-1.amazonaws.com
+
+host
+UNSIGNED-PAYLOAD
+2025-07-20 20:05:05,793 - DEBUG - add_auth - StringToSign:
+AWS4-HMAC-SHA256
+20250720T200505Z
+20250720/ap-south-1/s3/aws4_request
+41804bbbcc6ab4457ff2adf702a85629e709d906fe11235fec1bd4645224f192
+2025-07-20 20:05:05,793 - DEBUG - add_auth - Signature:
+e9fe718479e39fd0483ff603d2c945871c2617384325b89ad72761bf653d4708
+2025-07-20 20:05:05,796 - INFO - _log - 223.178.86.200 - - [20/Jul/2025 20:05:05] "GET /inventory HTTP/1.1" 200 -
+2025-07-20 20:05:05,796 - INFO - _log - 223.178.86.200 - - [20/Jul/2025 20:05:05] "GET /inventory HTTP/1.1" 200 -
+2025-07-20 20:05:05,885 - INFO - _log - 223.178.86.200 - - [20/Jul/2025 20:05:05] "[36mGET /static/inventory.css HTTP/1.1[0m" 304 -
+2025-07-20 20:05:05,885 - INFO - _log - 223.178.86.200 - - [20/Jul/2025 20:05:05] "[36mGET /static/inventory.css HTTP/1.1[0m" 304 -
+2025-07-20 20:05:07,262 - DEBUG - _emit - Event choose-service-name: calling handler <function handle_service_name_alias at 0x73f6b25b45e0>
+2025-07-20 20:05:07,263 - DEBUG - _emit - Event creating-client-class.s3: calling handler <function add_generate_presigned_post at 0x73f6b2527a60>
+2025-07-20 20:05:07,263 - DEBUG - _emit - Event creating-client-class.s3: calling handler <function lazy_call.<locals>._handler at 0x73f6b1d27f60>
+2025-07-20 20:05:07,263 - DEBUG - _emit - Event creating-client-class.s3: calling handler <function add_generate_presigned_url at 0x73f6b25277e0>
+2025-07-20 20:05:07,263 - DEBUG - provide - Looking for endpoint for s3 via: environment_service
+2025-07-20 20:05:07,263 - DEBUG - provide - Looking for endpoint for s3 via: environment_global
+2025-07-20 20:05:07,263 - DEBUG - provide - Looking for endpoint for s3 via: config_service
+2025-07-20 20:05:07,263 - DEBUG - provide - Looking for endpoint for s3 via: config_global
+2025-07-20 20:05:07,263 - DEBUG - provide - No configured endpoint found.
+2025-07-20 20:05:07,266 - DEBUG - create_endpoint - Setting s3 timeout as (60, 60)
+2025-07-20 20:05:07,268 - DEBUG - _register_legacy_retries - Registering retry handlers for service: s3
+2025-07-20 20:05:07,268 - DEBUG - register - Registering S3 region redirector handler
+2025-07-20 20:05:07,269 - DEBUG - register - Registering S3Express Identity Resolver
+2025-07-20 20:05:07,269 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <function sse_md5 at 0x73f6b25b68e0>
+2025-07-20 20:05:07,269 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <function validate_bucket_name at 0x73f6b25b6840>
+2025-07-20 20:05:07,269 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <function remove_bucket_from_url_paths_from_model at 0x73f6b25e4ae0>
+2025-07-20 20:05:07,269 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <bound method S3RegionRedirectorv2.annotate_request_context of <botocore.utils.S3RegionRedirectorv2 object at 0x73f6ab1ff080>>
+2025-07-20 20:05:07,269 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <bound method ClientCreator._inject_s3_input_parameters of <botocore.client.ClientCreator object at 0x73f6ab5af7d0>>
+2025-07-20 20:05:07,269 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <function generate_idempotent_uuid at 0x73f6b25b6660>
+2025-07-20 20:05:07,270 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <function _handle_request_validation_mode_member at 0x73f6b25e51c0>
+2025-07-20 20:05:07,270 - DEBUG - _emit - Event before-endpoint-resolution.s3: calling handler <function customize_endpoint_resolver_builtins at 0x73f6b25e4cc0>
+2025-07-20 20:05:07,270 - DEBUG - _emit - Event before-endpoint-resolution.s3: calling handler <bound method S3RegionRedirectorv2.redirect_from_cache of <botocore.utils.S3RegionRedirectorv2 object at 0x73f6ab1ff080>>
+2025-07-20 20:05:07,270 - DEBUG - construct_endpoint - Calling endpoint provider with parameters: {'Bucket': 'webpage.image.upload', 'Region': 'ap-south-1', 'UseFIPS': False, 'UseDualStack': False, 'ForcePathStyle': False, 'Accelerate': False, 'UseGlobalEndpoint': False, 'Key': 'images/product_id32.jpg', 'DisableMultiRegionAccessPoints': False, 'UseArnRegion': True}
+2025-07-20 20:05:07,270 - DEBUG - construct_endpoint - Endpoint provider result: https://s3.ap-south-1.amazonaws.com/webpage.image.upload
+2025-07-20 20:05:07,270 - DEBUG - auth_schemes_to_signing_ctx - Selecting from endpoint provider's list of auth schemes: "sigv4". User selected auth scheme is: "None"
+2025-07-20 20:05:07,270 - DEBUG - auth_schemes_to_signing_ctx - Selected auth type "v4" as "v4" with signing context params: {'region': 'ap-south-1', 'signing_name': 's3', 'disableDoubleEncoding': True}
+2025-07-20 20:05:07,271 - DEBUG - _emit - Event choose-signer.s3.GetObject: calling handler <function set_operation_specific_signer at 0x73f6b25b6480>
+2025-07-20 20:05:07,271 - DEBUG - _emit - Event before-sign.s3.GetObject: calling handler <function remove_arn_from_signing_path at 0x73f6b25e4c20>
+2025-07-20 20:05:07,271 - DEBUG - _emit - Event before-sign.s3.GetObject: calling handler <function _set_extra_headers_for_unsigned_request at 0x73f6b25e5260>
+2025-07-20 20:05:07,271 - DEBUG - _emit - Event before-sign.s3.GetObject: calling handler <bound method S3ExpressIdentityResolver.resolve_s3express_identity of <botocore.utils.S3ExpressIdentityResolver object at 0x73f6ab2a15e0>>
+2025-07-20 20:05:07,271 - DEBUG - add_auth - Calculating signature using v4 auth.
+2025-07-20 20:05:07,271 - DEBUG - add_auth - CanonicalRequest:
+GET
+/webpage.image.upload/images/product_id32.jpg
+X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAY5DCPLUU76R3KRS6%2F20250720%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20250720T200507Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host
+host:s3.ap-south-1.amazonaws.com
+
+host
+UNSIGNED-PAYLOAD
+2025-07-20 20:05:07,271 - DEBUG - add_auth - StringToSign:
+AWS4-HMAC-SHA256
+20250720T200507Z
+20250720/ap-south-1/s3/aws4_request
+a17f39ba7f239c573698c998b07170fb3229123c483ba68b7bdcdb4a4ce70f17
+2025-07-20 20:05:07,271 - DEBUG - add_auth - Signature:
+6d7af357cb314376a1b77189fb0569159e115c5da544d967c4ff8f9b651f4ec0
+2025-07-20 20:05:07,276 - INFO - _log - 223.178.86.200 - - [20/Jul/2025 20:05:07] "GET /view_item/32 HTTP/1.1" 200 -
+2025-07-20 20:05:07,276 - INFO - _log - 223.178.86.200 - - [20/Jul/2025 20:05:07] "GET /view_item/32 HTTP/1.1" 200 -
+2025-07-20 20:05:07,360 - INFO - _log - 223.178.86.200 - - [20/Jul/2025 20:05:07] "[36mGET /static/view_products.css HTTP/1.1[0m" 304 -
+2025-07-20 20:05:07,360 - INFO - _log - 223.178.86.200 - - [20/Jul/2025 20:05:07] "[36mGET /static/view_products.css HTTP/1.1[0m" 304 -
+2025-07-20 20:05:16,658 - INFO - _log - 223.178.86.200 - - [20/Jul/2025 20:05:16] "[32mGET /inventory_details HTTP/1.1[0m" 302 -
+2025-07-20 20:05:16,658 - INFO - _log - 223.178.86.200 - - [20/Jul/2025 20:05:16] "[32mGET /inventory_details HTTP/1.1[0m" 302 -
+2025-07-20 20:05:16,733 - DEBUG - _emit - Event choose-service-name: calling handler <function handle_service_name_alias at 0x73f6b25b45e0>
+2025-07-20 20:05:16,734 - DEBUG - _emit - Event creating-client-class.s3: calling handler <function add_generate_presigned_post at 0x73f6b2527a60>
+2025-07-20 20:05:16,734 - DEBUG - _emit - Event creating-client-class.s3: calling handler <function lazy_call.<locals>._handler at 0x73f6b1d27f60>
+2025-07-20 20:05:16,735 - DEBUG - _emit - Event creating-client-class.s3: calling handler <function add_generate_presigned_url at 0x73f6b25277e0>
+2025-07-20 20:05:16,735 - DEBUG - provide - Looking for endpoint for s3 via: environment_service
+2025-07-20 20:05:16,735 - DEBUG - provide - Looking for endpoint for s3 via: environment_global
+2025-07-20 20:05:16,735 - DEBUG - provide - Looking for endpoint for s3 via: config_service
+2025-07-20 20:05:16,735 - DEBUG - provide - Looking for endpoint for s3 via: config_global
+2025-07-20 20:05:16,735 - DEBUG - provide - No configured endpoint found.
+2025-07-20 20:05:16,736 - DEBUG - create_endpoint - Setting s3 timeout as (60, 60)
+2025-07-20 20:05:16,738 - DEBUG - _register_legacy_retries - Registering retry handlers for service: s3
+2025-07-20 20:05:16,739 - DEBUG - register - Registering S3 region redirector handler
+2025-07-20 20:05:16,739 - DEBUG - register - Registering S3Express Identity Resolver
+2025-07-20 20:05:16,740 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <function sse_md5 at 0x73f6b25b68e0>
+2025-07-20 20:05:16,740 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <function validate_bucket_name at 0x73f6b25b6840>
+2025-07-20 20:05:16,740 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <function remove_bucket_from_url_paths_from_model at 0x73f6b25e4ae0>
+2025-07-20 20:05:16,740 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <bound method S3RegionRedirectorv2.annotate_request_context of <botocore.utils.S3RegionRedirectorv2 object at 0x73f6ab282630>>
+2025-07-20 20:05:16,740 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <bound method ClientCreator._inject_s3_input_parameters of <botocore.client.ClientCreator object at 0x73f6ab253e30>>
+2025-07-20 20:05:16,740 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <function generate_idempotent_uuid at 0x73f6b25b6660>
+2025-07-20 20:05:16,740 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <function _handle_request_validation_mode_member at 0x73f6b25e51c0>
+2025-07-20 20:05:16,740 - DEBUG - _emit - Event before-endpoint-resolution.s3: calling handler <function customize_endpoint_resolver_builtins at 0x73f6b25e4cc0>
+2025-07-20 20:05:16,740 - DEBUG - _emit - Event before-endpoint-resolution.s3: calling handler <bound method S3RegionRedirectorv2.redirect_from_cache of <botocore.utils.S3RegionRedirectorv2 object at 0x73f6ab282630>>
+2025-07-20 20:05:16,740 - DEBUG - construct_endpoint - Calling endpoint provider with parameters: {'Bucket': 'webpage.image.upload', 'Region': 'ap-south-1', 'UseFIPS': False, 'UseDualStack': False, 'ForcePathStyle': False, 'Accelerate': False, 'UseGlobalEndpoint': False, 'Key': 'images/product_id32.jpg', 'DisableMultiRegionAccessPoints': False, 'UseArnRegion': True}
+2025-07-20 20:05:16,741 - DEBUG - construct_endpoint - Endpoint provider result: https://s3.ap-south-1.amazonaws.com/webpage.image.upload
+2025-07-20 20:05:16,741 - DEBUG - auth_schemes_to_signing_ctx - Selecting from endpoint provider's list of auth schemes: "sigv4". User selected auth scheme is: "None"
+2025-07-20 20:05:16,741 - DEBUG - auth_schemes_to_signing_ctx - Selected auth type "v4" as "v4" with signing context params: {'region': 'ap-south-1', 'signing_name': 's3', 'disableDoubleEncoding': True}
+2025-07-20 20:05:16,741 - DEBUG - _emit - Event choose-signer.s3.GetObject: calling handler <function set_operation_specific_signer at 0x73f6b25b6480>
+2025-07-20 20:05:16,741 - DEBUG - _emit - Event before-sign.s3.GetObject: calling handler <function remove_arn_from_signing_path at 0x73f6b25e4c20>
+2025-07-20 20:05:16,741 - DEBUG - _emit - Event before-sign.s3.GetObject: calling handler <function _set_extra_headers_for_unsigned_request at 0x73f6b25e5260>
+2025-07-20 20:05:16,741 - DEBUG - _emit - Event before-sign.s3.GetObject: calling handler <bound method S3ExpressIdentityResolver.resolve_s3express_identity of <botocore.utils.S3ExpressIdentityResolver object at 0x73f6ab282f90>>
+2025-07-20 20:05:16,741 - DEBUG - add_auth - Calculating signature using v4 auth.
+2025-07-20 20:05:16,741 - DEBUG - add_auth - CanonicalRequest:
+GET
+/webpage.image.upload/images/product_id32.jpg
+X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAY5DCPLUU76R3KRS6%2F20250720%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20250720T200516Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host
+host:s3.ap-south-1.amazonaws.com
+
+host
+UNSIGNED-PAYLOAD
+2025-07-20 20:05:16,742 - DEBUG - add_auth - StringToSign:
+AWS4-HMAC-SHA256
+20250720T200516Z
+20250720/ap-south-1/s3/aws4_request
+a975a4ec0de87078f5bc991a2a33283c18682999038e35b7be3bef71082faf30
+2025-07-20 20:05:16,742 - DEBUG - add_auth - Signature:
+d3c07db4ca62c719810da0ffd563a3dc7de92cb6186417d44471c9a036af3da2
+2025-07-20 20:05:16,742 - DEBUG - _emit - Event choose-service-name: calling handler <function handle_service_name_alias at 0x73f6b25b45e0>
+2025-07-20 20:05:16,743 - DEBUG - _emit - Event creating-client-class.s3: calling handler <function add_generate_presigned_post at 0x73f6b2527a60>
+2025-07-20 20:05:16,743 - DEBUG - _emit - Event creating-client-class.s3: calling handler <function lazy_call.<locals>._handler at 0x73f6b1d27f60>
+2025-07-20 20:05:16,743 - DEBUG - _emit - Event creating-client-class.s3: calling handler <function add_generate_presigned_url at 0x73f6b25277e0>
+2025-07-20 20:05:16,743 - DEBUG - provide - Looking for endpoint for s3 via: environment_service
+2025-07-20 20:05:16,743 - DEBUG - provide - Looking for endpoint for s3 via: environment_global
+2025-07-20 20:05:16,743 - DEBUG - provide - Looking for endpoint for s3 via: config_service
+2025-07-20 20:05:16,743 - DEBUG - provide - Looking for endpoint for s3 via: config_global
+2025-07-20 20:05:16,743 - DEBUG - provide - No configured endpoint found.
+2025-07-20 20:05:16,744 - DEBUG - create_endpoint - Setting s3 timeout as (60, 60)
+2025-07-20 20:05:16,746 - DEBUG - _register_legacy_retries - Registering retry handlers for service: s3
+2025-07-20 20:05:16,746 - DEBUG - register - Registering S3 region redirector handler
+2025-07-20 20:05:16,747 - DEBUG - register - Registering S3Express Identity Resolver
+2025-07-20 20:05:16,747 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <function sse_md5 at 0x73f6b25b68e0>
+2025-07-20 20:05:16,747 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <function validate_bucket_name at 0x73f6b25b6840>
+2025-07-20 20:05:16,747 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <function remove_bucket_from_url_paths_from_model at 0x73f6b25e4ae0>
+2025-07-20 20:05:16,747 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <bound method S3RegionRedirectorv2.annotate_request_context of <botocore.utils.S3RegionRedirectorv2 object at 0x73f6ab2b35f0>>
+2025-07-20 20:05:16,747 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <bound method ClientCreator._inject_s3_input_parameters of <botocore.client.ClientCreator object at 0x73f6ab1fc1d0>>
+2025-07-20 20:05:16,748 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <function generate_idempotent_uuid at 0x73f6b25b6660>
+2025-07-20 20:05:16,748 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <function _handle_request_validation_mode_member at 0x73f6b25e51c0>
+2025-07-20 20:05:16,748 - DEBUG - _emit - Event before-endpoint-resolution.s3: calling handler <function customize_endpoint_resolver_builtins at 0x73f6b25e4cc0>
+2025-07-20 20:05:16,748 - DEBUG - _emit - Event before-endpoint-resolution.s3: calling handler <bound method S3RegionRedirectorv2.redirect_from_cache of <botocore.utils.S3RegionRedirectorv2 object at 0x73f6ab2b35f0>>
+2025-07-20 20:05:16,748 - DEBUG - construct_endpoint - Calling endpoint provider with parameters: {'Bucket': 'webpage.image.upload', 'Region': 'ap-south-1', 'UseFIPS': False, 'UseDualStack': False, 'ForcePathStyle': False, 'Accelerate': False, 'UseGlobalEndpoint': False, 'Key': 'images/product_id33.jpg', 'DisableMultiRegionAccessPoints': False, 'UseArnRegion': True}
+2025-07-20 20:05:16,748 - DEBUG - construct_endpoint - Endpoint provider result: https://s3.ap-south-1.amazonaws.com/webpage.image.upload
+2025-07-20 20:05:16,748 - DEBUG - auth_schemes_to_signing_ctx - Selecting from endpoint provider's list of auth schemes: "sigv4". User selected auth scheme is: "None"
+2025-07-20 20:05:16,748 - DEBUG - auth_schemes_to_signing_ctx - Selected auth type "v4" as "v4" with signing context params: {'region': 'ap-south-1', 'signing_name': 's3', 'disableDoubleEncoding': True}
+2025-07-20 20:05:16,749 - DEBUG - _emit - Event choose-signer.s3.GetObject: calling handler <function set_operation_specific_signer at 0x73f6b25b6480>
+2025-07-20 20:05:16,749 - DEBUG - _emit - Event before-sign.s3.GetObject: calling handler <function remove_arn_from_signing_path at 0x73f6b25e4c20>
+2025-07-20 20:05:16,749 - DEBUG - _emit - Event before-sign.s3.GetObject: calling handler <function _set_extra_headers_for_unsigned_request at 0x73f6b25e5260>
+2025-07-20 20:05:16,749 - DEBUG - _emit - Event before-sign.s3.GetObject: calling handler <bound method S3ExpressIdentityResolver.resolve_s3express_identity of <botocore.utils.S3ExpressIdentityResolver object at 0x73f6ab2b38f0>>
+2025-07-20 20:05:16,749 - DEBUG - add_auth - Calculating signature using v4 auth.
+2025-07-20 20:05:16,749 - DEBUG - add_auth - CanonicalRequest:
+GET
+/webpage.image.upload/images/product_id33.jpg
+X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAY5DCPLUU76R3KRS6%2F20250720%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20250720T200516Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host
+host:s3.ap-south-1.amazonaws.com
+
+host
+UNSIGNED-PAYLOAD
+2025-07-20 20:05:16,749 - DEBUG - add_auth - StringToSign:
+AWS4-HMAC-SHA256
+20250720T200516Z
+20250720/ap-south-1/s3/aws4_request
+cc810a087481a7fb0ceb0f26ac1c96995a35b4e1461fa44f21675d177d61f673
+2025-07-20 20:05:16,749 - DEBUG - add_auth - Signature:
+3e7142218fb741069b91a8e35e06ae78508efd2d05cbbec3b797c85f432c077d
+2025-07-20 20:05:16,750 - DEBUG - _emit - Event choose-service-name: calling handler <function handle_service_name_alias at 0x73f6b25b45e0>
+2025-07-20 20:05:16,750 - DEBUG - _emit - Event creating-client-class.s3: calling handler <function add_generate_presigned_post at 0x73f6b2527a60>
+2025-07-20 20:05:16,750 - DEBUG - _emit - Event creating-client-class.s3: calling handler <function lazy_call.<locals>._handler at 0x73f6b1d27f60>
+2025-07-20 20:05:16,751 - DEBUG - _emit - Event creating-client-class.s3: calling handler <function add_generate_presigned_url at 0x73f6b25277e0>
+2025-07-20 20:05:16,751 - DEBUG - provide - Looking for endpoint for s3 via: environment_service
+2025-07-20 20:05:16,751 - DEBUG - provide - Looking for endpoint for s3 via: environment_global
+2025-07-20 20:05:16,751 - DEBUG - provide - Looking for endpoint for s3 via: config_service
+2025-07-20 20:05:16,751 - DEBUG - provide - Looking for endpoint for s3 via: config_global
+2025-07-20 20:05:16,751 - DEBUG - provide - No configured endpoint found.
+2025-07-20 20:05:16,752 - DEBUG - create_endpoint - Setting s3 timeout as (60, 60)
+2025-07-20 20:05:16,754 - DEBUG - _register_legacy_retries - Registering retry handlers for service: s3
+2025-07-20 20:05:16,754 - DEBUG - register - Registering S3 region redirector handler
+2025-07-20 20:05:16,754 - DEBUG - register - Registering S3Express Identity Resolver
+2025-07-20 20:05:16,755 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <function sse_md5 at 0x73f6b25b68e0>
+2025-07-20 20:05:16,755 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <function validate_bucket_name at 0x73f6b25b6840>
+2025-07-20 20:05:16,755 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <function remove_bucket_from_url_paths_from_model at 0x73f6b25e4ae0>
+2025-07-20 20:05:16,755 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <bound method S3RegionRedirectorv2.annotate_request_context of <botocore.utils.S3RegionRedirectorv2 object at 0x73f6ab0f3830>>
+2025-07-20 20:05:16,755 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <bound method ClientCreator._inject_s3_input_parameters of <botocore.client.ClientCreator object at 0x73f6ab21bb90>>
+2025-07-20 20:05:16,755 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <function generate_idempotent_uuid at 0x73f6b25b6660>
+2025-07-20 20:05:16,755 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <function _handle_request_validation_mode_member at 0x73f6b25e51c0>
+2025-07-20 20:05:16,755 - DEBUG - _emit - Event before-endpoint-resolution.s3: calling handler <function customize_endpoint_resolver_builtins at 0x73f6b25e4cc0>
+2025-07-20 20:05:16,755 - DEBUG - _emit - Event before-endpoint-resolution.s3: calling handler <bound method S3RegionRedirectorv2.redirect_from_cache of <botocore.utils.S3RegionRedirectorv2 object at 0x73f6ab0f3830>>
+2025-07-20 20:05:16,755 - DEBUG - construct_endpoint - Calling endpoint provider with parameters: {'Bucket': 'webpage.image.upload', 'Region': 'ap-south-1', 'UseFIPS': False, 'UseDualStack': False, 'ForcePathStyle': False, 'Accelerate': False, 'UseGlobalEndpoint': False, 'Key': 'images/product_id34.jpg', 'DisableMultiRegionAccessPoints': False, 'UseArnRegion': True}
+2025-07-20 20:05:16,756 - DEBUG - construct_endpoint - Endpoint provider result: https://s3.ap-south-1.amazonaws.com/webpage.image.upload
+2025-07-20 20:05:16,756 - DEBUG - auth_schemes_to_signing_ctx - Selecting from endpoint provider's list of auth schemes: "sigv4". User selected auth scheme is: "None"
+2025-07-20 20:05:16,756 - DEBUG - auth_schemes_to_signing_ctx - Selected auth type "v4" as "v4" with signing context params: {'region': 'ap-south-1', 'signing_name': 's3', 'disableDoubleEncoding': True}
+2025-07-20 20:05:16,756 - DEBUG - _emit - Event choose-signer.s3.GetObject: calling handler <function set_operation_specific_signer at 0x73f6b25b6480>
+2025-07-20 20:05:16,756 - DEBUG - _emit - Event before-sign.s3.GetObject: calling handler <function remove_arn_from_signing_path at 0x73f6b25e4c20>
+2025-07-20 20:05:16,756 - DEBUG - _emit - Event before-sign.s3.GetObject: calling handler <function _set_extra_headers_for_unsigned_request at 0x73f6b25e5260>
+2025-07-20 20:05:16,756 - DEBUG - _emit - Event before-sign.s3.GetObject: calling handler <bound method S3ExpressIdentityResolver.resolve_s3express_identity of <botocore.utils.S3ExpressIdentityResolver object at 0x73f6ab0f3b30>>
+2025-07-20 20:05:16,757 - DEBUG - add_auth - Calculating signature using v4 auth.
+2025-07-20 20:05:16,757 - DEBUG - add_auth - CanonicalRequest:
+GET
+/webpage.image.upload/images/product_id34.jpg
+X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAY5DCPLUU76R3KRS6%2F20250720%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20250720T200516Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host
+host:s3.ap-south-1.amazonaws.com
+
+host
+UNSIGNED-PAYLOAD
+2025-07-20 20:05:16,757 - DEBUG - add_auth - StringToSign:
+AWS4-HMAC-SHA256
+20250720T200516Z
+20250720/ap-south-1/s3/aws4_request
+e002eab907c555544568ae88f0065a98e2076e8a3e1e81c7973a89420cab9a15
+2025-07-20 20:05:16,757 - DEBUG - add_auth - Signature:
+c4bdc441384cd233fde296ba5818ff67a3a09119aedaa9a5904f7b5cf1a9b311
+2025-07-20 20:05:16,757 - DEBUG - _emit - Event choose-service-name: calling handler <function handle_service_name_alias at 0x73f6b25b45e0>
+2025-07-20 20:05:16,758 - DEBUG - _emit - Event creating-client-class.s3: calling handler <function add_generate_presigned_post at 0x73f6b2527a60>
+2025-07-20 20:05:16,758 - DEBUG - _emit - Event creating-client-class.s3: calling handler <function lazy_call.<locals>._handler at 0x73f6b1d27f60>
+2025-07-20 20:05:16,758 - DEBUG - _emit - Event creating-client-class.s3: calling handler <function add_generate_presigned_url at 0x73f6b25277e0>
+2025-07-20 20:05:16,758 - DEBUG - provide - Looking for endpoint for s3 via: environment_service
+2025-07-20 20:05:16,758 - DEBUG - provide - Looking for endpoint for s3 via: environment_global
+2025-07-20 20:05:16,758 - DEBUG - provide - Looking for endpoint for s3 via: config_service
+2025-07-20 20:05:16,758 - DEBUG - provide - Looking for endpoint for s3 via: config_global
+2025-07-20 20:05:16,758 - DEBUG - provide - No configured endpoint found.
+2025-07-20 20:05:16,760 - DEBUG - create_endpoint - Setting s3 timeout as (60, 60)
+2025-07-20 20:05:16,762 - DEBUG - _register_legacy_retries - Registering retry handlers for service: s3
+2025-07-20 20:05:16,762 - DEBUG - register - Registering S3 region redirector handler
+2025-07-20 20:05:16,763 - DEBUG - register - Registering S3Express Identity Resolver
+2025-07-20 20:05:16,763 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <function sse_md5 at 0x73f6b25b68e0>
+2025-07-20 20:05:16,763 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <function validate_bucket_name at 0x73f6b25b6840>
+2025-07-20 20:05:16,763 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <function remove_bucket_from_url_paths_from_model at 0x73f6b25e4ae0>
+2025-07-20 20:05:16,763 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <bound method S3RegionRedirectorv2.annotate_request_context of <botocore.utils.S3RegionRedirectorv2 object at 0x73f6ab4f5a00>>
+2025-07-20 20:05:16,763 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <bound method ClientCreator._inject_s3_input_parameters of <botocore.client.ClientCreator object at 0x73f6ab21b590>>
+2025-07-20 20:05:16,763 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <function generate_idempotent_uuid at 0x73f6b25b6660>
+2025-07-20 20:05:16,764 - DEBUG - _emit - Event before-parameter-build.s3.GetObject: calling handler <function _handle_request_validation_mode_member at 0x73f6b25e51c0>
+2025-07-20 20:05:16,764 - DEBUG - _emit - Event before-endpoint-resolution.s3: calling handler <function customize_endpoint_resolver_builtins at 0x73f6b25e4cc0>
+2025-07-20 20:05:16,764 - DEBUG - _emit - Event before-endpoint-resolution.s3: calling handler <bound method S3RegionRedirectorv2.redirect_from_cache of <botocore.utils.S3RegionRedirectorv2 object at 0x73f6ab4f5a00>>
+2025-07-20 20:05:16,764 - DEBUG - construct_endpoint - Calling endpoint provider with parameters: {'Bucket': 'webpage.image.upload', 'Region': 'ap-south-1', 'UseFIPS': False, 'UseDualStack': False, 'ForcePathStyle': False, 'Accelerate': False, 'UseGlobalEndpoint': False, 'Key': 'images/product_id35.jpg', 'DisableMultiRegionAccessPoints': False, 'UseArnRegion': True}
+2025-07-20 20:05:16,764 - DEBUG - construct_endpoint - Endpoint provider result: https://s3.ap-south-1.amazonaws.com/webpage.image.upload
+2025-07-20 20:05:16,764 - DEBUG - auth_schemes_to_signing_ctx - Selecting from endpoint provider's list of auth schemes: "sigv4". User selected auth scheme is: "None"
+2025-07-20 20:05:16,764 - DEBUG - auth_schemes_to_signing_ctx - Selected auth type "v4" as "v4" with signing context params: {'region': 'ap-south-1', 'signing_name': 's3', 'disableDoubleEncoding': True}
+2025-07-20 20:05:16,764 - DEBUG - _emit - Event choose-signer.s3.GetObject: calling handler <function set_operation_specific_signer at 0x73f6b25b6480>
+2025-07-20 20:05:16,765 - DEBUG - _emit - Event before-sign.s3.GetObject: calling handler <function remove_arn_from_signing_path at 0x73f6b25e4c20>
+2025-07-20 20:05:16,765 - DEBUG - _emit - Event before-sign.s3.GetObject: calling handler <function _set_extra_headers_for_unsigned_request at 0x73f6b25e5260>
+2025-07-20 20:05:16,765 - DEBUG - _emit - Event before-sign.s3.GetObject: calling handler <bound method S3ExpressIdentityResolver.resolve_s3express_identity of <botocore.utils.S3ExpressIdentityResolver object at 0x73f6ab253560>>
+2025-07-20 20:05:16,765 - DEBUG - add_auth - Calculating signature using v4 auth.
+2025-07-20 20:05:16,765 - DEBUG - add_auth - CanonicalRequest:
+GET
+/webpage.image.upload/images/product_id35.jpg
+X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAY5DCPLUU76R3KRS6%2F20250720%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20250720T200516Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host
+host:s3.ap-south-1.amazonaws.com
+
+host
+UNSIGNED-PAYLOAD
+2025-07-20 20:05:16,765 - DEBUG - add_auth - StringToSign:
+AWS4-HMAC-SHA256
+20250720T200516Z
+20250720/ap-south-1/s3/aws4_request
+be19caf504e67cdb1ccf3da8faa3c211d84e630dcce17c22dc93907ae3a27fe8
+2025-07-20 20:05:16,765 - DEBUG - add_auth - Signature:
+065411edaf39bfe4a754d228bb09dc074496a70c3e5011660243036fdcf9b61f
+2025-07-20 20:05:16,767 - INFO - _log - 223.178.86.200 - - [20/Jul/2025 20:05:16] "GET /inventory HTTP/1.1" 200 -
+2025-07-20 20:05:16,767 - INFO - _log - 223.178.86.200 - - [20/Jul/2025 20:05:16] "GET /inventory HTTP/1.1" 200 -
+2025-07-20 20:05:16,847 - INFO - _log - 223.178.86.200 - - [20/Jul/2025 20:05:16] "[36mGET /static/inventory.css HTTP/1.1[0m" 304 -
+2025-07-20 20:05:16,847 - INFO - _log - 223.178.86.200 - - [20/Jul/2025 20:05:16] "[36mGET /static/inventory.css HTTP/1.1[0m" 304 -
+2025-07-20 20:05:17,811 - INFO - _log - 223.178.86.200 - - [20/Jul/2025 20:05:17] "GET /home HTTP/1.1" 200 -
+2025-07-20 20:05:17,811 - INFO - _log - 223.178.86.200 - - [20/Jul/2025 20:05:17] "GET /home HTTP/1.1" 200 -
