@@ -1,0 +1,5 @@
+__pycache__/*
+*.swp
+*.swn
+login_page/logs/*
+.venv/*
