@@ -9,6 +9,9 @@
 			<div class="container-fluid">
 				<div class="collapse navbar-collapse" >
 					<div class="navbar-nav">
+                                                {%if name%}
+                                                <a class="nav-link fw-bold">Hello {{name}}</a>
+                                                {%endif%}
 						<a class="nav-link" href="{{url_for('home_page')}}">Home</a>
 						<a class="nav-link" href="{{url_for('inventory_details')}}">Inventory</a>
 						<a class="nav-link" href="{{url_for('hello_admin')}}">Customer Table</a>
@@ -35,13 +38,6 @@
 	<div class="container">
 	<!-- <center> -->
 	<form action="{{url_for('inventory_add')}}" method="POST"  enctype="multipart/form-data">
-			<div class="mb-3">
-				<label class="form-label">Product ID</label>
-				<input type="integer" class="form-control" name="product_id" placeholder="Product ID is auto generated" disabled>
-                                {% if error %}
-                                <div style="color:red">{{error}}</div>
-                                {% endif %}
-			</div>
 			<div class="mb-3">
 				<label class="form-label">Product Name</label>
 				<input type="text" class="form-control" name="product_name">

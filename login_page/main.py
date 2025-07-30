@@ -45,7 +45,7 @@ app.config['MAX_CONTENT_LENGTH']=1024*1024
 
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg'])
 
-app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(minutes=10)
+# app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(minutes=10)
 
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
@@ -211,17 +211,17 @@ def result_store():
             if check_name:
                 check_hash=obj.get_user_by_name(name)
                 if bcrypt.checkpw(password.encode('utf-8'),check_hash.encode('utf-8')):
-                    session.permanent=True
+                    # session.permanent=True
                     session['logged_in']=True
-                    session['username']=name
+                    session['name']=name
                     admin_check=obj.get_admin_detail(name)
                     if admin_check==True:
                         session.permanent=True
                         session['admin_logged']=True
-                        session['username']=name
-                        return redirect(url_for('hello_admin'))
+                        session['name']=name
+                        return redirect(url_for('hello_admin',name=name))
                     else:
-                        return redirect(url_for('home_page'))
+                        return redirect(url_for('home_page',name=name))
                 else:
                     error='Invalid username or password'
                     logger.warning("Invalid username or password")
@@ -242,9 +242,126 @@ def logout():
 
 @app.route('/home')
 def home_page():
-    if not session.get('logged_in') and not session.get('admin_logged'):
-        return redirect(url_for('index'))
-    return render_template("homepage.html")
+    try:
+        obj=UserDb()
+        obj2=Image_upload()
+        obj3=Login()
+        if not session.get('logged_in') and not session.get('admin_logged'):
+            return redirect(url_for('index'))
+        name=session.get('name')
+        image=obj.random_from_inventory()
+        url_list=[]
+        for i in image:
+            url_list2=[]
+            url=obj2.display_from_s3(i[0])
+            url_list2.append(url)
+            url_list2.append(i[1])
+            url_list2.append(i[2])
+            url_list.append(url_list2)
+
+        search=request.args.get('search')
+        page=request.args.get('page',1,type=int)
+        if search:
+            search_url_list=[]
+            search=obj3.homepage_search(search,page)
+            for i in search[1]:
+                search_url_list2=[]
+                search_url=obj2.display_from_s3(i[0])
+                search_url_list2.append(search_url)
+                search_url_list2.append(i[1])
+                search_url_list2.append(i[2])
+                search_url_list.append(search_url_list2)
+            return render_template("homepage.html",name=name,length=search[0],url_list=search_url_list,total_page=search[2],page=page)
+        else:
+            page=request.args.get('page',1,type=int)
+            per_page=6
+            start=(page -1) * per_page
+            end=start+per_page
+            total_page=(len(url_list)+per_page-1) // per_page
+            item_on_page=url_list[start:end]
+            return render_template("homepage.html",name=name,url_list=item_on_page,length=len(url_list),total_page=total_page,page=page)
+    except Exception as e:
+        logger.error(f"error -> {e}")
+        logger.debug("Full traceback below:", exc_info=True)
+        return redirect(url_for('home_page'))
+
+@app.route('/cpu_items',methods=["GET","POST"])
+def cpu_items():
+    try:
+        if not session.get('logged_in') and not session.get('admin_logged'):
+            return redirect(url_for('index'))
+        name=session.get('name')
+        return render_template("cpu_page.html",name=name)
+    except Exception as e:
+        logger.error(f"error -> {e}")
+        logger.debug("Full traceback below:", exc_info=True)
+        return f"error ->{e}"
+        # return redirect(url_for('home_page'))
+
+@app.route('/headphone_items',methods=["GET","POST"])
+def headphone_items():
+    try:
+        if not session.get('logged_in') and not session.get('admin_logged'):
+            return redirect(url_for('index'))
+        name=session.get('name')
+        return render_template("headphone_page.html",name=name)
+    except Exception as e:
+        logger.error(f"error -> {e}")
+        logger.debug("Full traceback below:", exc_info=True)
+        return f"error ->{e}"
+        # return redirect(url_for('home_page'))
+
+@app.route('/keyboard_items',methods=["GET","POST"])
+def keyboard_items():
+    try:
+        if not session.get('logged_in') and not session.get('admin_logged'):
+            return redirect(url_for('index'))
+        name=session.get('name')
+        return render_template("keyboard_page.html",name=name)
+    except Exception as e:
+        logger.error(f"error -> {e}")
+        logger.debug("Full traceback below:", exc_info=True)
+        return f"error ->{e}"
+        # return redirect(url_for('home_page'))
+
+@app.route('/monitor_items',methods=["GET","POST"])
+def monitor_items():
+    try:
+        if not session.get('logged_in') and not session.get('admin_logged'):
+            return redirect(url_for('index'))
+        name=session.get('name')
+        return render_template("monitor_page.html",name=name)
+    except Exception as e:
+        logger.error(f"error -> {e}")
+        logger.debug("Full traceback below:", exc_info=True)
+        return f"error ->{e}"
+        # return redirect(url_for('home_page'))
+
+@app.route('/mouse_items',methods=["GET","POST"])
+def mouse_items():
+    try:
+        if not session.get('logged_in') and not session.get('admin_logged'):
+            return redirect(url_for('index'))
+        name=session.get('name')
+        return render_template("mouse_page.html",name=name)
+    except Exception as e:
+        logger.error(f"error -> {e}")
+        logger.debug("Full traceback below:", exc_info=True)
+        return f"error ->{e}"
+        # return redirect(url_for('home_page'))
+
+@app.route('/speaker_items',methods=["GET","POST"])
+def speaker_items():
+    try:
+        if not session.get('logged_in') and not session.get('admin_logged'):
+            return redirect(url_for('index'))
+        name=session.get('name')
+        return render_template("speaker_page.html",name=name)
+    except Exception as e:
+        logger.error(f"error -> {e}")
+        logger.debug("Full traceback below:", exc_info=True)
+        return f"error ->{e}"
+        # return redirect(url_for('home_page'))
 
 
 ###############################################      ADMIN SIDE   ######################################################
@@ -256,6 +373,7 @@ def hello_admin():
         else:
             obj=UserDb()
             obj2=Login()
+            name=session.get('name')
             search=request.args.get('search')
             sort=request.args.get('sort')
             page=request.args.get('page',1,type=int)
@@ -270,10 +388,10 @@ def hello_admin():
                 end=start+per_page
                 total_page=(len(search_name_mail_num)+per_page-1)//per_page
                 item_on_page=search_name_mail_num[start:end]
-                return render_template("table.html",length=len(search_name_mail_num),item_on_page=item_on_page,total_page=total_page,page=page)
+                return render_template("table.html",length=len(search_name_mail_num),item_on_page=item_on_page,total_page=total_page,page=page,name=name)
             if sort:
                 sort=obj2.admin_sort(sort,page)
-                return render_template("table.html",length=sort[0],item_on_page=sort[1],total_page=sort[2],page=page)
+                return render_template("table.html",length=sort[0],item_on_page=sort[1],total_page=sort[2],page=page,name=name)
             else:
                 store=obj.fetch()
                 page=request.args.get('page',1,type=int)
@@ -282,7 +400,7 @@ def hello_admin():
                 end=start+per_page
                 total_page=(len(store)+per_page-1)//per_page
                 item_on_page=store[start:end]
-                return render_template("table.html",length=len(store),item_on_page=item_on_page,total_page=total_page,page=page)
+                return render_template("table.html",length=len(store),item_on_page=item_on_page,total_page=total_page,page=page,name=name)
     except Exception as e:
         logger.error(f"error -> {e}")
         logger.debug("Full traceback below:", exc_info=True)
@@ -301,6 +419,7 @@ def inventory():
         if not session.get('admin_logged'):
             return redirect(url_for('index'))
         else:
+            name=session.get('name')
             obj=UserDb()
             obj2=Login()
             obj3=Image_upload()
@@ -308,7 +427,7 @@ def inventory():
                 product_id=request.form.get("product_id")
                 check=obj3.inventory_delete(product_id)
                 if "Item Deleted" in check:
-                    flash("Item deleted","success")
+                    flash("Item deleted","suc`cess")
                     logger.info("Item deleted")
                     return redirect(url_for('inventory'))
                 if "NO" in check:
@@ -320,11 +439,20 @@ def inventory():
                 sort=request.args.get("sort")
                 page=request.args.get('page',1,type=int)
                 if search:
+                    # inven_search_url=[]
                     search=obj2.inventory_search(search,page)
-                    return render_template("inventory_page.html",length=search[0],item_on_page=search[1],total_page=search[2],page=page)
+                    # for i in search[1]:
+                    #     url=obj3.display_from_s3(i[5])
+                    #     inven_search_url.append(url)
+                    #     search[1].append(inven_search_url)
+                    # print(inven_search_url)
+                    # print(f"search=>{search[1]}")
+                    print(f"search->{search}")
+
+                    return render_template("inventory_page.html",name=name,length=search[0],item_on_page=search[1],total_page=search[2],page=page)
                 if sort:
                     sort=obj2.inventory_sort(sort,page)
-                    return render_template("inventory_page.html",length=sort[0],item_on_page=sort[1],total_page=sort[2],page=page)
+                    return render_template("inventory_page.html",name=name,length=sort[0],item_on_page=sort[1],total_page=sort[2],page=page)
                 else:
                     store=obj.inventory_show()
                     page=request.args.get('page',1,type=int)
@@ -350,19 +478,23 @@ def inventory():
                         empty_list.append(item)
                         # print(f"this is item -> {item}")
                     # print(f"Empty list -> {empty_list}")
-                    # print(empty_list)
-                    return render_template("inventory_page.html",length=len(store),item_on_page=empty_list,total_page=total_page,page=page,url=url)
+                    # print(f"emptylist->{empty_list}")
+                    return render_template("inventory_page.html",name=name,length=len(store),item_on_page=empty_list,total_page=total_page,page=page,url=url)
     except Exception as e:
+        name=session.get('name')
         logger.error(f"error -> {e}")
         logger.debug("Full traceback below:", exc_info=True)
-        return f"Something went wrong {e}"
+        # return render_template("inventory_page.html",name=name,length=len(store),item_on_page=empty_list,total_page=total_page,page=page)
+        return f"error -> {e}"
 
 @app.route('/inven_add')
 def inven_add():
+    name=request.args.get('name')
     if not session.get('admin_logged'):
         return redirect(url_for('index'))
     else:
-        return render_template("inventory_add.html")
+        name=session.get('name')
+        return render_template("inventory_add.html",name=name)
 
 @app.route('/inventory_add',methods=["GET","POST"])
 def inventory_add():
@@ -370,6 +502,7 @@ def inventory_add():
         if not session.get('admin_logged'):
             return redirect(url_for('index'))
         else:
+            name=session.get('name')
             obj=UserDb()
             obj2=Login()
             obj3=Image_upload()
@@ -408,7 +541,7 @@ def inventory_add():
                     return redirect(url_for('inventory'))
                     img_error="Allowed image types are - png, jpg, jpeg, gif"
                     logger.warning("Allowed image types are - png, jpg, jpeg, gif")
-                    return render_template("inventory_add.html",img_error=img_error)
+                    return render_template("inventory_add.html",img_error=img_error,name=name)
     except RequestEntityTooLarge:
         flash("File too large. Max size is 1MB.", "danger")
         logger.error("File too large. Max size is 1MB.")
@@ -420,24 +553,6 @@ def inventory_add():
         logger.debug("Full traceback below:", exc_info=True)
         return redirect(url_for('inven_add'))
 
-@app.route('/edit_inventory/<product_id>')
-def edit_inventory(product_id):
-    try:
-        if not session.get('admin_logged'):
-            return redirect(url_for('index'))
-        else:
-            obj = UserDb()
-            obj2=Image_upload()
-            result = obj.product_id_check(product_id)
-            if result:
-                url=obj2.display_from_s3(result[5])
-                return render_template("inventory_edit.html",product_id=result[0],product_name=result[1],description=result[2],quantity=result[3],price=result[4],url=url)
-            return render_template("inventory_edit.html",url=url)
-    except Exception as e:
-        logger.error(f"error -> {e}")
-        logger.debug("Full traceback below:", exc_info=True)
-        # return f"Something went wrong"
-        return redirect(url_for('inventory'))
 
 @app.route('/delete_item/<product_id>')
 def delete_item(product_id):
@@ -465,16 +580,201 @@ def view_item(product_id):
         if not session.get('admin_logged'):
             return redirect(url_for('index'))
         else:
+            name=session.get('name')
             obj = UserDb()
             obj2=Image_upload()
             result = obj.product_id_check(product_id)
             if result:
                 url=obj2.display_from_s3(result[5])
-                return render_template("view_products.html",product_id=result[0],product_name=result[1],description=result[2],quantity=result[3],price=result[4],image=url)
-            return render_template("view_products.html",image=image)
+                print(f"This is url -> {url}")
+                return render_template("view_products.html",name=name,product_id=result[0],product_name=result[1],description=result[2],quantity=result[3],price=result[4],image=url)
+            return render_template("view_products.html",image=image,name=name)
     except Exception as e:
         logger.error(f"error -> {e}")
         logger.debug("Full traceback below:", exc_info=True)
+        return redirect(url_for('inventory'))
+
+@app.route('/vendor_add',methods=["GET","POST"])
+def vendor_add():
+    try:
+        if not session.get('admin_logged'):
+            return redirect(url_for('index'))
+        else:
+            name=session.get('name')
+            country_code_list = []
+            for code, regions in COUNTRY_CODE_TO_REGION_CODE.items():
+                for region in regions:
+                    country_code_list.append((region, code))
+                    break
+            country_code_list.sort()
+            if request.method == "GET":
+                return render_template("vendor_add.html", country_codes=country_code_list,name=name)
+            name=session.get('name')
+            obj=Login()
+            if request.method=="POST":
+                vendor_name=request.form.get("vendor_name")
+                address=request.form.get("address")
+                number=request.form.get("number")
+                country_code = request.form.get("country_code")
+                mail_id=request.form.get("mail_id")
+                full_number = country_code + number
+                vendor=obj.get_vendor_details(vendor_name,address,full_number,mail_id)
+                if "Vendor exists" in vendor:
+                    name_error="Vendor name already exists"
+                    logger.warning("Vendor name already exists")
+                    return render_template("vendor_add.html",name_error=name_error,country_codes=country_code_list,name=name)
+                if "Address exist" in vendor:
+                    address_error="Vendor address already exists"
+                    logger.warning("Vendor address already exists")
+                    return render_template("vendor_add.html",address_error=address_error,country_codes=country_code_list,name=name)
+                if "Enter valid number" in vendor:
+                    num_error="Enter valid Number"
+                    logger.warning("Enter valid number")
+                    return render_template("vendor_add.html",num_error=num_error,country_codes=country_code_list,name=name)
+                if "Number exist" in vendor:
+                    num_error2="Vendor number already exists"
+                    logger.warning("Vendor number already exist")
+                    return render_template("vendor_add.html",num_error2=num_error2,country_codes=country_code_list,name=name)
+                if "Mail not valid" in vendor:
+                    mail_error="Enter a valid Mail ID"
+                    logger.warning("Mail not valid")
+                    return render_template("vendor_add.html",mail_error=mail_error,country_codes=country_code_list,name=name)
+                if "Mail Exist" in vendor:
+                    mail_error2="Vendor Mail ID already exists"
+                    logger.warning("Mail ID already Exist")
+                    return render_template("vendor_add.html",mail_error2=mail_error2,country_codes=country_code_list,name=name)
+                if "Added" in vendor:
+                    flash("Vendor Added","success")
+                    return redirect(url_for("vendor_list"))
+    except Exception as e:
+        logger.error(f"error -> {e}")
+        logger.debug("Full traceback below:", exc_info=True)
+        # return redirect(url_for('vendor_add'))
+        return f"Error=>{e}"
+
+@app.route('/vendor_list')
+def vendor_list():
+    try:
+        if not session.get('admin_logged'):
+            return redirect(url_for('index'))
+        else:
+            name=session.get('name')
+            search=request.args.get('search')
+            page=request.args.get('page',1,type=int)
+            obj=UserDb()
+            obj2=Login()
+            if search:
+                vendor_search=obj2.vendor_search(search,page)
+                return render_template("vendor_list.html",length=vendor_search[0],item_on_page=vendor_search[1],total_page=vendor_search[2],page=page,name=name)
+            else:
+                fetch_vendor=obj.fetch_vendor()
+                per_page=13
+                start=(page-1)*per_page
+                end=start+per_page
+                total_page=(len(fetch_vendor)+per_page-1)//per_page
+                item_on_page=fetch_vendor[start:end]
+                return render_template("vendor_list.html",length=len(fetch_vendor),item_on_page=item_on_page,total_page=total_page,page=page,name=name)
+    except Exception as e:
+        logger.error(f"error -> {e}")
+        logger.debug("Full traceback below:", exc_info=True)
+        # return render_template("vendor_list.html")
+        return f"vendor list error -->>==>> {e}"
+
+@app.route('/vendor_delete/<vendor_id>')
+def vendor_delete(vendor_id):
+    if not session.get('admin_logged'):
+        return redirect(url_for('index'))
+    else:
+        obj=UserDb()
+        result=obj.vendor_delete(vendor_id)
+        flash("Vendor Deleted","success")
+        return redirect(url_for('vendor_list'))
+
+@app.route('/edit_vendor/<vendor_id>')
+def edit_vendor(vendor_id):
+    try:
+        if not session.get('admin_logged'):
+            return redirect(url_for('index'))
+        else:
+            obj=UserDb()
+            obj2=Login()
+            name=session.get('name')
+            country_code_list = []
+            result=obj.fetch_vendor_on_id(vendor_id)
+            return render_template("vendor_edit.html",vendor_id=result[0],vendor_name=result[1],address=result[2],number=result[3],mail_id=result[4],name=name)
+    except Exception as e:
+        logger.error(f"error -> {e}")
+        logger.debug("Full traceback below:", exc_info=True)
+        return f"Errro ->{e}"
+
+@app.route('/vendor_edit',methods=["POST"])
+def vendor_edit():
+    try:
+        if not session.get('admin_logged'):
+            return redirect(url_for('index'))
+        else:
+            name=session.get('name')
+            obj=UserDb()
+            vendor_id=request.form.get("vendor_id")
+            vendor_name=request.form.get("vendor_name")
+            address=request.form.get("address")
+            number=request.form.get("number")
+            mail_id=request.form.get("mail_id")
+            vendor=obj.check_vendor_by_id(vendor_id)
+            if "ok" in vendor:
+                if vendor_name:
+                    result1=obj.check_vendor_name(vendor_name,vendor_id)
+                    if result1=="yes":
+                        flash("Vendor name already exists","danger")
+                        return redirect(url_for('edit_vendor',vendor_id=vendor_id))
+                    else:
+                        obj.update_vendor_name(vendor_name,vendor_id)
+                if address:
+                    result2=obj.check_vendor_address(address,vendor_id)
+                    if result2=="yes":
+                        flash("Vendor address already exists","danger")
+                        return redirect(url_for('edit_vendor',vendor_id=vendor_id))
+                    else:
+                        obj.update_vendor_address(address,vendor_id)
+                if number:
+                    result3=obj.check_vendor_number(number,vendor_id)
+                    if result3=="yes":
+                        flash("Vendor number already exists","danger")
+                        return redirect(url_for('edit_vendor',vendor_id=vendor_id))
+                    else:
+                        obj.update_vendor_number(number,vendor_id)
+                if mail_id:
+                    result4=obj.check_vendor_mail(mail_id,vendor_id)
+                    if result4=="yes":
+                        flash("Vendor mail ID already exists","danger")
+                        return redirect(url_for('edit_vendor',vendor_id=vendor_id))
+                    else:
+                        obj.update_vendor_mail_id(mail_id,vendor_id)
+                flash("Updated","success")
+                return redirect(url_for('vendor_list'))
+    except Exception as e:
+        logger.error(f"error -> {e}")
+        logger.debug("Full traceback below:", exc_info=True)
+        return f"Errro ->{e}"
+
+@app.route('/edit_inventory/<product_id>')
+def edit_inventory(product_id):
+    try:
+        if not session.get('admin_logged'):
+            return redirect(url_for('index'))
+        else:
+            name=session.get('name')
+            obj = UserDb()
+            obj2=Image_upload()
+            result = obj.product_id_check(product_id)
+            if result:
+                url=obj2.display_from_s3(result[5])
+                return render_template("inventory_edit.html",name=name,product_id=result[0],product_name=result[1],description=result[2],quantity=result[3],price=result[4],url=url)
+            return render_template("inventory_edit.html",url=url,name=name)
+    except Exception as e:
+        logger.error(f"error -> {e}")
+        logger.debug("Full traceback below:", exc_info=True)
+        # return f"Something went wrong"
         return redirect(url_for('inventory'))
 
 @app.route('/inventory_edit', methods=["POST"])
@@ -483,6 +783,7 @@ def inventory_edit():
         if not session.get('admin_logged'):
             return redirect(url_for('index'))
         else:
+            name=session.get('name')
             obj = UserDb()
             obj2 = Login()
             product_id = request.form.get("product_id")
@@ -494,7 +795,7 @@ def inventory_edit():
             if "NO" in check:
                 error = "Enter a valid Product ID"
                 logger.warning("Enter a valid Product ID")
-                return render_template("inventory_edit.html", error=error)
+                return render_template("inventory_edit.html",name=name,error=error)
             elif "Exist" in check:
                 if name:
                     obj.inventory_edit_name(product_id, name)

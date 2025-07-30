@@ -13,21 +13,21 @@ class UserDb:
 ###########################################    USER QUERRY   ########################################################
 
     def get_user_by_name_email(self,name,mail):
-        querry=f"SELECT * from sign_up_page WHERE user_name = '{name}' AND mail_id = '{mail}'"
+        querry=f"SELECT * from customers WHERE user_name = '{name}' AND mail_id = '{mail}'"
         self.curr.execute(querry)
         result=self.curr.fetchone()
         # print(result)
         return result
 
     def get_user_by_mail(self,mail):
-        querry=f"SELECT * from sign_up_page where mail_id='{mail}'"
+        querry=f"SELECT * from customers where mail_id='{mail}'"
         self.curr.execute(querry)
         result=self.curr.fetchone()
         # print(result[0])
         return result[0]
 
     def get_user_by_name(self,name):
-        querry=f"SELECT * FROM sign_up_page WHERE user_name = '{name}'"
+        querry=f"SELECT * FROM customers WHERE user_name = '{name}'"
         self.curr.execute(querry)
         result=self.curr.fetchone()
         if result:
@@ -36,7 +36,7 @@ class UserDb:
             pass
 
     def get_name(self,name):
-        querry=f"SELECT * FROM sign_up_page WHERE user_name='{name}'"
+        querry=f"SELECT * FROM customers WHERE user_name='{name}'"
         self.curr.execute(querry)
         result=self.curr.fetchone()
         if result:
@@ -45,7 +45,7 @@ class UserDb:
             pass
 
     def get_mail(self,mail):
-        querry=f"SELECT * FROM sign_up_page WHERE mail_id='{mail}'"
+        querry=f"SELECT * FROM customers WHERE mail_id='{mail}'"
         self.curr.execute(querry)
         result=self.curr.fetchone()
         if result:
@@ -54,7 +54,7 @@ class UserDb:
             pass
 
     def get_number(self,number):
-        querry=f"SELECT * FROM sign_up_page WHERE phone_number='{number}'"
+        querry=f"SELECT * FROM customers WHERE phone_number='{number}'"
         self.curr.execute(querry)
         result=self.curr.fetchone()
         if result:
@@ -63,79 +63,79 @@ class UserDb:
             pass
 
     def update_user_by_name_email(self,password, name, mail):
-        querry=f"UPDATE sign_up_page SET user_pass = '{password}' WHERE user_name='{name}' AND mail_id = '{mail}'"
+        querry=f"UPDATE customers SET user_pass = '{password}' WHERE user_name='{name}' AND mail_id = '{mail}'"
         self.curr.execute(querry)
         self.conn.commit()
 
 
     def get_user_by_name_pass(self,name,password):
-        querry=f"SELECT * FROM sign_up_page WHERE user_name = '{name}' AND user_pass = '{password}'"
+        querry=f"SELECT * FROM customers WHERE user_name = '{name}' AND user_pass = '{password}'"
         self.curr.execute(querry)
         result=self.curr.fetchall()
         return result
 
     def update_user_by_name_pass(self,name,password):
-        querry=f"UPDATE sign_up_page SET user_name = '{name}' WHERE user_pass = '{password}'"
+        querry=f"UPDATE customers SET user_name = '{name}' WHERE user_pass = '{password}'"
         self.curr.execute(querry)
         self.conn.commit()
 
     def update_user_by_pass_name(self,password,name):
-        querry=f"UPDATE sign_up_page SET user_pass='{password}' WHERE user_name = '{name}'"
+        querry=f"UPDATE customers SET user_pass='{password}' WHERE user_name = '{name}'"
         self.curr.execute(querry)
         self.conn.commit()
 
     def update_user_by_num_name(self,new_num,name):
-        querry = f"UPDATE sign_up_page SET phone_number='{new_num}' WHERE user_name='{name}'"
+        querry = f"UPDATE customers SET phone_number='{new_num}' WHERE user_name='{name}'"
         self.curr.execute(querry)
         self.conn.commit()
 
     def update_user_by_mail_name(self,new_mail,name):
-        querry=f"UPDATE sign_up_page SET mail_id = '{new_mail}' WHERE user_name='{name}'"
+        querry=f"UPDATE customers SET mail_id = '{new_mail}' WHERE user_name='{name}'"
         self.curr.execute(querry)
         self.conn.commit()
 
     def check_user_by_name(self,name):
-        querry=f"SELECT * FROM sign_up_page WHERE user_name = '{name}'"
+        querry=f"SELECT * FROM customers WHERE user_name = '{name}'"
         self.curr.execute(querry)
         result=self.curr.fetchall()
         return result
 
     def check_user_by_number(self,num):
-        querry=f"SELECT * from sign_up_page WHERE phone_number = '{num}'"
+        querry=f"SELECT * from customers WHERE phone_number = '{num}'"
         self.curr.execute(querry)
         result=self.curr.fetchall()
         return result
 
     def check_user_by_mail(self,mail):
-        querry=f"SELECT * FROM sign_up_page WHERE mail_id = '{mail}'"
+        querry=f"SELECT * FROM customers WHERE mail_id = '{mail}'"
         self.curr.execute(querry)
         result=self.curr.fetchall()
         return result
 
     def insert_into_table(self,name,password,num,mail):
-       querry=f"INSERT INTO sign_up_page (user_name,user_pass,phone_number,mail_id) VALUES ('{name}','{password}','{num}','{mail}')"
+       querry=f"INSERT INTO customers (user_name,user_pass,phone_number,mail_id) VALUES ('{name}','{password}','{num}','{mail}')"
        self.curr.execute(querry)
        self.conn.commit()
 
     def fetch(self):
-        querry=f"SELECT * FROM sign_up_page"
+        querry=f"SELECT * FROM customers"
         self.curr.execute(querry)
         result=self.curr.fetchall()
         # print(result)
         return result
 
     def insert_values_into_table(self,name,password,confirm_password,number,mail):
-        querry=f"INSERT INTO sign_up_page (user_name,user_pass,phone_number,mail_id) VALUES ('{name}','{password}','{number}','{mail}')"
+        querry=f"INSERT INTO customers (user_name,user_pass,phone_number,mail_id) VALUES ('{name}','{password}','{number}','{mail}')"
         self.curr.execute(querry)
         self.conn.commit()
 
     def confirm_mail(self,mail):
-        querry=f"UPDATE sign_up_page SET confirm_mail = 'true' WHERE mail_id = '{mail}'"
+        querry=f"UPDATE customers SET confirm_mail = 'true' WHERE mail_id = '{mail}'"
         self.curr.execute(querry)
         self.conn.commit()
 
     def get_admin_detail(self,name):  
-        querry=f"SELECT * FROM sign_up_page WHERE user_name = '{name}'" 
+        querry=f"SELECT * FROM customers WHERE user_name = '{name}'" 
         self.curr.execute(querry) 
         result=self.curr.fetchone()    
         # print(type(result[5]))    
@@ -203,7 +203,7 @@ class UserDb:
         return result
 
     def get_admin_detail(self,name):
-        querry=f"SELECT * FROM sign_up_page WHERE user_name = '{name}'"
+        querry=f"SELECT * FROM customers WHERE user_name = '{name}'"
         self.curr.execute(querry)
         result=self.curr.fetchone()
         # print(type(result[5]))
@@ -281,48 +281,190 @@ class UserDb:
         return result
 
     def sort_user_name_asc(self):
-        querry=f"SELECT * FROM sign_up_page ORDER BY user_name asc"
+        querry=f"SELECT * FROM customers ORDER BY user_name asc"
         self.curr.execute(querry)
         result=self.curr.fetchall()
         # print(result)
         return result
 
     def sort_user_name_desc(self):
-        querry=f"SELECT * FROM sign_up_page ORDER BY user_name DESC"
+        querry=f"SELECT * FROM customers ORDER BY user_name DESC"
         self.curr.execute(querry)
         result=self.curr.fetchall()
         # print(result)
         return result
 
     def sort_user_num_asc(self):
-        querry=f"SELECT * FROM sign_up_page ORDER BY phone_number ASC"
+        querry=f"SELECT * FROM customers ORDER BY phone_number ASC"
         self.curr.execute(querry)
         result=self.curr.fetchall()
         # print(result)
         return result
 
     def sort_user_num_desc(self):
-        querry=f"SELECT * FROM sign_up_page ORDER BY phone_number DESC"
+        querry=f"SELECT * FROM customers ORDER BY phone_number DESC"
         self.curr.execute(querry)
         result=self.curr.fetchall()
         # print(result)
         return result
 
     def sort_user_mail_asc(self):
-        querry=f"SELECT * FROM sign_up_page ORDER BY mail_id ASC"
+        querry=f"SELECT * FROM customers ORDER BY mail_id ASC"
         self.curr.execute(querry)
         result=self.curr.fetchall()
         # print(result)
         return result
 
     def sort_user_mail_desc(self):
-        querry=f"SELECT * FROM sign_up_page ORDER BY mail_id DESC"
+        querry=f"SELECT * FROM customers ORDER BY mail_id DESC"
         self.curr.execute(querry)
         result=self.curr.fetchall()
         # print(result)
         return result
+
+    def random_from_inventory(self):
+        querry=f"SELECT image,product_name,price FROM INVENTORY ORDER BY RANDOM()"
+        self.curr.execute(querry)
+        result=self.curr.fetchall()
+        # print(result[1][0])
+        return list(result)
+
+    def homepage_search(self,search):
+        querry=f"SELECT image,product_name,price FROM INVENTORY WHERE product_name='{search}' or description='{search}'"
+        self.curr.execute(querry)
+        result=self.curr.fetchall()
+        # print(result)
+        return result
+
+    def get_vendor_name(self,name):
+        querry=f"SELECT * FROM vendors WHERE vendor_name='{name}'"
+        self.curr.execute(querry)
+        result=self.curr.fetchone()
+        return result
+
+    def get_vendor_address(self,address):
+        querry=f"SELECT * FROM vendors WHERE address='{address}'"
+        self.curr.execute(querry)
+        result=self.curr.fetchone()
+        return result
+
+    def get_vendor_number(self,number):
+        querry=f"SELECT * FROM vendors WHERE phone_number='{number}'"
+        self.curr.execute(querry)
+        result=self.curr.fetchone()
+        return result
+
+    def get_vendor_mail(self,mail):
+        querry=f"SELECT * FROM vendors WHERE mail_id='{mail}'"
+        self.curr.execute(querry)
+        result=self.curr.fetchone()
+        return result
+
+    def vendor_add(self,name,address,number,mail):
+        querry=f"INSERT INTO VENDORS (vendor_name,address,phone_number,mail_id) VALUES ('{name}','{address}','{number}','{mail}')"
+        self.curr.execute(querry)
+        self.conn.commit()
+
+    def fetch_vendor(self):
+        querry=f"SELECT * FROM vendors"
+        self.curr.execute(querry)
+        result=self.curr.fetchall()
+        # print(result)
+        return result
+
+    def vendor_search(self,search):
+        querry=f"SELECT * FROM vendors WHERE vendor_name = '{search}' or address= '{search}' or mail_id ='{search}' or phone_number='{search}'"
+        self.curr.execute(querry)
+        result=self.curr.fetchall()
+        # print(result)
+        return result
+
+    def vendor_search_id(self,search):
+        querry=f"SELECT * FROM vendors WHERE vendor_id='{search}'"
+        self.curr.execute(querry)
+        result=self.curr.fetchall()
+        return result
+
+    def vendor_delete(self,product_id):
+        querry=f"DELETE FROM vendors WHERE vendor_id='{product_id}'"
+        self.curr.execute(querry)
+        self.conn.commit()
+
+    def fetch_vendor_on_id(self,vendor_id):
+        querry=f"SELECT * FROM vendors WHERE vendor_id='{vendor_id}'"
+        self.curr.execute(querry)
+        result=self.curr.fetchone()
+        return result
+
+    def check_vendor_by_id(self,vendor_id):
+        querry=f"SELECT * FROM vendors WHERE vendor_id='{vendor_id}'"
+        self.curr.execute(querry)
+        result=self.curr.fetchone()
+        if result:
+            return "ok"
+        else:
+            return "no"
+    
+    def update_vendor_name(self,vendor_name,vendor_id):
+        querry=f"UPDATE vendors SET vendor_name ='{vendor_name}' WHERE vendor_id='{vendor_id}'"
+        self.curr.execute(querry)
+        self.conn.commit()
+
+    def check_vendor_name(self,vendor_name,vendor_id):
+        querry=f"SELECT * FROM vendors where vendor_name='{vendor_name}' AND vendor_id!='{vendor_id}'"
+        self.curr.execute(querry)
+        result=self.curr.fetchone()
+        if result:
+            return "yes"
+        else:
+            return "no"
+
+    def check_vendor_address(self,address,vendor_id):
+        querry=f"SELECT * FROM vendors where address='{address}' AND vendor_id!='{vendor_id}'"
+        self.curr.execute(querry)
+        result=self.curr.fetchone()
+        if result:
+            return f"yes"
+        else:
+            return f"no"
+
+    def check_vendor_number(self,number,vendor_id):
+        querry=f"SELECT * FROM vendors where phone_number='{number}' AND vendor_id!='{vendor_id}'"
+        self.curr.execute(querry)
+        result=self.curr.fetchone()
+        if result:
+            return "yes"
+        else:
+            return "no"
+
+    def check_vendor_mail(self,mail_id,vendor_id):
+        querry=f"SELECT * FROM vendors where mail_id='{mail_id}' AND vendor_id!='{vendor_id}'"
+        self.curr.execute(querry)
+        result=self.curr.fetchone()
+        if result:
+            return "yes"
+        else:
+            return "no"
+
+    def update_vendor_address(self,address,vendor_id):
+        querry=f"UPDATE vendors SET address ='{address}' WHERE vendor_id='{vendor_id}'"
+        self.curr.execute(querry)
+        self.conn.commit()
+
+    def update_vendor_number(self,number,vendor_id):
+        querry=f"UPDATE vendors SET phone_number ='{number}' WHERE vendor_id='{vendor_id}'"
+        self.curr.execute(querry)
+        self.conn.commit()
+
+    def update_vendor_mail_id(self,mail_id,vendor_id):
+        querry=f"UPDATE vendors SET mail_id ='{mail_id}' WHERE vendor_id='{vendor_id}'"
+        self.curr.execute(querry)
+        self.conn.commit()
+
 # obj=UserDb()
-# obj.inventory_add('ninja','njiuhbnjh',22,432)
+# obj.vendor_search('Niranjan')
+# obj=UserDb()
+# obj.vendor_add('Niranjan2','No:69, Chennai-46','+916574836474','vendorniranjan2@gmail.com')
 # obj=UserDb()
 # obj.product_id_check("32")
 # obj=UserDb()

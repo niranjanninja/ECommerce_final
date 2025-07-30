@@ -1,0 +1,25 @@
+.home{
+	margin-left:3%
+}
+
+.line {
+    position: fixed;
+    right: 87%;
+    top: 20;
+    height: 100%;
+    width: 0.5px;
+    background-color: black;
+}
+
+.category{
+	position:fixed;
+	right:90%;
+	top:34%;
+}
+.page{
+	margin-left:50%;
+}
+.categorycategory{
+	margin-left:10%;
+}
+

@@ -105,6 +105,45 @@ class Login:
             # print("NO")
             return f"NO"
 
+    def get_vendor_details(self,vendor_name,address,full_number,mail_id):
+        try:
+            obj=UserDb()
+            phn_pattern = r'^\+\d{10,15}$'
+            mail_pattern = r'^[a-z A-Z 0-9]+[\._]?[a-z A-Z 0-9]+[@]\w+[.]\D{2,3}$'
+            result=obj.get_vendor_name(vendor_name)
+            if not result:
+                result2=obj.get_vendor_address(address)
+                if not result2:
+                    if re.search(phn_pattern,full_number):
+                        result3=obj.get_vendor_number(full_number)
+                        if not result3:
+                            if re.search(mail_pattern,mail_id):
+                                result4=obj.get_vendor_mail(mail_id)
+                                if not result4:
+                                    obj.vendor_add(vendor_name,address,full_number,mail_id)
+                                    return f"Added"
+                                else:
+                                    logger.warning("Vendor mail id already exist" )
+                                    return f"Mail Exist"
+                            else:
+                                logger.warning("Mail id is not valid" )
+                                return f"Mail not valid"
+                        else:
+                            logger.warning("Vendor phone number already exist" )
+                            return f"Number exist"
+                    else:
+                        logger.warning("Phone number is not valid" )
+                        print("Enter valid no")
+                        return f"Enter valid number"
+                else:
+                    logger.warning("Vendor address already exist" )
+                    return f"Address exist"
+            else:
+                logger.warning("Vendor name already exist" )
+                return f"Vendor exists"
+        except Exception as e:
+            logger.error(f"Something went wrong ->{e}")
+
 
     def get_all_details(self,name,password,confirm_password,number,mail):
         try:
@@ -171,6 +210,28 @@ class Login:
         except Exception as e:
             logger.error(f"error -> {e}")
 
+    def vendor_search(self,search,page):
+        try:
+            obj=UserDb()
+            if search.isdigit():
+                search_id=obj.vendor_search_id(search)
+                per_page=13
+                start=(page-1)*per_page
+                end=start+per_page
+                total_page=(len(search_id)+per_page-1)//per_page
+                item_on_page=search_id[start:end]
+                return [len(search_id),list(item_on_page),total_page]
+            else:
+                search_vendor=obj.vendor_search(search)
+                per_page=13
+                start=(page-1)*per_page
+                end=start+per_page
+                total_page=(len(search_vendor)+per_page-1)//per_page
+                item_on_page=search_vendor[start:end]
+                return [len(search_vendor),list(item_on_page),total_page]
+        except Exception as e:
+            print(f"ERROR +> {e}")
+
     def inventory_search(self,search,page):
         try:
             obj=UserDb()
@@ -181,9 +242,7 @@ class Login:
                 end=start+per_page
                 total_page=(len(search_id)+per_page-1) // per_page
                 item_on_page=search_id[start:end]
-                # print(len(search_name),item_on_page,total_page)
-                # print(item_on_page)
-                return [len(search_id),item_on_page,total_page]
+                return [len(search_id),list(item_on_page),total_page]
             elif search:
                 search_name=obj.inventory_by_name(search)
                 per_page=4
@@ -191,11 +250,29 @@ class Login:
                 end=start+per_page
                 total_page=(len(search_name)+per_page-1) // per_page
                 item_on_page=search_name[start:end]
-                print([len(search_name),item_on_page,total_page])
+                # print([len(search_name),item_on_page,total_page])
                 # print(item_on_page)
                 return [len(search_name),item_on_page,total_page]
         except Exception as e:
             print(f"Error -> {e}")
+
+    def homepage_search(self,search,page):
+        try:
+            obj=UserDb()
+            if search:
+                search=obj.homepage_search(search)
+                per_page=6
+                start=(page-1)*per_page
+                end=start+per_page
+                total_page=(len(search)+per_page-1)//per_page
+                item_on_page=search[start:end]
+                # print([len(search),item_on_page,total_page])
+                return([len(search),item_on_page,total_page])
+            else:
+                return f"something went wrong"
+        except Exception as e:
+            print(f"Error -> {e}")
+
 
     def admin_sort(self,sort,page):
         try:
@@ -371,10 +448,19 @@ class Image_upload:
             return None
 
 # obj2=Image_upload()
-# obj2.display_from_s3("images/product_id40.jpg")
+# obj2.display_from_s3(images/product_id33.jpg,
+# images/product_id36.jpg,
+# images/product_id32.jpg,
+# images/product_id37.jpg,
+# images/product_id29.jpg,
+# images/product_id34.jpg,
+# images/product_id38.jpg,
+# images/product_id35.jpg)
 
 # obj=Login()
-# obj.inventory_sort("price_desc",1)
+# obj.get_vendor_details('Niranjan3','28,Chennai-9','+918974636728','vendorninja1@gmail.com')
+# obj=Login()
+# obj.homepage_search("keyboard",1)
 # obj=Login()
 # obj.reset_password_details("Niranjan","ninja@gmail.com","niranjanninja","niranjanninja")
 # obj=Login()

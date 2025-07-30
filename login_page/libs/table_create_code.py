@@ -11,11 +11,9 @@ new_password text not null)
 create table vendors(
 vendor_id serial primary key,
 vendor_name text not null,
-product_name text not null,
-product_brand text not null,
-quantity numeric(10,0) not null,
-price numeric(100,0) not null,
-features jsonb not null
+address text not null,
+number text not null,
+mail_id text not null,
 )
 
 create table category(

@@ -10,7 +10,10 @@
                         <div class="container-fluid">
                                 <div class="collapse navbar-collapse" >
                                         <div class="navbar-nav">
-						<a class="nav-link" href="{{url_for('home_page')}}">Home</a>
+                                                {%if name%}
+                                                <a class="nav-link fw-bold">Hello {{name}}</a>
+                                                {%endif%}
+						<a class="nav-link" href="{{url_for('home_page',name=name)}}">Home</a>
                                                 <a class="nav-link" href="{{url_for('inventory_details')}}">Inventory</a>
 						<a class="nav-link" href="{{url_for('hello_admin')}}">Customer Table</a>
                                                 <a class="nav-link" href="{{ url_for('logout') }}">Logout</a>
@@ -22,7 +25,6 @@
         </center>
 </head>
 <body>
-        <form action="{{url_for('inventory_edit')}}" method="POST"  enctype="multipart/form-data">
                 <div class="wrapper">
                         <div class="mb-3 img">
                                 {%if image%}
