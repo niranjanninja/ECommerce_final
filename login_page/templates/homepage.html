@@ -8,7 +8,7 @@
     <nav class="navbar navbar-expand-lg bg-body-tertiary  border-bottom border-dark">
         <div class="collapse navbar-collapse ms-5" >
                 <div class="navbar-nav">
-                        <a class="nav-link fs-5 fw-bold ms-4" href="{{url_for('home_page',name=name)}}">Home</a>
+                        <a class="nav-link fs-5 fw-bold ms-4" href="{{url_for('home.home_page',name=name)}}">Home</a>
 
                         <div class="search_form ">
                         <form class="d-flex  ms-5" action="#" role="search" method="GET" style="width:1000px">
@@ -25,14 +25,14 @@
                                 <ul class="dropdown-menu dropdown-menu-end">
                                 <li><a class="dropdown-item" href="#">Switch User</a></li>
                                 <li><a class="dropdown-item" href="#">Track Order</a></li>
-                                <li><a class="dropdown-item" href="{{ url_for('logout') }}">Logout</a></li>
+                                <li><a class="dropdown-item" href="{{ url_for('login.logout') }}">Logout</a></li>
                                 </ul>
                         </div>
                         {% else %}
                         <div class="nav-item dropdown">
                                 <button class="nav-link dropdown-toggle fs-5 fw-semibold ms-5" data-bs-toggle="dropdown" aria-expanded="false">Hello {{name}}</button>
                                 <ul class="dropdown-menu dropdown-menu-end">
-                                <li><a class="dropdown-item" href="{{ url_for('logout') }}">Logout</a></li>
+                                <li><a class="dropdown-item" href="{{ url_for('login.logout') }}">Logout</a></li>
                                 </ul>
                         </div>
                         {% endif %}
@@ -44,12 +44,12 @@
 <body>
 	<nav class="nav flex-column category">
         <p class="fs-4 fw-bold categorycategory">Category</p>
-        <a class="nav-link active fs-6 categoryitem" aria-current="page" href="{{url_for('cpu_items')}}" style="color:black">CPU</a>
-        <a class="nav-link active fs-6 categoryitem" aria-current="page" href="{{url_for('headphone_items')}}" style="color:black">Headphones</a>
-        <a class="nav-link active fs-6 categoryitem" aria-current="page" href="{{url_for('keyboard_items')}}" style="color:black">Keyboards</a>
-        <a class="nav-link active fs-6 categoryitem" aria-current="page" href="{{url_for('monitor_items')}}" style="color:black">Monitor</a>
-        <a class="nav-link active fs-6 categoryitem" aria-current="page" href="{{url_for('mouse_items')}}" style="color:black">Mouse</a>
-        <a class="nav-link active fs-6 categoryitem" aria-current="page" href="{{url_for('speaker_items')}}" style="color:black">Speaker</a>
+        <a class="nav-link active fs-6 categoryitem" aria-current="page" href="{{url_for('home.cpu_items')}}" style="color:black">CPU</a>
+        <a class="nav-link active fs-6 categoryitem" aria-current="page" href="{{url_for('home.headphone_items')}}" style="color:black">Headphones</a>
+        <a class="nav-link active fs-6 categoryitem" aria-current="page" href="{{url_for('home.keyboard_items')}}" style="color:black">Keyboards</a>
+        <a class="nav-link active fs-6 categoryitem" aria-current="page" href="{{url_for('home.monitor_items')}}" style="color:black">Monitor</a>
+        <a class="nav-link active fs-6 categoryitem" aria-current="page" href="{{url_for('home.mouse_items')}}" style="color:black">Mouse</a>
+        <a class="nav-link active fs-6 categoryitem" aria-current="page" href="{{url_for('home.speaker_items')}}" style="color:black">Speaker</a>
         </nav>
 
 	<div class="line"></div>
@@ -68,11 +68,11 @@
 
 	<div class="page">
         {% if page > 1 %}
-        <a href="{{url_for('home_page',page=page-1,sort=request.args.get('sort'))}}">Previous</a>
+        <a href="{{url_for('home.home_page',page=page-1,sort=request.args.get('sort'))}}">Previous</a>
         {% endif %}
         <span>Page {{page}} of {{total_page}}</span>
         {% if page < total_page %}
-        <a href="{{url_for('home_page',page=page+1,sort=request.args.get('sort'))}}">Next</a>
+        <a href="{{url_for('home.home_page',page=page+1,sort=request.args.get('sort'))}}">Next</a>
         {% endif %}
         </div>
 </body>

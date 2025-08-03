@@ -8,8 +8,8 @@
 	    <div class="container-fluid">
 		    <div class="collapse navbar-collapse" >
 			    <div class="navbar-nav">
-				    <a class="nav-link " href="{{url_for('index')}}">Login</a>
-				    <a class="nav-link" href="{{url_for('sign_up_index')}}">Sign Up</a>
+				    <a class="nav-link " href="{{url_for('login.index')}}">Login</a>
+				    <a class="nav-link" href="{{url_for('login.sign_up_index')}}">Sign Up</a>
 			    </div>
 		    </div>
 	    </div>
@@ -19,7 +19,7 @@
 	<div class="container mt-5">
 		<center><h2 class="mb-4">FORGOT PASSWORD</h2></center>
 
-		<form action="{{url_for('reset_pass')}}" method="POST">
+		<form action="{{url_for('login.reset_pass')}}" method="POST">
 			<div class="mb-3">
 				<label class="form-label">User Name</label>
 				<input type="text" class="form-control input_box" name="name">

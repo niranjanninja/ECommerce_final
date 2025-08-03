@@ -12,11 +12,11 @@
                                                 {%if name%}
                                                 <a class="nav-link fw-bold">Hello {{name}}</a>
                                                 {%endif%}
-						<a class="nav-link" href="{{url_for('home_page')}}">Home</a>
-						<a class="nav-link" href="{{url_for('hello_admin')}}">Customer Table</a>
-						<a class="nav-link" href="{{url_for('inventory')}}">Inventory</a>
-                                                <a class="nav-link" href="{{url_for('vendor_list')}}">Vendors</a>
-                                                <a class="nav-link" href="{{ url_for('logout') }}">Logout</a>
+						<a class="nav-link" href="{{url_for('home.home_page')}}">Home</a>
+						<a class="nav-link" href="{{url_for('admin.hello_admin')}}">Customer Table</a>
+						<a class="nav-link" href="{{url_for('inventory.inventory_page')}}">Inventory</a>
+                                                <a class="nav-link" href="{{url_for('admin.vendor_list')}}">Vendors</a>
+                                                <a class="nav-link" href="{{ url_for('login.logout') }}">Logout</a>
 					</div>
 				</div>
 			</div>
@@ -39,7 +39,7 @@
 </head>
 <body>
         <div class="search_form">
-        <form class="d-flex" action="{{url_for('inventory')}}" role="search" method="GET">
+        <form class="d-flex" action="{{url_for('inventory.inventory_page')}}" role="search" method="GET">
         <input class="form-control me-2 search_box_form" type="search"  placeholder = "Search" aria-label="Search"/ name="search">
         <button class="btn btn-outline-success" type="submit">Search</button>
         </form>
@@ -48,14 +48,14 @@
 	<div class="dropdown">
 	<a class="btn btn-outline-success dropdown-toggle sort_button" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">SORT BY</a>
 	<ul class="dropdown-menu">
-	<li><a class="dropdown-item" href="{{url_for('inventory',sort='id_asc')}}">Sort Product ID by Ascending</a></li>
-	<li><a class="dropdown-item" href="{{url_for('inventory',sort='id_desc')}}">Sort Product ID by Descending</a></li>
-	<li><a class="dropdown-item" href="{{url_for('inventory',sort='name_asc')}}">Sort Product Name by Ascending</a></li>
-	<li><a class="dropdown-item" href="{{url_for('inventory',sort='name_desc')}}">Sort Product Name by Descending</a></li>
-	<li><a class="dropdown-item" href="{{url_for('inventory',sort='quantity_asc')}}">Sort Quantity by Ascending</a></li>
-	<li><a class="dropdown-item" href="{{url_for('inventory',sort='quantity_desc')}}">Sort Quantity by Descending</a></li>
-	<li><a class="dropdown-item" href="{{url_for('inventory',sort='price_asc')}}">Sort Price by Ascending</a></li>
-	<li><a class="dropdown-item" href="{{url_for('inventory',sort='price_desc')}}">Sort Price by Descending</a></li>
+	<li><a class="dropdown-item" href="{{url_for('inventory.inventory_page',sort='id_asc')}}">Sort Product ID by Ascending</a></li>
+	<li><a class="dropdown-item" href="{{url_for('inventory.inventory_page',sort='id_desc')}}">Sort Product ID by Descending</a></li>
+	<li><a class="dropdown-item" href="{{url_for('inventory.inventory_page',sort='name_asc')}}">Sort Product Name by Ascending</a></li>
+	<li><a class="dropdown-item" href="{{url_for('inventory.inventory_page',sort='name_desc')}}">Sort Product Name by Descending</a></li>
+	<li><a class="dropdown-item" href="{{url_for('inventory.inventory_page',sort='quantity_asc')}}">Sort Quantity by Ascending</a></li>
+	<li><a class="dropdown-item" href="{{url_for('inventory.inventory_page',sort='quantity_desc')}}">Sort Quantity by Descending</a></li>
+	<li><a class="dropdown-item" href="{{url_for('inventory.inventory_page',sort='price_asc')}}">Sort Price by Ascending</a></li>
+	<li><a class="dropdown-item" href="{{url_for('inventory.inventory_page',sort='price_desc')}}">Sort Price by Descending</a></li>
 	</ul>
 	</div>
 	<div class="container">
@@ -75,9 +75,9 @@
 				<img src="{{i[6]}}" width="100" class="img-thumbnail">
 				</td>
 				<td>
-					<a href="{{url_for('edit_inventory',product_id=i[0])}}"  class="btn btn-success edit"><i class="bi bi-pen"></i></a>
-				<a href="{{url_for('delete_item',product_id=i[0])}}" class="btn btn-danger delete"><i class="bi bi-trash3"></i></a>
-				<a href="{{url_for('view_item',product_id=i[0])}}"  class="btn btn-success"><i class="bi bi-eye-fill"></i></a>
+					<a href="{{url_for('inventory.edit_inventory',product_id=i[0])}}"  class="btn btn-success edit"><i class="bi bi-pen"></i></a>
+				<a href="{{url_for('inventory.delete_item',product_id=i[0])}}" class="btn btn-danger delete"><i class="bi bi-trash3"></i></a>
+				<a href="{{url_for('inventory.view_item',product_id=i[0])}}"  class="btn btn-success"><i class="bi bi-eye-fill"></i></a>
 				</td>
 			</tr>
 			{%endfor%}
@@ -85,15 +85,15 @@
 		
 	</div>
 	<div class="container button">
-		<a href="{{url_for('inven_add')}}" class="btn btn-success add"><i class="bi bi-plus-lg"></i>ADD NEW ITEMS</a>
+		<a href="{{url_for('inventory.inven_add')}}" class="btn btn-success add"><i class="bi bi-plus-lg"></i>ADD NEW ITEMS</a>
 	</div>
 	<center>
 	{% if page > 1 %}
-	<a href="{{url_for('inventory',page=page-1,sort=request.args.get('sort'))}}">Previous</a>
+	<a href="{{url_for('inventory.inventory_page',page=page-1,sort=request.args.get('sort'))}}">Previous</a>
 	{% endif %}
 	<span>Page {{page}} of {{total_page}}</span>
 	{% if page < total_page %}
-	<a href="{{url_for('inventory',page=page+1,sort=request.args.get('sort'))}}">Next</a>
+	<a href="{{url_for('inventory.inventory_page',page=page+1,sort=request.args.get('sort'))}}">Next</a>
 	{% endif %}
 	</center>
 </body>
