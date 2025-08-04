@@ -210,6 +210,17 @@ class Login:
         except Exception as e:
             logger.error(f"error -> {e}")
 
+    def get_category(self,category_name):
+        try:
+            obj=UserDb()
+            name=obj.get_category(category_name)
+            if name=="NO":
+                return "NO"
+            else:
+                return "YES"
+        except Exception as e:
+            logger.error(f"error -> {e}")
+
     def vendor_search(self,search,page):
         try:
             obj=UserDb()
@@ -231,6 +242,31 @@ class Login:
                 return [len(search_vendor),list(item_on_page),total_page]
         except Exception as e:
             print(f"ERROR +> {e}")
+
+
+    def category_search(self,search,page):
+        try:
+            obj=UserDb()
+            if search.isdigit():
+                search_id=obj.category_by_id(search)
+                per_page=4
+                start=(page -1) * per_page
+                end=start+per_page
+                total_page=(len(search_id)+per_page-1) // per_page
+                item_on_page=search_id[start:end]
+                return [len(search_id),list(item_on_page),total_page]
+            elif search:
+                search_name=obj.category_by_name(search)
+                per_page=4
+                start=(page -1) * per_page
+                end=start+per_page
+                total_page=(len(search_name)+per_page-1) // per_page
+                item_on_page=search_name[start:end]
+                # print([len(search_name),item_on_page,total_page])
+                # print(item_on_page)
+                return [len(search_name),item_on_page,total_page]
+        except Exception as e:
+            print(f"Error -> {e}")
 
     def inventory_search(self,search,page):
         try:

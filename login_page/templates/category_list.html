@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<head>
+        <center>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+                <link rel="stylesheet" href="{{ url_for('static', filename='category_list.css') }}">
+                <nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom border-dark">
+                        <div class="container-fluid">
+                                <div class="collapse navbar-collapse" >
+                                        <div class="navbar-nav">
+                                        {%if name%}
+                                        <div class="nav-item dropdown">
+                                        <button class="nav-link dropdown-toggle fs-5 fw-bold" data-bs-toggle="dropdown"aria-expanded="false">Hello {{ name }}</button>
+                                        <ul class="dropdown-menu dropdown-menu-end">
+                                        <li><a class="dropdown-item" href="{{ url_for('login.logout') }}">Logout</a></li>
+                                        </ul>
+                                        </div>
+                                        {%endif%}
+                                                <a class="nav-link" href="{{url_for('home.home_page')}}">Home</a>
+                                                <a class="nav-link" href="{{url_for('admin.hello_admin')}}">Customer Table</a>
+                                                <a class="nav-link" href="{{url_for('inventory.inventory_details')}}">Inventory</a>
+                                                <a class="nav-link" href="{{url_for('admin.vendor_list')}}">Vendors</a>
+						<a class="nav-link" href="{{url_for('inventory.category_list')}}">Category</a>
+                                        </div>
+                                </div>
+                        </div>
+                </nav>
+                <h1> Product Categories </h1>
+                {% with messages = get_flashed_messages(with_categories=True) %}
+                {% if messages %}
+                {% for category,message in messages %}
+                {% if category == 'danger' %}
+                <p style="color:red;">{{ message }}</p>
+                {% elif category == 'success' %}
+                <p style="color:green;">{{ message }}</p>
+                {% elif category == 'info' %}
+                <p style="color:blue;">{{ message }}</p>
+                {% endif %}
+                {% endfor %}
+                {% endif %}
+                {% endwith %}
+        </center>
+</head>
+<body>
+        <div class="search_form">
+        <form class="d-flex" action="{{url_for('inventory.category_list')}}" role="search" method="GET">
+        <input class="form-control" type="search"  placeholder = "Search" aria-label="Search"/ name="search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+        </div>
+               <div class="container">
+                <table class="table table-bordered">
+                        <tr>
+                                <th>Category ID</th>
+                                <th>Category Name</th>
+                                <th>Edit / Delete</th>
+                        </tr>
+                        {%for i in item_on_page%}
+                        <tr>
+                                <td>{{i[0]}}</td> <td>{{i[1]}}</td>
+                                <td>
+                                        <a href="{{url_for('inventory.category_edit',category_id=i[0])}}" class="btn btn-success bi bi-pen"></a> 
+                                        <a href="{{url_for('inventory.category_delete',category_id=i[0])}}" class="btn btn-danger bi bi-trash3"></a> 
+                                </td>
+                        </tr>
+                        {%endfor%}
+                </table>
+
+        </div>
+        <div class="container button">
+                <a href="{{url_for('inventory.add_category')}}" class="btn btn-success add"><i class="bi bi-plus-lg"></i>ADD NEW CATEGORY</a>
+        </div>
+        <center>
+        {% if page > 1 %}
+        <a href="{{url_for('inventory.category_list',page=page-1,sort=request.args.get('sort'))}}">Previous</a>
+        {% endif %}
+        <span>Page {{page}} of {{total_page}}</span>
+        {% if page < total_page %}
+        <a href="{{url_for('inventory.category_list',page=page+1,sort=request.args.get('sort'))}}">Next</a>
+        {% endif %}
+        </center>
+</body>

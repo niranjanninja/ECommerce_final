@@ -461,8 +461,66 @@ class UserDb:
         self.curr.execute(querry)
         self.conn.commit()
 
+    def fetch_category(self):
+        querry=f"SELECT * FROM category"
+        self.curr.execute(querry)
+        result=self.curr.fetchall()
+        return result
+
+    def category_by_id(self,search):
+        querry=f"SELECT * FROM category WHERE category_id='{search}'"
+        self.curr.execute(querry)
+        result=self.curr.fetchall()
+        return result
+    
+    def category_by_name(self,search):
+        querry=f"SELECT * FROM category WHERE category_name='{search}'"
+        self.curr.execute(querry)
+        result=self.curr.fetchall()
+        return result
+
+    def get_category(self,category_name):
+        querry=f"SELECT * FROM category WHERE category_name='{category_name}'"
+        self.curr.execute(querry)
+        result=self.curr.fetchall()
+        if result:
+            return "NO"
+        else:
+            return "YES"
+
+    def add_category(self,category_name):
+        querry=f"INSERT INTO category (category_name) VALUES ('{category_name}')"
+        self.curr.execute(querry)
+        self.conn.commit()
+
+    def category_delete(self,category_id):
+        querry=f"DELETE FROM category WHERE category_id ='{category_id}'"
+        self.curr.execute(querry)
+        self.conn.commit()
+
+    def category_by_id(self,category_id):
+        querry=f"SELECT * FROM category WHERE category_id='{category_id}'"
+        self.curr.execute(querry)
+        result=self.curr.fetchall()
+        # print(result[0][1])
+        return result
+
+    def category_edit(self,category_name,category_id):
+        querry=f"UPDATE category SET category_name='{category_name}' WHERE category_id='{category_id}'"
+        self.curr.execute(querry)
+        self.conn.commit()
+
+    def check_category(self,category_name,category_id):
+        querry=f"SELECT * FROM category WHERE category_name='{category_name}' and category_id!='{category_id}'"
+        self.curr.execute(querry)
+        result=self.curr.fetchall()
+        if result:
+            return "NO"
+        else:
+            return "YES"
+
 # obj=UserDb()
-# obj.vendor_search('Niranjan')
+# obj.category_by_id('1')
 # obj=UserDb()
 # obj.vendor_add('Niranjan2','No:69, Chennai-46','+916574836474','vendorniranjan2@gmail.com')
 # obj=UserDb()

@@ -246,3 +246,125 @@ def inventory_edit():
         logger.debug("Full traceback below:", exc_info=True)
         return redirect(url_for('edit_inventory',product_id=product_id))
 
+@inventory.route('/category_list')
+def category_list():
+    try:
+        if not session.get('admin_logged'):
+            return redirect(url_for('login.index'))
+        else:
+            name=session.get('name')
+            search=request.args.get('search')
+            page=request.args.get('page',1,type=int)
+            obj=UserDb()
+            obj2=Login()
+            if search:
+                category_search=obj2.category_search(search,page)
+                return render_template("category_list.html",length=category_search[0],item_on_page=category_search[1],total_page=category_search[2],page=page,name=name)
+            else:
+                fetch_category=obj.fetch_category()
+                per_page=13
+                start=(page-1)*per_page
+                end=start+per_page
+                total_page=(len(fetch_category)+per_page-1)//per_page
+                item_on_page=fetch_category[start:end]
+                return render_template("category_list.html",length=len(fetch_category),item_on_page=item_on_page,total_page=total_page,page=page,name=name)
+    except Exception as e:
+        logger.error(f"error -> {e}")
+        logger.debug("Full traceback below:", exc_info=True)
+        # return render_template("vendor_list.html")
+        return f"vendor list error -->>==>> {e}"
+
+@inventory.route('/add_category',methods=["GET"])
+def add_category():
+    try:
+        if not session.get('admin_logged'):
+            return redirect(url_for('login.index'))
+        else:
+            name=session.get('name')
+            return render_template("category_add.html",name=name)
+    except Exception as e:
+        logger.error(f"error -> {e}")
+        logger.debug("Full traceback below:", exc_info=True)
+        return f"vendor list error -->>==>> {e}"
+
+@inventory.route('/category_add',methods=["POST"])
+def category_add():
+    try:
+        if not session.get('admin_logged'):
+            return redirect(url_for('login.index'))
+        else:
+            name=session.get('name')
+            obj=UserDb()
+            obj2=Login()
+            if request.method=="POST":
+                category_name=request.form.get('category_name')
+                category=obj2.get_category(category_name)
+                if category=="NO":
+                    name_error="Category already exists"
+                    return render_template("category_add.html",name_error=name_error,name=name)
+                else:
+                    obj.add_category(category_name)
+                    flash("Category Added","success")
+                    return redirect(url_for("inventory.category_list"))
+    except Exception as e:
+        logger.error(f"error -> {e}")
+        logger.debug("Full traceback below:", exc_info=True)
+        return f"vendor list error -->>==>> {e}"
+
+@inventory.route('/category_delete/<category_id>')
+def category_delete(category_id):
+    try:
+        if not session.get('admin_logged'):
+            return redirect(url_for('login.index'))
+        else:
+            obj=UserDb()
+            result=obj.category_delete(category_id)
+            flash("Category Deleted","success")
+            return redirect(url_for('inventory.category_list'))
+    except Exception as e:
+        logger.error(f"error -> {e}")
+        logger.debug("Full traceback below:", exc_info=True)
+        return f"vendor list error -->>==>> {e}"
+
+@inventory.route('/category_edit/<category_id>')
+def category_edit(category_id):
+    try:
+        if not session.get('admin_logged'):
+            return redirect(url_for('login.index'))
+        else:
+            name=session.get('name')
+            obj=UserDb()
+            result=obj.category_by_id(category_id)
+            return render_template("category_edit.html",category_id=result[0][0],category_name=result[0][1],name=name)
+    except Exception as e:
+        logger.error(f"error -> {e}")
+        logger.debug("Full traceback below:", exc_info=True)
+        return f"vendor list error -->>==>> {e}"
+
+@inventory.route('/edit_category',methods=["POST"])
+def edit_category():
+    try:
+        if not session.get('admin_logged'):
+            return redirect(url_for('login.index'))
+        else:
+            name=session.get('name')
+            category_id=request.form.get("category_id")
+            category_name=request.form.get("category_name")
+            print(f"cat id ->{category_id}")
+            print(f"cat name ->{category_name}")
+            obj=UserDb()
+            category=obj.check_category(category_name,category_id)
+            if category =="YES":
+                category_edit=obj.category_edit(category_name,category_id)
+                flash("Updated","success")
+                return redirect(url_for('inventory.category_list'))
+            else:
+                flash("Category already exists","danger")
+                return redirect(url_for('inventory.edit_category'))
+    except Exception as e:
+        logger.error(f"error -> {e}")
+        logger.debug("Full traceback below:", exc_info=True)
+        return f"Category list error -->>==>> {e}"
+
+
+
