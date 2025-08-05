@@ -9,9 +9,6 @@ import os
 import boto3
 from werkzeug.utils import secure_filename
 from werkzeug.exceptions import RequestEntityTooLarge
-# from login_blueprint import login
-# from homepage_blurprint import home
-
 
 app = Flask(__name__)
 
@@ -99,8 +96,11 @@ def inven_add():
     if not session.get('admin_logged'):
         return redirect(url_for('login.index'))
     else:
+        obj=UserDb()
+        category=obj.fetch_category()
+        vendor=obj.get_vendor_id_name()
         name=session.get('name')
-        return render_template("inventory_add.html",name=name)
+        return render_template("inventory_add.html",name=name,category=category,vendor=vendor)
 
 @inventory.route('/inventory_add',methods=["GET","POST"])
 def inventory_add():
@@ -118,18 +118,22 @@ def inventory_add():
                 quantity=request.form.get("quantity")
                 price=request.form.get("price")
                 product_id=obj.inventory_add(product_name,description,quantity,price)
-                if 'file' not in request.files:
-                    flash('No file part')
+                if ('file1' and 'file2' and 'file3' and 'file4') not in request.files:
+                    flash("No file part","danger")
                     logger.warning("No file part")
                     return redirect(url_for('inventory.inven_add'))
-                file = request.files['file']
-                if file.filename == '':
+                file1 = request.files['file1']
+                file2 = request.files['file2']
+                file3 = request.files['file3']
+                file4 = request.files['file4']
+                if file1.filename=='' or file2.filename=='' or file3.filename=='' or file4.filename=='':
                     flash('No image selected for uploading')
                     logger.warning("No image selected for uploading")
                     return redirect(url_for('inventory.inven_add'))
-                if file and allowed_file(file.filename):
-                    filename=obj3.bucket_save_image(file,product_id)
-                    store=obj.add_image_filename(product_id,filename)
+                if (file1 and allowed_file(file1.filename) and file2 and allowed_file(file2.filename) and
+                    file3 and allowed_file(file3.filename) and file4 and allowed_file(file4.filename)):
+                    filename=obj3.bucket_save_image(file1,file2,file3,file4,product_id)
+                    # store=obj.add_image_filename(product_id,filename)
                     flash("New Item Added","success")
                     logger.info("New Item Added")
                     return redirect(url_for('inventory.inventory_page'))

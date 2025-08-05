@@ -519,6 +519,12 @@ class UserDb:
         else:
             return "YES"
 
+    def get_vendor_id_name(self):
+        querry=f"SELECT vendor_id,vendor_name FROM vendors"
+        self.curr.execute(querry)
+        result=self.curr.fetchall()
+        return result
+
 # obj=UserDb()
 # obj.category_by_id('1')
 # obj=UserDb()

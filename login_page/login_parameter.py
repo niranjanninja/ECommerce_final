@@ -448,7 +448,7 @@ class Image_upload:
     #     self.user_db_obj = UserDb()
 
     
-    def bucket_save_image(self,file,product_id):
+    def bucket_save_image(self,file1,file2,file3,file4,product_id):
         try:
             s3 = boto3.client('s3',
                               aws_access_key_id=config['AWS']['aws_access_key_id'],
@@ -456,26 +456,48 @@ class Image_upload:
                               region_name=config['AWS']['region_name']
                               )
             bucket_name = "webpage.image.upload"
-            filename = f"images/product_id{product_id}.jpg"
+            filename1 = f"images/product_id{product_id}_1.jpg"
+            filename2 = f"images/product_id{product_id}_2.jpg"
+            filename3 = f"images/product_id{product_id}_3.jpg"
+            filename4 = f"images/product_id{product_id}_4.jpg"
             # print("Uploading")
-            s3.upload_fileobj(file,bucket_name,filename)
+            s3.upload_fileobj(file1,bucket_name,filename1)
+            s3.upload_fileobj(file2,bucket_name,filename2)
+            s3.upload_fileobj(file3,bucket_name,filename3)
+            s3.upload_fileobj(file4,bucket_name,filename4)
             # print("Uploaded")
+            filename=[filename1,filename2,filename3,filename4]
+            # print(filename)
             return filename
         except Exception as e:
+            # print(f"error ->{e}")
             return f"Something went wrong {e}"
             logger.error(f"Error uploading to S3: {e}")
             # return None
 
-    def display_from_s3(self,filename):
+    def display_from_s3(self,filename1,filename2,filename3,filename4):
         try:
             s3 = boto3.client('s3',
                               aws_access_key_id=config['AWS']['aws_access_key_id'],
                               aws_secret_access_key=config['AWS']['aws_secret_access_key'],
                               region_name=config['AWS']['region_name'])
-            url = s3.generate_presigned_url(
+            url1= s3.generate_presigned_url(
                     'get_object',
-                    Params={'Bucket': 'webpage.image.upload', 'Key': filename},
+                    Params={'Bucket': 'webpage.image.upload', 'Key': filename1},
                     ExpiresIn=600)
+            url2= s3.generate_presigned_url(
+                    'get_object',
+                    Params={'Bucket': 'webpage.image.upload', 'Key': filename2},
+                    ExpiresIn=600)
+            url3= s3.generate_presigned_url(
+                    'get_object',
+                    Params={'Bucket': 'webpage.image.upload', 'Key': filename3},
+                    ExpiresIn=600)
+            url4= s3.generate_presigned_url(
+                    'get_object',
+                    Params={'Bucket': 'webpage.image.upload', 'Key': filename4},
+                    ExpiresIn=600)
+            url=[url1,url2,url3,url4]
             # print(url)
             return url
 
@@ -484,7 +506,8 @@ class Image_upload:
             return None
 
 # obj2=Image_upload()
-# obj2.display_from_s3(images/product_id33.jpg,
+# obj2.bucket_save_image('headphone1','headphne2','headphpne3','headphone4','1')
+# obj2.display_from_s3('images/product_id15_1.jpg', 'images/product_id15_2.jpg', 'images/product_id15_3.jpg', 'images/product_id15_4.jpg')
 # images/product_id36.jpg,
 # images/product_id32.jpg,
 # images/product_id37.jpg,

@@ -15,6 +15,7 @@
 						<a class="nav-link" href="{{url_for('home.home_page')}}">Home</a>
 						<a class="nav-link" href="{{url_for('inventory.inventory_details')}}">Inventory</a>
 						<a class="nav-link" href="{{url_for('admin.hello_admin')}}">Customer Table</a>
+						<a class="nav-link" href="{{ url_for('inventory.add_category') }}">Add Category</a>
                                                 <a class="nav-link" href="{{ url_for('login.logout') }}">Logout</a>
 					</div>
 				</div>
@@ -28,6 +29,8 @@
                 <p style="color:green;">{{ message }}</p>
                 {% elif category == 'info' %}
                 <p style="color:blue;">{{ message }}</p>
+		{% elif category == 'danger' %}
+		<p style="color:red;">{{ message }}</p>
                 {% endif %}
                 {% endfor %}
                 {% endif %}
@@ -38,6 +41,18 @@
 	<div class="container">
 	<!-- <center> -->
 	<form action="{{url_for('inventory.inventory_add')}}" method="POST"  enctype="multipart/form-data">
+			<div class="mb-3">
+			        <select class="form-select" aria-label="Default select example" name="category">
+				        <option selected hidden>Select Category</option>
+					{%for i in category%}
+				        <option value="{{i[0]}}">{{i[1]}}</option>
+					{%endfor%}
+				</select>
+			</div>
+			<div class="mb-3">
+			        <label class="form-label">Product Brand</label>
+				<input type="text" class="form-control" name="product_brand">
+			</div>
 			<div class="mb-3">
 				<label class="form-label">Product Name</label>
 				<input type="text" class="form-control" name="product_name">
@@ -55,6 +70,10 @@
 				<input type="integer" class="form-control" name="price">
 			</div>
 			<div class="mb-3">
+			        <label class="form-label">Features  (Give the data in Key:Value pair (RAM : 2GB))</label>
+				<input type="integer" class="form-control" name="features">
+			</div>
+			<div class="mb-3">
 				<label class="form-label">Upload Image 1</label>
 				<input type="file" name="file1" class="form-control" autocomplete="off" required>
 				<label class="form-label">Upload Image 2</label>
@@ -70,7 +89,14 @@
                                 <div style="color:red">{{file_error}}</div>
                                 {%endif%}
 			</div>
-
+                        <div class="mb-3">
+			        <select class="form-select" aria-label="Default select example" name="vendor">
+                                        <option selected hidden>Select Vendor</option>
+				        {%for i in vendor%}
+				        <option value="{{i[0]}}">{{i[1]}}</option>
+				        {%endfor%}
+				</select>
+			</div>
 			<div class="mb-3">
 				<input type="submit" class="btn btn-primary" value="Add item">
                                 {% with messages = get_flashed_messages(with_categories=True) %}
