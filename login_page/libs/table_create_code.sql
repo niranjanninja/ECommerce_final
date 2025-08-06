@@ -22,13 +22,15 @@ category_name text not null)
 
 create table products(
 product_id serial primary key,
-category_id integer not null,
+category_id integer not null references category(category_id),
 product_brand text not null,
-product_name json not null,
+product_name text not null,
 quantity numeric(10,0) not null,
 price numeric(100,0) not null,
 features jsonb not null,
-vendor_id integer references vendors(vendor_id)
+vendor_id integer not null references vendors(vendor_id),
+product_description text not null,
+images jsonb,
 )
 
 create table cart(

@@ -9,7 +9,9 @@ import os
 import boto3
 from werkzeug.utils import secure_filename
 from werkzeug.exceptions import RequestEntityTooLarge
-
+from zipfile import ZipFile
+import json
+ 
 app = Flask(__name__)
 
 # UPLOAD_FOLDER = 'static/uploads/'
@@ -113,33 +115,55 @@ def inventory_add():
             obj2=Login()
             obj3=Image_upload()
             if request.method=="POST":
+                category=request.form.get("category")
+                product_brand=request.form.get("product_brand")
                 product_name=request.form.get("product_name")
                 description=request.form.get("description")
                 quantity=request.form.get("quantity")
                 price=request.form.get("price")
-                product_id=obj.inventory_add(product_name,description,quantity,price)
-                if ('file1' and 'file2' and 'file3' and 'file4') not in request.files:
+                features=request.form.get("features")
+                vendor=request.form.get("vendor")
+                product_id=obj.inventory_add(category,product_brand,product_name,description,quantity,price,features,vendor)
+                if 'zipfile' not in request.files:
                     flash("No file part","danger")
                     logger.warning("No file part")
                     return redirect(url_for('inventory.inven_add'))
-                file1 = request.files['file1']
-                file2 = request.files['file2']
-                file3 = request.files['file3']
-                file4 = request.files['file4']
-                if file1.filename=='' or file2.filename=='' or file3.filename=='' or file4.filename=='':
+                zipfile = request.files['zipfile']
+                if zipfile.filename=='':
                     flash('No image selected for uploading')
                     logger.warning("No image selected for uploading")
                     return redirect(url_for('inventory.inven_add'))
-                if (file1 and allowed_file(file1.filename) and file2 and allowed_file(file2.filename) and
-                    file3 and allowed_file(file3.filename) and file4 and allowed_file(file4.filename)):
-                    filename=obj3.bucket_save_image(file1,file2,file3,file4,product_id)
-                    # store=obj.add_image_filename(product_id,filename)
-                    flash("New Item Added","success")
-                    logger.info("New Item Added")
-                    return redirect(url_for('inventory.inventory_page'))
-                    img_error="Allowed image types are - png, jpg, jpeg, gif"
-                    logger.warning("Allowed image types are - png, jpg, jpeg, gif")
-                    return render_template("inventory_add.html",img_error=img_error,name=name)
+                if not zipfile.filename.lower().endswith('.zip'):
+                    flash("Submit a zip file. The submitted file is not a zip file.","danger")
+                    return redirect(url_for('inventory.inven_add'))
+                else:
+                    with ZipFile(zipfile,'r') as zip:
+                        filelist=[]
+                        for name in zip.namelist():
+                            if name and allowed_file(name):
+                                filelist.append(zip.open(name))
+                            else:
+                                flash("Allowed image types are - png, jpg, jpeg","danger")
+                                return redirect(url_for('inventory.inven_add'))
+                        # print(filelist)
+                        filename=obj3.bucket_save_image(filelist,product_id)
+                        filenames=[]
+                        index=1
+                        for i in filename:
+                            file=f"image{index}:{i}"
+                            filenames.append(file)
+                            index=index+1
+                        store=obj.add_image_filename(product_id,filenames)
+                        flash("New Item Added","success")
+                        return redirect(url_for('inventory.inven_add'))
+                    # filename=obj3.bucket_save_image(file1,file2,file3,file4,product_id)
+                    # # store=obj.add_image_filename(product_id,filename)
+                    # flash("New Item Added","success")
+                    # logger.info("New Item Added")
+                    # return redirect(url_for('inventory.inventory_page'))
+                    # img_error="Allowed image types are - png, jpg, jpeg, gif"
+                    # logger.warning("Allowed image types are - png, jpg, jpeg, gif")
+                    # return render_template("inventory_add.html",img_error=img_error,name=name)
     except RequestEntityTooLarge:
         flash("File too large. Max size is 1MB.", "danger")
         logger.error("File too large. Max size is 1MB.")

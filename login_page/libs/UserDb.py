@@ -1,4 +1,5 @@
 from libs.DBConnect import DBConnect
+import json
 # from DBConnect import DBConnect
 class UserDb:
 
@@ -145,23 +146,25 @@ class UserDb:
 ###########################################   INVENTORY QUERRY #########################################################
 
     def inventory_show(self):
-        querry=f"SELECT * FROM inventory"
+        querry=f"SELECT * FROM products"
         self.curr.execute(querry)
         result=self.curr.fetchall()
         # print(result)
         # print(type(result))
         return result
 
-    def inventory_add(self,product_name,description,quantity,price):
-        querry=f"INSERT INTO inventory (product_name,description,quantity,price) VALUES ('{product_name}','{description}','{quantity}','{price}') returning product_id"
+    def inventory_add(self,category,product_brand,product_name,description,quantity,price,features,vendor):
+        features_json = json.dumps(features)
+        querry=f"INSERT INTO products (category_id,product_brand,product_name,quantity,price,features,vendor_id,product_description) VALUES ('{category}','{product_brand}','{product_name}','{quantity}','{price}','{features_json}','{vendor}','{description}') returning product_id"
         self.curr.execute(querry)
         product_id = self.curr.fetchone()[0]
         self.conn.commit()
         # print(product_id)
         return product_id
 
-    def add_image_filename(self,product_id,image):
-        querry=f"UPDATE inventory SET image='{image}' WHERE product_id={product_id}"
+    def add_image_filename(self,product_id,filenames):
+        filename_json=json.dumps(filenames)
+        querry=f"UPDATE products SET images = '{filename_json}' WHERE product_id={product_id}"
         self.curr.execute(querry)
         self.conn.commit()
 

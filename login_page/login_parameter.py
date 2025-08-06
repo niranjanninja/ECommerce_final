@@ -448,7 +448,7 @@ class Image_upload:
     #     self.user_db_obj = UserDb()
 
     
-    def bucket_save_image(self,file1,file2,file3,file4,product_id):
+    def bucket_save_image(self,filelist,product_id):
         try:
             s3 = boto3.client('s3',
                               aws_access_key_id=config['AWS']['aws_access_key_id'],
@@ -456,18 +456,17 @@ class Image_upload:
                               region_name=config['AWS']['region_name']
                               )
             bucket_name = "webpage.image.upload"
-            filename1 = f"images/product_id{product_id}_1.jpg"
-            filename2 = f"images/product_id{product_id}_2.jpg"
-            filename3 = f"images/product_id{product_id}_3.jpg"
-            filename4 = f"images/product_id{product_id}_4.jpg"
-            # print("Uploading")
-            s3.upload_fileobj(file1,bucket_name,filename1)
-            s3.upload_fileobj(file2,bucket_name,filename2)
-            s3.upload_fileobj(file3,bucket_name,filename3)
-            s3.upload_fileobj(file4,bucket_name,filename4)
-            # print("Uploaded")
-            filename=[filename1,filename2,filename3,filename4]
-            # print(filename)
+            # print(f"filelist ->{filelist}")
+            filename = []
+            index = 1
+            for i in filelist:
+                file = f"images/product_id{product_id}_{index}.jpg"
+                # print(file)
+                s3.upload_fileobj(i, bucket_name, file)
+                # print("uploaded")
+                filename.append(file)
+                index=index+1
+            # print(f"filename -> {filename}")
             return filename
         except Exception as e:
             # print(f"error ->{e}")
@@ -506,7 +505,7 @@ class Image_upload:
             return None
 
 # obj2=Image_upload()
-# obj2.bucket_save_image('headphone1','headphne2','headphpne3','headphone4','1')
+# obj2.bucket_save_image(['monitor1.jpg', 'monitor2.jpg', 'keyboard2.jpg', 'keyboard3.jpg'],'1')
 # obj2.display_from_s3('images/product_id15_1.jpg', 'images/product_id15_2.jpg', 'images/product_id15_3.jpg', 'images/product_id15_4.jpg')
 # images/product_id36.jpg,
 # images/product_id32.jpg,
