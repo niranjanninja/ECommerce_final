@@ -45,28 +45,21 @@ def inventory_page():
             obj=UserDb()
             obj2=Login()
             obj3=Image_upload()
-            if request.method=="POST":
-                product_id=request.form.get("product_id")
-                check=obj3.inventory_delete(product_id)
-                if "Item Deleted" in check:
-                    flash("Item deleted","success")
-                    logger.info("Item deleted")
-                    return redirect(url_for('inventory.inventory_page'))
-                if "NO" in check:
-                    flash("Enter correct product ID","danger")
-                    logger.warning("Enter correct product ID")
-                    return redirect(url_for('inventory.inventory_page'))
             if request.method=="GET":
                 search=request.args.get("search")
                 sort=request.args.get("sort")
                 page=request.args.get('page',1,type=int)
+                empty_list=[]
                 if search:
                     search=obj2.inventory_search(search,page)
-                    print(f"search->{search}")
-                    return render_template("inventory_page.html",name=name,length=search[0],item_on_page=search[1],total_page=search[2],page=page)
-                if sort:
-                    sort=obj2.inventory_sort(sort,page)
-                    return render_template("inventory_page.html",name=name,length=sort[0],item_on_page=sort[1],total_page=sort[2],page=page)
+                    search1=list(search[1][0])
+                    url=obj3.display_from_s3(search[1][0][5])
+                    search1.append(url)
+                    empty_list.append(search1)
+                    return render_template("inventory_page.html",name=name,length=search[0],item_on_page=empty_list,total_page=search[2],page=page)
+                # if sort:
+                #     sort=obj2.inventory_sort(sort,page)
+                #     return render_template("inventory_page.html",name=name,length=sort[0],item_on_page=sort[1],total_page=sort[2],page=page)
                 else:
                     store=obj.inventory_show()
                     page=request.args.get('page',1,type=int)
@@ -76,11 +69,13 @@ def inventory_page():
                     total_page=(len(store)+per_page-1) // per_page
                     item_on_page=store[start:end]
                     item_on_page=list(item_on_page)
-                    # print(item_on_page)
+                    # print(f"this is item on page -> {item_on_page}")
                     empty_list=[]
                     for item in item_on_page:
+                        # print(f"This is item -> {item}")
                         item=list(item)
                         filename=item[5]
+                        # print(f"This is filename => {filename}")
                         url=obj3.display_from_s3(filename)
                         item.append(url)
                         empty_list.append(item)
@@ -123,7 +118,8 @@ def inventory_add():
                 price=request.form.get("price")
                 features=request.form.get("features")
                 vendor=request.form.get("vendor")
-                product_id=obj.inventory_add(category,product_brand,product_name,description,quantity,price,features,vendor)
+                features_list = features.split(',')
+                product_id=obj.inventory_add(category,product_brand,product_name,description,quantity,price,features_list,vendor)
                 if 'zipfile' not in request.files:
                     flash("No file part","danger")
                     logger.warning("No file part")
@@ -147,23 +143,10 @@ def inventory_add():
                                 return redirect(url_for('inventory.inven_add'))
                         # print(filelist)
                         filename=obj3.bucket_save_image(filelist,product_id)
-                        filenames=[]
-                        index=1
-                        for i in filename:
-                            file=f"image{index}:{i}"
-                            filenames.append(file)
-                            index=index+1
-                        store=obj.add_image_filename(product_id,filenames)
+                        print(filename)
+                        store=obj.add_image_filename(product_id,filename)
                         flash("New Item Added","success")
-                        return redirect(url_for('inventory.inven_add'))
-                    # filename=obj3.bucket_save_image(file1,file2,file3,file4,product_id)
-                    # # store=obj.add_image_filename(product_id,filename)
-                    # flash("New Item Added","success")
-                    # logger.info("New Item Added")
-                    # return redirect(url_for('inventory.inventory_page'))
-                    # img_error="Allowed image types are - png, jpg, jpeg, gif"
-                    # logger.warning("Allowed image types are - png, jpg, jpeg, gif")
-                    # return render_template("inventory_add.html",img_error=img_error,name=name)
+                        return redirect(url_for('inventory.inventory_page'))
     except RequestEntityTooLarge:
         flash("File too large. Max size is 1MB.", "danger")
         logger.error("File too large. Max size is 1MB.")
@@ -214,15 +197,17 @@ def edit_inventory(product_id):
             obj = UserDb()
             obj2=Image_upload()
             result = obj.product_id_check(product_id)
+            category=obj.fetch_category()
+            vendor=obj.get_vendor_id_name()
             if result:
-                url=obj2.display_from_s3(result[5])
-                return render_template("inventory_edit.html",name=name,product_id=result[0],product_name=result[1],description=result[2],quantity=result[3],price=result[4],url=url)
+                url=obj2.display_from_s3(result[9])
+                return render_template("inventory_edit.html",name=name,category=category,vendor=vendor,product_id=result[0],category_id=result[1],product_brand=result[2],product_name=result[3],quantity=result[4],price=result[5],features=result[6],vendor_id=result[7],description=result[8],url=url)
             return render_template("inventory_edit.html",url=url,name=name)
     except Exception as e:
         logger.error(f"error -> {e}")
         logger.debug("Full traceback below:", exc_info=True)
-        # return f"Something went wrong"
-        return redirect(url_for('login.inventory_page'))
+        return f"Something went wrong ->{e}"
+        # return redirect(url_for('inventory.inventory_page'))
 
 @inventory.route('/inventory_edit', methods=["POST"])
 def inventory_edit():

@@ -474,32 +474,20 @@ class Image_upload:
             logger.error(f"Error uploading to S3: {e}")
             # return None
 
-    def display_from_s3(self,filename1,filename2,filename3,filename4):
+    def display_from_s3(self,filename):
         try:
             s3 = boto3.client('s3',
                               aws_access_key_id=config['AWS']['aws_access_key_id'],
                               aws_secret_access_key=config['AWS']['aws_secret_access_key'],
                               region_name=config['AWS']['region_name'])
-            url1= s3.generate_presigned_url(
+            url=[]
+            for i in filename:
+                url_generate= s3.generate_presigned_url(
                     'get_object',
-                    Params={'Bucket': 'webpage.image.upload', 'Key': filename1},
+                    Params={'Bucket': 'webpage.image.upload', 'Key': i},
                     ExpiresIn=600)
-            url2= s3.generate_presigned_url(
-                    'get_object',
-                    Params={'Bucket': 'webpage.image.upload', 'Key': filename2},
-                    ExpiresIn=600)
-            url3= s3.generate_presigned_url(
-                    'get_object',
-                    Params={'Bucket': 'webpage.image.upload', 'Key': filename3},
-                    ExpiresIn=600)
-            url4= s3.generate_presigned_url(
-                    'get_object',
-                    Params={'Bucket': 'webpage.image.upload', 'Key': filename4},
-                    ExpiresIn=600)
-            url=[url1,url2,url3,url4]
-            # print(url)
+                url.append(url_generate)
             return url
-
         except Exception as e:
             logger.error(f"Error generating presigned GET URL: {e}")
             return None

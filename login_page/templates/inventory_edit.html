@@ -11,13 +11,17 @@
                                 <div class="collapse navbar-collapse" >
                                         <div class="navbar-nav">
                                                 {%if name%}
-                                                <a class="nav-link fw-bold">Hello {{name}}</a>
+						<div class="nav-item dropdown">
+						<button class="nav-link dropdown-toggle fs-5 fw-bold" data-bs-toggle="dropdown"aria-expanded="false">Hello {{ name }}</button>
+						<ul class="dropdown-menu dropdown-menu-end">
+						<li><a class="dropdown-item" href="{{ url_for('login.logout') }}">Logout</a></li>
+						</ul>
+						</div>
                                                 {%endif%}
 						<a class="nav-link" href="{{url_for('home.home_page',name=name)}}">Home</a>
                                                 <a class="nav-link" href="{{url_for('inventory.inventory_details')}}">Inventory</a>
                                                 <a class="nav-link" href="{{url_for('inventory.inven_add')}}">Add Items</a>
 						<a class="nav-link" href="{{url_for('admin.hello_admin')}}">Customer Table</a>
-                                                <a class="nav-link" href="{{ url_for('login.logout') }}">Logout</a>
                                         </div>
                                 </div>
                         </div>
@@ -39,21 +43,74 @@
 <body>
 	<form action="{{url_for('inventory.inventory_edit')}}" method="POST"  enctype="multipart/form-data">
 		<div class="container">
-                        <div class="mb-3 img">
-                                {%if url%}
-                                <img src="{{url}}" width="300px" height="500px" class="img-thumbnail image">
-                                {%endif%}
-                        </div>
-                        <div class="box">
+			<div id="carousel{{product_id}}" class="carousel slide">
+			        <div class="carousel-inner">
+				        {%for i in url%}
+			                <div class="carousel-item {%if loop.index0==0%}active{%endif%}">
+			                        <img src="{{i}}" class="d-block" width="500px" height="500px">
+			                </div>
+					{%endfor%}
+			        </div>
+			<button class="carousel-control-prev" type="button" data-bs-target="#carousel{{product_id}}" data-bs-slide="prev">
+			        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+			        <span class="visually-hidden">Previous</span>
+			</button>
+			<button class="carousel-control-next" type="button" data-bs-target="#carousel{{product_id}}" data-bs-slide="next">
+			        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+			        <span class="visually-hidden">Next</span>
+			</button>
+			</div>
+                        
+			<div class="box">
                                 <div class="mb-3">
                                         <h6><label class="form-label">Product ID</label></h6>
                                         <input type="text" name="product_id" class="form-control" value="{{product_id}}" readonly>
                                 </div>
-
-                                <div class="mb-3">
-                                        <h6><label class="form-label">Name</label></h6>
-                                        <input type="text" name="product_name" class="form-control" value="{{product_name}}">
+				<div class="mb-3">
+				        <h6><label class="form-label">Category ID</label></h6>
+					<select class="form-select catven" aria-label="Default select example" name="category">
+						<option selected hidden>{{category_id}}</option>
+						{%for i in category%}
+						<option value="{{i[0]}}">{{i[1]}}</option>
+						{%endfor%}
+					</select>
+				</div>
+                                
+			        <div class="mb-3">
+                                        <h6><label class="form-label">Product Brand</label></h6>
+                                        <input type="text" name="product_brand" class="form-control" value="{{product_brand}}">
                                 </div>
+
+				<div class="mb-3">
+				        <h6><label class="form-label">Product Name</label></h6>
+					<input type="text" name="product_name" class="form-control" value="{{product_name}}">
+			        </div>
+
+				<div class="mb-3">
+				        <h6><label class="form-label">Quantity</label></h6>
+					<input type="integer" name="quantity" class="form-control" value="{{quantity}}">
+				</div>
+
+				<div class="mb-3">
+				        <h6><label class="form-label">Price</label></h6>
+					<input type="integer" name="price" class="form-control" value="{{price}}">
+				</div>
+
+				<div class="mb-3">
+					<h6><label class="form-label">Features  (Give the data in Key:Value pair (RAM : 2GB))</label></h6>
+					<input type="integer" class="form-control" name="features" value="{{features}}">
+				</div>
+
+
+				<div class="mb-3">
+				        <h6><label class="form-label">Vendor ID</label></h6>
+					<select class="form-select catven" aria-label="Default select example" name="vendor">
+						<option selected hidden>{{vendor_id}}</option>
+						{%for i in vendor%}
+						<option value="{{i[0]}}">{{i[1]}}</option>
+						{%endfor%}
+					</select>
+				</div>
 
                                 <div class="mb-3">
                                         <h6><label class="form-label">Product Description</label></h6>
@@ -61,29 +118,8 @@
                                 </div>
 
                                 <div class="mb-3">
-                                        <h6><label class="form-label">Quantity</label></h6>
-                                        <input type="integer" name="quantity" class="form-control" value="{{quantity}}">
-                                </div>
-
-                                <div class="mb-3">
-                                        <h6><label class="form-label">Price</label></h6>
-                                        <input type="integer" name="price" class="form-control" value="{{price}}">
-                                </div>
-
-                                <div class="mb-3">
                                         <h6><label class="form-label">Change Image</label></h6>
-                                        <input type="file" name="file" class="form-control" autocomplete="off">
-					<div style="color:black;">Max File Size is 1MB</div>
-                                        {% with messages = get_flashed_messages(with_categories=True) %}
-                                        {% if messages %}
-                                        {% for category,message in messages %}
-                                        {% if category == 'danger' %}
-                                        <p style="color:red;">{{ message }}</p>
-                                        {% endif %}
-                                        {% endfor %}
-                                        {% endif %}
-                                        {% endwith %}
-                                        
+                                        <input type="file" name="zipfile" class="form-control" accept=".zip" autocomplete="off">
                                         {% if error %}
                                         <div style="color:red;">{{ error }}</div>
                                         {%endif%}

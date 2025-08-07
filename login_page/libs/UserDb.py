@@ -146,15 +146,15 @@ class UserDb:
 ###########################################   INVENTORY QUERRY #########################################################
 
     def inventory_show(self):
-        querry=f"SELECT * FROM products"
+        querry=f"select products.product_id,products.product_name,category.category_name,products.quantity,products.price, products.images,vendors.vendor_name from products inner join vendors on products.vendor_id = vendors.vendor_id inner join category on products.category_id = category.category_id"
         self.curr.execute(querry)
         result=self.curr.fetchall()
         # print(result)
         # print(type(result))
         return result
 
-    def inventory_add(self,category,product_brand,product_name,description,quantity,price,features,vendor):
-        features_json = json.dumps(features)
+    def inventory_add(self,category,product_brand,product_name,description,quantity,price,features_list,vendor):
+        features_json = json.dumps(features_list)
         querry=f"INSERT INTO products (category_id,product_brand,product_name,quantity,price,features,vendor_id,product_description) VALUES ('{category}','{product_brand}','{product_name}','{quantity}','{price}','{features_json}','{vendor}','{description}') returning product_id"
         self.curr.execute(querry)
         product_id = self.curr.fetchone()[0]
@@ -162,14 +162,13 @@ class UserDb:
         # print(product_id)
         return product_id
 
-    def add_image_filename(self,product_id,filenames):
-        filename_json=json.dumps(filenames)
-        querry=f"UPDATE products SET images = '{filename_json}' WHERE product_id={product_id}"
+    def add_image_filename(self,product_id,filename):
+        querry=f"UPDATE products SET images = ARRAY{filename} WHERE product_id='{product_id}'"
         self.curr.execute(querry)
         self.conn.commit()
 
     def inventory_delete(self,product_id):
-        querry=f"DELETE FROM inventory WHERE product_id='{product_id}'"
+        querry=f"DELETE FROM products WHERE product_id='{product_id}'"
         self.curr.execute(querry)
         self.conn.commit()
 
@@ -199,7 +198,7 @@ class UserDb:
         self.conn.commit()
 
     def product_id_check(self,product_id):
-        querry=f"SELECT * FROM inventory WHERE product_id='{product_id}'"
+        querry=f"SELECT * FROM products WHERE product_id='{product_id}'"
         self.curr.execute(querry)
         result=self.curr.fetchone()
         # print(result)
@@ -214,14 +213,14 @@ class UserDb:
         return result[5]
 
     def inventory_by_id(self,product_id):
-        querry=f"SELECT * FROM inventory WHERE product_id = '{product_id}'"
+        querry=f"SELECT products.product_id,products.product_name,category.category_name,products.quantity,products.price,products.images,vendors.vendor_name FROM products INNER JOIN vendors on products.vendor_id = vendors.vendor_id INNER JOIN category on products.category_id = category.category_id WHERE product_id = '{product_id}'"
         self.curr.execute(querry)
         result=self.curr.fetchall()
         # print(result)
         return result
 
     def inventory_by_name(self,product_name):
-        querry=f"SELECT * FROM inventory where product_name='{product_name}'"
+        querry=f"SELECT products.product_id,products.product_name,category.category_name,products.quantity,products.price,products.images,vendors.vendor_name FROM products INNER JOIN vendors on products.vendor_id = vendors.vendor_id INNER JOIN category on products.category_id = category.category_id where product_name='{product_name}'"
         self.curr.execute(querry)
         result=self.curr.fetchall()
         # print(result)
