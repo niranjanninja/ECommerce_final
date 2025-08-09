@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <head>
-        <center>
                 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
                 <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
                 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
@@ -8,7 +7,10 @@
                 <!-- <link rel="stylesheet" href="inventory_edit.css"> -->
                 <nav class="navbar navbar-expand-lg bg-body-tertiary">
                         <div class="container-fluid">
-                                <div class="collapse navbar-collapse" >
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                        </button>
+                                <div class="collapse navbar-collapse" id="navbarNavDropdown">
                                         <div class="navbar-nav">
                                                 {%if name%}
 						<div class="nav-item dropdown">
@@ -26,11 +28,14 @@
                                 </div>
                         </div>
                 </nav>
+        <center>
                 <h1>Edit Items</h1>
                 {% with messages = get_flashed_messages(with_categories=True) %}
                 {% if messages %}
                 {% for category,message in messages %}
-                {% if category == 'success' %}
+		{% if category == 'danger' %}
+		<p style="color:red;">{{ message }}</p>
+                {% elif category == 'success' %}
                 <p style="color:green;">{{ message }}</p>
                 {% elif category == 'info' %}
                 <p style="color:blue;">{{ message }}</p>
@@ -67,9 +72,9 @@
                                         <input type="text" name="product_id" class="form-control" value="{{product_id}}" readonly>
                                 </div>
 				<div class="mb-3">
-				        <h6><label class="form-label">Category ID</label></h6>
+				        <h6><label class="form-label">Category</label></h6>
 					<select class="form-select catven" aria-label="Default select example" name="category">
-						<option selected hidden>{{category_id}}</option>
+						<option selected hidden value="{{category_id}}">{{category_name}}</option>
 						{%for i in category%}
 						<option value="{{i[0]}}">{{i[1]}}</option>
 						{%endfor%}
@@ -97,15 +102,16 @@
 				</div>
 
 				<div class="mb-3">
-					<h6><label class="form-label">Features  (Give the data in Key:Value pair (RAM : 2GB))</label></h6>
-					<input type="integer" class="form-control" name="features" value="{{features}}">
+					<h6><label class="form-label">Features</label></h6>
+					<textarea class="form-control" name="features">{{features}}</textarea>
+                                        <label>Give the data in Key:Value pair (RAM : 2GB)</label>
 				</div>
 
 
 				<div class="mb-3">
-				        <h6><label class="form-label">Vendor ID</label></h6>
+				        <h6><label class="form-label">Vendor</label></h6>
 					<select class="form-select catven" aria-label="Default select example" name="vendor">
-						<option selected hidden>{{vendor_id}}</option>
+						<option selected hidden value="{{vendor_id}}">{{vendor_name}}</option>
 						{%for i in vendor%}
 						<option value="{{i[0]}}">{{i[1]}}</option>
 						{%endfor%}
@@ -114,12 +120,13 @@
 
                                 <div class="mb-3">
                                         <h6><label class="form-label">Product Description</label></h6>
-					<textarea class="form-control description">{{description}}</textarea>
+					<textarea class="form-control description" name="description">{{description}}</textarea>
                                 </div>
 
                                 <div class="mb-3">
                                         <h6><label class="form-label">Change Image</label></h6>
                                         <input type="file" name="zipfile" class="form-control" accept=".zip" autocomplete="off">
+                                        <label>Upload a ZIP file with all the images</label>
                                         {% if error %}
                                         <div style="color:red;">{{ error }}</div>
                                         {%endif%}

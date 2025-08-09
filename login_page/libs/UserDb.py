@@ -172,33 +172,54 @@ class UserDb:
         self.curr.execute(querry)
         self.conn.commit()
 
+    def inventory_edit_brand(self,product_id,product_brand):
+        querry=f"UPDATE products SET product_brand='{product_brand}' WHERE product_id='{product_id}'"
+        self.curr.execute(querry)
+        self.conn.commit()
+
+    def inventory_edit_category(self,product_id,category):
+        querry=f"UPDATE products SET category_id='{category}' WHERE product_id='{product_id}'"
+        self.curr.execute(querry)
+        self.conn.commit()
+
     def inventory_edit_name(self,product_id,product_name):
-        querry=f"UPDATE inventory SET product_name = '{product_name}' WHERE product_id='{product_id}'"
+        querry=f"UPDATE products SET product_name = '{product_name}' WHERE product_id='{product_id}'"
         self.curr.execute(querry)
         self.conn.commit()
 
     def inventory_edit_description(self,product_id,description):
-        querry=f"UPDATE inventory SET description = '{description}' WHERE product_id='{product_id}'"
+        querry=f"UPDATE products SET product_description ='{description}' WHERE product_id='{product_id}'"
         self.curr.execute(querry)
         self.conn.commit()
 
     def inventory_edit_quantity(self,product_id,quantity):
-        querry=f"UPDATE inventory SET quantity = '{quantity}' WHERE product_id='{product_id}'"
+        querry=f"UPDATE products SET quantity = '{quantity}' WHERE product_id='{product_id}'"
         self.curr.execute(querry)
         self.conn.commit()
 
     def inventory_edit_price(self,product_id,price):
-        querry=f"UPDATE inventory SET price = '{price}' WHERE product_id='{product_id}'"
+        querry=f"UPDATE products SET price = '{price}' WHERE product_id='{product_id}'"
+        self.curr.execute(querry)
+        self.conn.commit()
+
+    def inventory_edit_features(self,product_id,features):
+        features_json=json.dumps(features)
+        querry=f"UPDATE products SET features='{features_json}' WHERE product_id='{product_id}'"
+        self.curr.execute(querry)
+        self.conn.commit()
+
+    def inventory_edit_vendor(self,product_id,vendor):
+        querry=f"UPDATE products SET vendor_id='{vendor}' WHERE product_id='{product_id}'"
         self.curr.execute(querry)
         self.conn.commit()
 
     def inventory_edit_image(self,product_id,filename):
-        querry=f"UPDATE inventory SET image = '{filename}' WHERE product_id='{product_id}'"
+        querry=f"UPDATE products SET images = ARRAY{filename} WHERE product_id='{product_id}'"
         self.curr.execute(querry)
         self.conn.commit()
 
     def product_id_check(self,product_id):
-        querry=f"SELECT * FROM products WHERE product_id='{product_id}'"
+        querry=f"SELECT products.*,category.category_name,vendors.vendor_name FROM products INNER JOIN vendors ON products.vendor_id=vendors.vendor_id INNER JOIN category ON products.category_id=category.category_id WHERE product_id='{product_id}'"
         self.curr.execute(querry)
         result=self.curr.fetchone()
         # print(result)
@@ -325,14 +346,14 @@ class UserDb:
         return result
 
     def random_from_inventory(self):
-        querry=f"SELECT image,product_name,price FROM INVENTORY ORDER BY RANDOM()"
+        querry=f"SELECT images[1],product_brand,product_name,price,product_id FROM products ORDER BY RANDOM()"
         self.curr.execute(querry)
         result=self.curr.fetchall()
         # print(result[1][0])
         return list(result)
 
     def homepage_search(self,search):
-        querry=f"SELECT image,product_name,price FROM INVENTORY WHERE product_name='{search}' or description='{search}'"
+        querry=f"SELECT images[1] product_brand,product_name,price,product_id FROM products WHERE product_name='{search}' or product_description='{search}' or product_brand='{search}'" 
         self.curr.execute(querry)
         result=self.curr.fetchall()
         # print(result)
@@ -527,8 +548,14 @@ class UserDb:
         result=self.curr.fetchall()
         return result
 
+    def fetch_product_user(self,product_id):
+        querry=f"SELECT product_brand,product_name,product_description,features,price,images FROM products WHERE product_id='{product_id}'"
+        self.curr.execute(querry)
+        result=self.curr.fetchall()
+        return result
+
 # obj=UserDb()
-# obj.category_by_id('1')
+# obj.fetch_product_user('51')
 # obj=UserDb()
 # obj.vendor_add('Niranjan2','No:69, Chennai-46','+916574836474','vendorniranjan2@gmail.com')
 # obj=UserDb()

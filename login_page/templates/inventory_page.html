@@ -6,22 +6,24 @@
 		<link rel="stylesheet" href="{{ url_for('static', filename='inventory.css') }}">
 		<nav class="navbar navbar-expand-lg bg-body-tertiary">
 			<div class="container-fluid">
-				<div class="collapse navbar-collapse" >
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                        </button>
+				<div class="collapse navbar-collapse" id="navbarNavDropdown">
 					<div class="navbar-nav">
                                                 {%if name%}
-                                                <div class="nav-item dropdown">
-						<button class="nav-link dropdown-toggle fs-5 fw-bold" data-bs-toggle="dropdown"aria-expanded="false">Hello {{ name }}</button>
-						<ul class="dropdown-menu dropdown-menu-end">
-						<li><a class="dropdown-item" href="{{ url_for('login.logout') }}">Logout</a></li>
-						</ul>
-						</div> 
+						<div class="nav-item dropdown">
+						        <button class="nav-link dropdown-toggle fs-5 fw-bold" data-bs-toggle="dropdown"aria-expanded="false">Hello {{ name }}</button>
+							<ul class="dropdown-menu dropdown-menu-end">
+							<li><a class="dropdown-item" href="{{ url_for('login.logout') }}">Logout</a></li>
+							</ul>
+						</div>
                                                 {%endif%}
 						<a class="nav-link" href="{{url_for('home.home_page')}}">Home</a>
 						<a class="nav-link" href="{{url_for('admin.hello_admin')}}">Customer Table</a>
 						<a class="nav-link" href="{{url_for('inventory.inventory_page')}}">Inventory</a>
                                                 <a class="nav-link" href="{{url_for('admin.vendor_list')}}">Vendors</a>
                                                 <a class="nav-link" href="{{url_for('inventory.category_list')}}">Product Category</a>
-                                                <a class="nav-link" href="{{ url_for('login.logout') }}">Logout</a>
 					</div>
 				</div>
 			</div>
@@ -44,6 +46,7 @@
 	</center>
 </head>
 <body>
+        <div class="container">
         <div class="search_form">
         <form class="d-flex" action="{{url_for('inventory.inventory_page')}}" role="search" method="GET">
         <input class="form-control me-2 search_box_form" type="search"  placeholder = "Search" aria-label="Search"/ name="search">
@@ -51,7 +54,7 @@
         </form>
         </div>
 
-	<div class="dropdown">
+	<div class="dropdown_sort">
 	<a class="btn btn-outline-success dropdown-toggle sort_button" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">SORT BY</a>
 	<ul class="dropdown-menu">
 	<li><a class="dropdown-item" href="{{url_for('inventory.inventory_page',sort='id_asc')}}">Sort Product ID by Ascending</a></li>
@@ -64,7 +67,6 @@
 	<li><a class="dropdown-item" href="{{url_for('inventory.inventory_page',sort='price_desc')}}">Sort Price by Descending</a></li>
 	</ul>
 	</div>
-	<div class="container">
 		<table class="table table-bordered">
 			<tr>
 				<th>Product ID</th>
@@ -108,10 +110,10 @@
 			{%endfor%}
 		</table>
 		
-	</div>
 	<div class="container button">
 		<a href="{{url_for('inventory.inven_add')}}" class="btn btn-success add"><i class="bi bi-plus-lg"></i>ADD NEW ITEMS</a>
 	</div>
+        </div>
 	<center>
 	{% if page > 1 %}
 	<a href="{{url_for('inventory.inventory_page',page=page-1,sort=request.args.get('sort'))}}">Previous</a>

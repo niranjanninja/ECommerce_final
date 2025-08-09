@@ -102,7 +102,6 @@ class Login:
         if result:
             return f"Exist"
         else:
-            # print("NO")
             return f"NO"
 
     def get_vendor_details(self,vendor_name,address,full_number,mail_id):
@@ -488,6 +487,23 @@ class Image_upload:
                     ExpiresIn=600)
                 url.append(url_generate)
             return url
+        except Exception as e:
+            logger.error(f"Error generating presigned GET URL: {e}")
+            return None
+
+    def display_single_from_s3(self,filename):
+        try:
+            s3 = boto3.client('s3',
+                              aws_access_key_id=config['AWS']['aws_access_key_id'],
+                              aws_secret_access_key=config['AWS']['aws_secret_access_key'],
+                              region_name=config['AWS']['region_name'])
+            # url=[]
+            url_generate= s3.generate_presigned_url(
+                'get_object',
+                Params={'Bucket': 'webpage.image.upload', 'Key': filename},
+                ExpiresIn=600)
+            # url.append(url_generate)
+            return url_generate
         except Exception as e:
             logger.error(f"Error generating presigned GET URL: {e}")
             return None

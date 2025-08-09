@@ -7,16 +7,15 @@
 }
 
 .container{
-	margin-left:38%;
-	padding:30px;
+	display:flex;
+	align-items:center;
+	justify-content:center;
+	padding-top:1%;
 }
-
-.btn{
-	margin-left:9%;
-}
-
+/* .navbar{ */
+/* 	position:absolute; */
+/* } */
 html, body {
-  max-width: 100%;
-  overflow-x: hidden;
+  height: 100%;
+  margin: 0;
 }
-

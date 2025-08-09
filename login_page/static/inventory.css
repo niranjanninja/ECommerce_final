@@ -1,5 +1,5 @@
 .button{
-	margin-left:67%;
+	margin-left:80%;
 
 }
 form{
@@ -15,6 +15,7 @@ form{
 
 .container{
 	width:900px;
+	position:static;
 }
 
 html, body {
@@ -23,7 +24,7 @@ html, body {
 }
 
 .search_form{
-	margin-left:60%;
+	margin-left:67%;
 	display:flex;
 }
 
@@ -34,6 +35,15 @@ html, body {
 	height:36px;
 	margin-top:4px;
 }
-.dropdown{
-	margin-left:72%;
+.dropdown_sort{
+	margin-left:88%;
+	padding-bottom:2%;
+}
+.carousel-control-next-icon{
+        border: 1px solid red;
+        background-color:black;
+}
+.carousel-control-prev-icon {
+        border: 1px solid red;
+        background-color:black;
 }

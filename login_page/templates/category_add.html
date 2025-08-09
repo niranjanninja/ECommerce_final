@@ -8,7 +8,10 @@
                 <link rel="stylesheet" href="{{ url_for('static', filename='category_add.css') }}">
                 <nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom border-dark">
                         <div class="container-fluid">
-                                <div class="collapse navbar-collapse" >
+                                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                                        <span class="navbar-toggler-icon"></span>
+                                </button>
+                                <div class="collapse navbar-collapse" id="navbarNavDropdown">
                                         <div class="navbar-nav">
                                         {%if name%}
                                         <div class="nav-item dropdown">

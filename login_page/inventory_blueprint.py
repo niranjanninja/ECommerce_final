@@ -143,7 +143,6 @@ def inventory_add():
                                 return redirect(url_for('inventory.inven_add'))
                         # print(filelist)
                         filename=obj3.bucket_save_image(filelist,product_id)
-                        print(filename)
                         store=obj.add_image_filename(product_id,filename)
                         flash("New Item Added","success")
                         return redirect(url_for('inventory.inventory_page'))
@@ -178,9 +177,8 @@ def view_item(product_id):
             obj2=Image_upload()
             result = obj.product_id_check(product_id)
             if result:
-                url=obj2.display_from_s3(result[5])
-                print(f"This is url -> {url}")
-                return render_template("view_products.html",name=name,product_id=result[0],product_name=result[1],description=result[2],quantity=result[3],price=result[4],image=url)
+                url=obj2.display_from_s3(result[9])
+                return render_template("view_products.html",name=name,product_id=result[0],category_name=result[10],product_brand=result[2],product_name=result[3],quantity=result[4],price=result[5],features=result[6],vendor=result[11],description=result[8],url=url)
             return render_template("view_products.html",image=image,name=name)
     except Exception as e:
         logger.error(f"error -> {e}")
@@ -199,9 +197,11 @@ def edit_inventory(product_id):
             result = obj.product_id_check(product_id)
             category=obj.fetch_category()
             vendor=obj.get_vendor_id_name()
+            features = result[6]
+            features_str = ','.join(features)
             if result:
                 url=obj2.display_from_s3(result[9])
-                return render_template("inventory_edit.html",name=name,category=category,vendor=vendor,product_id=result[0],category_id=result[1],product_brand=result[2],product_name=result[3],quantity=result[4],price=result[5],features=result[6],vendor_id=result[7],description=result[8],url=url)
+                return render_template("inventory_edit.html",name=name,category=category,vendor=vendor,product_id=result[0],category_name=result[10],category_id=result[1],product_brand=result[2],product_name=result[3],quantity=result[4],price=result[5],features=features_str,vendor_name=result[11],vendor_id=result[7],description=result[8],url=url)
             return render_template("inventory_edit.html",url=url,name=name)
     except Exception as e:
         logger.error(f"error -> {e}")
@@ -218,46 +218,67 @@ def inventory_edit():
             name=session.get('name')
             obj = UserDb()
             obj2 = Login()
+            obj3=Image_upload()
             product_id = request.form.get("product_id")
+            category=request.form.get("category")
+            product_brand=request.form.get("product_brand")
             name = request.form.get("product_name")
-            description = request.form.get("description")
             quantity = request.form.get("quantity")
             price = request.form.get("price")
+            feature=request.form.get("features")
+            features = feature.split(',')
+            vendor=request.form.get("vendor")
+            description = request.form.get("description")
             check = obj2.inventory_edit(product_id)
             if "NO" in check:
                 error = "Enter a valid Product ID"
                 logger.warning("Enter a valid Product ID")
                 return render_template("inventory_edit.html",name=name,error=error)
             elif "Exist" in check:
+                if category:
+                    obj.inventory_edit_category(product_id,category)
+                if product_brand:
+                    obj.inventory_edit_brand(product_id,product_brand)
                 if name:
                     obj.inventory_edit_name(product_id, name)
-                if description:
-                    obj.inventory_edit_description(product_id, description)
                 if quantity:
                     obj.inventory_edit_quantity(product_id, quantity)
                 if price:
                     obj.inventory_edit_price(product_id, price)
-                file = request.files.get('file')
-                if file and allowed_file(file.filename):
-                    # Path(app.config['UPLOAD_FOLDER']).mkdir(parents=True, exist_ok=True)
-                    filename = f"images/product_id{product_id}.jpg"
-                    s3 = boto3.resource("s3")
-                    bucket_name="webpage.image.upload"
-                    s3.Bucket(bucket_name).upload_fileobj(file,filename)
-                    # file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-                    obj.inventory_edit_image(product_id, filename)
-                elif file and file.filename != '' and not allowed_file(file.filename):
-                    flash("Allowed image types are - png, jpg, jpeg, gif","danger")
-                    logger.warning("Allowed image types are - png, jpg, jpeg, gif")
-                    return redirect(url_for('inventory.edit_inventory',product_id=product_id))
-                flash("Updated", "success")
+                if features:
+                    obj.inventory_edit_features(product_id,features)
+                if vendor:
+                    obj.inventory_edit_vendor(product_id,vendor)
+                if description:
+                    obj.inventory_edit_description(product_id, description)
+                zipfile = request.files.get('zipfile')
+                if zipfile and zipfile.filename:
+                    if not zipfile.filename.lower().endswith('.zip'):
+                        flash("Submit a zip file. The submitted file is not a zip file.","danger")
+                        return redirect(url_for('inventory.edit_inventory',product_id=product_id))
+                    else:
+                        with ZipFile(zipfile,'r') as zip:
+                            filelist=[]
+                            for name in zip.namelist():
+                                if name and allowed_file(name):
+                                    filelist.append(zip.open(name))
+                                else:
+                                    flash("Allowed image types are - png, jpg, jpeg","danger")
+                                    return redirect(url_for('inventory.edit_inventory',product_id=product_id))
+                            filename=obj3.bucket_save_image(filelist,product_id)
+                            obj.inventory_edit_image(product_id,filename)
+                            flash("Updated", "success")
+                            logger.info("Updated")
+                            return redirect(url_for('inventory.inventory_page'))
+                flash("Updated", "success")       
                 logger.info("Updated")
-                return redirect(url_for('login.inventory_page'))
+                return redirect(url_for('inventory.inventory_page'))
     except Exception as e:
         flash("Check and enter correct details","danger")
         logger.error(f"error -> {e}")
         logger.debug("Full traceback below:", exc_info=True)
-        return redirect(url_for('edit_inventory',product_id=product_id))
+        return f"Something wrong -> {e}"
+        # return redirect(url_for('inventory.edit_inventory',product_id=product_id))
 
 @inventory.route('/category_list')
 def category_list():

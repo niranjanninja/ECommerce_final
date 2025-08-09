@@ -6,10 +6,12 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='headphone_page.css') }}">
 
     <nav class="navbar navbar-expand-lg bg-body-tertiary  border-bottom border-dark">
-        <div class="collapse navbar-collapse ms-5" >
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+         </button>
+        <div class="collapse navbar-collapse ms-5" id="navbarNavDropdown">
                 <div class="navbar-nav">
                         <a class="nav-link fs-5 fw-bold ms-4" href="{{url_for('home.home_page',name=name)}}">Home</a>
-
                         <div class="search_form ">
                         <form class="d-flex  ms-5" action="#" role="search" method="GET" style="width:1000px">
                         <input class="form-control ms-5 search_box_form mx-auto" type="search"  placeholder = "Search" aria-label="Search"/ name="search">

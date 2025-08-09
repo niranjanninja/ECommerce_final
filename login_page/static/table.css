@@ -8,7 +8,7 @@ html, body {
 }
 
 .search_form{
-        margin-left:73%;
+        margin-left:78%;
         display:flex;
 }
 
@@ -20,8 +20,10 @@ html, body {
         margin-top:4px;
 }
 
-.dropdown{
-	margin-left:77%;
+.sortdropdown{
+	margin-left:91%;
+	padding-bottom:1%;
+	padding-top:1%;
 }
 
 
