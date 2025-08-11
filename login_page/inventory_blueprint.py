@@ -84,8 +84,8 @@ def inventory_page():
         name=session.get('name')
         logger.error(f"error -> {e}")
         logger.debug("Full traceback below:", exc_info=True)
-        # return render_template("inventory_page.html",name=name,length=len(store),item_on_page=empty_list,total_page=total_page,page=page)
-        return f"error -> {e}"
+        return render_template("inventory_page.html",name=name,length=len(store),item_on_page=empty_list,total_page=total_page,page=page)
+        # return f"error -> {e}"
 
 @inventory.route('/inven_add')
 def inven_add():
@@ -296,7 +296,7 @@ def category_list():
                 return render_template("category_list.html",length=category_search[0],item_on_page=category_search[1],total_page=category_search[2],page=page,name=name)
             else:
                 fetch_category=obj.fetch_category()
-                per_page=13
+                per_page=10
                 start=(page-1)*per_page
                 end=start+per_page
                 total_page=(len(fetch_category)+per_page-1)//per_page

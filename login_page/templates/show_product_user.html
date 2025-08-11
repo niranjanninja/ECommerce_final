@@ -4,45 +4,35 @@
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='show_product_user.css') }}">
-
-    <nav class="navbar navbar-expand-lg bg-body-tertiary  border-bottom border-dark">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-         </button>
-        <div class="collapse navbar-collapse ms-5" id="navbarNavDropdown">
-                <div class="navbar-nav">
-                        <a class="nav-link fs-5 fw-bold ms-4" href="{{url_for('home.home_page',name=name)}}">Home</a>
-                        <div class="search_form ">
-                        <form class="d-flex  ms-5" action="#" role="search" method="GET" style="width:1000px">
-                        <input class="form-control ms-5 search_box_form mx-auto" type="search"  placeholder = "Search" aria-label="Search"/ name="search">
-                        <button class="btn btn-outline-dark ms-2 bi bi-search" type="submit"></button>
-                        </form>
-                        </div>
-
-                        <a class="nav-link fs-5 fw-semibold  ms-5 bi bi-cart" href="#"> Cart</a>
-
-                        {% if name %}
-                        <div class="nav-item dropdown">
-                                <button class="nav-link dropdown-toggle fs-5 fw-semibold ms-5" data-bs-toggle="dropdown" aria-expanded="false">Hello {{ name }}</button>
-                                <ul class="dropdown-menu dropdown-menu-end">
-                                <li><a class="dropdown-item" href="#">Switch User</a></li>
-                                <li><a class="dropdown-item" href="#">Track Order</a></li>
-                                <li><a class="dropdown-item" href="{{ url_for('login.logout') }}">Logout</a></li>
-                                </ul>
-                        </div>
-                        {% else %}
-                        <div class="nav-item dropdown">
-                                <button class="nav-link dropdown-toggle fs-5 fw-semibold ms-5" data-bs-toggle="dropdown" aria-expanded="false">Hello {{name}}</button>
-                                <ul class="dropdown-menu dropdown-menu-end">
-                                <li><a class="dropdown-item" href="{{ url_for('login.logout') }}">Logout</a></li>
-                                </ul>
-                        </div>
-                        {% endif %}
-                </div>
-        </div>
-   </nav>
 </head>
 <body>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom border-dark">
+                <div class="container-fluid">
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                        </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                         <div class="navbar-nav w-100">
+                                <a class="nav-link fs-5 fw-bold me-3" href="{{url_for('home.home_page',name=name)}}">Home</a>
+                                <a class="nav-link fs-5 fw-bold me-3" href="#">Track Order</a>
+                                <form class="d-flex flex-grow-1 me-3" role="search" method="GET">
+                                        <input class="form-control search_box_form flex-grow-1 mx-2" type="search" placeholder="Search" aria-label="Search" name="search">
+                                        <button class="btn btn-outline-dark ms-2 bi bi-search" type="submit"></button>
+                                </form>
+                                <a class="nav-link fs-5 fw-semibold me-3 bi bi-cart" href="#">Cart</a>
+                                {% if name %}
+                                 <div class="nav-item dropdown">
+                                        <button class="nav-link dropdown-toggle fs-5 fw-semibold me-3" data-bs-toggle="dropdown" aria-expanded="false">Hello {{ name }}</button>
+                                        <ul class="dropdown-menu dropdown-menu-end">
+                                        <li><a class="dropdown-item" href="#">Switch User</a></li>
+                                        <li><a class="dropdown-item" href="{{ url_for('login.logout') }}">Logout</a></li>
+                                        </ul>
+                                </div>
+                                {% endif %}
+                        </div>
+                </div>
+                </div>
+        </nav>
 	<div class="container">
 		<div id="carousel{{product_id}}" class="carousel slide">
 			<div class="carousel-inner">
@@ -90,5 +80,7 @@
 			</div>
 
 		</div>
+                <div class="add_button">
+                 <h4><label class="fw-bold">Price</label></h4>
 	</div>
 </body>

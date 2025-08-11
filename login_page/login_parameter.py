@@ -242,7 +242,6 @@ class Login:
         except Exception as e:
             print(f"ERROR +> {e}")
 
-
     def category_search(self,search,page):
         try:
             obj=UserDb()
@@ -308,6 +307,67 @@ class Login:
         except Exception as e:
             print(f"Error -> {e}")
 
+    def cpu_brand_sort(self,sort,page):
+        try:
+            obj=UserDb()
+            brandsort=obj.cpu_brand_sort(sort)
+            per_page=6
+            start=(page -1) * per_page
+            end=start+per_page
+            total_page=(len(brandsort)+per_page-1) // per_page
+            item_on_page=brandsort[start:end]
+            # print([len(brandsort),item_on_page,total_page])
+            return [len(brandsort),item_on_page,total_page]
+        except Exception as e:
+            print(f"Error -> {e}")
+
+    def cpu_price_sort(self,sort,page):
+        try:
+            obj=UserDb()
+            if sort=="low_to_high":
+                asc_price=obj.cpu_price_asc(sort)
+                per_page=6
+                start=(page -1) * per_page
+                end=start+per_page
+                total_page=(len(asc_price)+per_page-1) // per_page
+                item_on_page=asc_price[start:end]
+                return [len(asc_price),item_on_page,total_page]
+            if sort=="high_to_low":
+                desc_price=obj.cpu_price_desc(sort)
+                per_page=6
+                start=(page -1) * per_page
+                end=start+per_page
+                total_page=(len(desc_price)+per_page-1) // per_page
+                item_on_page=desc_price[start:end]
+                return [len(desc_price),item_on_page,total_page]
+        except Exception as e:
+            print(f"Error -> {e}")
+
+    def cpu_motherboard_sort(self,sort,page):
+        try:
+            obj=UserDb()
+            mb_sort=obj.cpu_motherboard_sort(sort)
+            per_page=6
+            start=(page -1) * per_page
+            end=start+per_page
+            total_page=(len(mb_sort)+per_page-1) // per_page
+            item_on_page=mb_sort[start:end]
+            return [len(mb_sort),item_on_page,total_page]
+        except Exception as e:
+            print(f"Error -> {e}")
+    
+    def cpu_fan_sort(self,sort,page):
+        try:
+            obj=UserDb()
+            fan_sort=obj.cpu_fan_sort(sort)
+            per_page=6
+            start=(page -1) * per_page
+            end=start+per_page
+            total_page=(len(fan_sort)+per_page-1) // per_page
+            item_on_page=fan_sort[start:end]
+            return [len(fan_sort),item_on_page,total_page]
+        except Exception as e:
+            print(f"Error -> {e}")
 
     def admin_sort(self,sort,page):
         try:
@@ -520,7 +580,7 @@ class Image_upload:
 # images/product_id35.jpg)
 
 # obj=Login()
-# obj.get_vendor_details('Niranjan3','28,Chennai-9','+918974636728','vendorninja1@gmail.com')
+# obj.cpu_sort('Corsair',1)
 # obj=Login()
 # obj.homepage_search("keyboard",1)
 # obj=Login()

@@ -130,7 +130,7 @@ def vendor_list():
                 return render_template("vendor_list.html",length=vendor_search[0],item_on_page=vendor_search[1],total_page=vendor_search[2],page=page,name=name)
             else:
                 fetch_vendor=obj.fetch_vendor()
-                per_page=13
+                per_page=10
                 start=(page-1)*per_page
                 end=start+per_page
                 total_page=(len(fetch_vendor)+per_page-1)//per_page

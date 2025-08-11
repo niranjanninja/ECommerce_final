@@ -146,7 +146,7 @@ class UserDb:
 ###########################################   INVENTORY QUERRY #########################################################
 
     def inventory_show(self):
-        querry=f"select products.product_id,products.product_name,category.category_name,products.quantity,products.price, products.images,vendors.vendor_name from products inner join vendors on products.vendor_id = vendors.vendor_id inner join category on products.category_id = category.category_id"
+        querry=f"select products.product_id,products.product_name,category.category_name,products.quantity,products.price, products.images,vendors.vendor_name from products inner join vendors on products.vendor_id = vendors.vendor_id inner join category on products.category_id = category.category_id ORDER BY products.product_id"
         self.curr.execute(querry)
         result=self.curr.fetchall()
         # print(result)
@@ -346,10 +346,46 @@ class UserDb:
         return result
 
     def random_from_inventory(self):
-        querry=f"SELECT images[1],product_brand,product_name,price,product_id FROM products ORDER BY RANDOM()"
+        querry=f"SELECT images[1],product_brand,product_name,price,product_id FROM products"
         self.curr.execute(querry)
         result=self.curr.fetchall()
         # print(result[1][0])
+        return list(result)
+
+    def cpu_page_items(self):
+        querry=f"SELECT images[1],product_brand,product_name,price,product_id FROM products where category_id='1'"
+        self.curr.execute(querry)
+        result=self.curr.fetchall()
+        return list(result)
+    
+    def headphone_page_items(self):
+        querry=f"SELECT images[1],product_brand,product_name,price,product_id FROM products where category_id='2'"
+        self.curr.execute(querry)
+        result=self.curr.fetchall()
+        return list(result)
+    
+    def keyboard_page_items(self):
+        querry=f"SELECT images[1],product_brand,product_name,price,product_id FROM products where category_id='3'"
+        self.curr.execute(querry)
+        result=self.curr.fetchall()
+        return list(result)
+    
+    def monitor_page_items(self):
+        querry=f"SELECT images[1],product_brand,product_name,price,product_id FROM products where category_id='4'"
+        self.curr.execute(querry)
+        result=self.curr.fetchall()
+        return list(result)
+    
+    def mouse_page_items(self):
+        querry=f"SELECT images[1],product_brand,product_name,price,product_id FROM products where category_id='5'"
+        self.curr.execute(querry)
+        result=self.curr.fetchall()
+        return list(result)
+    
+    def speaker_page_items(self):
+        querry=f"SELECT images[1],product_brand,product_name,price,product_id FROM products where category_id='6'"
+        self.curr.execute(querry)
+        result=self.curr.fetchall()
         return list(result)
 
     def homepage_search(self,search):
@@ -554,8 +590,52 @@ class UserDb:
         result=self.curr.fetchall()
         return result
 
+    def all_products(self):
+        querry=f"SELECT * FROM products"
+        self.curr.execute(querry)
+        result=self.curr.fetchall()
+        # for i in result:
+            # print(i[2])
+        return result
+
+    def cpu_brand_sort(self,sort):
+        querry=f"SELECT images[1],product_brand,product_name,price,product_id FROM products where category_id='1' and product_brand='{sort}'"
+        self.curr.execute(querry)
+        result=self.curr.fetchall()
+        return result
+
+    def cpu_price_asc(self,sort):
+        querry=f"SELECT images[1],product_brand,product_name,price,product_id FROM products WHERE category_id='1' ORDER BY price"
+        self.curr.execute(querry)
+        result=self.curr.fetchall()
+        return result
+
+    def cpu_price_desc(self,sort):
+        querry=f"SELECT images[1],product_brand,product_name,price,product_id FROM products WHERE category_id='1' ORDER BY price DESC"
+        self.curr.execute(querry)
+        result=self.curr.fetchall()
+        return result
+
+    def cpu_all(self):
+        querry=f"SELECT features FROM products WHERE category_id='1'"
+        self.curr.execute(querry)
+        result=self.curr.fetchall()
+        return result
+
+    def cpu_motherboard_sort(self,sort):
+        querry=f"SELECT images[1],product_brand,product_name,price,product_id FROM products WHERE category_id = 1 AND features::text LIKE '%{sort}%'"
+        self.curr.execute(querry)
+        result=self.curr.fetchall()
+        return result
+    
+    def cpu_fan_sort(self,sort):
+        querry=f"SELECT images[1],product_brand,product_name,price,product_id FROM products WHERE category_id = 1 AND features[2]::text LIKE '%{sort}%'"
+        self.curr.execute(querry)
+        result=self.curr.fetchall()
+        return result
+
 # obj=UserDb()
-# obj.fetch_product_user('51')
+# obj.cpu_all()
 # obj=UserDb()
 # obj.vendor_add('Niranjan2','No:69, Chennai-46','+916574836474','vendorniranjan2@gmail.com')
 # obj=UserDb()
