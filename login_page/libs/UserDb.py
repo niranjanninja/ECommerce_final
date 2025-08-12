@@ -603,9 +603,45 @@ class UserDb:
         self.curr.execute(querry)
         result=self.curr.fetchall()
         return result
+    
+    def headphone_brand_sort(self,sort):
+        querry=f"SELECT images[1],product_brand,product_name,price,product_id FROM products where category_id='2' and product_brand='{sort}'"
+        self.curr.execute(querry)
+        result=self.curr.fetchall()
+        return result
+ 
+    def keyboard_brand_sort(self,sort):
+        querry=f"SELECT images[1],product_brand,product_name,price,product_id FROM products where category_id='3' and product_brand='{sort}'"
+        self.curr.execute(querry)
+        result=self.curr.fetchall()
+        return result
+ 
+    def monitor_brand_sort(self,sort):
+        querry=f"SELECT images[1],product_brand,product_name,price,product_id FROM products where category_id='4' and product_brand='{sort}'"
+        self.curr.execute(querry)
+        result=self.curr.fetchall()
+        return result
 
     def cpu_price_asc(self,sort):
         querry=f"SELECT images[1],product_brand,product_name,price,product_id FROM products WHERE category_id='1' ORDER BY price"
+        self.curr.execute(querry)
+        result=self.curr.fetchall()
+        return result
+    
+    def headphone_price_asc(self,sort):
+        querry=f"SELECT images[1],product_brand,product_name,price,product_id FROM products WHERE category_id='2' ORDER BY price"
+        self.curr.execute(querry)
+        result=self.curr.fetchall()
+        return result
+    
+    def keyboard_price_asc(self,sort):
+        querry=f"SELECT images[1],product_brand,product_name,price,product_id FROM products WHERE category_id='3' ORDER BY price"
+        self.curr.execute(querry)
+        result=self.curr.fetchall()
+        return result
+    
+    def monitor_price_asc(self,sort):
+        querry=f"SELECT images[1],product_brand,product_name,price,product_id FROM products WHERE category_id='4' ORDER BY price"
         self.curr.execute(querry)
         result=self.curr.fetchall()
         return result
@@ -616,8 +652,38 @@ class UserDb:
         result=self.curr.fetchall()
         return result
 
+    def headphone_price_desc(self,sort):
+        querry=f"SELECT images[1],product_brand,product_name,price,product_id FROM products WHERE category_id='2' ORDER BY price DESC"
+        self.curr.execute(querry)
+        result=self.curr.fetchall()
+        return result
+
+    def keyboard_price_desc(self,sort):
+        querry=f"SELECT images[1],product_brand,product_name,price,product_id FROM products WHERE category_id='3' ORDER BY price DESC"
+        self.curr.execute(querry)
+        result=self.curr.fetchall()
+        return result
+
+    def monitor_price_desc(self,sort):
+        querry=f"SELECT images[1],product_brand,product_name,price,product_id FROM products WHERE category_id='4' ORDER BY price DESC"
+        self.curr.execute(querry)
+        result=self.curr.fetchall()
+        return result
+
     def cpu_all(self):
         querry=f"SELECT features FROM products WHERE category_id='1'"
+        self.curr.execute(querry)
+        result=self.curr.fetchall()
+        return result
+
+    def headphone_all(self):
+        querry=f"SELECT features FROM products WHERE category_id='2'"
+        self.curr.execute(querry)
+        result=self.curr.fetchall()
+        return result
+
+    def keyboard_all(self):
+        querry=f"SELECT features FROM products WHERE category_id='3'"
         self.curr.execute(querry)
         result=self.curr.fetchall()
         return result
@@ -627,12 +693,25 @@ class UserDb:
         self.curr.execute(querry)
         result=self.curr.fetchall()
         return result
-    
+ 
+    def keyboard_sorting(self,sort):
+        querry=f"SELECT images[1],product_brand,product_name,price,product_id FROM products WHERE category_id = 3 AND features::text LIKE '%{sort}%'"
+        self.curr.execute(querry)
+        result=self.curr.fetchall()
+        return result
+
+    def headphone_sorting(self,sort):
+        querry=f"SELECT images[1],product_brand,product_name,price,product_id FROM products WHERE category_id = 2 AND features::text LIKE '%{sort}%'"
+        self.curr.execute(querry)
+        result=self.curr.fetchall()
+        return result
+
     def cpu_fan_sort(self,sort):
         querry=f"SELECT images[1],product_brand,product_name,price,product_id FROM products WHERE category_id = 1 AND features[2]::text LIKE '%{sort}%'"
         self.curr.execute(querry)
         result=self.curr.fetchall()
         return result
+
 
 # obj=UserDb()
 # obj.cpu_all()

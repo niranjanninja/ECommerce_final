@@ -115,10 +115,10 @@ def cpu_items():
             key=i[0][1].split(":")[1].strip()
             motherboard_list.add(key)
         
-        product_brand=[]
+        product_brand=set()
         brands=obj.cpu_page_items()
         for i in brands:
-            product_brand.append(i[1])
+            product_brand.add(i[1])
         
         if search:
             search_url_list=[]
@@ -219,8 +219,38 @@ def headphone_items():
             url_list2.append(i[3])
             url_list2.append(i[4])
             url_list.append(url_list2)
+
+        product_brand=set()
+        brands=obj.headphone_page_items()
+        for i in brands:
+            product_brand.add(i[1])
+
+        connect=set()
+        connect_items=obj.headphone_all()
+        for i in connect_items:
+            key=i[0][1].split(":")[1].strip()
+            connect.add(key)
+
+        noise_cancel=set()
+        noise_items=obj.headphone_all()
+        for i in noise_items:
+            key=i[0][2].split(":")[1].strip()
+            noise_cancel.add(key)
+
+        microphone_list=set()
+        noise_items=obj.headphone_all()
+        for i in noise_items:
+            key=i[0][3].split(":")[1].strip()
+            microphone_list.add(key)
+
+        brand=request.args.get('brand')
+        price=request.args.get('price')
+        connectivity=request.args.get('connectivity')
+        noise_cancellation=request.args.get('noise_cancellation')
+        microphone=request.args.get('microphone')
         search=request.args.get('search')
         page=request.args.get('page',1,type=int)
+        
         if search:
             search_url_list=[]
             search=obj3.homepage_search(search,page)
@@ -233,7 +263,72 @@ def headphone_items():
                 search_url_list2.append(i[3])
                 search_url_list2.append(i[4])
                 search_url_list.append(search_url_list2)
-            return render_template("headphone_page.html",name=name,length=len(search_url_list),url_list=search_url_list,total_page=search[2],page=page)
+            return render_template("headphone_page.html",microphone_list=microphone_list,noise_cancel=noise_cancel,connect=connect,product_brand=product_brand,name=name,length=len(search_url_list),url_list=search_url_list,total_page=search[2],page=page)
+        if brand:
+            brand_url_list=[]
+            sort=obj3.headphone_brand_sort(brand,page)
+            for i in sort[1]:
+                brand_url_list2=[]
+                brand_url=obj2.display_single_from_s3(i[0])
+                brand_url_list2.append(brand_url)
+                brand_url_list2.append(i[1])
+                brand_url_list2.append(i[2])
+                brand_url_list2.append(i[3])
+                brand_url_list2.append(i[4])
+                brand_url_list.append(brand_url_list2)
+            return render_template("headphone_page.html",microphone_list=microphone_list,noise_cancel=noise_cancel,connect=connect,product_brand=product_brand,name=name,length=len(brand_url_list),url_list=brand_url_list,total_page=sort[2],page=page)
+        if price:
+            price_url_list=[]
+            sort=obj3.headphone_price_sort(price,page)
+            for i in sort[1]:
+                price_url_list2=[]
+                price_url=obj2.display_single_from_s3(i[0])
+                price_url_list2.append(price_url)
+                price_url_list2.append(i[1])
+                price_url_list2.append(i[2])
+                price_url_list2.append(i[3])
+                price_url_list2.append(i[4])
+                price_url_list.append(price_url_list2)
+            return render_template("headphone_page.html",microphone_list=microphone_list,connect=connect,noise_cancel=noise_cancel,product_brand=product_brand,name=name,length=len(price_url_list),url_list=price_url_list,total_page=sort[2],page=page)
+        if connectivity:
+            connect_url_list=[]
+            sort=obj3.headphone_sorting(connectivity,page)
+            for i in sort[1]:
+                connect_url_list2=[]
+                connect_url=obj2.display_single_from_s3(i[0])
+                connect_url_list2.append(connect_url)
+                connect_url_list2.append(i[1])
+                connect_url_list2.append(i[2])
+                connect_url_list2.append(i[3])
+                connect_url_list2.append(i[4])
+                connect_url_list.append(connect_url_list2)
+            return render_template("headphone_page.html",microphone_list=microphone_list,connect=connect,product_brand=product_brand,noise_cancel=noise_cancel,name=name,length=len(connect_url_list),url_list=connect_url_list,total_page=sort[2],page=page)
+        if noise_cancellation:
+            noise_cancel_url_list=[]
+            sort=obj3.headphone_sorting(noise_cancellation,page)
+            for i in sort[1]:
+                noise_cancel_url_list2=[]
+                noise_cancel_url=obj2.display_single_from_s3(i[0])
+                noise_cancel_url_list2.append(noise_cancel_url)
+                noise_cancel_url_list2.append(i[1])
+                noise_cancel_url_list2.append(i[2])
+                noise_cancel_url_list2.append(i[3])
+                noise_cancel_url_list2.append(i[4])
+                noise_cancel_url_list.append(noise_cancel_url_list2)
+            return render_template("headphone_page.html",microphone_list=microphone_list,connect=connect,product_brand=product_brand,noise_cancel=noise_cancel,name=name,length=len(noise_cancel_url_list),url_list=noise_cancel_url_list,total_page=sort[2],page=page)
+        if microphone:
+            microphone_url_list=[]
+            sort=obj3.headphone_sorting(microphone,page)
+            for i in sort[1]:
+                microphone_url_list2=[]
+                microphone_url=obj2.display_single_from_s3(i[0])
+                microphone_url_list2.append(microphone_url)
+                microphone_url_list2.append(i[1])
+                microphone_url_list2.append(i[2])
+                microphone_url_list2.append(i[3])
+                microphone_url_list2.append(i[4])
+                microphone_url_list.append(microphone_url_list2)
+            return render_template("headphone_page.html",microphone_list=microphone_list,connect=connect,product_brand=product_brand,noise_cancel=noise_cancel,name=name,length=len(microphone_url_list),url_list=microphone_url_list,total_page=sort[2],page=page)
         else:
             page=request.args.get('page',1,type=int)
             per_page=6
@@ -241,7 +336,7 @@ def headphone_items():
             end=start+per_page
             total_page=(len(url_list)+per_page-1) // per_page
             item_on_page=url_list[start:end]
-            return render_template("headphone_page.html",name=name,url_list=item_on_page,length=len(url_list),total_page=total_page,page=page)
+            return render_template("headphone_page.html",microphone_list=microphone_list,noise_cancel=noise_cancel,connect=connect,product_brand=product_brand,name=name,url_list=item_on_page,length=len(url_list),total_page=total_page,page=page)
 
     except Exception as e:
         logger.error(f"error -> {e}")
@@ -269,6 +364,42 @@ def keyboard_items():
             url_list2.append(i[3])
             url_list2.append(i[4])
             url_list.append(url_list2)
+        
+        product_brand=set()
+        brands=obj.keyboard_page_items()
+        for i in brands:
+            product_brand.add(i[1])
+
+        switch_type=set()
+        switch_items=obj.keyboard_all()
+        for i in switch_items:
+            key=i[0][0].split(":")[1].strip()
+            switch_type.add(key)
+
+        keyboard_connect=set()
+        key_connect=obj.keyboard_all()
+        for i in key_connect:
+            key=i[0][1].split(":")[1].strip()
+            keyboard_connect.add(key)
+
+        key_rollover=set()
+        rollover=obj.keyboard_all()
+        for i in rollover:
+            key=i[0][3].split(":")[1].strip()
+            key_rollover.add(key)
+
+        backlight_list=set()
+        backlight=obj.keyboard_all()
+        for i in backlight:
+            key=i[0][4].split(":")[1].strip()
+            backlight_list.add(key)
+
+        brand=request.args.get('brand')
+        price=request.args.get('price')
+        switch=request.args.get('switch')
+        connectivity=request.args.get('connectivity')
+        rollover=request.args.get('rollover')
+        backlight=request.args.get('backlight')
         search=request.args.get('search')
         page=request.args.get('page',1,type=int)
         if search:
@@ -283,7 +414,85 @@ def keyboard_items():
                 search_url_list2.append(i[3])
                 search_url_list2.append(i[4])
                 search_url_list.append(search_url_list2)
-            return render_template("keyboard_page.html",name=name,length=len(search_url_list),url_list=search_url_list,total_page=search[2],page=page)
+            return render_template("keyboard_page.html",backlight_list=backlight_list,key_rollover=key_rollover,keyboard_connect=keyboard_connect,switch_type=switch_type,product_brand=product_brand,name=name,length=len(search_url_list),url_list=search_url_list,total_page=search[2],page=page)
+        if brand:
+            brand_url_list=[]
+            sort=obj3.keyboard_brand_sort(brand,page)
+            for i in sort[1]:
+                brand_url_list2=[]
+                brand_url=obj2.display_single_from_s3(i[0])
+                brand_url_list2.append(brand_url)
+                brand_url_list2.append(i[1])
+                brand_url_list2.append(i[2])
+                brand_url_list2.append(i[3])
+                brand_url_list2.append(i[4])
+                brand_url_list.append(brand_url_list2)
+            return render_template("keyboard_page.html",backlight_list=backlight_list,key_rollover=key_rollover,keyboard_connect=keyboard_connect,switch_type=switch_type,product_brand=product_brand,name=name,length=len(brand_url_list),url_list=brand_url_list,total_page=sort[2],page=page)
+        if price:
+            price_url_list=[]
+            sort=obj3.keyboard_price_sort(price,page)
+            for i in sort[1]:
+                price_url_list2=[]
+                price_url=obj2.display_single_from_s3(i[0])
+                price_url_list2.append(price_url)
+                price_url_list2.append(i[1])
+                price_url_list2.append(i[2])
+                price_url_list2.append(i[3])
+                price_url_list2.append(i[4])
+                price_url_list.append(price_url_list2)
+            return render_template("keyboard_page.html",backlight_list=backlight_list,key_rollover=key_rollover,keyboard_connect=keyboard_connect,switch_type=switch_type,product_brand=product_brand,name=name,length=len(price_url_list),url_list=price_url_list,total_page=sort[2],page=page)
+        if switch:
+            switch_url_list=[]
+            sort=obj3.keyboard_sorting(switch,page)
+            for i in sort[1]:
+                switch_url_list2=[]
+                switch_url=obj2.display_single_from_s3(i[0])
+                switch_url_list2.append(switch_url)
+                switch_url_list2.append(i[1])
+                switch_url_list2.append(i[2])
+                switch_url_list2.append(i[3])
+                switch_url_list2.append(i[4])
+                switch_url_list.append(switch_url_list2)
+            return render_template("keyboard_page.html",backlight_list=backlight_list,key_rollover=key_rollover,keyboard_connect=keyboard_connect,switch_type=switch_type,product_brand=product_brand,name=name,length=len(switch_url_list),url_list=switch_url_list,total_page=sort[2],page=page)
+        if connectivity:
+            connect_url_list=[]
+            sort=obj3.keyboard_sorting(connectivity,page)
+            for i in sort[1]:
+                connect_url_list2=[]
+                connect_url=obj2.display_single_from_s3(i[0])
+                connect_url_list2.append(connect_url)
+                connect_url_list2.append(i[1])
+                connect_url_list2.append(i[2])
+                connect_url_list2.append(i[3])
+                connect_url_list2.append(i[4])
+                connect_url_list.append(connect_url_list2)
+            return render_template("keyboard_page.html",backlight_list=backlight_list,key_rollover=key_rollover,keyboard_connect=keyboard_connect,switch_type=switch_type,product_brand=product_brand,name=name,length=len(connect_url_list),url_list=connect_url_list,total_page=sort[2],page=page)
+        if rollover:
+            rollover_url_list=[]
+            sort=obj3.keyboard_sorting(rollover,page)
+            for i in sort[1]:
+                rollover_url_list2=[]
+                rollover_url=obj2.display_single_from_s3(i[0])
+                rollover_url_list2.append(rollover_url)
+                rollover_url_list2.append(i[1])
+                rollover_url_list2.append(i[2])
+                rollover_url_list2.append(i[3])
+                rollover_url_list2.append(i[4])
+                rollover_url_list.append(rollover_url_list2)
+            return render_template("keyboard_page.html",backlight_list=backlight_list,key_rollover=key_rollover,keyboard_connect=keyboard_connect,switch_type=switch_type,product_brand=product_brand,name=name,length=len(rollover_url_list),url_list=rollover_url_list,total_page=sort[2],page=page)
+        if backlight:
+            backlight_url_list=[]
+            sort=obj3.keyboard_sorting(backlight,page)
+            for i in sort[1]:
+                backlight_url_list2=[]
+                backlight_url=obj2.display_single_from_s3(i[0])
+                backlight_url_list2.append(backlight_url)
+                backlight_url_list2.append(i[1])
+                backlight_url_list2.append(i[2])
+                backlight_url_list2.append(i[3])
+                backlight_url_list2.append(i[4])
+                backlight_url_list.append(backlight_url_list2)
+            return render_template("keyboard_page.html",backlight_list=backlight_list,key_rollover=key_rollover,keyboard_connect=keyboard_connect,switch_type=switch_type,product_brand=product_brand,name=name,length=len(backlight_url_list),url_list=backlight_url_list,total_page=sort[2],page=page)
         else:
             page=request.args.get('page',1,type=int)
             per_page=6
@@ -291,8 +500,7 @@ def keyboard_items():
             end=start+per_page
             total_page=(len(url_list)+per_page-1) // per_page
             item_on_page=url_list[start:end]
-            return render_template("keyboard_page.html",name=name,url_list=item_on_page,length=len(url_list),total_page=total_page,page=page)
-
+            return render_template("keyboard_page.html",backlight_list=backlight_list,key_rollover=key_rollover,keyboard_connect=keyboard_connect,switch_type=switch_type,product_brand=product_brand,name=name,url_list=item_on_page,length=len(url_list),total_page=total_page,page=page)
     except Exception as e:
         logger.error(f"error -> {e}")
         logger.debug("Full traceback below:", exc_info=True)
@@ -319,6 +527,38 @@ def monitor_items():
             url_list2.append(i[3])
             url_list2.append(i[4])
             url_list.append(url_list2)
+        
+        product_brand=set()
+        brands=obj.monitor_page_items()
+        for i in brands:
+            product_brand.add(i[1])
+
+        switch_type=set()
+        switch_items=obj.keyboard_all()
+        for i in switch_items:
+            key=i[0][0].split(":")[1].strip()
+            switch_type.add(key)
+
+        keyboard_connect=set()
+        key_connect=obj.keyboard_all()
+        for i in key_connect:
+            key=i[0][1].split(":")[1].strip()
+            keyboard_connect.add(key)
+
+        key_rollover=set()
+        rollover=obj.keyboard_all()
+        for i in rollover:
+            key=i[0][3].split(":")[1].strip()
+            key_rollover.add(key)
+
+        backlight_list=set()
+        backlight=obj.keyboard_all()
+        for i in backlight:
+            key=i[0][4].split(":")[1].strip()
+            backlight_list.add(key)
+        
+        brand=request.args.get('brand')
+        price=request.args.get('price')
         search=request.args.get('search')
         page=request.args.get('page',1,type=int)
         if search:
@@ -333,7 +573,34 @@ def monitor_items():
                 search_url_list2.append(i[3])
                 search_url_list2.append(i[4])
                 search_url_list.append(search_url_list2)
-            return render_template("monitor_page.html",name=name,length=len(search_url_list),url_list=search_url_list,total_page=search[2],page=page)
+            return render_template("monitor_page.html",product_brand=product_brand,name=name,length=len(search_url_list),url_list=search_url_list,total_page=search[2],page=page)
+        if brand:
+            brand_url_list=[]
+            sort=obj3.monitor_brand_sort(brand,page)
+            for i in sort[1]:
+                brand_url_list2=[]
+                brand_url=obj2.display_single_from_s3(i[0])
+                brand_url_list2.append(brand_url)
+                brand_url_list2.append(i[1])
+                brand_url_list2.append(i[2])
+                brand_url_list2.append(i[3])
+                brand_url_list2.append(i[4])
+                brand_url_list.append(brand_url_list2)
+            return render_template("monitor_page.html",product_brand=product_brand,name=name,length=len(brand_url_list),url_list=brand_url_list,total_page=sort[2],page=page)
+        if price:
+            price_url_list=[]
+            sort=obj3.monitor_price_sort(price,page)
+            for i in sort[1]:
+                price_url_list2=[]
+                price_url=obj2.display_single_from_s3(i[0])
+                price_url_list2.append(price_url)
+                price_url_list2.append(i[1])
+                price_url_list2.append(i[2])
+                price_url_list2.append(i[3])
+                price_url_list2.append(i[4])
+                price_url_list.append(price_url_list2)
+            return render_template("monitor_page.html",product_brand=product_brand,name=name,length=len(price_url_list),url_list=price_url_list,total_page=sort[2],page=page)
+
         else:
             page=request.args.get('page',1,type=int)
             per_page=6
@@ -341,7 +608,7 @@ def monitor_items():
             end=start+per_page
             total_page=(len(url_list)+per_page-1) // per_page
             item_on_page=url_list[start:end]
-            return render_template("monitor_page.html",name=name,url_list=item_on_page,length=len(url_list),total_page=total_page,page=page)
+            return render_template("monitor_page.html",product_brand=product_brand,name=name,url_list=item_on_page,length=len(url_list),total_page=total_page,page=page)
 
     except Exception as e:
         logger.error(f"error -> {e}")

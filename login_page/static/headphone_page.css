@@ -24,6 +24,7 @@
 }
 .headhead{
         margin-left:10%;
+        color:black;
 }
 .container{
         margin-left:18%;
@@ -31,4 +32,10 @@
 }
 .page{
 	margin-left:40%;
+}
+.sortsort{
+	margin-left:9%;
+}
+a{
+        text-decoration:none;
 }
