@@ -564,7 +564,7 @@ class UserDb:
         # print(result[0][1])
         return result
 
-    def category_edit(self,category_name,category_id):
+    def category_edit(self,caGtegory_name,category_id):
         querry=f"UPDATE category SET category_name='{category_name}' WHERE category_id='{category_id}'"
         self.curr.execute(querry)
         self.conn.commit()
@@ -594,8 +594,6 @@ class UserDb:
         querry=f"SELECT * FROM products"
         self.curr.execute(querry)
         result=self.curr.fetchall()
-        # for i in result:
-            # print(i[2])
         return result
 
     def cpu_brand_sort(self,sort):
@@ -784,9 +782,53 @@ class UserDb:
         result=self.curr.fetchall()
         return result
 
+    def get_price(self,product_id):
+        querry=f"SELECT * FROM products WHERE product_id='{product_id}'"
+        self.curr.execute(querry)
+        result=self.curr.fetchone()
+        return result[5]
+
+    def get_brand(self,product_id):
+        querry=f"SELECT * FROM products WHERE product_id='{product_id}'"
+        self.curr.execute(querry)
+        result=self.curr.fetchone()
+        return result[2]
+
+    def get_product_name(self,product_id):
+        querry=f"SELECT * FROM products WHERE product_id='{product_id}'"
+        self.curr.execute(querry)
+        result=self.curr.fetchone()
+        return result[3]
+
+    def add_cart(self,name,product_id,price,product_name,brand):
+        querry=f"INSERT INTO cart (user_name,product_id,price,product_name,product_brand) VALUES ('{name}','{product_id}','{price}','{product_name}','{brand}')" 
+        self.curr.execute(querry)
+        self.conn.commit()
+
+    def get_cart(self,name):
+        querry=f"SELECT * FROM cart WHERE user_name='{name}' ORDER BY cart_id"
+        self.curr.execute(querry)
+        result=self.curr.fetchall()
+        return result
+     
+    def update_quantity(self,cart_id,quantity):
+        querry=f"UPDATE cart SET quantity='{quantity}' where cart_id='{cart_id}'"
+        self.curr.execute(querry)
+        self.conn.commit()
+
+    def get_image_1(self,product_id):
+        querry=f"SELECT images[1] FROM products WHERE product_id={product_id}"
+        self.curr.execute(querry)
+        result=self.curr.fetchone()
+        return list(result)
+
+    def delete_cart(self,cart_id):
+        querry=f"DELETE FROM cart WHERE cart_id='{cart_id}'"
+        self.curr.execute(querry)
+        self.conn.commit()
 
 # obj=UserDb()
-# obj.cpu_all()
+# obj.fetch_category()
 # obj=UserDb()
 # obj.vendor_add('Niranjan2','No:69, Chennai-46','+916574836474','vendorniranjan2@gmail.com')
 # obj=UserDb()

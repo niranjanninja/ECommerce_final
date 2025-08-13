@@ -31,6 +31,7 @@ def home_page():
         if not session.get('logged_in') and not session.get('admin_logged'):
             return redirect(url_for('login.index'))
         name=session.get('name')
+        category=obj.fetch_category()
         image=obj.random_from_inventory()
         url_list=[]
         for i in image:
@@ -56,7 +57,7 @@ def home_page():
                 search_url_list2.append(i[3])
                 search_url_list2.append(i[4])
                 search_url_list.append(search_url_list2)
-            return render_template("homepage.html",name=name,length=len(search_url_list),url_list=search_url_list,total_page=search[2],page=page)
+            return render_template("homepage.html",category=category,name=name,length=len(search_url_list),url_list=search_url_list,total_page=search[2],page=page)
         else:
             page=request.args.get('page',1,type=int)
             per_page=6
@@ -64,7 +65,7 @@ def home_page():
             end=start+per_page
             total_page=(len(url_list)+per_page-1) // per_page
             item_on_page=url_list[start:end]
-            return render_template("homepage.html",name=name,url_list=item_on_page,length=len(url_list),total_page=total_page,page=page)
+            return render_template("homepage.html",category=category,name=name,url_list=item_on_page,length=len(url_list),total_page=total_page,page=page)
     except Exception as e:
         logger.error(f"error -> {e}")
         logger.debug("Full traceback below:", exc_info=True)
@@ -981,18 +982,73 @@ def show_item_user(product_id):
         return f"error ->{e}"
         # return redirect(url_for('home_page'))
 
-@home.r
-@home.route('/cart')
-def cart_items():
+@home.route('/update_quantity/<cart_id>')
+def update_quantity(cart_id):
     try:
         if not session.get('logged_in') and not session.get('admin_logged'):
             return redirect(url_for('login.index'))
         else:
-            name=session.get('name')
-            return render_template('cart.html',name=name)
+            quantity=request.args.get('quantity')
+            obj=UserDb()
+            obj.update_quantity(cart_id,quantity)
+            return redirect(url_for('home.cart_items'))
     except Exception as e:
         logger.error(f"error -> {e}")
         logger.debug("Full traceback below:", exc_info=True)
         return f"error ->{e}"
         # return redirect(url_for('home_page'))
 
+@home.route('/add_cart/<product_id>')
+def add_cart(product_id):
+    try:
+        if not session.get('logged_in') and not session.get('admin_logged'):
+            return redirect(url_for('login.index'))
+        else:
+            name=session.get('name')
+            obj=UserDb()
+            price=obj.get_price(product_id)
+            brand=obj.get_brand(product_id)
+            product_name=obj.get_product_name(product_id)
+            cart_add=obj.add_cart(name,product_id,price,product_name,brand)
+            flash("Added to Cart","success")
+            return redirect(url_for('home.show_item_user',product_id=product_id))
+    except Exception as e:
+        logger.error(f"error -> {e}")
+        logger.debug("Full traceback below:", exc_info=True)
+        return f"error ->{e}"
+        # return redirect(url_for('home_page'))
+
+@home.route('/cart')
+def cart_items():
+    try:
+        if not session.get('logged_in') and not session.get('admin_logged'):
+            return redirect(url_for('login.index'))
+        else:
+            obj=UserDb()
+            obj2=Image_upload()
+            name=session.get('name')
+            get_cart=obj.get_cart(name)
+            total=0
+            for i in get_cart:
+                total+=i[3]*i[2]
+            return render_template("cart.html",name=name,get_cart=get_cart,total=total)
+    except Exception as e:
+        logger.error(f"error -> {e}")
+        logger.debug("Full traceback below:", exc_info=True)
+        return f"error ->{e}"
+        # return redirect(url_for('home_page'))
+
+@home.route('/delete_cart/<cart_id>')
+def delete_cart(cart_id):
+    try:
+        if not session.get('logged_in') and not session.get('admin_logged'):
+            return redirect(url_for('login.index'))
+        else:
+            obj=UserDb()
+            delete_cart=obj.delete_cart(cart_id)
+            return redirect(url_for('home.cart_items'))
+    except Exception as e:
+        logger.error(f"error -> {e}")
+        logger.debug("Full traceback below:", exc_info=True)
+        return f"error ->{e}"
+        # return redirect(url_for('home_page'))

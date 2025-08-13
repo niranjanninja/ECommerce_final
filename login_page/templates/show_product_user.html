@@ -19,7 +19,7 @@
                                         <input class="form-control search_box_form flex-grow-1 mx-2" type="search" placeholder="Search" aria-label="Search" name="search">
                                         <button class="btn btn-outline-dark ms-2 bi bi-search" type="submit"></button>
                                 </form>
-                                <a class="nav-link fs-5 fw-semibold me-3 bi bi-cart" href="#">Cart</a>
+                                <a class="nav-link fs-5 fw-semibold me-3 bi bi-cart" href="{{url_for('home.cart_items')}}">Cart</a>
                                 {% if name %}
                                  <div class="nav-item dropdown">
                                         <button class="nav-link dropdown-toggle fs-5 fw-semibold me-3" data-bs-toggle="dropdown" aria-expanded="false">Hello {{ name }}</button>
@@ -33,6 +33,21 @@
                 </div>
                 </div>
         </nav>
+        <center>
+        {% with messages = get_flashed_messages(with_categories=True) %}
+        {% if messages %}
+        {% for category,message in messages %}
+        {% if category == 'success' %}
+        <p style="color:green;">{{ message }}</p>
+        {% elif category == 'info' %}
+        <p style="color:blue;">{{ message }}</p>
+        {% elif category == 'danger' %}
+        <p style="color:red;">{{ message }}</p>
+        {% endif %}
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+        </center>
 	<div class="container">
 		<div id="carousel{{product_id}}" class="carousel slide">
 			<div class="carousel-inner">
@@ -50,7 +65,10 @@
 			<span class="carousel-control-next-icon" aria-hidden="true"></span>
 			<span class="visually-hidden">Next</span>
 		</button>
+
+                <a href="{{url_for('home.add_cart',product_id=product_id)}}"
 		<button type="button" class="btn btn-primary bi bi-cart-plus cartcart">Add To Cart</button>
+                </a>
                 </div>
 
 		<div class="box">
