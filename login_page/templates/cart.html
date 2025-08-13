@@ -34,52 +34,25 @@
                 </div>
         </nav>
 	<div class="container">
-		<div id="carousel{{product_id}}" class="carousel slide">
-			<div class="carousel-inner">
-				{%for i in url%}
-				<div class="carousel-item {%if loop.index0==0%}active{%endif%}">
-					<img src="{{i}}" class="d-block" width="500px" height="500px">
-				</div>
-				{%endfor%}
-			</div>
-		<button class="carousel-control-prev" type="button" data-bs-target="#carousel{{product_id}}" data-bs-slide="prev">
-			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-			<span class="visually-hidden">Previous</span>
-		</button>
-		<button class="carousel-control-next" type="button" data-bs-target="#carousel{{product_id}}" data-bs-slide="next">
-			<span class="carousel-control-next-icon" aria-hidden="true"></span>
-			<span class="visually-hidden">Next</span>
-		</button>
-		<button type="button" class="btn btn-primary bi bi-cart-plus cartcart">Add To Cart</button>
-                </div>
+                <table class="table table-borderless">
+			<thead>
+				<tr>
+				        <th scope="col"></th>
+				        <th scope="col">Name</th>
+				        <th scope="col">Quantity</th>
+				        <th scope="col">Price</th>
+				</tr>
+			</thead>
 
-		<div class="box">
-			<div class="mb-3">
-				<h4><label class="fw-bold">Product Brand</label></h4>
-				<p class="fs-5 fw-normal">{{product_brand}}</p>
-			</div>
-			<div class="mb-3">
-				<h4><label class="fw-bold">Product Name</label></h4>
-				<p class="fs-5 fw-normal">{{product_name}}</p>
-			</div>
-
-			<div class="mb-3">
-				<h4><label class="fw-bold">Description</label></h4>
-				<p class="fs-5 fw-normal">{{description}}</p>
-			</div>
-
-			<div class="mb-3">
-				<h4><label class="fw-bold">Features</label></h4>
-				{%for i in features%}
-				<p class="fs-5 fw-normal">{{i}}</p>
-				{%endfor%}
-			</div>
-
-			<div class="mb-3">
-				<h4><label class="fw-bold">Price</label></h4>
-				<p class="bi bi-currency-rupee fs-5 fw-normal">{{price}}</p>
-			</div>
-
-		</div>
+			<tbody class="table-group-divider">
+				<tr>
+				      <th scope="row">1</th>
+				      <td>Mark</td>
+				      <td>Otto</td>
+				      <td>@mdo</td>
+				</tr>
+			</tbody>
+	        </table>
+		<h4>Total<h4>
 	</div>
 </body>

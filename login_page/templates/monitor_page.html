@@ -60,26 +60,41 @@
         </li>
 
         <li class="nav-item dropdown">
-            <a class="nav-link active fs-6 dropdown-toggle" aria-current="page" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"style="color:black">Price</a>
+            <a class="nav-link active fs-6 dropdown-toggle" aria-current="page" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"style="color:black">Resolution</a>
             <ul class="dropdown-menu dropdown-menu-end">
-            <li><a class="dropdown-item" href="#">Switch User</a></li>
+	    {%for i in resolution_list%}
+            <li><a class="dropdown-item" href="{{url_for('home.monitor_items',resolution=i)}}">{{i}}</a></li>
+	    {%endfor%}
             </ul>
         </li>
 
         <li class="nav-item dropdown">
-            <a class="nav-link active fs-6 dropdown-toggle" aria-current="page" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"style="color:black">Processor</a>
+            <a class="nav-link active fs-6 dropdown-toggle" aria-current="page" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"style="color:black">Panel Type</a>
             <ul class="dropdown-menu dropdown-menu-end">
-            <li><a class="dropdown-item" href="#">Switch User</a></li>
+	    {%for i in panel_list%}
+            <li><a class="dropdown-item" href="{{url_for('home.monitor_items',panel=i)}}">{{i}}</a></li>
+	    {%endfor%}
             </ul>
         </li>
 
         <li class="nav-item dropdown">
-            <a class="nav-link active fs-6 dropdown-toggle" aria-current="page" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"style="color:black">RAM</a>
+            <a class="nav-link active fs-6 dropdown-toggle" aria-current="page" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"style="color:black">Refresh Rate</a>
             <ul class="dropdown-menu dropdown-menu-end">
-            <li><a class="dropdown-item" href="#">Switch User</a></li>
+	    {%for i in refresh_rate_list%}
+            <li><a class="dropdown-item" href="{{url_for('home.monitor_items',refresh_rate=i)}}">{{i}}</a></li>
+	    {%endfor%}
             </ul>
         </li>
-        </nav>
+ 
+        <li class="nav-item dropdown">
+            <a class="nav-link active fs-6 dropdown-toggle" aria-current="page" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"style="color:black">Connectivity</a>
+            <ul class="dropdown-menu dropdown-menu-end">
+	    {%for i in connectivity_list%}
+            <li><a class="dropdown-item" href="{{url_for('home.monitor_items',connectivity=i)}}">{{i}}</a></li>
+	    {%endfor%}
+            </ul>
+        </li>
+       </nav>
         <div class="line"></div>
 
         <div class="container">

@@ -363,6 +363,34 @@ class Login:
         except Exception as e:
             print(f"Error -> {e}")
 
+    def mouse_brand_sort(self,sort,page):
+        try:
+            obj=UserDb()
+            brandsort=obj.mouse_brand_sort(sort)
+            per_page=6
+            start=(page -1) * per_page
+            end=start+per_page
+            total_page=(len(brandsort)+per_page-1) // per_page
+            item_on_page=brandsort[start:end]
+            # print([len(brandsort),item_on_page,total_page])
+            return [len(brandsort),item_on_page,total_page]
+        except Exception as e:
+            print(f"Error -> {e}")
+
+    def speaker_brand_sort(self,sort,page):
+        try:
+            obj=UserDb()
+            brandsort=obj.speaker_brand_sort(sort)
+            per_page=6
+            start=(page -1) * per_page
+            end=start+per_page
+            total_page=(len(brandsort)+per_page-1) // per_page
+            item_on_page=brandsort[start:end]
+            # print([len(brandsort),item_on_page,total_page])
+            return [len(brandsort),item_on_page,total_page]
+        except Exception as e:
+            print(f"Error -> {e}")
+
     def cpu_price_sort(self,sort,page):
         try:
             obj=UserDb()
@@ -451,6 +479,50 @@ class Login:
         except Exception as e:
             print(f"Error -> {e}")
 
+    def mouse_price_sort(self,sort,page):
+        try:
+            obj=UserDb()
+            if sort=="low_to_high":
+                asc_price=obj.mouse_price_asc(sort)
+                per_page=6
+                start=(page -1) * per_page
+                end=start+per_page
+                total_page=(len(asc_price)+per_page-1) // per_page
+                item_on_page=asc_price[start:end]
+                return [len(asc_price),item_on_page,total_page]
+            if sort=="high_to_low":
+                desc_price=obj.mouse_price_desc(sort)
+                per_page=6
+                start=(page -1) * per_page
+                end=start+per_page
+                total_page=(len(desc_price)+per_page-1) // per_page
+                item_on_page=desc_price[start:end]
+                return [len(desc_price),item_on_page,total_page]
+        except Exception as e:
+            print(f"Error -> {e}")
+
+    def speaker_price_sort(self,sort,page):
+        try:
+            obj=UserDb()
+            if sort=="low_to_high":
+                asc_price=obj.speaker_price_asc(sort)
+                per_page=6
+                start=(page -1) * per_page
+                end=start+per_page
+                total_page=(len(asc_price)+per_page-1) // per_page
+                item_on_page=asc_price[start:end]
+                return [len(asc_price),item_on_page,total_page]
+            if sort=="high_to_low":
+                desc_price=obj.speaker_price_desc(sort)
+                per_page=6
+                start=(page -1) * per_page
+                end=start+per_page
+                total_page=(len(desc_price)+per_page-1) // per_page
+                item_on_page=desc_price[start:end]
+                return [len(desc_price),item_on_page,total_page]
+        except Exception as e:
+            print(f"Error -> {e}")
+
     def cpu_motherboard_sort(self,sort,page):
         try:
             obj=UserDb()
@@ -467,13 +539,13 @@ class Login:
     def headphone_sorting(self,sort,page):
         try:
             obj=UserDb()
-            connect_sort=obj.headphone_sorting(sort)
+            headphone_sort=obj.headphone_sorting(sort)
             per_page=6
             start=(page -1) * per_page
             end=start+per_page
-            total_page=(len(connect_sort)+per_page-1) // per_page
-            item_on_page=connect_sort[start:end]
-            return [len(connect_sort),item_on_page,total_page]
+            total_page=(len(headphone_sort)+per_page-1) // per_page
+            item_on_page=headphone_sort[start:end]
+            return [len(headphone_sort),item_on_page,total_page]
         except Exception as e:
             print(f"Error -> {e}")
 
@@ -493,13 +565,52 @@ class Login:
     def keyboard_sorting(self,sort,page):
         try:
             obj=UserDb()
-            switch_sort=obj.keyboard_sorting(sort)
+            keyboard_sort=obj.keyboard_sorting(sort)
             per_page=6
             start=(page -1) * per_page
             end=start+per_page
-            total_page=(len(switch_sort)+per_page-1) // per_page
-            item_on_page=switch_sort[start:end]
-            return [len(switch_sort),item_on_page,total_page]
+            total_page=(len(keyboard_sort)+per_page-1) // per_page
+            item_on_page=keyboard_sort[start:end]
+            return [len(keyboard_sort),item_on_page,total_page]
+        except Exception as e:
+            print(f"Error -> {e}")
+
+    def monitor_sorting(self,sort,page):
+        try:
+            obj=UserDb()
+            monitor_sort=obj.monitor_sorting(sort)
+            per_page=6
+            start=(page -1) * per_page
+            end=start+per_page
+            total_page=(len(monitor_sort)+per_page-1) // per_page
+            item_on_page=monitor_sort[start:end]
+            return [len(monitor_sort),item_on_page,total_page]
+        except Exception as e:
+            print(f"Error -> {e}")
+
+    def mouse_sorting(self,sort,page):
+        try:
+            obj=UserDb()
+            mouse_sort=obj.mouse_sorting(sort)
+            per_page=6
+            start=(page -1) * per_page
+            end=start+per_page
+            total_page=(len(mouse_sort)+per_page-1) // per_page
+            item_on_page=mouse_sort[start:end]
+            return [len(mouse_sort),item_on_page,total_page]
+        except Exception as e:
+            print(f"Error -> {e}")
+
+    def speaker_sorting(self,sort,page):
+        try:
+            obj=UserDb()
+            speaker_sort=obj.speaker_sorting(sort)
+            per_page=6
+            start=(page -1) * per_page
+            end=start+per_page
+            total_page=(len(speaker_sort)+per_page-1) // per_page
+            item_on_page=speaker_sort[start:end]
+            return [len(speaker_sort),item_on_page,total_page]
         except Exception as e:
             print(f"Error -> {e}")
 

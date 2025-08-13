@@ -35,7 +35,9 @@
         </nav>
            <div class="speaker">
         <p class="fs-4 fw-bold">Category</p>
+        <a href="{{url_for('home.speaker_items')}}">
         <p class="fs-6 fw-semibold speakerspeaker">Speaker</p>
+        </a>
         </div>
         <nav class="nav flex-column category">
         <p class="fs-4 fw-bold">Sort By</p>
@@ -43,37 +45,38 @@
         <li class="nav-item dropdown">
             <a class="nav-link active fs-6 dropdown-toggle" aria-current="page" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"style="color:black">Brand</a>
             <ul class="dropdown-menu dropdown-menu-end">
-            <li><a class="dropdown-item" href="#">Switch User</a></li>
-            </ul>
-        </li>
-
-        <li class="nav-item dropdown">
-            <a class="nav-link active fs-6 dropdown-toggle" aria-current="page" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"style="color:black">Motherboard</a>
-            <ul class="dropdown-menu dropdown-menu-end">
-            <li><a class="dropdown-item" href="#">Switch User</a></li>
+            {%for i in product_brand%}
+            <li><a class="dropdown-item" href="{{url_for('home.speaker_items',brand=i)}}">{{i}}</a></li>
+            {%endfor%}
             </ul>
         </li>
 
         <li class="nav-item dropdown">
             <a class="nav-link active fs-6 dropdown-toggle" aria-current="page" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"style="color:black">Price</a>
             <ul class="dropdown-menu dropdown-menu-end">
-            <li><a class="dropdown-item" href="#">Switch User</a></li>
+            <li><a class="dropdown-item" href="{{url_for('home.speaker_items',price='low_to_high')}}">Low To High</a></li>
+            <li><a class="dropdown-item" href="{{url_for('home.speaker_items',price='high_to_low')}}">High To Low</a></li> 
+         </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+            <a class="nav-link active fs-6 dropdown-toggle" aria-current="page" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"style="color:black">Connectivity</a>
+            <ul class="dropdown-menu dropdown-menu-end">
+            {%for i in connectivity_list%}
+            <li><a class="dropdown-item" href="{{url_for('home.speaker_items',connectivity=i)}}">{{i}}</a></li>
+            {%endfor%}
             </ul>
         </li>
 
         <li class="nav-item dropdown">
-            <a class="nav-link active fs-6 dropdown-toggle" aria-current="page" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"style="color:black">Processor</a>
+            <a class="nav-link active fs-6 dropdown-toggle" aria-current="page" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"style="color:black">Bass</a>
             <ul class="dropdown-menu dropdown-menu-end">
-            <li><a class="dropdown-item" href="#">Switch User</a></li>
+            {%for i in bass_list%}
+            <li><a class="dropdown-item" href="{{url_for('home.speaker_items',bass=i)}}">{{i}}</a></li>
+            {%endfor%}
             </ul>
         </li>
 
-        <li class="nav-item dropdown">
-            <a class="nav-link active fs-6 dropdown-toggle" aria-current="page" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"style="color:black">RAM</a>
-            <ul class="dropdown-menu dropdown-menu-end">
-            <li><a class="dropdown-item" href="#">Switch User</a></li>
-            </ul>
-        </li>
         </nav>
         <div class="line"></div>
 
