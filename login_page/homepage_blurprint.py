@@ -12,7 +12,8 @@ import logging
 # from werkzeug.utils import secure_filename
 # from werkzeug.exceptions import RequestEntityTooLarge
 # from pathlib import Path
-# from datetime import timedelta
+from datetime import datetime
+from zoneinfo import ZoneInfo
 # from login_blueprint import login
 
 app = Flask(__name__)
@@ -1030,8 +1031,25 @@ def cart_items():
             get_cart=obj.get_cart(name)
             total=0
             for i in get_cart:
-                total+=i[3]*i[2]
-            return render_template("cart.html",name=name,get_cart=get_cart,total=total)
+                total+=i[3]*i[4]
+            url_list=[]
+            for j in get_cart:
+                image_list=[]
+                image=obj2.display_single_from_s3(j[0])
+                image_list.append(image)
+                image_list.append(j[1])
+                image_list.append(j[2])
+                image_list.append(j[3])
+                image_list.append(j[4])
+                image_list.append(j[5])
+                image_list.append(j[6])
+                image_list.append(j[7])
+                url_list.append(image_list)
+            count=obj.cart_count(name)
+            prod_id=[]
+            for i in url_list:
+                prod_id.append(i[2])
+            return render_template("cart.html",prod_id=prod_id,name=name,url_list=url_list,total=total,count=count)
     except Exception as e:
         logger.error(f"error -> {e}")
         logger.debug("Full traceback below:", exc_info=True)
@@ -1052,3 +1070,53 @@ def delete_cart(cart_id):
         logger.debug("Full traceback below:", exc_info=True)
         return f"error ->{e}"
         # return redirect(url_for('home_page'))
+
+@home.route('/payment_method')
+def payment_method():
+    try:
+        if not session.get('logged_in') and not session.get('admin_logged'):
+            return redirect(url_for('login.index'))
+        else:
+            obj=UserDb()
+            total=request.args.get('total')
+            name=session.get('name')
+            count=obj.cart_count(name)
+            cart_prod=obj.cart_product_id(name)
+            for i in cart_prod:
+                obj.insert_in_check_out(i[1],name)
+                cart_quantity=obj.cart_quantity(i[1])
+                obj.check_out_update_quantity(cart_quantity,i[1])
+            return render_template("payment_method_page.html",name=name,total=total,count=count)
+    except Exception as e:
+        logger.error(f"error -> {e}")
+        logger.debug("Full traceback below:", exc_info=True)
+        return f"error ->{e}"
+
+@home.route('/payment_confirm',methods=["POST"])
+def payment_confirm():
+    try:
+        if not session.get('logged_in') and not session.get('admin_logged'):                                                                           
+            return redirect(url_for('login.index'))                                                                                             
+        else:
+            if request.method == "POST":
+                obj=UserDb()
+                name=session.get('name')
+                customer_name=request.form.get('customer_name')
+                address=request.form.get('address')
+                customer_number=request.form.get('customer_number')
+                payment_method=request.form.get('payment_method')
+                dateandtime=datetime.now(ZoneInfo("Asia/Kolkata"))
+                date_time=dateandtime.strftime("%Y-%m-%d %H:%M:%S")
+                card_name=request.form.get('card_name')
+                card_number=request.form.get('card_number')
+                obj.card_details(card_name,card_number)
+                obj.check_out_update(customer_name,address,customer_number,payment_method,date_time,name)
+                obj.check_out_payment_update(name)
+                obj.update_cart_status(name)
+                return render_template("delivery_page.html")
+    except Exception as e:
+        logger.error(f"error -> {e}")
+        logger.debug("Full traceback below:", exc_info=True)
+        return f"error ->{e}"
+        # return redirect(url_for('home_page'))
+

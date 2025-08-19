@@ -45,6 +45,15 @@ class UserDb:
         else:
             pass
 
+    def get_customer_id_name(self,name,hash_pass):
+        querry=f"SELECT * FROM CUSTOMERS WHERE user_name='{name}' and user_pass='{hash_pass}'"
+        self.curr.execute(querry)
+        result=self.curr.fetchone()
+        if result:
+            return result[6]
+        else:
+            pass
+
     def get_mail(self,mail):
         querry=f"SELECT * FROM customers WHERE mail_id='{mail}'"
         self.curr.execute(querry)
@@ -806,13 +815,61 @@ class UserDb:
         self.conn.commit()
 
     def get_cart(self,name):
-        querry=f"SELECT * FROM cart WHERE user_name='{name}' ORDER BY cart_id"
+        querry=f"SELECT products.images[1],cart.* FROM cart INNER JOIN products ON cart.product_id=products.product_id WHERE cart.user_name='{name}' and cart.status='in_cart' ORDER BY cart.cart_id "
         self.curr.execute(querry)
         result=self.curr.fetchall()
         return result
-     
+
+    def cart_count(self,name):
+        querry=f"SELECT count(*) FROM cart WHERE user_name='{name}' AND status='in_cart'"
+        self.curr.execute(querry)
+        result=self.curr.fetchone()
+        return result[0]
+
+    def cart_product_id(self,name):
+        querry=f"SELECT * FROM cart WHERE user_name='{name}' AND status='in_cart'"
+        self.curr.execute(querry)
+        result=self.curr.fetchall()
+        return result
+
+    def cart_quantity(self,product_id):
+        querry=f"SELECT * FROM cart WHERE product_id= '{product_id}' AND status='in_cart'"
+        self.curr.execute(querry)
+        result=self.curr.fetchone()
+        return result[2]
+
+    def insert_in_check_out(self,product_id,name):
+        querry=f"INSERT INTO check_out (product_id,user_name) VALUES ('{product_id}','{name}')"
+        self.curr.execute(querry)
+        self.conn.commit()
+
+    def check_out_update_quantity(self,quantity,product_id):
+        querry=f"UPDATE check_out SET quantity='{quantity}' WHERE product_id='{product_id}' AND payment = 'false'"
+        self.curr.execute(querry)
+        self.conn.commit()
+
+    def check_out_update(self,customer_name,address,customer_number,payment_method,date_time,name):
+        querry=f"UPDATE check_out set customer_name='{customer_name}',address='{address}',phone_number='{customer_number}',payment_method='{payment_method}',date_and_time='{date_time}',payment='in_progress' WHERE user_name = '{name}' and payment = 'false'"
+        self.curr.execute(querry)
+        self.conn.commit()
+
+    def check_out_payment_update(self,name):
+        querry=f"UPDATE check_out SET payment='done' where user_name='{name}' and payment='in_progress'"
+        self.curr.execute(querry)
+        self.conn.commit()
+
+    def update_cart_status(self,name):
+        querry=f"UPDATE cart SET status='purchased' WHERE user_name='{name}' AND status='in_cart'"
+        self.curr.execute(querry)
+        self.conn.commit()
+
     def update_quantity(self,cart_id,quantity):
         querry=f"UPDATE cart SET quantity='{quantity}' where cart_id='{cart_id}'"
+        self.curr.execute(querry)
+        self.conn.commit()
+
+    def card_details(self,card_name,card_number):
+        querry=f"INSERT INTO card_details (user_name,card_number) VALUES ('{card_name}','{card_number}')"
         self.curr.execute(querry)
         self.conn.commit()
 
@@ -823,12 +880,12 @@ class UserDb:
         return list(result)
 
     def delete_cart(self,cart_id):
-        querry=f"DELETE FROM cart WHERE cart_id='{cart_id}'"
+        querry=f"UPDATE cart SET status='deleted' WHERE cart_id='{cart_id}'"
         self.curr.execute(querry)
         self.conn.commit()
 
 # obj=UserDb()
-# obj.fetch_category()
+# obj.cart_product_id('Niranjan')
 # obj=UserDb()
 # obj.vendor_add('Niranjan2','No:69, Chennai-46','+916574836474','vendorniranjan2@gmail.com')
 # obj=UserDb()
