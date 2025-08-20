@@ -12,7 +12,7 @@ import boto3
 from werkzeug.utils import secure_filename
 from werkzeug.exceptions import RequestEntityTooLarge
 from pathlib import Path
-from datetime import timedelta
+from datetime import timedelta,date
 from configparser import ConfigParser
 
 file='/home/ubuntu/projectsql/login_page/libs/config.ini'
@@ -300,7 +300,6 @@ class Login:
                 end=start+per_page
                 total_page=(len(search)+per_page-1)//per_page
                 item_on_page=search[start:end]
-                # print([len(search),item_on_page,total_page])
                 return([len(search),item_on_page,total_page])
             else:
                 return f"something went wrong"
@@ -747,6 +746,29 @@ class Login:
         except Exception as e:
             print(f"Error -> {e}")
 
+    def delivery_days(self,category_id,key):
+        try:
+            order_date = datetime.strptime(key, "%d-%m-%Y").date()
+            if category_id==1:
+                delivery_days=4
+            if category_id==2:
+                delivery_days=2
+            if category_id==3:
+                delivery_days=2
+            if category_id==4:
+                delivery_days=3
+            if category_id==5:
+                delivery_days=1
+            if category_id==6:
+                delivery_days=3
+
+            today = date.today()
+            days_passed = (today - order_date).days
+            remaining_days = delivery_days - days_passed
+            return remaining_days
+        except Exception as e:
+            print(f"Error -> {e}")
+
 class Image_upload:
     # def __init__(self):
     #     self.user_db_obj = UserDb()
@@ -825,7 +847,7 @@ class Image_upload:
 # images/product_id35.jpg)
 
 # obj=Login()
-# obj.cpu_sort('Corsair',1)
+# obj.delivery_days(2,"20-08-2025")
 # obj=Login()
 # obj.homepage_search("keyboard",1)
 # obj=Login()

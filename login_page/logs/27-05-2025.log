@@ -1,7 +1,0 @@
-2025-05-27 15:44:29,651 - WARNING - sign_up_user_name - User name already exist
-2025-05-27 15:44:39,258 - WARNING - sign_up_password - Enter a valid password
-2025-05-27 15:44:44,852 - WARNING - sign_up_password - Password does not match
-2025-05-27 15:44:56,390 - WARNING - sign_up_phone_number - Phone number already exist
-2025-05-27 15:44:59,355 - WARNING - sign_up_phone_number - Phone number already exist
-2025-05-27 15:45:11,782 - WARNING - sign_up_mail_id - Mail id already exist
-2025-05-27 15:45:38,715 - ERROR - insert_value - Something went wrong -> function missing required argument 'query' (pos 1)

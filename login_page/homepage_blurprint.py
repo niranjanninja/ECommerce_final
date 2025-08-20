@@ -49,6 +49,7 @@ def home_page():
         if search:
             search_url_list=[]
             search=obj3.homepage_search(search,page)
+            print(search[1])
             for i in search[1]:
                 search_url_list2=[]
                 search_url=obj2.display_single_from_s3(i[0])
@@ -56,7 +57,6 @@ def home_page():
                 search_url_list2.append(i[1])
                 search_url_list2.append(i[2])
                 search_url_list2.append(i[3])
-                search_url_list2.append(i[4])
                 search_url_list.append(search_url_list2)
             return render_template("homepage.html",category=category,name=name,length=len(search_url_list),url_list=search_url_list,total_page=search[2],page=page)
         else:
@@ -1095,8 +1095,8 @@ def payment_method():
 @home.route('/payment_confirm',methods=["POST"])
 def payment_confirm():
     try:
-        if not session.get('logged_in') and not session.get('admin_logged'):                                                                           
-            return redirect(url_for('login.index'))                                                                                             
+        if not session.get('logged_in') and not session.get('admin_logged'):
+            return redirect(url_for('login.index'))
         else:
             if request.method == "POST":
                 obj=UserDb()
@@ -1106,14 +1106,52 @@ def payment_confirm():
                 customer_number=request.form.get('customer_number')
                 payment_method=request.form.get('payment_method')
                 dateandtime=datetime.now(ZoneInfo("Asia/Kolkata"))
-                date_time=dateandtime.strftime("%Y-%m-%d %H:%M:%S")
+                date_time=dateandtime.strftime("%d-%m-%Y, %H:%M:%S")
                 card_name=request.form.get('card_name')
                 card_number=request.form.get('card_number')
                 obj.card_details(card_name,card_number)
                 obj.check_out_update(customer_name,address,customer_number,payment_method,date_time,name)
                 obj.check_out_payment_update(name)
                 obj.update_cart_status(name)
-                return render_template("delivery_page.html")
+                check_out_details=obj.check_out_details()
+                for i in check_out_details:
+                    order_id=i[0]
+                    customer_name=i[2]
+                    user_name=i[9]
+                obj.add_delivery_details(order_id,customer_name,user_name)
+                return redirect(url_for('home.order_tracking'))
+    except Exception as e:
+        logger.error(f"error -> {e}")
+        logger.debug("Full traceback below:", exc_info=True)
+        return f"error ->{e}"
+        # return redirect(url_for('home_page'))
+
+@home.route('/order_tracking')
+def order_tracking():
+    try:
+        if not session.get('logged_in') and not session.get('admin_logged'):
+            return redirect(url_for('login.index'))
+        else:
+            obj=UserDb()
+            obj2=Login()
+            obj3=Image_upload()
+            name=session.get('name')
+            # delivery=obj.get_delivery_details()
+            # for i in delivery:
+            order_product_category=obj.join_delivery_product_category(name)
+            url_list=[]
+            for i in order_product_category:
+                rd_list=[]
+                image=obj3.display_single_from_s3(i[5])
+                rd_list.append(image)
+                key=i[6].split(",")[0].strip()
+                remaining_days=obj2.delivery_days(i[2],key)
+                rd_list.append(remaining_days)
+                rd_list.append(i[1])
+                rd_list.append(i[3])
+                rd_list.append(i[4])
+                url_list.append(rd_list)
+            return render_template("delivery_page.html",name=name,url_list=url_list)
     except Exception as e:
         logger.error(f"error -> {e}")
         logger.debug("Full traceback below:", exc_info=True)

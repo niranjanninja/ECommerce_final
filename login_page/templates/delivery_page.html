@@ -14,7 +14,7 @@
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
                          <div class="navbar-nav w-100">
                                 <a class="nav-link fs-5 fw-bold me-3" href="{{url_for('home.home_page',name=name)}}">Home</a>
-                                <a class="nav-link fs-5 fw-bold me-3" href="#">Track Order</a>
+                                <a class="nav-link fs-5 fw-bold me-3" href="{{url_for('home.order_tracking')}}">Track Order</a>
                                 <form class="d-flex flex-grow-1 me-3" role="search" method="GET">
                                         <input class="form-control search_box_form flex-grow-1 mx-2" type="search" placeholder="Search" aria-label="Search" name="search">
                                         <button class="btn btn-outline-dark ms-2 bi bi-search" type="submit"></button>
@@ -34,5 +34,26 @@
                 </div>
         </nav>
         <center>
-        <h3>DELIVERY</h3>
+        <h3>TRACK ORDER</h3>
         </center>
+	<div class="container">
+	<table class="table table-borderless">
+		<tbody class="table-group-divider">
+		{%for i in url_list%}
+			<tr>
+			      <th scope="row">
+			      <a href="{{url_for('home.show_item_user',product_id=i[2])}}">
+			      <img src="{{i[0]}}" class="d-block" width="150">
+			      </a>
+			      </th> 
+			      <td>{{i[3]}}</th>
+			      <td>{{i[4]}}</td>
+			      <td>
+			      Item Will Be Delivered In {{i[1]}} Days
+			      </td>
+			</tr>
+		{%endfor%}
+		</tbody>
+	</table>
+</div>
+</body>

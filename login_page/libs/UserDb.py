@@ -398,7 +398,7 @@ class UserDb:
         return list(result)
 
     def homepage_search(self,search):
-        querry=f"SELECT images[1] product_brand,product_name,price,product_id FROM products WHERE product_name='{search}' or product_description='{search}' or product_brand='{search}'" 
+        querry=f"SELECT images[1] product_brand,product_name,price,product_id FROM products WHERE product_name ILIKE '%{search}%' or product_description ILIKE '%{search}%' or product_brand ILIKE '%{search}%' " 
         self.curr.execute(querry)
         result=self.curr.fetchall()
         # print(result)
@@ -873,6 +873,35 @@ class UserDb:
         self.curr.execute(querry)
         self.conn.commit()
 
+    def check_out_details(self):
+        querry=f"SELECT * FROM check_out"
+        self.curr.execute(querry)
+        result=self.curr.fetchall()
+        return result
+
+    def add_delivery_details(self,order_id,customer_name,user_name):
+        querry=f"INSERT INTO delivery (order_id,customer_name,user_name) VALUES ('{order_id}','{customer_name}','{user_name}')"
+        self.curr.execute(querry)
+        self.conn.commit()
+
+    def get_delivery_details(self):
+        querry=f"SELECT * FROM delivery"
+        self.curr.execute(querry)
+        result=self.curr.fetchall()
+        return result
+
+    def join_delivery_product_category(self,name):
+        querry=f"SELECT delivery.order_id,check_out.product_id,products.category_id,products.product_brand,products.product_name,products.images[1],check_out.date_and_time FROM delivery INNER JOIN check_out ON delivery.order_id=check_out.order_id INNER JOIN products ON check_out.product_id=products.product_id WHERE delivery.delivery_status='in_progress' and delivery.user_name='{name}'"
+        self.curr.execute(querry)
+        result=self.curr.fetchall()
+        return result
+
+    def check_out_using_order_id(self,order_id):
+        querry=f"SELECT * FROM check_out WHERE order_id='{order_id}'"
+        self.curr.execute(querry)
+        result=self.curr.fetchall()
+        return result
+
     def get_image_1(self,product_id):
         querry=f"SELECT images[1] FROM products WHERE product_id={product_id}"
         self.curr.execute(querry)
@@ -885,7 +914,7 @@ class UserDb:
         self.conn.commit()
 
 # obj=UserDb()
-# obj.cart_product_id('Niranjan')
+# obj.join_delivery_product_category('Ninja')
 # obj=UserDb()
 # obj.vendor_add('Niranjan2','No:69, Chennai-46','+916574836474','vendorniranjan2@gmail.com')
 # obj=UserDb()

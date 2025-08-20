@@ -1,5 +1,0 @@
-2025-05-30 22:07:45,201 - WARNING - sign_up_user_name - User name already exist
-2025-05-30 22:07:48,397 - WARNING - sign_up_user_name - User name already exist
-2025-05-30 22:08:01,522 - WARNING - sign_up_password - Enter a valid password
-2025-05-30 22:08:08,484 - WARNING - sign_up_password - Password does not match
-2025-05-30 22:08:31,589 - ERROR - insert_value - Something went wrong -> function missing required argument 'query' (pos 1)
