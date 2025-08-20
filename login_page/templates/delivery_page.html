@@ -46,10 +46,14 @@
 			      <img src="{{i[0]}}" class="d-block" width="150">
 			      </a>
 			      </th> 
-			      <td>{{i[3]}}</th>
+			      <td>{{i[3]}}</td>
 			      <td>{{i[4]}}</td>
 			      <td>
+			      {%if i[1] > 0%}
 			      Item Will Be Delivered In {{i[1]}} Days
+			      {%else%}
+			      Item Has Been Delivered
+			      {%endif%}
 			      </td>
 			</tr>
 		{%endfor%}
