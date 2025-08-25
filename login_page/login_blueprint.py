@@ -36,7 +36,7 @@ app.config.update(
 mailID= Mail(app)
 serial=URLSafeTimedSerializer(config['Secret_key']['key'])
 
-# app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(minutes=10)
+app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(minutes=10)
 
 login=Blueprint("login",__name__,template_folder="templates")
 

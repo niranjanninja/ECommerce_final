@@ -1,20 +1,12 @@
 from flask import Flask, redirect, url_for,render_template,request,flash,session,Blueprint
 import re
 from libs.UserDb import UserDb
-# from itsdangerous import URLSafeTimedSerializer,SignatureExpired
 from login_parameter import Login,Image_upload
 from loggers import Loggers
 from configparser import ConfigParser
 import logging
-# import urllib.request
-# import os
-# import boto3
-# from werkzeug.utils import secure_filename
-# from werkzeug.exceptions import RequestEntityTooLarge
-# from pathlib import Path
 from datetime import datetime
 from zoneinfo import ZoneInfo
-# from login_blueprint import login
 
 app = Flask(__name__)
 

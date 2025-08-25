@@ -1,6 +1,5 @@
 from flask import Flask, redirect, url_for,render_template,request,flash,session,Blueprint
 from libs.UserDb import UserDb
-# from itsdangerous import URLSafeTimedSerializer,SignatureExpired
 from login_parameter import Login,Image_upload
 from loggers import Loggers
 from configparser import ConfigParser

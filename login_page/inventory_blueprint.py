@@ -69,13 +69,10 @@ def inventory_page():
                     total_page=(len(store)+per_page-1) // per_page
                     item_on_page=store[start:end]
                     item_on_page=list(item_on_page)
-                    # print(f"this is item on page -> {item_on_page}")
                     empty_list=[]
                     for item in item_on_page:
-                        # print(f"This is item -> {item}")
                         item=list(item)
                         filename=item[5]
-                        # print(f"This is filename => {filename}")
                         url=obj3.display_from_s3(filename)
                         item.append(url)
                         empty_list.append(item)
@@ -141,7 +138,6 @@ def inventory_add():
                             else:
                                 flash("Allowed image types are - png, jpg, jpeg","danger")
                                 return redirect(url_for('inventory.inven_add'))
-                        # print(filelist)
                         filename=obj3.bucket_save_image(filelist,product_id)
                         store=obj.add_image_filename(product_id,filename)
                         flash("New Item Added","success")

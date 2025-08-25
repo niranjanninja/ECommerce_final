@@ -54,26 +54,20 @@ class Login:
                             if not bcrypt.checkpw(password.encode('utf-8'),check_hash.encode('utf-8')):
                                 self.user_db_obj.update_user_by_name_email(hashed,name,mail)
                                 return f"Updated"
-                                # print("Updated")
                             else:
                                 logger.warning("Old password should not be the new password")
-                                # print("Old password should not be the new password")
                                 return f"Old password should not be the new password"
                         else:
                             logger.warning("Password does not match")
                             return f"Password does not match"
-                            # print("Password does not match")
                     else:
                         logger.warning("Enter valid password")
                         return f"Enter valid password"
-                        # print("Enter valid password")
                 else:
                     logger.warning("Username/Mail ID does not exist")
                     return f"Username/Mail ID does not exist"
-                    # print("User does not exist" )
             else:
                 logger.warning("Username/Mail ID does not exist")
-                # print("User does not exist")
                 return f"Username/Mail ID does not exist"
         except Exception as e:
             logger.error(f"Something went wrong -> {e} ")
@@ -81,20 +75,16 @@ class Login:
     def inventory_check_add(self,product_id):
         result=self.user_db_obj.product_id_check(product_id)
         if result:
-            # print("Exist")
             return f"Exist"
         else:
-            # print("NO")
             return f"NO"
 
     def inventory_delete(self,product_id):
         result=self.user_db_obj.product_id_check(product_id)
         if result:
             execute=self.user_db_obj.inventory_delete(product_id)
-            # print("Item Deleted")
             return f"Item Deleted"
         else:
-            # print("Enter correct product ID")
             return f"NO"
 
     def inventory_edit(self,product_id):
@@ -151,49 +141,38 @@ class Login:
             mail_pattern = r'^[a-z A-Z 0-9]+[\._]?[a-z A-Z 0-9]+[@]\w+[.]\D{2,3}$'
             result = self.user_db_obj.get_user_by_name(name)
             if not result:
-                # print("NO NAME")
                 if password==confirm_password:
                     if re.search(pass_pattern,password):
                         hashed=bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt()).decode('utf-8')
-                        # print("CORRECT")
                         if re.search(phn_pattern,number):
                             result2=self.user_db_obj.get_number(number)
                             if not result2:
-                                # print("NO NUM")
                                 if re.search(mail_pattern,mail):
                                     result3=self.user_db_obj.get_mail(mail)
                                     if not result3:
-                                        # print("NOMAIL")
                                         user_details=self.user_db_obj.insert_values_into_table(name,hashed,hashed,number,mail)
                                         return f"Inserted into DB"
                                     else:
                                         logger.warning("Mail id exist" )
                                         return f"Mail id exist"
-                                        # print("Mail exist")
                                 else:
                                     logger.warning("Enter valid Mail ID" )
                                     return f"Enter valid Mail ID"
-                                    # print("Valid mail enter")
                             else:
                                 logger.warning("Number already exist")
                                 return f"Number already exist"
-                                # print("Number exist")
                         else:
                             logger.warning("Enter valid number")
                             return f"Enter valid number"
-                            # print("Enter valid num")
                     else:
                         logger.warning("Enter valid password" )
                         return f"Enter valid password"
-                        # print("Enter valid pass")
                 else:
                     logger.warning("Password does not match" )
                     return f"Password does not match"
-                    # print("Pass no match")
             else:
                 logger.warning("Username already exist")
                 return f"Username already exist"
-                # print("User exist")
         except Exception as e:
             logger.error(f"Something went wrong -> {e} ")
 
@@ -260,8 +239,6 @@ class Login:
                 end=start+per_page
                 total_page=(len(search_name)+per_page-1) // per_page
                 item_on_page=search_name[start:end]
-                # print([len(search_name),item_on_page,total_page])
-                # print(item_on_page)
                 return [len(search_name),item_on_page,total_page]
         except Exception as e:
             print(f"Error -> {e}")
@@ -284,8 +261,6 @@ class Login:
                 end=start+per_page
                 total_page=(len(search_name)+per_page-1) // per_page
                 item_on_page=search_name[start:end]
-                # print([len(search_name),item_on_page,total_page])
-                # print(item_on_page)
                 return [len(search_name),item_on_page,total_page]
         except Exception as e:
             print(f"Error -> {e}")
@@ -315,7 +290,6 @@ class Login:
             end=start+per_page
             total_page=(len(brandsort)+per_page-1) // per_page
             item_on_page=brandsort[start:end]
-            # print([len(brandsort),item_on_page,total_page])
             return [len(brandsort),item_on_page,total_page]
         except Exception as e:
             print(f"Error -> {e}")
@@ -329,7 +303,6 @@ class Login:
             end=start+per_page
             total_page=(len(brandsort)+per_page-1) // per_page
             item_on_page=brandsort[start:end]
-            # print([len(brandsort),item_on_page,total_page])
             return [len(brandsort),item_on_page,total_page]
         except Exception as e:
             print(f"Error -> {e}")
@@ -343,7 +316,6 @@ class Login:
             end=start+per_page
             total_page=(len(brandsort)+per_page-1) // per_page
             item_on_page=brandsort[start:end]
-            # print([len(brandsort),item_on_page,total_page])
             return [len(brandsort),item_on_page,total_page]
         except Exception as e:
             print(f"Error -> {e}")
@@ -357,7 +329,6 @@ class Login:
             end=start+per_page
             total_page=(len(brandsort)+per_page-1) // per_page
             item_on_page=brandsort[start:end]
-            # print([len(brandsort),item_on_page,total_page])
             return [len(brandsort),item_on_page,total_page]
         except Exception as e:
             print(f"Error -> {e}")
@@ -371,7 +342,6 @@ class Login:
             end=start+per_page
             total_page=(len(brandsort)+per_page-1) // per_page
             item_on_page=brandsort[start:end]
-            # print([len(brandsort),item_on_page,total_page])
             return [len(brandsort),item_on_page,total_page]
         except Exception as e:
             print(f"Error -> {e}")
@@ -385,7 +355,6 @@ class Login:
             end=start+per_page
             total_page=(len(brandsort)+per_page-1) // per_page
             item_on_page=brandsort[start:end]
-            # print([len(brandsort),item_on_page,total_page])
             return [len(brandsort),item_on_page,total_page]
         except Exception as e:
             print(f"Error -> {e}")
@@ -677,7 +646,6 @@ class Login:
                 end=start+per_page
                 total_page=(len(id_asc)+per_page-1) // per_page
                 item_on_page=id_asc[start:end]
-                # print([len(id_asc),item_on_page,total_page])
                 return [len(id_asc),item_on_page,total_page]
             elif sort=='id_desc':
                 id_desc=obj.sort_inventory_id_desc()
@@ -686,7 +654,6 @@ class Login:
                 end=start+per_page
                 total_page=(len(id_desc)+per_page-1) // per_page
                 item_on_page=id_desc[start:end]
-                # print([len(id_desc),item_on_page,total_page])
                 return [len(id_desc),item_on_page,total_page]
             elif sort=='name_asc':
                 name_asc=obj.sort_inventory_name_asc()
@@ -695,7 +662,6 @@ class Login:
                 end=start+per_page
                 total_page=(len(name_asc)+per_page-1) // per_page
                 item_on_page=name_asc[start:end]
-                # print([len(name_asc),item_on_page,total_page])
                 return [len(name_asc),item_on_page,total_page]
             elif sort=='name_desc':
                 name_desc=obj.sort_inventory_name_desc()
@@ -704,7 +670,6 @@ class Login:
                 end=start+per_page
                 total_page=(len(name_desc)+per_page-1) // per_page
                 item_on_page=name_desc[start:end]
-                # print([len(name_desc),item_on_page,total_page])
                 return [len(name_desc),item_on_page,total_page]
             elif sort=='quantity_asc':
                 quantity_asc=obj.sort_inventory_quantity_asc()
@@ -713,7 +678,6 @@ class Login:
                 end=start+per_page
                 total_page=(len(quantity_asc)+per_page-1) // per_page
                 item_on_page=quantity_asc[start:end]
-                # print([len(quantity_asc),item_on_page,total_page])
                 return [len(quantity_asc),item_on_page,total_page]
             elif sort=='quantity_desc':
                 quantity_desc=obj.sort_inventory_quantity_desc()
@@ -722,7 +686,6 @@ class Login:
                 end=start+per_page
                 total_page=(len(quantity_desc)+per_page-1) // per_page
                 item_on_page=quantity_desc[start:end]
-                # print([len(quantity_desc),item_on_page,total_page])
                 return [len(quantity_desc),item_on_page,total_page]
             elif sort=='price_asc':
                 price_asc=obj.sort_inventory_price_asc()
@@ -731,7 +694,6 @@ class Login:
                 end=start+per_page
                 total_page=(len(price_asc)+per_page-1) // per_page
                 item_on_page=price_asc[start:end]
-                # print([len(price_asc),item_on_page,total_page])
                 return [len(price_asc),item_on_page,total_page]
             elif sort=='price_desc':
                 price_desc=obj.sort_inventory_price_desc()
@@ -740,9 +702,7 @@ class Login:
                 end=start+per_page
                 total_page=(len(price_desc)+per_page-1) // per_page
                 item_on_page=price_desc[start:end]
-                # print([len(price_desc),item_on_page,total_page])
                 return [len(price_desc),item_on_page,total_page]
-        
         except Exception as e:
             print(f"Error -> {e}")
 
@@ -770,10 +730,6 @@ class Login:
             print(f"Error -> {e}")
 
 class Image_upload:
-    # def __init__(self):
-    #     self.user_db_obj = UserDb()
-
-    
     def bucket_save_image(self,filelist,product_id):
         try:
             s3 = boto3.client('s3',
@@ -782,23 +738,17 @@ class Image_upload:
                               region_name=config['AWS']['region_name']
                               )
             bucket_name = "webpage.image.upload"
-            # print(f"filelist ->{filelist}")
             filename = []
             index = 1
             for i in filelist:
                 file = f"images/product_id{product_id}_{index}.jpg"
-                # print(file)
                 s3.upload_fileobj(i, bucket_name, file)
-                # print("uploaded")
                 filename.append(file)
                 index=index+1
-            # print(f"filename -> {filename}")
             return filename
         except Exception as e:
-            # print(f"error ->{e}")
             return f"Something went wrong {e}"
             logger.error(f"Error uploading to S3: {e}")
-            # return None
 
     def display_from_s3(self,filename):
         try:
@@ -824,12 +774,10 @@ class Image_upload:
                               aws_access_key_id=config['AWS']['aws_access_key_id'],
                               aws_secret_access_key=config['AWS']['aws_secret_access_key'],
                               region_name=config['AWS']['region_name'])
-            # url=[]
             url_generate= s3.generate_presigned_url(
                 'get_object',
                 Params={'Bucket': 'webpage.image.upload', 'Key': filename},
                 ExpiresIn=600)
-            # url.append(url_generate)
             return url_generate
         except Exception as e:
             logger.error(f"Error generating presigned GET URL: {e}")
@@ -837,20 +785,6 @@ class Image_upload:
 
 # obj2=Image_upload()
 # obj2.bucket_save_image(['monitor1.jpg', 'monitor2.jpg', 'keyboard2.jpg', 'keyboard3.jpg'],'1')
-# obj2.display_from_s3('images/product_id15_1.jpg', 'images/product_id15_2.jpg', 'images/product_id15_3.jpg', 'images/product_id15_4.jpg')
-# images/product_id36.jpg,
-# images/product_id32.jpg,
-# images/product_id37.jpg,
-# images/product_id29.jpg,
-# images/product_id34.jpg,
-# images/product_id38.jpg,
-# images/product_id35.jpg)
 
 # obj=Login()
 # obj.delivery_days(2,"20-08-2025")
-# obj=Login()
-# obj.homepage_search("keyboard",1)
-# obj=Login()
-# obj.reset_password_details("Niranjan","ninja@gmail.com","niranjanninja","niranjanninja")
-# obj=Login()
-# obj.get_all_details("Niranjan","ninjaninja","ninjaninja","8754826711","niranjansabari56@gmail.com")
