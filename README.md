@@ -65,3 +65,4 @@ This project is a a e-commerce web application built using Flask as the backend 
 
  This project helped me understand how to build a web application from scratch, integrate cloud services, and design features that are both user-friendly and admin-focused.
 
+![ERD Diagram](erd-diagram.jpg)
