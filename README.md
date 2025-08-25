@@ -1,16 +1,16 @@
 # E-commerce Web Application
 
-This project is a ack e-commerce web application** built using **Flask** as the backend framework.I worked step by step to design, develop, and implement the features of a complete e-commerce site.
+This project is a a e-commerce web application built using Flask as the backend framework.I worked step by step to design, develop, and implement the features of a complete e-commerce site.
 
 ## Features
 
-***********User and Admin Authentication**
+*****User and Admin Authentication**
 
   * Login, signup, and session management
   * Role-based access (Admin can manage inventory, customers, and vendors; users can browse and shop)
 
-***********Product Management**
-
+*****Product Management*****
+  
   * Add, edit, delete, and view products
   * Categories and vendors linked with products
   * Automatic product ID generation
