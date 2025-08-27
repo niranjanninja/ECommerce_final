@@ -15,6 +15,19 @@ logger = logging.getLogger()
 
 home=Blueprint("home",__name__,template_folder="templates")
 
+def generate_template_params(sort:list) -> list:
+    """
+    Write your docs here .. explain what the method does
+    :param sort:  explain the parameters
+    :return:  explain the return type
+    """
+    s3_obj = Image_upload()
+    compiled_url_list = []
+    for i in sort[1]:
+        temp_list = [s3_obj.display_single_from_s3(i[0]), i[1], i[2], i[3], i[4]]
+        compiled_url_list.append(temp_list)
+    return compiled_url_list
+
 @home.route('/home')
 def home_page():
     try:
@@ -127,18 +140,21 @@ def cpu_items():
                 search_url_list2.append(i[4])
                 search_url_list.append(search_url_list2)
             return render_template("cpu_page.html",fan_list=fan_list,motherboard_list=motherboard_list,product_brand=product_brand,name=name,length=len(search_url_list),url_list=search_url_list,total_page=search[2],page=page)
+
+
         if brand:
             brand_url_list=[]
             sort=obj3.cpu_brand_sort(brand,page)
-            for i in sort[1]:
-                brand_url_list2=[]
-                brand_url=obj2.display_single_from_s3(i[0])
-                brand_url_list2.append(brand_url)
-                brand_url_list2.append(i[1])
-                brand_url_list2.append(i[2])
-                brand_url_list2.append(i[3])
-                brand_url_list2.append(i[4])
-                brand_url_list.append(brand_url_list2)
+            # for i in sort[1]:
+            #     brand_url_list2=[]
+            #     brand_url=obj2.display_single_from_s3(i[0])
+            #     brand_url_list2.append(brand_url)
+            #     brand_url_list2.append(i[1])
+            #     brand_url_list2.append(i[2])
+            #     brand_url_list2.append(i[3])
+            #     brand_url_list2.append(i[4])
+            #     brand_url_list.append(brand_url_list2)
+            generate_template_params(sort)
             return render_template("cpu_page.html",fan_list=fan_list,motherboard_list=motherboard_list,product_brand=product_brand,name=name,length=len(brand_url_list),url_list=brand_url_list,total_page=sort[2],page=page)
         if price:
             price_url_list=[]
