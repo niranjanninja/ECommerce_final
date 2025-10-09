@@ -19,7 +19,11 @@
                                         <input class="form-control search_box_form flex-grow-1 mx-2" type="search" placeholder="Search" aria-label="Search" name="search">
                                         <button class="btn btn-outline-dark ms-2 bi bi-search" type="submit"></button>
                                 </form>
+                                {%if cart_items == 0 %}
                                 <a class="nav-link fs-5 fw-semibold me-3 bi bi-cart" href="{{url_for('home.cart_items')}}">Cart</a>
+                                {%else%}
+                                <a class="nav-link fs-5 fw-semibold me-3 bi bi-cart" href="{{url_for('home.cart_items')}}">Cart({{cart_items}})</a>
+                                {%endif%}    
                                 {% if name %}
                                  <div class="nav-item dropdown">
                                         <button class="nav-link dropdown-toggle fs-5 fw-semibold me-3" data-bs-toggle="dropdown" aria-expanded="false">Hello {{ name }}</button>

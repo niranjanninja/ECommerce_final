@@ -398,7 +398,7 @@ class UserDb:
         return list(result)
 
     def homepage_search(self,search):
-        querry=f"SELECT images[1] product_brand,product_name,price,product_id FROM products WHERE product_name ILIKE '%{search}%' or product_description ILIKE '%{search}%' or product_brand ILIKE '%{search}%' " 
+        querry=f"select images[1],product_brand,product_name,price,product_id from products where product_brand ilike '%{search}%' or product_name ilike '%{search}%' or  features ::text ilike '%{search}%' or product_description ilike '%{search}%'" 
         self.curr.execute(querry)
         result=self.curr.fetchall()
         # print(result)
@@ -587,7 +587,7 @@ class UserDb:
         else:
             return "YES"
 
-    def get_vendor_id_name(self):
+    def get_vendor_id_nme(self):
         querry=f"SELECT vendor_id,vendor_name FROM vendors"
         self.curr.execute(querry)
         result=self.curr.fetchall()
@@ -913,5 +913,11 @@ class UserDb:
         self.curr.execute(querry)
         self.conn.commit()
 
+    def cart_items_count(self):
+        querry=f"SELECT count(*) FROM cart WHERE status = 'in_cart'"
+        self.curr.execute(querry)
+        result=self.curr.fetchone()
+        return result[0]
+
 # obj=UserDb()
-# obj.join_delivery_product_category('Ninja')
+# obj.cart_items_count()
