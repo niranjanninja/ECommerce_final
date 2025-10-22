@@ -141,10 +141,10 @@ def reset_pass():
         obj=Login()
         if request.method == "POST":
             name=request.form.get("name")
-            mail=request.form.get("mail")
+            user_mail=request.form.get("mail")
             password=request.form.get("password")
             confirm_pass=request.form.get("confirm_pass")
-            check_detail=obj.reset_password_details(name,mail,password,confirm_pass)
+            check_detail=obj.reset_password_details(name,user_mail,password,confirm_pass)
             if "Username/Mail ID does not exist" in check_detail:
                 user_error='Username/Mail ID does not exist'
                 logger.warning("Username/Mail ID does not exist")
