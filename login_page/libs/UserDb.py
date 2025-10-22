@@ -152,6 +152,34 @@ class UserDb:
         # print(result[5])     
         return result[5]
 
+    def save_home_address(self,address,name):
+        querry=f"UPDATE customers SET home_address = '{address}' WHERE user_name= '{name}'"
+        self.curr.execute(querry)
+        self.conn.commit()
+
+    def save_work_address(self,address,name):
+        querry=f"UPDATE customers SET work_address = '{address}' WHERE user_name= '{name}'"
+        self.curr.execute(querry)
+        self.conn.commit()
+
+    def card_details(self,name,card_number,card_name,expiry_date,cvv):
+        querry=f"INSERT INTO card_details (user_name,card_number,card_username,expiry_date,cvv) VALUES ('{name}','{card_number}','{card_name}','{expiry_date}','{cvv}')"
+        self.curr.execute(querry)
+        self.conn.commit()
+
+    def admin_check(self,name):
+        querry=f"SELECT admin_user FROM customers where user_name='{name}'"
+        self.curr.execute(querry)
+        result=self.curr.fetchone()
+        return result[0]
+        # print(type(result[0]))
+
+    def address_fetch(self,name):
+        querry=f"SELECT home_address,work_address FROM customers WHERE user_name='{name}'"
+        self.curr.execute(querry)
+        result=self.curr.fetchone()
+        return list(filter(None,result))
+
 ###########################################   INVENTORY QUERRY #########################################################
 
     def inventory_show(self):
@@ -606,7 +634,7 @@ class UserDb:
         return result
 
     def cpu_brand_sort(self,sort):
-        querry=f"SELECT images[1],product_brand,product_name,price,product_id FROM products where category_id='1' and product_brand='{sort}'"
+        querry=f"SELECT images[1],product_brand,product_name,price,product_id FROM products where category_id='1' and product_brand IN {sort}"
         self.curr.execute(querry)
         result=self.curr.fetchall()
         return result
@@ -848,8 +876,8 @@ class UserDb:
         self.curr.execute(querry)
         self.conn.commit()
 
-    def check_out_update(self,customer_name,address,customer_number,payment_method,date_time,name):
-        querry=f"UPDATE check_out set customer_name='{customer_name}',address='{address}',phone_number='{customer_number}',payment_method='{payment_method}',date_and_time='{date_time}',payment='in_progress' WHERE user_name = '{name}' and payment = 'false'"
+    def check_out_update(self,customer_name,address,customer_number,payment_method,date_time,name,landmark,instruction):
+        querry=f"UPDATE check_out set customer_name='{customer_name}',address='{address}',phone_number='{customer_number}',payment_method='{payment_method}',date_and_time='{date_time}',payment='in_progress', landmark='{landmark}', instruction='{instruction}' WHERE user_name = '{name}' and payment = 'false'"
         self.curr.execute(querry)
         self.conn.commit()
 
@@ -868,19 +896,24 @@ class UserDb:
         self.curr.execute(querry)
         self.conn.commit()
 
-    def card_details(self,card_name,card_number):
-        querry=f"INSERT INTO card_details (user_name,card_number) VALUES ('{card_name}','{card_number}')"
-        self.curr.execute(querry)
-        self.conn.commit()
-
-    def check_out_details(self):
-        querry=f"SELECT * FROM check_out"
+    def check_out_details(self,name):
+        querry=f"SELECT * FROM check_out WHERE user_name='{name}' and payment='done' and recent='true' ORDER BY order_id"
         self.curr.execute(querry)
         result=self.curr.fetchall()
         return result
 
+    def recent_update(self,order_id):
+        querry=f"UPDATE check_out SET recent='flase' WHERE order_id='{order_id}'"
+        self.curr.execute(querry)
+        self.conn.commit()
+
     def add_delivery_details(self,order_id,customer_name,user_name):
         querry=f"INSERT INTO delivery (order_id,customer_name,user_name) VALUES ('{order_id}','{customer_name}','{user_name}')"
+        self.curr.execute(querry)
+        self.conn.commit()
+
+    def delivery_date_update(self,delivery_date,order_id):
+        querry=f"UPDATE delivery SET delivery_date = '{delivery_date}' WHERE order_id='{order_id}'"
         self.curr.execute(querry)
         self.conn.commit()
 
@@ -891,7 +924,7 @@ class UserDb:
         return result
 
     def join_delivery_product_category(self,name):
-        querry=f"SELECT delivery.order_id,check_out.product_id,products.category_id,products.product_brand,products.product_name,products.images[1],check_out.date_and_time FROM delivery INNER JOIN check_out ON delivery.order_id=check_out.order_id INNER JOIN products ON check_out.product_id=products.product_id WHERE delivery.delivery_status='in_progress' and delivery.user_name='{name}'"
+        querry=f"SELECT delivery.order_id,check_out.product_id,products.category_id,products.product_brand,products.product_name,products.images[1],check_out.date_and_time FROM delivery INNER JOIN check_out ON delivery.order_id=check_out.order_id INNER JOIN products ON check_out.product_id=products.product_id WHERE delivery.delivery_status='in_progress' and delivery.user_name='{name}' ORDER BY delivery.order_id"
         self.curr.execute(querry)
         result=self.curr.fetchall()
         return result
@@ -913,11 +946,16 @@ class UserDb:
         self.curr.execute(querry)
         self.conn.commit()
 
-    def cart_items_count(self):
-        querry=f"SELECT count(*) FROM cart WHERE status = 'in_cart'"
+    def cart_items_count(self,name):
+        querry=f"SELECT count(*) FROM cart WHERE status = 'in_cart' and user_name='{name}'"
         self.curr.execute(querry)
         result=self.curr.fetchone()
         return result[0]
 
+    def delivery_status_update(self,order_id):
+        querry=f"UPDATE delivery SET delivery_status = 'delivered' WHERE order_id = '{order_id}'"
+        self.curr.execute(querry)
+        self.conn.commit()
+
 # obj=UserDb()
-# obj.cart_items_count()
+# obj.check_out_details('Niranjan','17-10-2025, 21:51:52')

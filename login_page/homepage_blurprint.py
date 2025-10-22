@@ -7,6 +7,7 @@ from configparser import ConfigParser
 import logging
 from datetime import datetime
 from zoneinfo import ZoneInfo
+from phonenumbers import COUNTRY_CODE_TO_REGION_CODE
 
 app = Flask(__name__)
 
@@ -26,6 +27,8 @@ def home_page():
         name=session.get('name')
         category=obj.fetch_category()
         image=obj.random_from_inventory()
+        admin_check=obj.admin_check(name)
+        cart_items=obj.cart_items_count(name)
         url_list=[]
         for i in image:
             url_list2=[]
@@ -50,8 +53,7 @@ def home_page():
                 search_url_list2.append(i[2])
                 search_url_list2.append(i[3])
                 search_url_list.append(search_url_list2)
-                cart_items=obj.cart_items_count()
-            return render_template("homepage.html",cart_items=cart_items,category=category,name=name,length=len(search_url_list),url_list=search_url_list,total_page=search[2],page=page)
+            return render_template("homepage.html",admin_check=admin_check,cart_items=cart_items,category=category,name=name,length=len(search_url_list),url_list=search_url_list,total_page=search[2],page=page)
         else:
             page=request.args.get('page',1,type=int)
             per_page=6
@@ -59,8 +61,7 @@ def home_page():
             end=start+per_page
             total_page=(len(url_list)+per_page-1) // per_page
             item_on_page=url_list[start:end]
-            cart_items=obj.cart_items_count()
-            return render_template("homepage.html",cart_items=cart_items,category=category,name=name,url_list=item_on_page,length=len(url_list),total_page=total_page,page=page)
+            return render_template("homepage.html",admin_check=admin_check,cart_items=cart_items,category=category,name=name,url_list=item_on_page,length=len(url_list),total_page=total_page,page=page)
     except Exception as e:
         logger.error(f"error -> {e}")
         logger.debug("Full traceback below:", exc_info=True)
@@ -75,6 +76,8 @@ def cpu_items():
         obj=UserDb()
         obj2=Image_upload()
         obj3=Login()
+        admin_check=obj.admin_check(name)
+        cart_items=obj.cart_items_count(name)
         image=obj.cpu_page_items()
         url_list=[]
         for i in image:
@@ -88,10 +91,10 @@ def cpu_items():
             url_list.append(url_list2)
         search=request.args.get('search')
         page=request.args.get('page',1,type=int)
-        brand=request.args.get('brand')
+        brand=request.args.getlist('brand')
         price=request.args.get('price')
-        motherboard=request.args.get('motherboard')
-        fan=request.args.get('fan')
+        motherboard=request.args.getlist('motherboard')
+        fan=request.args.getlist('fan')
 
         fan_list=set()
         key_list=[]
@@ -109,7 +112,9 @@ def cpu_items():
         motherb=obj.cpu_all()
         for i in motherb:
             key=i[0][1].split(":")[1].strip()
-            motherboard_list.add(key)
+            key2=key.split("/")
+            for j in key2:
+                motherboard_list.add(j)
         
         product_brand=set()
         brands=obj.cpu_page_items()
@@ -128,8 +133,7 @@ def cpu_items():
                 search_url_list2.append(i[3])
                 search_url_list2.append(i[4])
                 search_url_list.append(search_url_list2)
-                cart_items=obj.cart_items_count()
-            return render_template("cpu_page.html",cart_items=cart_items,fan_list=fan_list,motherboard_list=motherboard_list,product_brand=product_brand,name=name,length=len(search_url_list),url_list=search_url_list,total_page=search[2],page=page)
+            return render_template("cpu_page.html",admin_check=admin_check,cart_items=cart_items,fan_list=fan_list,motherboard_list=motherboard_list,product_brand=product_brand,name=name,length=len(search_url_list),url_list=search_url_list,total_page=search[2],page=page)
         if brand:
             brand_url_list=[]
             sort=obj3.cpu_brand_sort(brand,page)
@@ -142,8 +146,7 @@ def cpu_items():
                 brand_url_list2.append(i[3])
                 brand_url_list2.append(i[4])
                 brand_url_list.append(brand_url_list2)
-                cart_items=obj.cart_items_count()
-            return render_template("cpu_page.html",cart_items=cart_items,fan_list=fan_list,motherboard_list=motherboard_list,product_brand=product_brand,name=name,length=len(brand_url_list),url_list=brand_url_list,total_page=sort[2],page=page)
+            return render_template("cpu_page.html",admin_check=admin_check,cart_items=cart_items,fan_list=fan_list,motherboard_list=motherboard_list,product_brand=product_brand,name=name,length=len(brand_url_list),url_list=brand_url_list,total_page=sort[2],page=page)
         if price:
             price_url_list=[]
             sort=obj3.cpu_price_sort(price,page)
@@ -156,8 +159,7 @@ def cpu_items():
                 price_url_list2.append(i[3])
                 price_url_list2.append(i[4])
                 price_url_list.append(price_url_list2)
-                cart_items=obj.cart_items_count()
-            return render_template("cpu_page.html",cart_items=cart_items,fan_list=fan_list,motherboard_list=motherboard_list,product_brand=product_brand,name=name,length=len(price_url_list),url_list=price_url_list,total_page=sort[2],page=page)
+            return render_template("cpu_page.html",admin_check=admin_check,cart_items=cart_items,fan_list=fan_list,motherboard_list=motherboard_list,product_brand=product_brand,name=name,length=len(price_url_list),url_list=price_url_list,total_page=sort[2],page=page)
         if motherboard:
             motherboard_url_list=[]
             sort=obj3.cpu_motherboard_sort(motherboard,page)
@@ -170,8 +172,7 @@ def cpu_items():
                 motherboard_url_list2.append(i[3])
                 motherboard_url_list2.append(i[4])
                 motherboard_url_list.append(motherboard_url_list2)
-                cart_items=obj.cart_items_count()
-            return render_template("cpu_page.html",cart_items=cart_items,fan_list=fan_list,motherboard_list=motherboard_list,product_brand=product_brand,name=name,length=len(motherboard_url_list),url_list=motherboard_url_list,total_page=sort[2],page=page)
+            return render_template("cpu_page.html",admin_check=admin_check,cart_items=cart_items,fan_list=fan_list,motherboard_list=motherboard_list,product_brand=product_brand,name=name,length=len(motherboard_url_list),url_list=motherboard_url_list,total_page=sort[2],page=page)
         if fan:
             fan_url_list=[]
             sort=obj3.cpu_fan_sort(fan,page)
@@ -184,8 +185,7 @@ def cpu_items():
                 fan_url_list2.append(i[3])
                 fan_url_list2.append(i[4])
                 fan_url_list.append(fan_url_list2)
-                cart_items=obj.cart_items_count()
-            return render_template("cpu_page.html",cart_items=cart_items,fan_list=fan_list,motherboard_list=motherboard_list,product_brand=product_brand,name=name,length=len(fan_url_list),url_list=fan_url_list,total_page=sort[2],page=page)
+            return render_template("cpu_page.html",admin_check=admin_check,cart_items=cart_items,fan_list=fan_list,motherboard_list=motherboard_list,product_brand=product_brand,name=name,length=len(fan_url_list),url_list=fan_url_list,total_page=sort[2],page=page)
         else:
             page=request.args.get('page',1,type=int)
             per_page=6
@@ -193,8 +193,7 @@ def cpu_items():
             end=start+per_page
             total_page=(len(url_list)+per_page-1) // per_page
             item_on_page=url_list[start:end]
-            cart_items=obj.cart_items_count()
-            return render_template("cpu_page.html",cart_items=cart_items,fan_list=fan_list,motherboard_list=motherboard_list,product_brand=product_brand,name=name,url_list=item_on_page,length=len(url_list),total_page=total_page,page=page)
+            return render_template("cpu_page.html",admin_check=admin_check,cart_items=cart_items,fan_list=fan_list,motherboard_list=motherboard_list,product_brand=product_brand,name=name,url_list=item_on_page,length=len(url_list),total_page=total_page,page=page)
     except Exception as e:
         logger.error(f"error -> {e}")
         logger.debug("Full traceback below:", exc_info=True)
@@ -210,6 +209,8 @@ def headphone_items():
         obj=UserDb()
         obj2=Image_upload()
         obj3=Login()
+        admin_check=obj.admin_check(name)
+        cart_items=obj.cart_items_count(name)
         image=obj.headphone_page_items()
         url_list=[]
         for i in image:
@@ -270,8 +271,7 @@ def headphone_items():
                 search_url_list2.append(i[3])
                 search_url_list2.append(i[4])
                 search_url_list.append(search_url_list2)
-                cart_items=obj.cart_items_count()
-            return render_template("headphone_page.html",cart_items=cart_items,microphone_list=microphone_list,noise_cancel=noise_cancel,connect=connect,product_brand=product_brand,name=name,length=len(search_url_list),url_list=search_url_list,total_page=search[2],page=page)
+            return render_template("headphone_page.html",admin_check=admin_check,cart_items=cart_items,microphone_list=microphone_list,noise_cancel=noise_cancel,connect=connect,product_brand=product_brand,name=name,length=len(search_url_list),url_list=search_url_list,total_page=search[2],page=page)
         if brand:
             brand_url_list=[]
             sort=obj3.headphone_brand_sort(brand,page)
@@ -284,8 +284,7 @@ def headphone_items():
                 brand_url_list2.append(i[3])
                 brand_url_list2.append(i[4])
                 brand_url_list.append(brand_url_list2)
-                cart_items=obj.cart_items_count()
-            return render_template("headphone_page.html",cart_items=cart_items,microphone_list=microphone_list,noise_cancel=noise_cancel,connect=connect,product_brand=product_brand,name=name,length=len(brand_url_list),url_list=brand_url_list,total_page=sort[2],page=page)
+            return render_template("headphone_page.html",admin_check=admin_check,cart_items=cart_items,microphone_list=microphone_list,noise_cancel=noise_cancel,connect=connect,product_brand=product_brand,name=name,length=len(brand_url_list),url_list=brand_url_list,total_page=sort[2],page=page)
         if price:
             price_url_list=[]
             sort=obj3.headphone_price_sort(price,page)
@@ -298,8 +297,7 @@ def headphone_items():
                 price_url_list2.append(i[3])
                 price_url_list2.append(i[4])
                 price_url_list.append(price_url_list2)
-                cart_items=obj.cart_items_count()
-            return render_template("headphone_page.html",cart_items=cart_items,microphone_list=microphone_list,connect=connect,noise_cancel=noise_cancel,product_brand=product_brand,name=name,length=len(price_url_list),url_list=price_url_list,total_page=sort[2],page=page)
+            return render_template("headphone_page.html",admin_check=admin_check,cart_items=cart_items,microphone_list=microphone_list,connect=connect,noise_cancel=noise_cancel,product_brand=product_brand,name=name,length=len(price_url_list),url_list=price_url_list,total_page=sort[2],page=page)
         if connectivity:
             connect_url_list=[]
             sort=obj3.headphone_sorting(connectivity,page)
@@ -312,8 +310,7 @@ def headphone_items():
                 connect_url_list2.append(i[3])
                 connect_url_list2.append(i[4])
                 connect_url_list.append(connect_url_list2)
-                cart_items=obj.cart_items_count()
-            return render_template("headphone_page.html",cart_items=cart_items,microphone_list=microphone_list,connect=connect,product_brand=product_brand,noise_cancel=noise_cancel,name=name,length=len(connect_url_list),url_list=connect_url_list,total_page=sort[2],page=page)
+            return render_template("headphone_page.html",admin_check=admin_check,cart_items=cart_items,microphone_list=microphone_list,connect=connect,product_brand=product_brand,noise_cancel=noise_cancel,name=name,length=len(connect_url_list),url_list=connect_url_list,total_page=sort[2],page=page)
         if noise_cancellation:
             noise_cancel_url_list=[]
             sort=obj3.headphone_sorting(noise_cancellation,page)
@@ -326,8 +323,7 @@ def headphone_items():
                 noise_cancel_url_list2.append(i[3])
                 noise_cancel_url_list2.append(i[4])
                 noise_cancel_url_list.append(noise_cancel_url_list2)
-                cart_items=obj.cart_items_count()
-            return render_template("headphone_page.html",cart_items=cart_items,microphone_list=microphone_list,connect=connect,product_brand=product_brand,noise_cancel=noise_cancel,name=name,length=len(noise_cancel_url_list),url_list=noise_cancel_url_list,total_page=sort[2],page=page)
+            return render_template("headphone_page.html",admin_check=admin_check,cart_items=cart_items,microphone_list=microphone_list,connect=connect,product_brand=product_brand,noise_cancel=noise_cancel,name=name,length=len(noise_cancel_url_list),url_list=noise_cancel_url_list,total_page=sort[2],page=page)
         if microphone:
             microphone_url_list=[]
             sort=obj3.headphone_sorting(microphone,page)
@@ -340,8 +336,7 @@ def headphone_items():
                 microphone_url_list2.append(i[3])
                 microphone_url_list2.append(i[4])
                 microphone_url_list.append(microphone_url_list2)
-                cart_items=obj.cart_items_count()
-            return render_template("headphone_page.html",cart_items=cart_items,microphone_list=microphone_list,connect=connect,product_brand=product_brand,noise_cancel=noise_cancel,name=name,length=len(microphone_url_list),url_list=microphone_url_list,total_page=sort[2],page=page)
+            return render_template("headphone_page.html",admin_check=admin_check,cart_items=cart_items,microphone_list=microphone_list,connect=connect,product_brand=product_brand,noise_cancel=noise_cancel,name=name,length=len(microphone_url_list),url_list=microphone_url_list,total_page=sort[2],page=page)
         else:
             page=request.args.get('page',1,type=int)
             per_page=6
@@ -349,8 +344,7 @@ def headphone_items():
             end=start+per_page
             total_page=(len(url_list)+per_page-1) // per_page
             item_on_page=url_list[start:end]
-            cart_items=obj.cart_items_count()
-            return render_template("headphone_page.html",cart_items=cart_items,microphone_list=microphone_list,noise_cancel=noise_cancel,connect=connect,product_brand=product_brand,name=name,url_list=item_on_page,length=len(url_list),total_page=total_page,page=page)
+            return render_template("headphone_page.html",admin_check=admin_check,cart_items=cart_items,microphone_list=microphone_list,noise_cancel=noise_cancel,connect=connect,product_brand=product_brand,name=name,url_list=item_on_page,length=len(url_list),total_page=total_page,page=page)
 
     except Exception as e:
         logger.error(f"error -> {e}")
@@ -367,6 +361,8 @@ def keyboard_items():
         obj=UserDb()
         obj2=Image_upload()
         obj3=Login()
+        admin_check=obj.admin_check(name)
+        cart_items=obj.cart_items_count(name)
         image=obj.keyboard_page_items()
         url_list=[]
         for i in image:
@@ -433,8 +429,7 @@ def keyboard_items():
                 search_url_list2.append(i[3])
                 search_url_list2.append(i[4])
                 search_url_list.append(search_url_list2)
-                cart_items=obj.cart_items_count()
-            return render_template("keyboard_page.html",cart_items=cart_items,backlight_list=backlight_list,key_rollover=key_rollover,keyboard_connect=keyboard_connect,switch_type=switch_type,product_brand=product_brand,name=name,length=len(search_url_list),url_list=search_url_list,total_page=search[2],page=page)
+            return render_template("keyboard_page.html",admin_check=admin_check,cart_items=cart_items,backlight_list=backlight_list,key_rollover=key_rollover,keyboard_connect=keyboard_connect,switch_type=switch_type,product_brand=product_brand,name=name,length=len(search_url_list),url_list=search_url_list,total_page=search[2],page=page)
         if brand:
             brand_url_list=[]
             sort=obj3.keyboard_brand_sort(brand,page)
@@ -447,8 +442,7 @@ def keyboard_items():
                 brand_url_list2.append(i[3])
                 brand_url_list2.append(i[4])
                 brand_url_list.append(brand_url_list2)
-                cart_items=obj.cart_items_count()
-            return render_template("keyboard_page.html",cart_items=cart_items,backlight_list=backlight_list,key_rollover=key_rollover,keyboard_connect=keyboard_connect,switch_type=switch_type,product_brand=product_brand,name=name,length=len(brand_url_list),url_list=brand_url_list,total_page=sort[2],page=page)
+            return render_template("keyboard_page.html",admin_check=admin_check,cart_items=cart_items,backlight_list=backlight_list,key_rollover=key_rollover,keyboard_connect=keyboard_connect,switch_type=switch_type,product_brand=product_brand,name=name,length=len(brand_url_list),url_list=brand_url_list,total_page=sort[2],page=page)
         if price:
             price_url_list=[]
             sort=obj3.keyboard_price_sort(price,page)
@@ -461,8 +455,7 @@ def keyboard_items():
                 price_url_list2.append(i[3])
                 price_url_list2.append(i[4])
                 price_url_list.append(price_url_list2)
-                cart_items=obj.cart_items_count()
-            return render_template("keyboard_page.html",cart_items=cart_items,backlight_list=backlight_list,key_rollover=key_rollover,keyboard_connect=keyboard_connect,switch_type=switch_type,product_brand=product_brand,name=name,length=len(price_url_list),url_list=price_url_list,total_page=sort[2],page=page)
+            return render_template("keyboard_page.html",admin_check=admin_check,cart_items=cart_items,backlight_list=backlight_list,key_rollover=key_rollover,keyboard_connect=keyboard_connect,switch_type=switch_type,product_brand=product_brand,name=name,length=len(price_url_list),url_list=price_url_list,total_page=sort[2],page=page)
         if switch:
             switch_url_list=[]
             sort=obj3.keyboard_sorting(switch,page)
@@ -475,8 +468,7 @@ def keyboard_items():
                 switch_url_list2.append(i[3])
                 switch_url_list2.append(i[4])
                 switch_url_list.append(switch_url_list2)
-                cart_items=obj.cart_items_count()
-            return render_template("keyboard_page.html",cart_items=cart_items,backlight_list=backlight_list,key_rollover=key_rollover,keyboard_connect=keyboard_connect,switch_type=switch_type,product_brand=product_brand,name=name,length=len(switch_url_list),url_list=switch_url_list,total_page=sort[2],page=page)
+            return render_template("keyboard_page.html",admin_check=admin_check,cart_items=cart_items,backlight_list=backlight_list,key_rollover=key_rollover,keyboard_connect=keyboard_connect,switch_type=switch_type,product_brand=product_brand,name=name,length=len(switch_url_list),url_list=switch_url_list,total_page=sort[2],page=page)
         if connectivity:
             connect_url_list=[]
             sort=obj3.keyboard_sorting(connectivity,page)
@@ -489,8 +481,7 @@ def keyboard_items():
                 connect_url_list2.append(i[3])
                 connect_url_list2.append(i[4])
                 connect_url_list.append(connect_url_list2)
-                cart_items=obj.cart_items_count()
-            return render_template("keyboard_page.html",cart_items=cart_items,backlight_list=backlight_list,key_rollover=key_rollover,keyboard_connect=keyboard_connect,switch_type=switch_type,product_brand=product_brand,name=name,length=len(connect_url_list),url_list=connect_url_list,total_page=sort[2],page=page)
+            return render_template("keyboard_page.html",admin_check=admin_check,cart_items=cart_items,backlight_list=backlight_list,key_rollover=key_rollover,keyboard_connect=keyboard_connect,switch_type=switch_type,product_brand=product_brand,name=name,length=len(connect_url_list),url_list=connect_url_list,total_page=sort[2],page=page)
         if rollover:
             rollover_url_list=[]
             sort=obj3.keyboard_sorting(rollover,page)
@@ -503,8 +494,7 @@ def keyboard_items():
                 rollover_url_list2.append(i[3])
                 rollover_url_list2.append(i[4])
                 rollover_url_list.append(rollover_url_list2)
-                cart_items=obj.cart_items_count()
-            return render_template("keyboard_page.html",cart_items=cart_items,backlight_list=backlight_list,key_rollover=key_rollover,keyboard_connect=keyboard_connect,switch_type=switch_type,product_brand=product_brand,name=name,length=len(rollover_url_list),url_list=rollover_url_list,total_page=sort[2],page=page)
+            return render_template("keyboard_page.html",admin_check=admin_check,cart_items=cart_items,backlight_list=backlight_list,key_rollover=key_rollover,keyboard_connect=keyboard_connect,switch_type=switch_type,product_brand=product_brand,name=name,length=len(rollover_url_list),url_list=rollover_url_list,total_page=sort[2],page=page)
         if backlight:
             backlight_url_list=[]
             sort=obj3.keyboard_sorting(backlight,page)
@@ -517,8 +507,7 @@ def keyboard_items():
                 backlight_url_list2.append(i[3])
                 backlight_url_list2.append(i[4])
                 backlight_url_list.append(backlight_url_list2)
-                cart_items=obj.cart_items_count()
-            return render_template("keyboard_page.html",cart_items=cart_items,backlight_list=backlight_list,key_rollover=key_rollover,keyboard_connect=keyboard_connect,switch_type=switch_type,product_brand=product_brand,name=name,length=len(backlight_url_list),url_list=backlight_url_list,total_page=sort[2],page=page)
+            return render_template("keyboard_page.html",admin_check=admin_check,cart_items=cart_items,backlight_list=backlight_list,key_rollover=key_rollover,keyboard_connect=keyboard_connect,switch_type=switch_type,product_brand=product_brand,name=name,length=len(backlight_url_list),url_list=backlight_url_list,total_page=sort[2],page=page)
         else:
             page=request.args.get('page',1,type=int)
             per_page=6
@@ -526,8 +515,7 @@ def keyboard_items():
             end=start+per_page
             total_page=(len(url_list)+per_page-1) // per_page
             item_on_page=url_list[start:end]
-            cart_items=obj.cart_items_count()
-            return render_template("keyboard_page.html",cart_items=cart_items,backlight_list=backlight_list,key_rollover=key_rollover,keyboard_connect=keyboard_connect,switch_type=switch_type,product_brand=product_brand,name=name,url_list=item_on_page,length=len(url_list),total_page=total_page,page=page)
+            return render_template("keyboard_page.html",admin_check=admin_check,cart_items=cart_items,backlight_list=backlight_list,key_rollover=key_rollover,keyboard_connect=keyboard_connect,switch_type=switch_type,product_brand=product_brand,name=name,url_list=item_on_page,length=len(url_list),total_page=total_page,page=page)
     except Exception as e:
         logger.error(f"error -> {e}")
         logger.debug("Full traceback below:", exc_info=True)
@@ -543,6 +531,8 @@ def monitor_items():
         obj=UserDb()
         obj2=Image_upload()
         obj3=Login()
+        admin_check=obj.admin_check(name)
+        cart_items=obj.cart_items_count(name)
         image=obj.monitor_page_items()
         url_list=[]
         for i in image:
@@ -609,8 +599,7 @@ def monitor_items():
                 search_url_list2.append(i[3])
                 search_url_list2.append(i[4])
                 search_url_list.append(search_url_list2)
-                cart_items=obj.cart_items_count()
-            return render_template("monitor_page.html",cart_items=cart_items,connectivity_list=connectivity_list,refresh_rate_list=refresh_rate_list,panel_list=panel_list,resolution_list=resolution_list,product_brand=product_brand,name=name,length=len(search_url_list),url_list=search_url_list,total_page=search[2],page=page)
+            return render_template("monitor_page.html",admin_check=admin_check,cart_items=cart_items,connectivity_list=connectivity_list,refresh_rate_list=refresh_rate_list,panel_list=panel_list,resolution_list=resolution_list,product_brand=product_brand,name=name,length=len(search_url_list),url_list=search_url_list,total_page=search[2],page=page)
         if brand:
             brand_url_list=[]
             sort=obj3.monitor_brand_sort(brand,page)
@@ -623,8 +612,7 @@ def monitor_items():
                 brand_url_list2.append(i[3])
                 brand_url_list2.append(i[4])
                 brand_url_list.append(brand_url_list2)
-                cart_items=obj.cart_items_count()
-            return render_template("monitor_page.html",cart_items=cart_items,connectivity_list=connectivity_list,refresh_rate_list=refresh_rate_list,panel_list=panel_list,resolution_list=resolution_list,product_brand=product_brand,name=name,length=len(brand_url_list),url_list=brand_url_list,total_page=sort[2],page=page)
+            return render_template("monitor_page.html",admin_check=admin_check,cart_items=cart_items,connectivity_list=connectivity_list,refresh_rate_list=refresh_rate_list,panel_list=panel_list,resolution_list=resolution_list,product_brand=product_brand,name=name,length=len(brand_url_list),url_list=brand_url_list,total_page=sort[2],page=page)
         if price:
             price_url_list=[]
             sort=obj3.monitor_price_sort(price,page)
@@ -637,8 +625,7 @@ def monitor_items():
                 price_url_list2.append(i[3])
                 price_url_list2.append(i[4])
                 price_url_list.append(price_url_list2)
-                cart_items=obj.cart_items_count()
-            return render_template("monitor_page.html",cart_items=cart_items,connectivity_list=connectivity_list,refresh_rate_list=refresh_rate_list,panel_list=panel_list,resolution_list=resolution_list,product_brand=product_brand,name=name,length=len(price_url_list),url_list=price_url_list,total_page=sort[2],page=page)
+            return render_template("monitor_page.html",admin_check=admin_check,cart_items=cart_items,connectivity_list=connectivity_list,refresh_rate_list=refresh_rate_list,panel_list=panel_list,resolution_list=resolution_list,product_brand=product_brand,name=name,length=len(price_url_list),url_list=price_url_list,total_page=sort[2],page=page)
         if resolution:
             res_url_list=[]
             sort=obj3.monitor_sorting(resolution,page)
@@ -651,8 +638,7 @@ def monitor_items():
                 res_url_list2.append(i[3])
                 res_url_list2.append(i[4])
                 res_url_list.append(res_url_list2)
-                cart_items=obj.cart_items_count()
-            return render_template("monitor_page.html",cart_items=cart_items,refresh_rate_list=refresh_rate_list,connectivity_list=connectivity_list,panel_list=panel_list,resolution_list=resolution_list,product_brand=product_brand,name=name,length=len(res_url_list),url_list=res_url_list,total_page=sort[2],page=page)
+            return render_template("monitor_page.html",admin_check=admin_check,cart_items=cart_items,refresh_rate_list=refresh_rate_list,connectivity_list=connectivity_list,panel_list=panel_list,resolution_list=resolution_list,product_brand=product_brand,name=name,length=len(res_url_list),url_list=res_url_list,total_page=sort[2],page=page)
         if panel:
             panel_url_list=[]
             sort=obj3.monitor_sorting(panel,page)
@@ -665,8 +651,7 @@ def monitor_items():
                 panel_url_list2.append(i[3])
                 panel_url_list2.append(i[4])
                 panel_url_list.append(panel_url_list2)
-                cart_items=obj.cart_items_count()
-            return render_template("monitor_page.html",cart_items=cart_items,connectivity_list=connectivity_list,refresh_rate_list=refresh_rate_list,panel_list=panel_list,resolution_list=resolution_list,product_brand=product_brand,name=name,length=len(panel_url_list),url_list=panel_url_list,total_page=sort[2],page=page)
+            return render_template("monitor_page.html",admin_check=admin_check,cart_items=cart_items,connectivity_list=connectivity_list,refresh_rate_list=refresh_rate_list,panel_list=panel_list,resolution_list=resolution_list,product_brand=product_brand,name=name,length=len(panel_url_list),url_list=panel_url_list,total_page=sort[2],page=page)
         if refresh_rate:
             rr_url_list=[]
             sort=obj3.monitor_sorting(refresh_rate,page)
@@ -679,8 +664,7 @@ def monitor_items():
                 rr_url_list2.append(i[3])
                 rr_url_list2.append(i[4])
                 rr_url_list.append(rr_url_list2)
-                cart_items=obj.cart_items_count()
-            return render_template("monitor_page.html",cart_items=cart_items,connectivity_list=connectivity_list,refresh_rate_list=refresh_rate_list,panel_list=panel_list,resolution_list=resolution_list,product_brand=product_brand,name=name,length=len(rr_url_list),url_list=rr_url_list,total_page=sort[2],page=page)
+            return render_template("monitor_page.html",admin_check=admin_check,cart_items=cart_items,connectivity_list=connectivity_list,refresh_rate_list=refresh_rate_list,panel_list=panel_list,resolution_list=resolution_list,product_brand=product_brand,name=name,length=len(rr_url_list),url_list=rr_url_list,total_page=sort[2],page=page)
         if connectivity:
             connectivity_url_list=[]
             sort=obj3.monitor_sorting(connectivity,page)
@@ -693,8 +677,7 @@ def monitor_items():
                 connectivity_url_list2.append(i[3])
                 connectivity_url_list2.append(i[4])
                 connectivity_url_list.append(connectivity_url_list2)
-                cart_items=obj.cart_items_count()
-            return render_template("monitor_page.html",cart_items=cart_items,connectivity_list=connectivity_list,refresh_rate_list=refresh_rate_list,panel_list=panel_list,resolution_list=resolution_list,product_brand=product_brand,name=name,length=len(connectivity_url_list),url_list=connectivity_url_list,total_page=sort[2],page=page)
+            return render_template("monitor_page.html",admin_check=admin_check,cart_items=cart_items,connectivity_list=connectivity_list,refresh_rate_list=refresh_rate_list,panel_list=panel_list,resolution_list=resolution_list,product_brand=product_brand,name=name,length=len(connectivity_url_list),url_list=connectivity_url_list,total_page=sort[2],page=page)
         else:
             page=request.args.get('page',1,type=int)
             per_page=6
@@ -702,8 +685,7 @@ def monitor_items():
             end=start+per_page
             total_page=(len(url_list)+per_page-1) // per_page
             item_on_page=url_list[start:end]
-            cart_items=obj.cart_items_count()
-            return render_template("monitor_page.html",cart_items=cart_items,connectivity_list=connectivity_list,refresh_rate_list=refresh_rate_list,panel_list=panel_list,resolution_list=resolution_list,product_brand=product_brand,name=name,url_list=item_on_page,length=len(url_list),total_page=total_page,page=page)
+            return render_template("monitor_page.html",admin_check=admin_check,cart_items=cart_items,connectivity_list=connectivity_list,refresh_rate_list=refresh_rate_list,panel_list=panel_list,resolution_list=resolution_list,product_brand=product_brand,name=name,url_list=item_on_page,length=len(url_list),total_page=total_page,page=page)
     except Exception as e:
         logger.error(f"error -> {e}")
         logger.debug("Full traceback below:", exc_info=True)
@@ -719,6 +701,8 @@ def mouse_items():
         obj=UserDb()
         obj2=Image_upload()
         obj3=Login()
+        admin_check=obj.admin_check(name)
+        cart_items=obj.cart_items_count(name)
         image=obj.mouse_page_items()
         url_list=[]
         for i in image:
@@ -778,8 +762,7 @@ def mouse_items():
                 search_url_list2.append(i[3])
                 search_url_list2.append(i[4])
                 search_url_list.append(search_url_list2)
-                cart_items=obj.cart_items_count()
-            return render_template("mouse_page.html",cart_items=cart_items,sensor_list=sensor_list,dpi_list=dpi_list,connectivity_list=connectivity_list,product_brand=product_brand,name=name,length=len(search_url_list),url_list=search_url_list,total_page=search[2],page=page)
+            return render_template("mouse_page.html",admin_check=admin_check,cart_items=cart_items,sensor_list=sensor_list,dpi_list=dpi_list,connectivity_list=connectivity_list,product_brand=product_brand,name=name,length=len(search_url_list),url_list=search_url_list,total_page=search[2],page=page)
         if brand:
             brand_url_list=[]
             sort=obj3.mouse_brand_sort(brand,page)
@@ -792,8 +775,7 @@ def mouse_items():
                 brand_url_list2.append(i[3])
                 brand_url_list2.append(i[4])
                 brand_url_list.append(brand_url_list2)
-                cart_items=obj.cart_items_count()
-            return render_template("mouse_page.html",cart_items=cart_items,sensor_list=sensor_list,dpi_list=dpi_list,connectivity_list=connectivity_list,product_brand=product_brand,name=name,length=len(brand_url_list),url_list=brand_url_list,total_page=sort[2],page=page)
+            return render_template("mouse_page.html",admin_check=admin_check,cart_items=cart_items,sensor_list=sensor_list,dpi_list=dpi_list,connectivity_list=connectivity_list,product_brand=product_brand,name=name,length=len(brand_url_list),url_list=brand_url_list,total_page=sort[2],page=page)
         if price:
             price_url_list=[]
             sort=obj3.mouse_price_sort(price,page)
@@ -806,8 +788,7 @@ def mouse_items():
                 price_url_list2.append(i[3])
                 price_url_list2.append(i[4])
                 price_url_list.append(price_url_list2)
-                cart_items=obj.cart_items_count()
-            return render_template("mouse_page.html",cart_items=cart_items,sensor_list=sensor_list,dpi_list=dpi_list,connectivity_list=connectivity_list,product_brand=product_brand,name=name,length=len(price_url_list),url_list=price_url_list,total_page=sort[2],page=page)
+            return render_template("mouse_page.html",admin_check=admin_check,cart_items=cart_items,sensor_list=sensor_list,dpi_list=dpi_list,connectivity_list=connectivity_list,product_brand=product_brand,name=name,length=len(price_url_list),url_list=price_url_list,total_page=sort[2],page=page)
         if connectivity:
             connect_url_list=[]
             sort=obj3.mouse_sorting(connectivity,page)
@@ -820,8 +801,7 @@ def mouse_items():
                 connect_url_list2.append(i[3])
                 connect_url_list2.append(i[4])
                 connect_url_list.append(connect_url_list2)
-                cart_items=obj.cart_items_count()
-            return render_template("mouse_page.html",cart_items=cart_items,sensor_list=sensor_list,dpi_list=dpi_list,connectivity_list=connectivity_list,product_brand=product_brand,name=name,length=len(connect_url_list),url_list=connect_url_list,total_page=sort[2],page=page)
+            return render_template("mouse_page.html",admin_check=admin_check,cart_items=cart_items,sensor_list=sensor_list,dpi_list=dpi_list,connectivity_list=connectivity_list,product_brand=product_brand,name=name,length=len(connect_url_list),url_list=connect_url_list,total_page=sort[2],page=page)
         if dpi:
             dpi_url_list=[]
             sort=obj3.mouse_sorting(dpi,page)
@@ -834,8 +814,7 @@ def mouse_items():
                 dpi_url_list2.append(i[3])
                 dpi_url_list2.append(i[4])
                 dpi_url_list.append(dpi_url_list2)
-                cart_items=obj.cart_items_count()
-            return render_template("mouse_page.html",cart_items=cart_items,sensor_list=sensor_list,dpi_list=dpi_list,connectivity_list=connectivity_list,product_brand=product_brand,name=name,length=len(dpi_url_list),url_list=dpi_url_list,total_page=sort[2],page=page)
+            return render_template("mouse_page.html",admin_check=admin_check,cart_items=cart_items,sensor_list=sensor_list,dpi_list=dpi_list,connectivity_list=connectivity_list,product_brand=product_brand,name=name,length=len(dpi_url_list),url_list=dpi_url_list,total_page=sort[2],page=page)
         if sensor:
             sensor_url_list=[]
             sort=obj3.mouse_sorting(sensor,page)
@@ -848,8 +827,7 @@ def mouse_items():
                 sensor_url_list2.append(i[3])
                 sensor_url_list2.append(i[4])
                 sensor_url_list.append(sensor_url_list2)
-                cart_items=obj.cart_items_count()
-            return render_template("mouse_page.html",cart_items=cart_items,sensor_list=sensor_list,dpi_list=dpi_list,connectivity_list=connectivity_list,product_brand=product_brand,name=name,length=len(sensor_url_list),url_list=sensor_url_list,total_page=sort[2],page=page)
+            return render_template("mouse_page.html",admin_check=admin_check,cart_items=cart_items,sensor_list=sensor_list,dpi_list=dpi_list,connectivity_list=connectivity_list,product_brand=product_brand,name=name,length=len(sensor_url_list),url_list=sensor_url_list,total_page=sort[2],page=page)
         else:
             page=request.args.get('page',1,type=int)
             per_page=6
@@ -857,8 +835,7 @@ def mouse_items():
             end=start+per_page
             total_page=(len(url_list)+per_page-1) // per_page
             item_on_page=url_list[start:end]
-            cart_items=obj.cart_items_count()
-            return render_template("mouse_page.html",cart_items=cart_items,sensor_list=sensor_list,dpi_list=dpi_list,connectivity_list=connectivity_list,product_brand=product_brand,name=name,url_list=item_on_page,length=len(url_list),total_page=total_page,page=page)
+            return render_template("mouse_page.html",admin_check=admin_check,cart_items=cart_items,sensor_list=sensor_list,dpi_list=dpi_list,connectivity_list=connectivity_list,product_brand=product_brand,name=name,url_list=item_on_page,length=len(url_list),total_page=total_page,page=page)
     except Exception as e:
         logger.error(f"error -> {e}")
         logger.debug("Full traceback below:", exc_info=True)
@@ -874,6 +851,8 @@ def speaker_items():
         obj=UserDb()
         obj2=Image_upload()
         obj3=Login()
+        admin_check=obj.admin_check(name)
+        cart_items=obj.cart_items_count(name)
         image=obj.speaker_page_items()
         url_list=[]
         for i in image:
@@ -926,8 +905,7 @@ def speaker_items():
                 search_url_list2.append(i[3])
                 search_url_list2.append(i[4])
                 search_url_list.append(search_url_list2)
-                cart_items=obj.cart_items_count()
-            return render_template("speaker_page.html",cart_items=cart_items,bass_list=bass_list,connectivity_list=connectivity_list,product_brand=product_brand,name=name,length=len(search_url_list),url_list=search_url_list,total_page=search[2],page=page)
+            return render_template("speaker_page.html",admin_check=admin_check,cart_items=cart_items,bass_list=bass_list,connectivity_list=connectivity_list,product_brand=product_brand,name=name,length=len(search_url_list),url_list=search_url_list,total_page=search[2],page=page)
         if brand:
             brand_url_list=[]
             sort=obj3.speaker_brand_sort(brand,page)
@@ -940,8 +918,7 @@ def speaker_items():
                 brand_url_list2.append(i[3])
                 brand_url_list2.append(i[4])
                 brand_url_list.append(brand_url_list2)
-                cart_items=obj.cart_items_count()
-            return render_template("speaker_page.html",cart_items=cart_items,bass_list=bass_list,connectivity_list=connectivity_list,product_brand=product_brand,name=name,length=len(brand_url_list),url_list=brand_url_list,total_page=sort[2],page=page)
+            return render_template("speaker_page.html",admin_check=admin_check,cart_items=cart_items,bass_list=bass_list,connectivity_list=connectivity_list,product_brand=product_brand,name=name,length=len(brand_url_list),url_list=brand_url_list,total_page=sort[2],page=page)
         if price:
             price_url_list=[]
             sort=obj3.speaker_price_sort(price,page)
@@ -954,8 +931,7 @@ def speaker_items():
                 price_url_list2.append(i[3])
                 price_url_list2.append(i[4])
                 price_url_list.append(price_url_list2)
-                cart_items=obj.cart_items_count()
-            return render_template("speaker_page.html",cart_items=cart_items,bass_list=bass_list,connectivity_list=connectivity_list,product_brand=product_brand,name=name,length=len(price_url_list),url_list=price_url_list,total_page=sort[2],page=page)
+            return render_template("speaker_page.html",admin_check=admin_check,cart_items=cart_items,bass_list=bass_list,connectivity_list=connectivity_list,product_brand=product_brand,name=name,length=len(price_url_list),url_list=price_url_list,total_page=sort[2],page=page)
         if connectivity:
             connect_url_list=[]
             sort=obj3.speaker_sorting(connectivity,page)
@@ -968,8 +944,7 @@ def speaker_items():
                 connect_url_list2.append(i[3])
                 connect_url_list2.append(i[4])
                 connect_url_list.append(connect_url_list2)
-                cart_items=obj.cart_items_count()
-            return render_template("speaker_page.html",cart_items=cart_items,bass_list=bass_list,connectivity_list=connectivity_list,product_brand=product_brand,name=name,length=len(connect_url_list),url_list=connect_url_list,total_page=sort[2],page=page)
+            return render_template("speaker_page.html",admin_check=admin_check,cart_items=cart_items,bass_list=bass_list,connectivity_list=connectivity_list,product_brand=product_brand,name=name,length=len(connect_url_list),url_list=connect_url_list,total_page=sort[2],page=page)
         if bass:
             bass_url_list=[]
             sort=obj3.speaker_sorting(bass,page)
@@ -982,8 +957,7 @@ def speaker_items():
                 bass_url_list2.append(i[3])
                 bass_url_list2.append(i[4])
                 bass_url_list.append(bass_url_list2)
-                cart_items=obj.cart_items_count()
-            return render_template("speaker_page.html",cart_items=cart_items,bass_list=bass_list,connectivity_list=connectivity_list,product_brand=product_brand,name=name,length=len(bass_url_list),url_list=bass_url_list,total_page=sort[2],page=page)
+            return render_template("speaker_page.html",admin_check=admin_check,cart_items=cart_items,bass_list=bass_list,connectivity_list=connectivity_list,product_brand=product_brand,name=name,length=len(bass_url_list),url_list=bass_url_list,total_page=sort[2],page=page)
         else:
             page=request.args.get('page',1,type=int)
             per_page=6
@@ -991,8 +965,7 @@ def speaker_items():
             end=start+per_page
             total_page=(len(url_list)+per_page-1) // per_page
             item_on_page=url_list[start:end]
-            cart_items=obj.cart_items_count()
-            return render_template("speaker_page.html",cart_items=cart_items,bass_list=bass_list,connectivity_list=connectivity_list,product_brand=product_brand,name=name,url_list=item_on_page,length=len(url_list),total_page=total_page,page=page)
+            return render_template("speaker_page.html",admin_check=admin_check,cart_items=cart_items,bass_list=bass_list,connectivity_list=connectivity_list,product_brand=product_brand,name=name,url_list=item_on_page,length=len(url_list),total_page=total_page,page=page)
     except Exception as e:
         logger.error(f"error -> {e}")
         logger.debug("Full traceback below:", exc_info=True)
@@ -1008,11 +981,12 @@ def show_item_user(product_id):
             name=session.get('name')
             obj=UserDb()
             obj2=Image_upload()
+            admin_check=obj.admin_check(name)
             store=obj.fetch_product_user(product_id)
-            cart_items=obj.cart_items_count()
+            cart_items=obj.cart_items_count(name)
             for i in store:
                 url=obj2.display_from_s3(i[5])
-            return render_template("show_product_user.html",cart_items=cart_items,name=name,url=url,product_id=product_id,product_brand=store[0][0],product_name=store[0][1],description=store[0][2],features=store[0][3],price=store[0][4])
+            return render_template("show_product_user.html",admin_check=admin_check,cart_items=cart_items,name=name,url=url,product_id=product_id,product_brand=store[0][0],product_name=store[0][1],description=store[0][2],features=store[0][3],price=store[0][4])
     except Exception as e:
         logger.error(f"error -> {e}")
         logger.debug("Full traceback below:", exc_info=True)
@@ -1064,7 +1038,8 @@ def cart_items():
             obj=UserDb()
             obj2=Image_upload()
             name=session.get('name')
-            cart_items=obj.cart_items_count()
+            admin_check=obj.admin_check(name)
+            cart_items=obj.cart_items_count(name)
             get_cart=obj.get_cart(name)
             total=0
             for i in get_cart:
@@ -1086,7 +1061,7 @@ def cart_items():
             prod_id=[]
             for i in url_list:
                 prod_id.append(i[2])
-            return render_template("cart.html",cart_items=cart_items,prod_id=prod_id,name=name,url_list=url_list,total=total,count=count)
+            return render_template("cart.html",admin_check=admin_check,cart_items=cart_items,prod_id=prod_id,name=name,url_list=url_list,total=total,count=count)
     except Exception as e:
         logger.error(f"error -> {e}")
         logger.debug("Full traceback below:", exc_info=True)
@@ -1117,13 +1092,21 @@ def payment_method():
             obj=UserDb()
             total=request.args.get('total')
             name=session.get('name')
+            admin_check=obj.admin_check(name)
             count=obj.cart_count(name)
             cart_prod=obj.cart_product_id(name)
+            country_code_list = []
+            for code, regions in COUNTRY_CODE_TO_REGION_CODE.items():
+                for region in regions:
+                    country_code_list.append((region, code))
+                    break
+            country_code_list.sort()
             for i in cart_prod:
                 obj.insert_in_check_out(i[1],name)
                 cart_quantity=obj.cart_quantity(i[1])
                 obj.check_out_update_quantity(cart_quantity,i[1])
-            return render_template("payment_method_page.html",name=name,total=total,count=count)
+            stored_address=obj.address_fetch(name)
+            return render_template("payment_method_page.html",stored_address=stored_address,admin_check=admin_check,name=name,total=total,count=count,country_codes=country_code_list)
     except Exception as e:
         logger.error(f"error -> {e}")
         logger.debug("Full traceback below:", exc_info=True)
@@ -1135,33 +1118,101 @@ def payment_confirm():
         if not session.get('logged_in') and not session.get('admin_logged'):
             return redirect(url_for('login.index'))
         else:
+            country_code_list = []
+            for code, regions in COUNTRY_CODE_TO_REGION_CODE.items():
+                for region in regions:
+                    country_code_list.append((region, code))
+                    break
+            country_code_list.sort()
             if request.method == "POST":
                 obj=UserDb()
                 name=session.get('name')
                 customer_name=request.form.get('customer_name')
                 address=request.form.get('address')
+                stored_address=request.form.get('stored_address')
+                landmark=request.form.get('landmark')
+                country_code = request.form.get("country_code")
                 customer_number=request.form.get('customer_number')
                 payment_method=request.form.get('payment_method')
+                instruction=request.form.get('instruction')
                 dateandtime=datetime.now(ZoneInfo("Asia/Kolkata"))
-                date_time=dateandtime.strftime("%d-%m-%Y, %H:%M:%S")
-                card_name=request.form.get('card_name')
-                card_number=request.form.get('card_number')
-                obj.card_details(card_name,card_number)
-                obj.check_out_update(customer_name,address,customer_number,payment_method,date_time,name)
-                obj.check_out_payment_update(name)
-                obj.update_cart_status(name)
-                check_out_details=obj.check_out_details()
-                for i in check_out_details:
-                    order_id=i[0]
-                    customer_name=i[2]
-                    user_name=i[9]
-                obj.add_delivery_details(order_id,customer_name,user_name)
-                return redirect(url_for('home.order_tracking'))
+                save_address=request.form.get('save_address')
+                if save_address == 'home':
+                    obj.save_home_address(address,name)
+                if save_address == 'work':
+                    obj.save_work_address(address,name)
+                date_time=dateandtime.strftime("%d-%m-%Y, %H:%M")
+                full_number = country_code + customer_number
+                if not address and not stored_address:
+                    print("NO ADDRESS")
+                    flash("Enter or Select An Address", "error")
+                    return redirect(url_for('home.payment_method'))
+                else:
+                    pass
+                final_address= address or stored_address
+                obj.check_out_update(customer_name,final_address,full_number,payment_method,date_time,name,landmark,instruction)
+                if payment_method == "cod":
+                    obj.check_out_payment_update(name)
+                    obj.update_cart_status(name)
+                    check_out_details=obj.check_out_details(name)
+                    for i in check_out_details:
+                        order_id=i[0]
+                        customer_name=i[2]
+                        user_name=i[9]
+                        obj.add_delivery_details(order_id,customer_name,user_name)
+                        obj.recent_update(order_id)
+                    return redirect(url_for('home.order_tracking'))
+                else:
+                    return redirect(url_for('home.card_pay_page'))
     except Exception as e:
         logger.error(f"error -> {e}")
         logger.debug("Full traceback below:", exc_info=True)
         return f"error ->{e}"
         # return redirect(url_for('home_page'))
+
+@home.route('/card_pay_page')
+def card_pay_page():
+    try:
+        if not session.get('logged_in') and not session.get('admin_logged'):
+            return redirect(url_for('login.index'))
+        else:
+            name=session.get('name')
+            return render_template("card_details.html",name=name)
+    except Exception as e:
+        logger.error(f"error -> {e}")
+        logger.debug("Full traceback below:", exc_info=True)
+        return f"error ->{e}"
+
+@home.route('/card_payment',methods=["POST"])
+def card_payment():
+    try:
+        if not session.get('logged_in') and not session.get('admin_logged'):
+            return redirect(url_for('login.index'))
+        else:
+            if request.method == "POST":
+                obj=UserDb()
+                obj2=Login()
+                name=session.get('name')
+                card_number=request.form.get('card_number')
+                card_name=request.form.get('card_name')
+                expiry_date=request.form.get('expiry_date')
+                cvv=request.form.get('cvv')
+                cvv_hash=obj2.cvv_hash(cvv)
+                obj.card_details(name,card_number,card_name,expiry_date,cvv_hash)
+                obj.check_out_payment_update(name)
+                obj.update_cart_status(name)
+                check_out_details=obj.check_out_details(name)
+                for i in check_out_details:
+                    order_id=i[0]
+                    customer_name=i[2]
+                    user_name=i[9]
+                    obj.add_delivery_details(order_id,customer_name,user_name)
+                    obj.recent_update(order_id)
+                return redirect(url_for('home.order_tracking'))
+    except Exception as e:
+        logger.error(f"error -> {e}")
+        logger.debug("Full traceback below:", exc_info=True)
+        return f"error ->{e}"
 
 @home.route('/order_tracking')
 def order_tracking():
@@ -1173,7 +1224,8 @@ def order_tracking():
             obj2=Login()
             obj3=Image_upload()
             name=session.get('name')
-            cart_items=obj.cart_items_count()
+            admin_check=obj.admin_check(name)
+            cart_items=obj.cart_items_count(name)
             # delivery=obj.get_delivery_details()
             # for i in delivery:
             order_product_category=obj.join_delivery_product_category(name)
@@ -1183,13 +1235,15 @@ def order_tracking():
                 image=obj3.display_single_from_s3(i[5])
                 rd_list.append(image)
                 key=i[6].split(",")[0].strip()
-                remaining_days=obj2.delivery_days(i[2],key)
+                remaining_days=obj2.delivery_days(i[2],key,i[0])
+                delivery_date=obj2.delivery_date(i[2],key,i[0])
+                obj.delivery_date_update(delivery_date,i[0])
                 rd_list.append(remaining_days)
                 rd_list.append(i[1])
                 rd_list.append(i[3])
                 rd_list.append(i[4])
                 url_list.append(rd_list)
-            return render_template("delivery_page.html",cart_items=cart_items,name=name,url_list=url_list)
+            return render_template("delivery_page.html",admin_check=admin_check,cart_items=cart_items,name=name,url_list=url_list)
     except Exception as e:
         logger.error(f"error -> {e}")
         logger.debug("Full traceback below:", exc_info=True)

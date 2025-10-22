@@ -3,8 +3,8 @@
                 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
                 <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+		 <link rel="stylesheet" href="{{ url_for('static', filename='payment_method_page.css') }}">
 </head>
-<body>
 <body>
         <nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom border-dark">
                 <div class="container-fluid">
@@ -28,6 +28,9 @@
                                  <div class="nav-item dropdown">
                                         <button class="nav-link dropdown-toggle fs-5 fw-semibold me-3" data-bs-toggle="dropdown" aria-expanded="false">Hello {{ name }}</button>
                                         <ul class="dropdown-menu dropdown-menu-end">
+                                        {%if admin_check%}
+                                        <li><a class="dropdown-item" href="{{url_for('admin.hello_admin')}}">Customer Table</a></li>
+                                        {%endif%}
                                         <li><a class="dropdown-item" href="#">Switch User</a></li>
                                         <li><a class="dropdown-item" href="{{ url_for('login.logout') }}">Logout</a></li>
                                         </ul>
@@ -39,52 +42,104 @@
         </nav>
 	<center>
 	<h3>CHECK OUT</h3>
+                {% with messages = get_flashed_messages(with_categories=True) %}
+                {% if messages %}
+                {% for category,message in messages %}
+                {% if category == 'danger' %}
+                <p style="color:red;">{{ message }}</p>
+		{% endif %}
+		{%endfor%}
+		{%endif%}
+		{%endwith%}
 	</center>
-	<form action="{{ url_for('home.payment_confirm') }}" method="POST">
+	<form class="row g-3 needs-validation" novalidate action="{{ url_for('home.payment_confirm') }}" method="POST">
 	<div class="mt-5" style="width:500px;margin-left:35%;">
 	<div class="mb-3">
 	        <h5>Items On Cart : {{count}}</h5>
 	        <h5>Order Total : {{total}}</h5>
 	</div>
-	<div class="mb-3">
-		<label class="form-label">Name</label>
-		<input type="text" class="form-control" name="customer_name" style="width:500px;">
+        <div class="col-md-4">
+                <label class="form-label">Name</label>
+                <input type="text" class="form-control" name="customer_name" style="width:500px;"required>
         </div>
-        
-	<div class="mb-3">
+
+	<div class="col" style="width:500px;">
 		<label class="form-label">Address</label>
 		<textarea class="form-control description" name="address" style="width:500px;"></textarea>
-        </div>
-        
-	<div class="mb-3">
-		<label class="form-label">Phone Number</label>
-		<input type="text" class="form-control" name="customer_number" style="width:500px;">
-        </div>
-	
-	<div class="mb-3">
-	        <label class="form-label">Payment Method</label>
-                <select class="form-select" aria-label="Default select example" name="payment_method" style="width:500px;">
-                        <option selected hidden>Select Payment Method</option>
-			        <option value="card">Card</option>
-				<option value="cod">Cash On Delivery</option>
-                </select>
-        </div>
-		<details>
-		    <summary>Enter Card Details</summary>
-		    <div class="mb-3">
-			<label class="form-label">Name</label>
-			<input type="text" class="form-control" name="card_name" style="width:500px;">
-		    </div>
-		    <div class="mb-3">
-			<label class="form-label">Card Number</label>
-			<input type="text" class="form-control" name="card_number" style="width:500px;">
-		    </div>
-		</details>
+                <div class="form-check form-check-inline">
+			<input class="form-check-input" type="radio" id="checkhome" name="save_address" value = "home">
+			<label class="form-check-label" for="checkhome" style="color:black">Home</label>
+                </div>
+                <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" id="checkwork" name="save_address" value = "work">
+                        <label class="form-check-label" for="checkwork" style="color:black">Work </label>
+                </div>
+		<div>
+		<label class="form-label">Stored address</label>
+		<select class="form-select" aria-label="Default select example" name="stored_address">
+                        <option selected></option>
+		{%for i in stored_address%}
+                                <option value="{{i}}">{{i}}</option>
+		{%endfor%}
+		</select>
+		</div>
 	</div>
+
+	<div class="col-md-4">
+	        <label class="form-label">Landmark</label>
+		<textarea class="form-control description" name="landmark" style="width:500px;"></textarea>
+        </div>
+
+	<div class="col-md-4">
+		<label class="form-label">Phone Number</label>
+		<div class="phone_container" style="display:flex;gap:10px;width:700px;">
+				<select name="country_code" class="form-select country_code_dropdown" style="width:150px">
+					{% for region, code in country_codes %}
+					<option value="+{{ code }}">+{{ code }} ({{ region }})</option>
+					{% endfor %}
+				</select>
+			<input type="text" class="form-control phone_input" name="customer_number" pattern="^[0-9]{10}$" style="width:330px;" required>
+		</div>
+        </div>
+
+        <div class="col-md-4">
+                <label class="form-label">Payment Method</label>
+                <select class="form-select" name="payment_method" style="width:500px;"required>
+                        <option selected hidden value="">Select Payment Method</option>
+                                <option value="card">Card</option>
+			        <option value="cod">Cash On Delivery</option>
+		</select>
+	</div>
+
+	<div class="col-md-4">
+		<label class="form-label">Delivery Instruction</label>
+		<textarea class="form-control description" name="instruction" style="width:500px;"></textarea>
+	</div>
+
 	<center>
 	<div class="mb-3">
-	        <input type="submit" class="btn btn-primary" value="Submit">
+	        <input type="submit" class="btn btn-primary my-2" value="Submit">
 	</center>
 	</div>
         </form>
+	<script>
+		(() => {
+		  'use strict'
+
+		  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+		  const forms = document.querySelectorAll('.needs-validation')
+
+		  // Loop over them and prevent submission
+		  Array.from(forms).forEach(form => {
+		    form.addEventListener('submit', event => {
+		      if (!form.checkValidity()) {
+			event.preventDefault()
+			event.stopPropagation()
+		      }
+
+		      form.classList.add('was-validated')
+		    }, false)
+		  })
+		})()
+	</script>
 </body>

@@ -284,13 +284,24 @@ class Login:
     def cpu_brand_sort(self,sort,page):
         try:
             obj=UserDb()
-            brandsort=obj.cpu_brand_sort(sort)
-            per_page=6
-            start=(page -1) * per_page
-            end=start+per_page
-            total_page=(len(brandsort)+per_page-1) // per_page
-            item_on_page=brandsort[start:end]
-            return [len(brandsort),item_on_page,total_page]
+            set_sort=tuple(sort)
+            if len(set_sort)== 1:
+                set_sort2=f"('{set_sort[0]}')"
+                brandsort=obj.cpu_brand_sort(set_sort2)
+                per_page=6
+                start=(page -1) * per_page
+                end=start+per_page
+                total_page=(len(brandsort)+per_page-1) // per_page
+                item_on_page=brandsort[start:end]
+                return [len(brandsort),item_on_page,total_page]
+            else:
+                brandsort=obj.cpu_brand_sort(set_sort)
+                per_page=6
+                start=(page -1) * per_page
+                end=start+per_page
+                total_page=(len(brandsort)+per_page-1) // per_page
+                item_on_page=brandsort[start:end]
+                return [len(brandsort),item_on_page,total_page]
         except Exception as e:
             print(f"Error -> {e}")
 
@@ -494,7 +505,8 @@ class Login:
     def cpu_motherboard_sort(self,sort,page):
         try:
             obj=UserDb()
-            mb_sort=obj.cpu_motherboard_sort(sort)
+            set_sort=tuple(sort)
+            mb_sort=obj.cpu_motherboard_sort(set_sort)
             per_page=6
             start=(page -1) * per_page
             end=start+per_page
@@ -706,8 +718,9 @@ class Login:
         except Exception as e:
             print(f"Error -> {e}")
 
-    def delivery_days(self,category_id,key):
+    def delivery_days(self,category_id,key,order_id):
         try:
+            obj=UserDb()
             order_date = datetime.strptime(key, "%d-%m-%Y").date()
             if category_id==1:
                 delivery_days=4
@@ -725,7 +738,44 @@ class Login:
             today = date.today()
             days_passed = (today - order_date).days
             remaining_days = delivery_days - days_passed
-            return remaining_days
+            if remaining_days==0:
+                obj.delivery_status_update(order_id)
+                return remaining_days
+            else:
+                return remaining_days
+        except Exception as e:
+            print(f"Error -> {e}")
+
+    def delivery_date(self,category_id,key,order_id):
+        try:
+            obj=UserDb()
+            order_date = datetime.strptime(key, "%d-%m-%Y").date()
+            if category_id==1:
+                delivery_days=4
+            if category_id==2:
+                delivery_days=2
+            if category_id==3:
+                delivery_days=2
+            if category_id==4:
+                delivery_days=3
+            if category_id==5:
+                delivery_days=1
+            if category_id==6:
+                delivery_days=3
+
+            delivery_date = order_date + timedelta(days=delivery_days)
+            return delivery_date
+        except Exception as e:
+            print(f"Error -> {e}")
+
+    def cvv_hash(self,cvv):
+        try:
+            cvv_pattern=r'^[0-9]{3,4}$'
+            if re.search(cvv_pattern,cvv):
+                hashed=bcrypt.hashpw(cvv.encode('utf-8'), bcrypt.gensalt()).decode('utf-8')
+                return hashed
+            else:
+                return None
         except Exception as e:
             print(f"Error -> {e}")
 
@@ -782,9 +832,8 @@ class Image_upload:
         except Exception as e:
             logger.error(f"Error generating presigned GET URL: {e}")
             return None
-
 # obj2=Image_upload()
 # obj2.bucket_save_image(['monitor1.jpg', 'monitor2.jpg', 'keyboard2.jpg', 'keyboard3.jpg'],'1')
-
+# obj2.date()
 # obj=Login()
-# obj.delivery_days(2,"20-08-2025")
+# obj.cpu_brand_sort('Montech',1)

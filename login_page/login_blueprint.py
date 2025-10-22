@@ -33,7 +33,7 @@ app.config.update(
         MAIL_USERNAME =config['Mail_details']['mail_id'],
         MAIL_PASSWORD =config['Mail_details']['mail_pass']
         )
-mailID= Mail(app)
+mail= Mail(app)
 serial=URLSafeTimedSerializer(config['Secret_key']['key'])
 
 app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(minutes=10)
@@ -73,9 +73,10 @@ def sign_up_page_index():
             confirm_password = request.form.get("confirm_password")
             number = request.form.get("number")
             country_code = request.form.get("country_code")
-            mail = request.form.get("mail")
+            user_mail = request.form.get("mail")
+            print(f'user mail print ->{mail}')
             full_number = country_code + number
-            check = obj.get_all_details(name, password, confirm_password, full_number, mail)
+            check = obj.get_all_details(name, password, confirm_password, full_number, user_mail)
             if "Username already exist" in check:
                 user_error = 'Username already exists. Try using a different username.'
                 logger.warning("Username already exists. Try using a different username.")
@@ -105,12 +106,14 @@ def sign_up_page_index():
                 logger.warning("Mail id already exists")
                 return render_template("bootstrap_sign_up.html", mail_error2=mail_error2, country_codes=country_code_list)
             if "Inserted into DB" in check:
-                token = serial.dumps(mail, salt=config['URL_salt']['salt'])
-                msg = Message('Confirm Mail', sender=config['Mail_details']['mail_id'], recipients=[mail])
-                link = url_for('confirm_mail', token=token, _external=True)
+                token = serial.dumps(user_mail, salt=config['URL_salt']['salt'])
+                msg = Message('Confirm Mail', sender=config['Mail_details']['mail_id'], recipients=[user_mail])
+                link = url_for('login.confirm_mail', token=token, _external=True)
                 msg.html = render_template("welcome_mail.html",name=name,link=link)
-                mailID.send(msg)
-                mail_send = f"Confirmation mail has been sent to {mail}.\nThe link will expire in 5 minutes"
+                print(f"message.html -> {msg.html}")
+                print(f"mail -> {mail}")
+                mail.send(msg)
+                mail_send = f"Confirmation mail has been sent to {user_mail}.\nThe link will expire in 5 minutes"
                 return render_template("bootstrap_login.html", mail_send=mail_send,)
     except Exception as e:
         logger.error(f"error ->{e}")
@@ -119,8 +122,8 @@ def sign_up_page_index():
 
 @login.route('/confirm_mail/<token>')
 def confirm_mail(token):
-    obj=UserDb()
     try:
+        obj=UserDb() 
         email=serial.loads(token, salt=config['URL_salt']['salt'],max_age=600)
     except:
         return '<h1>Token Expired</h1>'
@@ -128,7 +131,7 @@ def confirm_mail(token):
     msg = Message('Mail ID Confirmed', sender=config['Mail_details']['mail_id'], recipients=[email])
     msg.body = f"Hello {name}, your mail ID has been successfully confirmed."
     msg.html = render_template("confirm_mail.html", name=name)
-    mailID.send(msg)
+    mail.send(msg)
     result=obj.confirm_mail(email)
     return '<h1>You can now login to the page</h1>'
 
@@ -182,7 +185,7 @@ def result_store():
             if check_name:
                 check_hash=obj.get_user_by_name(name)
                 if bcrypt.checkpw(password.encode('utf-8'),check_hash.encode('utf-8')):
-                    # session.permanent=True
+                    session.permanent=True
                     session['logged_in']=True
                     session['name']=name
                     admin_check=obj.get_admin_detail(name)

@@ -28,6 +28,9 @@
                                  <div class="nav-item dropdown">
                                         <button class="nav-link dropdown-toggle fs-5 fw-semibold me-3" data-bs-toggle="dropdown" aria-expanded="false">Hello {{ name }}</button>
                                         <ul class="dropdown-menu dropdown-menu-end">
+                                        {%if admin_check%}
+                                        <li><a class="dropdown-item" href="{{url_for('admin.hello_admin')}}">Customer Table</a></li>
+                                        {%endif%}
                                         <li><a class="dropdown-item" href="#">Switch User</a></li>
                                         <li><a class="dropdown-item" href="{{ url_for('login.logout') }}">Logout</a></li>
                                         </ul>

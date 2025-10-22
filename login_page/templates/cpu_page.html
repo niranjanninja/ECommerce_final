@@ -28,6 +28,9 @@
                                  <div class="nav-item dropdown">
                                         <button class="nav-link dropdown-toggle fs-5 fw-semibold me-3" data-bs-toggle="dropdown" aria-expanded="false">Hello {{ name }}</button>
                                         <ul class="dropdown-menu dropdown-menu-end">
+                                        {%if admin_check%}
+                                        <li><a class="dropdown-item" href="{{url_for('admin.hello_admin')}}">Customer Table</a></li>
+                                        {%endif%}
                                         <li><a class="dropdown-item" href="#">Switch User</a></li>
                                         <li><a class="dropdown-item" href="{{ url_for('login.logout') }}">Logout</a></li>
                                         </ul>
@@ -49,10 +52,14 @@
         <li class="nav-item dropdown sort">
             <a class="nav-link active fs-6 dropdown-toggle" aria-current="page" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"style="color:black">Brand</a>
             <ul class="dropdown-menu dropdown-menu-end">
+	    <form action="{{url_for('home.cpu_items')}}" methods="GET"> 
 	    {%for i in product_brand%}
             <li>
-	    <a class="dropdown-item" href="{{url_for('home.cpu_items',brand=i)}}">{{i}}</a></li>
+	    <input class="form-check-input" type="checkbox" name="brand" value="{{ i }}" id="brand_{{i}}">
+            <label class="form-check-label" for="brand_{{i}}">{{ i }}</label></li>
 	    {%endfor%}
+	    <button type="submit" class="btn btn-primary">Apply</button>
+	    </form>
             </ul>
         </li>
 
@@ -67,9 +74,14 @@
         <li class="nav-item dropdown sort">
             <a class="nav-link active fs-6 dropdown-toggle" aria-current="page" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"style="color:black">Motherboard</a>
             <ul class="dropdown-menu dropdown-menu-end">
+	    <form action="{{url_for('home.cpu_items')}}" methods="GET">
 	    {%for i in motherboard_list%}
-            <li><a class="dropdown-item" href="{{url_for('home.cpu_items',motherboard=i)}}">{{i}}</a></li>
+            <li>
+	    <input class="form-check-input" type="checkbox" name="motherboard" value="{{ i }}" id="motherboard_{{i}}">
+	    <label class="form-check-label" for="motherboard_{{i}}">{{ i }}</label></li>
 	    {%endfor%}
+	    <button type="submit" class="btn btn-primary">Apply</button>
+	    </form>
             </ul>
         </li>
 
