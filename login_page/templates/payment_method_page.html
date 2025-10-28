@@ -45,7 +45,7 @@
                 {% with messages = get_flashed_messages(with_categories=True) %}
                 {% if messages %}
                 {% for category,message in messages %}
-                {% if category == 'danger' %}
+                {% if category == 'error' %}
                 <p style="color:red;">{{ message }}</p>
 		{% endif %}
 		{%endfor%}
@@ -86,7 +86,7 @@
 	</div>
 
 	<div class="col-md-4">
-	        <label class="form-label">Landmark</label>
+	        <label class="form-label">Landmark (Optional)</label>
 		<textarea class="form-control description" name="landmark" style="width:500px;"></textarea>
         </div>
 
@@ -112,7 +112,7 @@
 	</div>
 
 	<div class="col-md-4">
-		<label class="form-label">Delivery Instruction</label>
+		<label class="form-label">Delivery Instruction (Optional)</label>
 		<textarea class="form-control description" name="instruction" style="width:500px;"></textarea>
 	</div>
 
@@ -122,6 +122,8 @@
 	</center>
 	</div>
         </form>
+	
+
 	<script>
 		(() => {
 		  'use strict'

@@ -40,85 +40,96 @@
                 </div>
                 </div>
         </nav>
-           <div class="monitor">
-        <p class="fs-4 fw-bold">Category</p>
-        <a href="{{url_for('home.monitor_items')}}">
-        <p class="fs-6 fw-semibold monitormonitor">Monitor</p>
-        </a>
-        </div>
-        <nav class="nav flex-column category">
-        <p class="fs-4 fw-bold">Sort By</p>
+        <div class="container-fluid mt-5 px-5">
+                <div class="row g-1">
+                        <div class="col-2 border-end border-black">
+                                <p class="fs-4 fw-bold">Category</p>
+				<a href="{{url_for('home.monitor_items')}}">
+				<p class="fs-6 fw-semibold monitormonitor">Monitor</p>
+				</a>
+                                
+				<form action="{{url_for('home.monitor_items')}}" method="GET">
+                                <p class="fs-5 fw-bold">Price</p>
+                                        <div class="form check">
+                                                <input class="form-check-input fs-6" type="radio" name="price" value="low_to_high" id="price_l_to_h"
+                                                {%if selected_price=="low_to_high"%}checked{%endif%}>
+                                                <label class="form-check-label fs-6" for="price_l_to_h">Low to High</label>
+                                        </div>
+                                        <div class="form check">
+                                                <input class="form-check-input fs-6" type="radio" name="price" value="high_to_low" id="price_h_to_l"
+                                                {%if selected_price=="high_to_low"%}checked{%endif%}>
+                                                <label class="form-check-label fs-6" for="price_h_to_l">High to Low</label>
+                                        </div>
 
-        <li class="nav-item dropdown">
-            <a class="nav-link active fs-6 dropdown-toggle" aria-current="page" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"style="color:black">Brand</a>
-            <ul class="dropdown-menu dropdown-menu-end">
-            {%for i in product_brand%}
-            <li><a class="dropdown-item" href="{{url_for('home.monitor_items',brand=i)}}">{{i}}</a></li>
-            {%endfor%}
-            </ul>
-        </li>
+                                <p class="fs-5 fw-bold">Brand</p>
+                                        {%for i in product_brand%}
+                                        <div class="form check">
+                                                <input class="form-check-input fs-6" type="checkbox" name="filter" value="{{ i }}" id="brand_{{i}}"
+                                                {%if i in selected_filter%}checked{%endif%}>
+                                                <label class="form-check-label fs-6" for="brand_{{i}}">{{ i }}</label>
+                                        </div>
+                                        {%endfor%}
 
-        <li class="nav-item dropdown">
-            <a class="nav-link active fs-6 dropdown-toggle" aria-current="page" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"style="color:black">Price</a>
-            <ul class="dropdown-menu dropdown-menu-end">
-            <li><a class="dropdown-item" href="{{url_for('home.monitor_items',price='low_to_high')}}">Low To High</a></li>
-            <li><a class="dropdown-item" href="{{url_for('home.monitor_items',price='high_to_low')}}">High To Low</a></li>
-            </ul>
-        </li>
 
-        <li class="nav-item dropdown">
-            <a class="nav-link active fs-6 dropdown-toggle" aria-current="page" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"style="color:black">Resolution</a>
-            <ul class="dropdown-menu dropdown-menu-end">
-	    {%for i in resolution_list%}
-            <li><a class="dropdown-item" href="{{url_for('home.monitor_items',resolution=i)}}">{{i}}</a></li>
-	    {%endfor%}
-            </ul>
-        </li>
+                                <p class="fs-5 fw-bold">Resolution</p>
+                                        {%for i in resolution_list%}
+                                        <div class="form check">
+                                                <input class="form-check-input fs-6" type="checkbox" name="filter" value="{{ i }}" id="resolution_{{i}}"
+                                                {%if i in selected_filter%}checked{%endif%}>
+                                                <label class="form-check-label fs-6" for="resolution_{{i}}">{{ i }}</label>
+                                        </div>
+                                        {%endfor%}
 
-        <li class="nav-item dropdown">
-            <a class="nav-link active fs-6 dropdown-toggle" aria-current="page" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"style="color:black">Panel Type</a>
-            <ul class="dropdown-menu dropdown-menu-end">
-	    {%for i in panel_list%}
-            <li><a class="dropdown-item" href="{{url_for('home.monitor_items',panel=i)}}">{{i}}</a></li>
-	    {%endfor%}
-            </ul>
-        </li>
+                                <p class="fs-5 fw-bold">Panel Type</p>
+                                        {%for i in panel_list%}
+                                        <div class="form check">
+                                                <input class="form-check-input fs-6" type="checkbox" name="filter" value="{{ i }}" id="panel_{{i}}"
+                                                {%if i in selected_filter%}checked{%endif%}>
+                                                <label class="form-check-label fs-6" for="panel_{{i}}">{{ i }}</label>
+                                        </div>
+                                        {%endfor%}
 
-        <li class="nav-item dropdown">
-            <a class="nav-link active fs-6 dropdown-toggle" aria-current="page" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"style="color:black">Refresh Rate</a>
-            <ul class="dropdown-menu dropdown-menu-end">
-	    {%for i in refresh_rate_list%}
-            <li><a class="dropdown-item" href="{{url_for('home.monitor_items',refresh_rate=i)}}">{{i}}</a></li>
-	    {%endfor%}
-            </ul>
-        </li>
- 
-        <li class="nav-item dropdown">
-            <a class="nav-link active fs-6 dropdown-toggle" aria-current="page" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"style="color:black">Connectivity</a>
-            <ul class="dropdown-menu dropdown-menu-end">
-	    {%for i in connectivity_list%}
-            <li><a class="dropdown-item" href="{{url_for('home.monitor_items',connectivity=i)}}">{{i}}</a></li>
-	    {%endfor%}
-            </ul>
-        </li>
-       </nav>
-        <div class="line"></div>
+                                <p class="fs-5 fw-bold">Refresh Rate</p>
+                                        {%for i in refresh_rate_list%}
+                                        <div class="form check">
+                                                <input class="form-check-input fs-6" type="checkbox" name="filter" value="{{ i }}" id="refresh_rate_{{i}}"
+                                                {%if i in selected_filter%}checked{%endif%}>
+                                                <label class="form-check-label fs-6" for="refresh_rate_{{i}}">{{ i }}</label>
+                                        </div>
+                                        {%endfor%}
 
-        <div class="container">
-        <div class="row g-3">
-        {%for i in url_list%}
-                <div class="col-md-4">
-                                <a href="{{url_for('home.show_item_user',product_id=i[4])}}">
-                                <img src="{{i[0]}}" class="row g-3 figure-img img-fluid rounded" style="width:300px;height:300px;border: 1px solid black" alt="image">
-                                        <figcaption class="figure-caption">
-                                        <p class="fs-6 fw-bold">Brand : {{i[1]}}</p>
-                                        <p class="fs-6 fw-semibold">{{i[2]}}</p>
-                                        <p class="fs-6 fw-semibold bi bi-currency-rupee">{{i[3]}}</p>
-                                </figcaption></a>
+
+                                <p class="fs-5 fw-bold">Connectivity</p>
+                                        {%for i in connectivity_list%}
+                                        <div class="form check">
+                                                <input class="form-check-input fs-6" type="checkbox" name="filter" value="{{ i }}" id="connectivity_{{i}}"
+                                                {%if i in selected_filter%}checked{%endif%}>
+                                                <label class="form-check-label fs-6" for="connectivity_{{i}}">{{ i }}</label>
+                                        </div>
+                                        {%endfor%}
+
+                                        <button type="submit" class="btn btn-primary">Apply</button>
+                                </form>
+                        </div>
+
+
+
+                        <div class="col-10">
+                        {%for i in url_list%}
+                                <figure class="figure ms-3 d-flex">
+                                                <a href="{{url_for('home.show_item_user',product_id=i[4])}}">
+                                                <img src="{{i[0]}}" class="row g-3 figure-img img-fluid rounded" style="width:300px;height:300px;border: 1px solid black" alt="image"></a>
+                                                <figcaption class="figure-caption">
+                                                <p class="fs-6 fw-bold">Brand : {{i[1]}} | Model : {{i[2]}} | {{i[5]}}</p>
+                                                <p class="fs-6 fw-semibold bi bi-currency-rupee">{{i[3]}}</p>
+                                                </figcaption>
+                                </figure>
+                        {%endfor%}
+                        </div>
                 </div>
-        {%endfor%}
         </div>
-
+ 
+        <center>
         <div class="page">
         {% if page > 1 %}
         <a href="{{url_for('home.monitor_items',page=page-1,sort=request.args.get('sort'))}}">Previous</a>
@@ -129,4 +140,5 @@
         {% endif %}
         </div>
         </div>
+	</center>
 </body>

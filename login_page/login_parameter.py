@@ -281,30 +281,6 @@ class Login:
         except Exception as e:
             print(f"Error -> {e}")
 
-    def cpu_brand_sort(self,sort,page):
-        try:
-            obj=UserDb()
-            set_sort=tuple(sort)
-            if len(set_sort)== 1:
-                set_sort2=f"('{set_sort[0]}')"
-                brandsort=obj.cpu_brand_sort(set_sort2)
-                per_page=6
-                start=(page -1) * per_page
-                end=start+per_page
-                total_page=(len(brandsort)+per_page-1) // per_page
-                item_on_page=brandsort[start:end]
-                return [len(brandsort),item_on_page,total_page]
-            else:
-                brandsort=obj.cpu_brand_sort(set_sort)
-                per_page=6
-                start=(page -1) * per_page
-                end=start+per_page
-                total_page=(len(brandsort)+per_page-1) // per_page
-                item_on_page=brandsort[start:end]
-                return [len(brandsort),item_on_page,total_page]
-        except Exception as e:
-            print(f"Error -> {e}")
-
     def headphone_brand_sort(self,sort,page):
         try:
             obj=UserDb()
@@ -370,19 +346,19 @@ class Login:
         except Exception as e:
             print(f"Error -> {e}")
 
-    def cpu_price_sort(self,sort,page):
+    def cpu_price_sort(self,price,page):
         try:
             obj=UserDb()
-            if sort=="low_to_high":
-                asc_price=obj.cpu_price_asc(sort)
+            if price=="low_to_high":
+                asc_price=obj.cpu_price_asc()
                 per_page=6
                 start=(page -1) * per_page
                 end=start+per_page
                 total_page=(len(asc_price)+per_page-1) // per_page
                 item_on_page=asc_price[start:end]
                 return [len(asc_price),item_on_page,total_page]
-            if sort=="high_to_low":
-                desc_price=obj.cpu_price_desc(sort)
+            if price=="high_to_low":
+                desc_price=obj.cpu_price_desc()
                 per_page=6
                 start=(page -1) * per_page
                 end=start+per_page
@@ -392,130 +368,531 @@ class Login:
         except Exception as e:
             print(f"Error -> {e}")
 
-    def headphone_price_sort(self,sort,page):
+    def headphone_price_sort(self,price,page):
         try:
             obj=UserDb()
-            if sort=="low_to_high":
-                asc_price=obj.headphone_price_asc(sort)
+            if price=="low_to_high":
+                asc_price=obj.headphone_price_asc()
                 per_page=6
                 start=(page -1) * per_page
                 end=start+per_page
                 total_page=(len(asc_price)+per_page-1) // per_page
                 item_on_page=asc_price[start:end]
                 return [len(asc_price),item_on_page,total_page]
-            if sort=="high_to_low":
-                desc_price=obj.headphone_price_desc(sort)
+            if price=="high_to_low":
+                desc_price=obj.headphone_price_desc()
                 per_page=6
                 start=(page -1) * per_page
                 end=start+per_page
                 total_page=(len(desc_price)+per_page-1) // per_page
                 item_on_page=desc_price[start:end]
                 return [len(desc_price),item_on_page,total_page]
-        except Exception as e:
-            print(f"Error -> {e}")
-
-    def keyboard_price_sort(self,sort,page):
-        try:
-            obj=UserDb()
-            if sort=="low_to_high":
-                asc_price=obj.keyboard_price_asc(sort)
-                per_page=6
-                start=(page -1) * per_page
-                end=start+per_page
-                total_page=(len(asc_price)+per_page-1) // per_page
-                item_on_page=asc_price[start:end]
-                return [len(asc_price),item_on_page,total_page]
-            if sort=="high_to_low":
-                desc_price=obj.keyboard_price_desc(sort)
-                per_page=6
-                start=(page -1) * per_page
-                end=start+per_page
-                total_page=(len(desc_price)+per_page-1) // per_page
-                item_on_page=desc_price[start:end]
-                return [len(desc_price),item_on_page,total_page]
-        except Exception as e:
-            print(f"Error -> {e}")
-
-    def monitor_price_sort(self,sort,page):
-        try:
-            obj=UserDb()
-            if sort=="low_to_high":
-                asc_price=obj.monitor_price_asc(sort)
-                per_page=6
-                start=(page -1) * per_page
-                end=start+per_page
-                total_page=(len(asc_price)+per_page-1) // per_page
-                item_on_page=asc_price[start:end]
-                return [len(asc_price),item_on_page,total_page]
-            if sort=="high_to_low":
-                desc_price=obj.monitor_price_desc(sort)
-                per_page=6
-                start=(page -1) * per_page
-                end=start+per_page
-                total_page=(len(desc_price)+per_page-1) // per_page
-                item_on_page=desc_price[start:end]
-                return [len(desc_price),item_on_page,total_page]
-        except Exception as e:
-            print(f"Error -> {e}")
-
-    def mouse_price_sort(self,sort,page):
-        try:
-            obj=UserDb()
-            if sort=="low_to_high":
-                asc_price=obj.mouse_price_asc(sort)
-                per_page=6
-                start=(page -1) * per_page
-                end=start+per_page
-                total_page=(len(asc_price)+per_page-1) // per_page
-                item_on_page=asc_price[start:end]
-                return [len(asc_price),item_on_page,total_page]
-            if sort=="high_to_low":
-                desc_price=obj.mouse_price_desc(sort)
-                per_page=6
-                start=(page -1) * per_page
-                end=start+per_page
-                total_page=(len(desc_price)+per_page-1) // per_page
-                item_on_page=desc_price[start:end]
-                return [len(desc_price),item_on_page,total_page]
-        except Exception as e:
-            print(f"Error -> {e}")
-
-    def speaker_price_sort(self,sort,page):
-        try:
-            obj=UserDb()
-            if sort=="low_to_high":
-                asc_price=obj.speaker_price_asc(sort)
-                per_page=6
-                start=(page -1) * per_page
-                end=start+per_page
-                total_page=(len(asc_price)+per_page-1) // per_page
-                item_on_page=asc_price[start:end]
-                return [len(asc_price),item_on_page,total_page]
-            if sort=="high_to_low":
-                desc_price=obj.speaker_price_desc(sort)
-                per_page=6
-                start=(page -1) * per_page
-                end=start+per_page
-                total_page=(len(desc_price)+per_page-1) // per_page
-                item_on_page=desc_price[start:end]
-                return [len(desc_price),item_on_page,total_page]
-        except Exception as e:
-            print(f"Error -> {e}")
-
-    def cpu_motherboard_sort(self,sort,page):
-        try:
-            obj=UserDb()
-            set_sort=tuple(sort)
-            mb_sort=obj.cpu_motherboard_sort(set_sort)
-            per_page=6
-            start=(page -1) * per_page
-            end=start+per_page
-            total_page=(len(mb_sort)+per_page-1) // per_page
-            item_on_page=mb_sort[start:end]
-            return [len(mb_sort),item_on_page,total_page]
         except Exception as e:
             print(f"Error -> {e}")
     
+    def keyboard_price_sort(self,price,page):
+        try:
+            obj=UserDb()
+            if price=="low_to_high":
+                asc_price=obj.keyboard_price_asc()
+                per_page=6
+                start=(page -1) * per_page
+                end=start+per_page
+                total_page=(len(asc_price)+per_page-1) // per_page
+                item_on_page=asc_price[start:end]
+                return [len(asc_price),item_on_page,total_page]
+            if price=="high_to_low":
+                desc_price=obj.keyboard_price_desc()
+                per_page=6
+                start=(page -1) * per_page
+                end=start+per_page
+                total_page=(len(desc_price)+per_page-1) // per_page
+                item_on_page=desc_price[start:end]
+                return [len(desc_price),item_on_page,total_page]
+        except Exception as e:
+            print(f"Error -> {e}")
+
+    def monitor_price_sort(self,price,page):
+        try:
+            obj=UserDb()
+            if price=="low_to_high":
+                asc_price=obj.monitor_price_asc()
+                per_page=6
+                start=(page -1) * per_page
+                end=start+per_page
+                total_page=(len(asc_price)+per_page-1) // per_page
+                item_on_page=asc_price[start:end]
+                return [len(asc_price),item_on_page,total_page]
+            if price=="high_to_low":
+                desc_price=obj.monitor_price_desc()
+                per_page=6
+                start=(page -1) * per_page
+                end=start+per_page
+                total_page=(len(desc_price)+per_page-1) // per_page
+                item_on_page=desc_price[start:end]
+                return [len(desc_price),item_on_page,total_page]
+        except Exception as e:
+            print(f"Error -> {e}")
+
+    def mouse_price_sort(self,price,page):
+        try:
+            obj=UserDb()
+            if price=="low_to_high":
+                asc_price=obj.mouse_price_asc()
+                per_page=6
+                start=(page -1) * per_page
+                end=start+per_page
+                total_page=(len(asc_price)+per_page-1) // per_page
+                item_on_page=asc_price[start:end]
+                return [len(asc_price),item_on_page,total_page]
+            if price=="high_to_low":
+                desc_price=obj.mouse_price_desc()
+                per_page=6
+                start=(page -1) * per_page
+                end=start+per_page
+                total_page=(len(desc_price)+per_page-1) // per_page
+                item_on_page=desc_price[start:end]
+                return [len(desc_price),item_on_page,total_page]
+        except Exception as e:
+            print(f"Error -> {e}")
+
+    def speaker_price_sort(self,price,page):
+        try:
+            obj=UserDb()
+            if price=="low_to_high":
+                asc_price=obj.speaker_price_asc()
+                per_page=6
+                start=(page -1) * per_page
+                end=start+per_page
+                total_page=(len(asc_price)+per_page-1) // per_page
+                item_on_page=asc_price[start:end]
+                return [len(asc_price),item_on_page,total_page]
+            if price=="high_to_low":
+                desc_price=obj.speaker_price_desc()
+                per_page=6
+                start=(page -1) * per_page
+                end=start+per_page
+                total_page=(len(desc_price)+per_page-1) // per_page
+                item_on_page=desc_price[start:end]
+                return [len(desc_price),item_on_page,total_page]
+        except Exception as e:
+            print(f"Error -> {e}")
+
+    def cpu_low_to_high_sort(self,sorte,page,tuple_filter):
+        try:
+            obj=UserDb()
+            if len(tuple_filter)==1:
+                filter_tuple=f"('{tuple_filter[0]}')"
+                lth_sort=obj.cpu_price_lth_sort(sorte,filter_tuple)
+                per_page=6
+                start=(page -1) * per_page
+                end=start+per_page
+                total_page=(len(lth_sort)+per_page-1) // per_page
+                item_on_page=lth_sort[start:end]
+                return [len(lth_sort),item_on_page,total_page]
+            else:
+                lth_sort=obj.cpu_price_lth_sort(sorte,tuple_filter)
+                per_page=6
+                start=(page -1) * per_page
+                end=start+per_page
+                total_page=(len(lth_sort)+per_page-1) // per_page
+                item_on_page=lth_sort[start:end]
+                return [len(lth_sort),item_on_page,total_page]
+        except Exception as e:
+            print(f"Error -> {e}")
+
+    def headphone_low_to_high_sort(self,sorte,page,tuple_filter):
+        try:
+            obj=UserDb()
+            if len(tuple_filter)==1:
+                filter_tuple=f"('{tuple_filter[0]}')"
+                lth_sort=obj.headphone_price_lth_sort(sorte,filter_tuple)
+                per_page=6
+                start=(page -1) * per_page
+                end=start+per_page
+                total_page=(len(lth_sort)+per_page-1) // per_page
+                item_on_page=lth_sort[start:end]
+                return [len(lth_sort),item_on_page,total_page]
+            else:
+                lth_sort=obj.headphone_price_lth_sort(sorte,tuple_filter)
+                per_page=6
+                start=(page -1) * per_page
+                end=start+per_page
+                total_page=(len(lth_sort)+per_page-1) // per_page
+                item_on_page=lth_sort[start:end]
+                return [len(lth_sort),item_on_page,total_page]
+        except Exception as e:
+            print(f"Error -> {e}")
+
+    def keyboard_low_to_high_sort(self,sorte,page,tuple_filter):
+        try:
+            obj=UserDb()
+            if len(tuple_filter)==1:
+                filter_tuple=f"('{tuple_filter[0]}')"
+                lth_sort=obj.keyboard_price_lth_sort(sorte,filter_tuple)
+                per_page=6
+                start=(page -1) * per_page
+                end=start+per_page
+                total_page=(len(lth_sort)+per_page-1) // per_page
+                item_on_page=lth_sort[start:end]
+                return [len(lth_sort),item_on_page,total_page]
+            else:
+                lth_sort=obj.keyboard_price_lth_sort(sorte,tuple_filter)
+                per_page=6
+                start=(page -1) * per_page
+                end=start+per_page
+                total_page=(len(lth_sort)+per_page)
+                item_on_page=lth_sort[start:end]
+                return [len(lth_sort),item_on_page,total_page]
+        except Exception as e:
+            print(f"Error -> {e}")
+
+    def monitor_low_to_high_sort(self,sorte,page,tuple_filter):
+        try:
+            obj=UserDb()
+            if len(tuple_filter)==1:
+                filter_tuple=f"('{tuple_filter[0]}')"
+                lth_sort=obj.monitor_price_lth_sort(sorte,filter_tuple)
+                per_page=6
+                start=(page -1) * per_page
+                end=start+per_page
+                total_page=(len(lth_sort)+per_page-1) // per_page
+                item_on_page=lth_sort[start:end]
+                return [len(lth_sort),item_on_page,total_page]
+            else:
+                lth_sort=obj.monitor_price_lth_sort(sorte,tuple_filter)
+                per_page=6
+                start=(page -1) * per_page
+                end=start+per_page
+                total_page=(len(lth_sort)+per_page)
+                item_on_page=lth_sort[start:end]
+                return [len(lth_sort),item_on_page,total_page]
+        except Exception as e:
+            print(f"Error -> {e}")
+
+    def mouse_low_to_high_sort(self,sorte,page,tuple_filter):
+        try:
+            obj=UserDb()
+            if len(tuple_filter)==1:
+                filter_tuple=f"('{tuple_filter[0]}')"
+                lth_sort=obj.mouse_price_lth_sort(sorte,filter_tuple)
+                per_page=6
+                start=(page -1) * per_page
+                end=start+per_page
+                total_page=(len(lth_sort)+per_page-1) // per_page
+                item_on_page=lth_sort[start:end]
+                return [len(lth_sort),item_on_page,total_page]
+            else:
+                lth_sort=obj.mouse_price_lth_sort(sorte,tuple_filter)
+                per_page=6
+                start=(page -1) * per_page
+                end=start+per_page
+                total_page=(len(lth_sort)+per_page)
+                item_on_page=lth_sort[start:end]
+                return [len(lth_sort),item_on_page,total_page]
+        except Exception as e:
+            print(f"Error -> {e}")
+
+    def speaker_low_to_high_sort(self,sorte,page,tuple_filter):
+        try:
+            obj=UserDb()
+            if len(tuple_filter)==1:
+                filter_tuple=f"('{tuple_filter[0]}')"
+                lth_sort=obj.speaker_price_lth_sort(sorte,filter_tuple)
+                per_page=6
+                start=(page -1) * per_page
+                end=start+per_page
+                total_page=(len(lth_sort)+per_page-1) // per_page
+                item_on_page=lth_sort[start:end]
+                return [len(lth_sort),item_on_page,total_page]
+            else:
+                lth_sort=obj.speaker_price_lth_sort(sorte,tuple_filter)
+                per_page=6
+                start=(page -1) * per_page
+                end=start+per_page
+                total_page=(len(lth_sort)+per_page)
+                item_on_page=lth_sort[start:end]
+                return [len(lth_sort),item_on_page,total_page]
+        except Exception as e:
+            print(f"Error -> {e}")
+
+    def cpu_high_to_low_sort(self,sorte,page,tuple_filter):
+        try:
+            obj=UserDb()
+            if len(tuple_filter)==1:
+                filter_tuple=f"('{tuple_filter[0]}')"
+                htl_sort=obj.cpu_price_htl_sort(sorte,filter_tuple)
+                per_page=6
+                start=(page -1) * per_page
+                end=start+per_page
+                total_page=(len(htl_sort)+per_page-1) // per_page
+                item_on_page=htl_sort[start:end]
+                return [len(htl_sort),item_on_page,total_page]
+            else:
+                htl_sort=obj.cpu_price_htl_sort(sorte,tuple_filter)
+                per_page=6
+                start=(page -1) * per_page
+                end=start+per_page
+                total_page=(len(htl_sort)+per_page-1) // per_page
+                item_on_page=htl_sort[start:end]
+                return [len(htl_sort),item_on_page,total_page]
+        except Exception as e:
+            print(f"Error -> {e}")
+
+    def headphone_high_to_low_sort(self,sorte,page,tuple_filter):
+        try:
+            obj=UserDb()
+            if len(tuple_filter)==1:
+                filter_tuple=f"('{tuple_filter[0]}')"
+                htl_sort=obj.headphone_price_htl_sort(sorte,filter_tuple)
+                per_page=6
+                start=(page -1) * per_page
+                end=start+per_page
+                total_page=(len(htl_sort)+per_page-1) // per_page
+                item_on_page=htl_sort[start:end]
+                return [len(htl_sort),item_on_page,total_page]
+            else:
+                htl_sort=obj.headphone_price_htl_sort(sorte,tuple_filter)
+                per_page=6
+                start=(page -1) * per_page
+                end=start+per_page
+                total_page=(len(htl_sort)+per_page-1) // per_page
+                item_on_page=htl_sort[start:end]
+                return [len(htl_sort),item_on_page,total_page]
+        except Exception as e:
+            print(f"Error -> {e}")
+
+    def keyboard_high_to_low_sort(self,sorte,page,tuple_filter):
+        try:
+            obj=UserDb()
+            if len(tuple_filter)==1:
+                filter_tuple=f"('{tuple_filter[0]}')"
+                htl_sort=obj.keyboard_price_htl_sort(sorte,filter_tuple)
+                per_page=6
+                start=(page -1) * per_page
+                end=start+per_page
+                total_page=(len(htl_sort)+per_page-1) // per_page
+                item_on_page=htl_sort[start:end]
+                return [len(htl_sort),item_on_page,total_page]
+            else:
+                htl_sort=obj.keyboard_price_htl_sort(sorte,tuple_filter)
+                per_page=6
+                start=(page -1) * per_page
+                end=start+per_page
+                total_page=(len(htl_sort)+per_page-1) // per_page
+                item_on_page=htl_sort[start:end]
+                return [len(htl_sort),item_on_page,total_page]
+        except Exception as e:
+            print(f"Error -> {e}")
+
+    def monitor_high_to_low_sort(self,sorte,page,tuple_filter):
+        try:
+            obj=UserDb()
+            if len(tuple_filter)==1:
+                filter_tuple=f"('{tuple_filter[0]}')"
+                htl_sort=obj.monitor_price_htl_sort(sorte,filter_tuple)
+                per_page=6
+                start=(page -1) * per_page
+                end=start+per_page
+                total_page=(len(htl_sort)+per_page-1) // per_page
+                item_on_page=htl_sort[start:end]
+                return [len(htl_sort),item_on_page,total_page]
+            else:
+                htl_sort=obj.monitor_price_htl_sort(sorte,tuple_filter)
+                per_page=6
+                start=(page -1) * per_page
+                end=start+per_page
+                total_page=(len(htl_sort)+per_page-1) // per_page
+                item_on_page=htl_sort[start:end]
+                return [len(htl_sort),item_on_page,total_page]
+        except Exception as e:
+            print(f"Error -> {e}")
+
+    def mouse_high_to_low_sort(self,sorte,page,tuple_filter):
+        try:
+            obj=UserDb()
+            if len(tuple_filter)==1:
+                filter_tuple=f"('{tuple_filter[0]}')"
+                htl_sort=obj.mouse_price_htl_sort(sorte,filter_tuple)
+                per_page=6
+                start=(page -1) * per_page
+                end=start+per_page
+                total_page=(len(htl_sort)+per_page-1) // per_page
+                item_on_page=htl_sort[start:end]
+                return [len(htl_sort),item_on_page,total_page]
+            else:
+                htl_sort=obj.mouse_price_htl_sort(sorte,tuple_filter)
+                per_page=6
+                start=(page -1) * per_page
+                end=start+per_page
+                total_page=(len(htl_sort)+per_page-1) // per_page
+                item_on_page=htl_sort[start:end]
+                return [len(htl_sort),item_on_page,total_page]
+        except Exception as e:
+            print(f"Error -> {e}")
+
+    def speaker_high_to_low_sort(self,sorte,page,tuple_filter):
+        try:
+            obj=UserDb()
+            if len(tuple_filter)==1:
+                filter_tuple=f"('{tuple_filter[0]}')"
+                htl_sort=obj.speaker_price_htl_sort(sorte,filter_tuple)
+                per_page=6
+                start=(page -1) * per_page
+                end=start+per_page
+                total_page=(len(htl_sort)+per_page-1) // per_page
+                item_on_page=htl_sort[start:end]
+                return [len(htl_sort),item_on_page,total_page]
+            else:
+                htl_sort=obj.speaker_price_htl_sort(sorte,tuple_filter)
+                per_page=6
+                start=(page -1) * per_page
+                end=start+per_page
+                total_page=(len(htl_sort)+per_page-1) // per_page
+                item_on_page=htl_sort[start:end]
+                return [len(htl_sort),item_on_page,total_page]
+        except Exception as e:
+            print(f"Error -> {e}")
+
+    def cpu_filter_sort(self,sorte,page,tuple_filter):
+        try:
+            obj=UserDb()
+            if len(tuple_filter)==1:
+                filter_tuple=f"('{tuple_filter[0]}')"
+                filter_sort=obj.cpu_filter_sort(sorte,filter_tuple)
+                per_page=6
+                start=(page -1) * per_page
+                end=start+per_page
+                total_page=(len(filter_sort)+per_page) 
+                item_on_page=filter_sort[start:end]
+                return [len(filter_sort),item_on_page,total_page]
+            else:
+                filter_sort=obj.cpu_filter_sort(sorte,tuple_filter)
+                per_page=6
+                start=(page -1) * per_page
+                end=start+per_page
+                total_page=(len(filter_sort)+per_page)
+                item_on_page=filter_sort[start:end]
+                return [len(filter_sort),item_on_page,total_page]
+        except Exception as e:
+            print(f"Error -> {e}")
+   
+    def headphone_filter_sort(self,sorte,page,tuple_filter):
+        try:
+            obj=UserDb()
+            if len(tuple_filter)==1:
+                filter_tuple=f"('{tuple_filter[0]}')"
+                filter_sort=obj.headphone_filter_sort(sorte,filter_tuple)
+                per_page=6
+                start=(page -1) * per_page
+                end=start+per_page
+                total_page=(len(filter_sort)+per_page) 
+                item_on_page=filter_sort[start:end]
+                return [len(filter_sort),item_on_page,total_page]
+            else:
+                filter_sort=obj.headphone_filter_sort(sorte,tuple_filter)
+                per_page=6
+                start=(page -1) * per_page
+                end=start+per_page
+                total_page=(len(filter_sort)+per_page)
+                item_on_page=filter_sort[start:end]
+                return [len(filter_sort),item_on_page,total_page]
+        except Exception as e:
+            print(f"Error -> {e}")
+   
+    def keyboard_filter_sort(self,sorte,page,tuple_filter):
+        try:
+            obj=UserDb()
+            if len(tuple_filter)==1:
+                filter_tuple=f"('{tuple_filter[0]}')"
+                filter_sort=obj.keyboard_filter_sort(sorte,filter_tuple)
+                per_page=6
+                start=(page -1) * per_page
+                end=start+per_page
+                total_page=(len(filter_sort)+per_page) 
+                item_on_page=filter_sort[start:end]
+                return [len(filter_sort),item_on_page,total_page]
+            else:
+                filter_sort=obj.keyboard_filter_sort(sorte,tuple_filter)
+                per_page=6
+                start=(page -1) * per_page
+                end=start+per_page
+                total_page=(len(filter_sort)+per_page)
+                item_on_page=filter_sort[start:end]
+                return [len(filter_sort),item_on_page,total_page]
+        except Exception as e:
+            print(f"Error -> {e}")
+   
+    def monitor_filter_sort(self,sorte,page,tuple_filter):
+        try:
+            obj=UserDb()
+            if len(tuple_filter)==1:
+                filter_tuple=f"('{tuple_filter[0]}')"
+                filter_sort=obj.monitor_filter_sort(sorte,filter_tuple)
+                per_page=6
+                start=(page -1) * per_page
+                end=start+per_page
+                total_page=(len(filter_sort)+per_page) 
+                item_on_page=filter_sort[start:end]
+                return [len(filter_sort),item_on_page,total_page]
+            else:
+                filter_sort=obj.monitor_filter_sort(sorte,tuple_filter)
+                per_page=6
+                start=(page -1) * per_page
+                end=start+per_page
+                total_page=(len(filter_sort)+per_page)
+                item_on_page=filter_sort[start:end]
+                return [len(filter_sort),item_on_page,total_page]
+        except Exception as e:
+            print(f"Error -> {e}")
+   
+    def mouse_filter_sort(self,sorte,page,tuple_filter):
+        try:
+            obj=UserDb()
+            if len(tuple_filter)==1:
+                filter_tuple=f"('{tuple_filter[0]}')"
+                filter_sort=obj.mouse_filter_sort(sorte,filter_tuple)
+                per_page=6
+                start=(page -1) * per_page
+                end=start+per_page
+                total_page=(len(filter_sort)+per_page) 
+                item_on_page=filter_sort[start:end]
+                return [len(filter_sort),item_on_page,total_page]
+            else:
+                filter_sort=obj.mouse_filter_sort(sorte,tuple_filter)
+                per_page=6
+                start=(page -1) * per_page
+                end=start+per_page
+                total_page=(len(filter_sort)+per_page)
+                item_on_page=filter_sort[start:end]
+                return [len(filter_sort),item_on_page,total_page]
+        except Exception as e:
+            print(f"Error -> {e}")
+   
+    def speaker_filter_sort(self,sorte,page,tuple_filter):
+        try:
+            obj=UserDb()
+            if len(tuple_filter)==1:
+                filter_tuple=f"('{tuple_filter[0]}')"
+                filter_sort=obj.speaker_filter_sort(sorte,filter_tuple)
+                per_page=6
+                start=(page -1) * per_page
+                end=start+per_page
+                total_page=(len(filter_sort)+per_page) 
+                item_on_page=filter_sort[start:end]
+                return [len(filter_sort),item_on_page,total_page]
+            else:
+                filter_sort=obj.speaker_filter_sort(sorte,tuple_filter)
+                per_page=6
+                start=(page -1) * per_page
+                end=start+per_page
+                total_page=(len(filter_sort)+per_page)
+                item_on_page=filter_sort[start:end]
+                return [len(filter_sort),item_on_page,total_page]
+        except Exception as e:
+            print(f"Error -> {e}")
+
+
     def headphone_sorting(self,sort,page):
         try:
             obj=UserDb()
@@ -526,19 +903,6 @@ class Login:
             total_page=(len(headphone_sort)+per_page-1) // per_page
             item_on_page=headphone_sort[start:end]
             return [len(headphone_sort),item_on_page,total_page]
-        except Exception as e:
-            print(f"Error -> {e}")
-
-    def cpu_fan_sort(self,sort,page):
-        try:
-            obj=UserDb()
-            fan_sort=obj.cpu_fan_sort(sort)
-            per_page=6
-            start=(page -1) * per_page
-            end=start+per_page
-            total_page=(len(fan_sort)+per_page-1) // per_page
-            item_on_page=fan_sort[start:end]
-            return [len(fan_sort),item_on_page,total_page]
         except Exception as e:
             print(f"Error -> {e}")
 

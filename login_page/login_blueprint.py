@@ -74,7 +74,7 @@ def sign_up_page_index():
             number = request.form.get("number")
             country_code = request.form.get("country_code")
             user_mail = request.form.get("mail")
-            print(f'user mail print ->{mail}')
+            print(f'user mail print ->{user_mail}') 
             full_number = country_code + number
             check = obj.get_all_details(name, password, confirm_password, full_number, user_mail)
             if "Username already exist" in check:

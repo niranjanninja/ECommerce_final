@@ -1,44 +1,11 @@
-.home{
-        margin-left:3%
+.a{
+	text-decoration:none;
 }
-
-.line {
-    position: fixed;
-    right: 87%;
-    top:20;
-    height: 100%;
-    width: 0.5px;
-    background-color: black;
-}
-
-.category{
-        position:fixed;
-        right:89%;
-        top:40%;
-}
-
-.cpu{
-	position:fixed;
-	margin-top:5%;
-	margin-left:3%;
-}
-.cpucpu{
-	margin-left:30%;
-	color:black;
+.line{
+  color:black;
+  width: 1px;
 }
 .container{
-        margin-left:18%;
-        margin-top:3%;
-}
-.page{
-	margin-left:40%;
-}
-.sortsort{
-	margin-left:20%;
-}
-.sort{
-	margin-left:8%;
-}
-a{
-	text-decoration:none;
+	margin-left:0;
+	margin-right:0;
 }

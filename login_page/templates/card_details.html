@@ -40,13 +40,33 @@
                 </div>
         </nav>
 	<center>
-	<h3>Enter Card Details<h3>
+	<h3>Enter Card Details</h3>
+	        {% with messages = get_flashed_messages(with_categories=True) %}
+                {% if messages %}
+                {% for category,message in messages %}
+                {% if category == 'error' %}
+                <p style="color:red;">{{ message }}</p>
+                {% endif %}
+                {%endfor%}
+                {%endif%}
+                {%endwith%}
 	</center>
 	<form class="row g-3 needs-validation my-2" novalidate action="{{ url_for('home.card_payment') }}" method="POST">
 	<div class="mt-5" style="width:500px;margin-left:35%;">
-	<div class="row-md-4">
+
+	<div>
+	        <h5><label class="form-label">Stored Card</label><h5>
+		<select class="form-select" aria-label="Default select example" name="stored_card">
+		<option selected></option>
+		        {%for i in stored_card%}
+			<option value="{{i}}">{{i}}</option>
+			{%endfor%}
+		</select>
+	</div>
+
+        <div class="row-md-4">
                 <h5><label class="form-label">Card Number</label><h5>
-                <input type="text" class="form-control" name="card_number" pattern="[0-9]+"  maxlength="16" style="width:500px;"required>
+                <input type="text" class="form-control" name="card_number" pattern="[0-9]+"  maxlength="16" style="width:500px;">
                 <div class="invalid-feedback">
                      Enter A Valid Number
                 </div>
@@ -54,7 +74,7 @@
 
 	<div class="row-md-4">
                 <h5><label class="form-label">Name</label><h5>
-                <input type="text" class="form-control" name="card_name" pattern="^[A-Za-z ]+$" style="width:500px;"required>
+                <input type="text" class="form-control" name="card_name" pattern="^[A-Za-z ]+$" style="width:500px;">
                 <div class="invalid-feedback">
                         Enter A Valid Name
                 </div> 
@@ -62,7 +82,7 @@
 
 	<div class="row-md-4">
                 <h5><label class="form-label">Expiry Date</label><h5>
-                <input type="text" class="form-control" name="expiry_date" placeholder="DD/MM/YYYY"  pattern="^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/([0-9]{4})$" style="width:500px;"required>
+                <input type="text" class="form-control" name="expiry_date" placeholder="DD/MM/YYYY"  pattern="^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/([0-9]{4})$" style="width:500px;">
                 <div class="invalid-feedback">
                      Enter A Valid Date
                 </div> 
@@ -70,10 +90,17 @@
 
 	<div class="row-md-4">
                 <h5><label class="form-label">CVV</label><h5>
-                <input type="password" class="form-control" name="cvv" pattern="^[0-9]{3,4}$" style="width:500px;"required>
+                <input type="password" class="form-control" name="cvv" pattern="^[0-9]{3,4}$" style="width:500px;">
 		<div class="invalid-feedback">
 			Enter A Valid CVV
                 </div>
+        </div>
+
+	<div class="form-check">
+                <input class="form-check-input" type="checkbox" name="save_card" value="ok" id="checkDefault">
+                        <label class="form-check-label" for="checkDefault">
+			Save Card Details
+                        </label>
         </div>
   
         <center>
