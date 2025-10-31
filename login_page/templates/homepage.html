@@ -40,30 +40,31 @@
                 </div>
                 </div>
         </nav>
+      <div class="container-fluid mt-5 px-5">
+                <div class="row g-1">
+                        <div class="col-2 border-end border-black">
+                                <p class="fs-4 fw-bold">Category</p>
+                                {%for i in category%}
+                                <a class="nav-link active fs-6 categoryitem" aria-current="page" href="{{url_for('home.'~ i[1]|lower ~ '_items')}}" style="color:black">{{i[1]}}</a>
+                                {%endfor%}
+                        </div>
 
-	<div class="nav flex-column category">
-        <p class="fs-4 fw-bold categorycategory">Category</p>
-        {%for i in category%}
-        <a class="nav-link active fs-6 categoryitem" aria-current="page" href="{{url_for('home.'~ i[1]|lower ~ '_items')}}" style="color:black">{{i[1]}}</a>
-        {%endfor%}
+                        <div class="col-10">
+                        {%for i in url_list%}
+                                <figure class="figure ms-3 d-flex">
+                                                <a href="{{url_for('home.show_item_user',product_id=i[4])}}">
+                                                <img src="{{i[0]}}" class="row g-3 figure-img img-fluid rounded" style="width:300px;height:300px;border: 1px solid black" alt="image"></a>
+                                                <figcaption class="figure-caption">
+                                                <p class="fs-6 fw-bold">Brand : {{i[1]}} | Model : {{i[2]}} | {{i[5]}}</p>
+                                                <p class="fs-6 fw-semibold bi bi-currency-rupee">{{i[3]}}</p>
+                                                </figcaption>
+                                </figure>
+                        {%endfor%}
+                        </div>
+                </div>
         </div>
 
-	<div class="line"></div>
-        <div class="container">
-	<div class="row g-3">
-	{%for i in url_list%}
-	        <div class="col-md-4">
-	                        <a href="{{url_for('home.show_item_user',product_id=i[4])}}">
-                                <img src="{{i[0]}}" class="row g-3 figure-img img-fluid rounded" style="width:300px;height:300px;border: 1px solid black" alt="image">
-                                        <figcaption class="figure-caption">
-			                <p class="fs-6 fw-bold">Brand : {{i[1]}}</p>
-                                        <p class="fs-6 fw-semibold">{{i[2]}}</p>
-				        <p class="fs-6 fw-semibold bi bi-currency-rupee">{{i[3]}}</p>
-			        </figcaption></a>
-                </div>
-	{%endfor%}
-	</div>
-
+        <center>
 	<div class="page">
         {% if page > 1 %}
         <a href="{{url_for('home.home_page',page=page-1,sort=request.args.get('sort'))}}">Previous</a>
@@ -74,6 +75,7 @@
         {% endif %}
         </div>
 	</div>
+	</center>
 </body>
 
 

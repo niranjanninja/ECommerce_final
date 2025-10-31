@@ -197,11 +197,11 @@ def result_store():
                     else:
                         return redirect(url_for('home.home_page',name=name))
                 else:
-                    error='Invalid username or password'
+                    error='Enter Correct password'
                     logger.warning("Invalid username or password")
                     return render_template("bootstrap_login.html",error1=error)
             else:
-                error2='Invalid username or password'
+                error2='Username Does not exist'
                 logger.warning("Invalid username or password")
                 return render_template("bootstrap_login.html",error2=error2)
     except Exception as e:

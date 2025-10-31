@@ -1,35 +1,35 @@
-.line {
-    position: absolute;
-    right: 87%;
-    top: 20;
-    height: 100%;
-    width: 0.5px;
-    background-color: black;
-}
+/* .line { */
+/*     position: absolute; */
+/*     right: 87%; */
+/*     top: 20; */
+/*     height: 100%; */
+/*     width: 0.5px; */
+/*     background-color: black; */
+/* } */
 
-.category{
-	position:fixed;
-	right:90%;
-	top:34%;
-}
-.page{
-	margin-left:40%;
-}
-.categorycategory{
-	margin-left:10%;
-}
-a {
-  text-decoration: none;
-}
-html, body{
-	height:100%;
-}
-.container{
-	margin-left:18%;
-	margin-top:3%;
-}
-.form-control{
-	width:100%;
+/* .category{ */
+/* 	position:fixed; */
+/* 	right:90%; */
+/* 	top:34%; */
+/* } */
+/* .page{ */
+/* 	margin-left:40%; */
+/* } */
+/* .categorycategory{ */
+/* 	margin-left:10%; */
+/* } */
+/* a { */
+/*   text-decoration: none; */
+/* } */
+/* html, body{ */
+/* 	height:100%; */
+/* } */
+/* .container{ */
+/* 	margin-left:18%; */
+/* 	margin-top:3%; */
+/* } */
+/* .form-control{ */
+/* 	width:100%; */
 	/* min-width:300px; */
 	/* max-width:800px; */
-}
+/* } */

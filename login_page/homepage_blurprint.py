@@ -44,7 +44,6 @@ def home_page():
         if search:
             search_url_list=[]
             search=obj3.homepage_search(search,page)
-            print(search[1])
             for i in search[1]:
                 search_url_list2=[]
                 search_url=obj2.display_single_from_s3(i[0])
@@ -52,6 +51,8 @@ def home_page():
                 search_url_list2.append(i[1])
                 search_url_list2.append(i[2])
                 search_url_list2.append(i[3])
+                i2=i[5].replace('/', '|')
+                search_url_list2.append(i2)
                 search_url_list.append(search_url_list2)
             return render_template("homepage.html",admin_check=admin_check,cart_items=cart_items,category=category,name=name,length=len(search_url_list),url_list=search_url_list,total_page=search[2],page=page)
         else:
