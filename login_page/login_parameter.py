@@ -15,13 +15,16 @@ from pathlib import Path
 from datetime import timedelta,date
 from configparser import ConfigParser
 
-file='/home/ubuntu/projectsql/login_page/libs/config.ini'
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+file = os.path.join(BASE_DIR, "libs", "config.ini")
 config=ConfigParser()
 config.read(file)
 
 logger=logging.getLogger()
 logger.setLevel(logging.INFO)
-log_filename = datetime.now().strftime("logs/%d-%m-%Y.log")
+log_dir = "/app/login_page/logs"
+os.makedirs(log_dir, exist_ok=True)
+log_filename = os.path.join(log_dir, datetime.now().strftime("%d-%m-%Y.log"))
 handler=TimedRotatingFileHandler(filename = log_filename,when = "midnight", interval = 1 , backupCount = 7)
 handler.setLevel(logging.INFO)
 formatter=logging.Formatter('%(asctime)s - %(levelname)s - %(funcName)s - %(message)s')

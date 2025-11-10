@@ -11,12 +11,17 @@ from werkzeug.utils import secure_filename
 from werkzeug.exceptions import RequestEntityTooLarge
 from zipfile import ZipFile
 import json
- 
-app = Flask(__name__)
 
-# UPLOAD_FOLDER = 'static/uploads/'
-app.config['MAX_CONTENT_LENGTH']=1024*1024
-# app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+file = os.path.join(BASE_DIR, "libs", "config.ini")
+config=ConfigParser()
+config.read(file)
+
+app = Flask(__name__)
+app.secret_key = config['Secret_key']['key']
+
+UPLOAD_FOLDER = 'static/uploads'
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg'])
 
@@ -130,6 +135,11 @@ def inventory_add():
                     flash("Submit a zip file. The submitted file is not a zip file.","danger")
                     return redirect(url_for('inventory.inven_add'))
                 else:
+                    current_date = datetime.now().strftime('%d-%m-%Y')
+                    filename = f"product_id{product_id}_(current_date).zip"
+                    os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
+                    local_zip_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+                    zipfile.save(local_zip_path)
                     with ZipFile(zipfile,'r') as zip:
                         filelist=[]
                         for name in zip.namelist():
@@ -253,6 +263,11 @@ def inventory_edit():
                         flash("Submit a zip file. The submitted file is not a zip file.","danger")
                         return redirect(url_for('inventory.edit_inventory',product_id=product_id))
                     else:
+                        current_date = datetime.now().strftime('%d-%m-%Y')
+                        filename = f"product_id{product_id}_(current_date).zip"
+                        os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
+                        local_zip_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+                        zipfile.save(local_zip_path)
                         with ZipFile(zipfile,'r') as zip:
                             filelist=[]
                             for name in zip.namelist():
@@ -380,8 +395,6 @@ def edit_category():
             name=session.get('name')
             category_id=request.form.get("category_id")
             category_name=request.form.get("category_name")
-            print(f"cat id ->{category_id}")
-            print(f"cat name ->{category_name}")
             obj=UserDb()
             category=obj.check_category(category_name,category_id)
             if category =="YES":

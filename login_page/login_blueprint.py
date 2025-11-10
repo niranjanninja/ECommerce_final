@@ -1,6 +1,7 @@
 from flask import Flask, redirect, url_for,render_template,request,flash,session,Blueprint
 from flask_mail import Mail, Message
 import bcrypt
+import os
 from libs.UserDb import UserDb
 from itsdangerous import URLSafeTimedSerializer,SignatureExpired
 from configparser import ConfigParser
@@ -20,7 +21,8 @@ logger = logging.getLogger()
 app = Flask(__name__)
 app.register_blueprint(home)
 
-file='/home/ubuntu/projectsql/login_page/libs/config.ini'
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+file = os.path.join(BASE_DIR, "libs", "config.ini")
 config=ConfigParser()
 config.read(file)
 
@@ -207,7 +209,7 @@ def result_store():
     except Exception as e:
         logger.error(f"error -> {e}")
         logger.debug("Full traceback below:", exc_info=True)
-        return f"Something went wrong"
+        return f"Something went wrong ->{e}"
 
 @login.route('/logout')
 def logout():

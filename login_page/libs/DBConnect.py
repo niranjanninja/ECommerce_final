@@ -1,6 +1,8 @@
 import psycopg2
+import os
 from configparser import ConfigParser
-file='/home/ubuntu/projectsql/login_page/libs/config.ini'
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+file = os.path.join(BASE_DIR, "config.ini")
 config=ConfigParser()
 config.read(file)
 
