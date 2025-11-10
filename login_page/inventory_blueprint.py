@@ -136,9 +136,9 @@ def inventory_add():
                     return redirect(url_for('inventory.inven_add'))
                 else:
                     current_date = datetime.now().strftime('%d-%m-%Y')
-                    filename = f"product_id{product_id}_(current_date).zip"
+                    local_filename = f"product_id{product_id}_{current_date}.zip"
                     os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
-                    local_zip_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+                    local_zip_path = os.path.join(app.config['UPLOAD_FOLDER'], local_filename)
                     zipfile.save(local_zip_path)
                     with ZipFile(zipfile,'r') as zip:
                         filelist=[]
@@ -264,9 +264,9 @@ def inventory_edit():
                         return redirect(url_for('inventory.edit_inventory',product_id=product_id))
                     else:
                         current_date = datetime.now().strftime('%d-%m-%Y')
-                        filename = f"product_id{product_id}_(current_date).zip"
+                        local_filename = f"product_id{product_id}_{current_date}.zip"
                         os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
-                        local_zip_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+                        local_zip_path = os.path.join(app.config['UPLOAD_FOLDER'], local_filename)
                         zipfile.save(local_zip_path)
                         with ZipFile(zipfile,'r') as zip:
                             filelist=[]
