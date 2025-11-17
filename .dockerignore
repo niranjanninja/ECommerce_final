@@ -1,0 +1,7 @@
+*.ini
+*.env
+__pycache__/*
+.venv/
+login_page/logs/*
+*.log
+
