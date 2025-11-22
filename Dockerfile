@@ -1,7 +1,8 @@
 FROM python:3.10-slim
-WORKDIR	/app
-COPY requirements.txt /app
+WORKDIR /app
+COPY requirements.txt /app/
 RUN pip install --no-cache-dir -r requirements.txt
+COPY login_page/ /app/login_page/
+WORKDIR /app/login_page
 EXPOSE 5000
 CMD ["python", "main.py"]
-
